@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
+import DeckBuilder from "./DeckBuilder";
+import Home from "./Home";
+import Tool2 from "./Tool2";
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+
+          <ul className="menu">
+            <li className="menu-item"><Link exact to={'/'}>Home</Link></li>
+            <li className="menu-item"><Link to={'/deckBuilder'}>Deck Builder</Link></li>
+            <li className="menu-item"><Link to={'/someOtherTool'}>Another Tool</Link></li>
+          </ul>
+
+          <hr/>
+
+          <Route exact path='/' component={Home}/>
+          <Route path='/deckBuilder' component={DeckBuilder}/>
+          <Route path='/someOtherTool' component={Tool2}/>
+
+      </div>
+    </Router>
   );
 }
+
+// {/*<img src={logo} className="App-logo" alt="logo"/>*/}
 
 export default App;

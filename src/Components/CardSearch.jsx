@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { searchCards } from "../Gateway/http";
+import { searchCards } from '../Gateway/http';
+import SearchResult from './SearchResult';
 
 const CardSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,7 +18,7 @@ const CardSearch = () => {
     });
   };
 
-  const cardsToDisplay = cards.map(({ name }) => <div>{name}</div>);
+  const cardsToDisplay = cards.map((card) => <SearchResult card={card}/>);
 
   return (
     <div className="card-search">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './deckbuilder.css';
+import './DeckBuilder.css';
 import CardSearch from "./Components/CardSearch";
 import Deck from "./Components/Deck";
 

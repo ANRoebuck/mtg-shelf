@@ -2,6 +2,15 @@
   "name": "mtg-shelf",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "npm-run-all -p watch:css start:js",
+    "build:css": "node-sass --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch:css": "yarn build:css && node-sass --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "start:js": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -14,11 +23,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   },
   "eslintConfig": {
     "extends": "react-app"

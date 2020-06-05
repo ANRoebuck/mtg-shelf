@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { searchCards } from '../Gateway/http';
 import SearchResult from './SearchResult';
 
-const CardSearch = () => {
+const CardSearch = ({ addCard }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [cards, setCards] = useState([]);
 
@@ -18,7 +18,9 @@ const CardSearch = () => {
     });
   };
 
-  const cardsToDisplay = cards.map((card) => <SearchResult card={card}/>);
+  const lastCard = cards.length -1;
+  const searchResults = cards.map((card, i) =>
+    <SearchResult card={card} addCard={addCard} covered={i < lastCard}/>);
 
   return (
     <div className="card-search">
@@ -29,7 +31,7 @@ const CardSearch = () => {
         </label>
       </form>
       <div>
-        {cardsToDisplay}
+        {searchResults}
       </div>
     </div>
   )

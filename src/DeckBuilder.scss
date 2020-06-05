@@ -4,7 +4,6 @@
 
   .card-search {
     padding: 10px;
-    //background-color: blue;
     width: 250px;
     border: 2px black;
 
@@ -23,7 +22,7 @@
     display: flex;
 
     .deckListColumn {
-      .search-result {
+      .card {
         &.covered {
           height: 50px;
           overflow: hidden;

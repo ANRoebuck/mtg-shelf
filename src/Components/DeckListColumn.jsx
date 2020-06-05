@@ -1,11 +1,11 @@
 import React from "react";
-import SearchResult from "./SearchResult";
+import Card from "./Card";
 
 const DeckListColumn = ({ cmc, cards }) => {
 
   const lastCard = cards.length -1;
   const cardsToDisplay = cards.map((card, i) =>
-    <SearchResult card={card} covered={i < lastCard}/>);
+    <Card card={card} covered={i < lastCard}/>);
 
   return (
     <div className="deckListColumn">

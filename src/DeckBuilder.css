@@ -17,6 +17,6 @@
   border: 2px black;
   display: flex; }
 
-.deck-builder .deckList .deckListColumn .search-result.covered {
+.deck-builder .deckList .deckListColumn .card.covered {
   height: 50px;
   overflow: hidden; }

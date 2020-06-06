@@ -1,13 +1,12 @@
 import React from "react";
 
-const ArrayInput = ({numberOfInputs, type}) => {
+const ArrayInput = ({numberOfInputs, type, register}) => {
 
     let arrays = [];
 
     for(let i = 0; i < numberOfInputs; i++){
-        arrays.push(<input class="" id={type} name={type + "-name"} type="text"></input>)
-    }
-   
+        arrays.push(<input class="" id={type+(i+1)} name={type} type="text" ref={register}/>)
+    }   
 
   return (
     <div>

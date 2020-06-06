@@ -5,7 +5,7 @@ const ArrayInput = ({numberOfInputs, type, register}) => {
     let arrays = [];
 
     for(let i = 0; i < numberOfInputs; i++){
-        arrays.push(<input class="" id={type+(i+1)} name={type} type="text" ref={register}/>)
+        arrays.push(<input class="" id={type+(i+1)} name={type+(i+1)} type="text" ref={register}/>)
     }   
 
   return (

@@ -10,7 +10,7 @@ const ArrayInput = ({numberOfInputs, type, register}) => {
 
   return (
     <div>
-      <label class="govuk-label" for="event-name">
+      <label class="" for="event-name">
         {type}
       </label>
       {arrays}

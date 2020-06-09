@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './DeckBuilder.css';
 import CardSearch from "./Components/CardSearch";
 import DeckList from "./Components/DeckList";
+import CardClassScrapthis from "./Components/CardClass-scrapthis";
 
 
 const DeckBuilder = () => {

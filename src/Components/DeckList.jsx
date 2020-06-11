@@ -1,51 +1,13 @@
-import React, { useState } from "react";
-import DeckListColumn from "./DeckListColumn";
-import ColumnSorter, { sortBy } from "./ColumnSorter";
+import React from "react";
+import Maindeck from './Maindeck';
+import Sideboard from './Sideoard';
 
-const DeckListOptions = ({ options, setSortBy }) => {
-
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-
-  const handleChange = (e) => {
-    setSelectedOption(e.target.value);
-    setSortBy(e.target.value);
-  }
-
-  const optionsToRender = options.map(option => {
-    return (
-      <div className="radio">
-        <label>
-          <input type="radio" value={option} checked={option === selectedOption} onChange={handleChange}/>
-          {option}
-        </label>
-      </div>
-    );
-  });
+const DeckList = ({ maindeck, sideboard, sideIn, sideOut }) => {
 
   return (
-    <div className="decklist-options">
-      {optionsToRender}
-    </div>
-  );
-}
-
-const DeckList = ({ deckList }) => {
-
-  const [sortColumnsBy, setSortColumnsBy] = useState(sortBy.cmc);
-  const [splitColumnsBy, setSplitcolumnsBy] = useState();
-
-  const columnSorter = new ColumnSorter();
-  const columns = columnSorter.assignColumns(deckList, sortColumnsBy);
-
-  const columnsToRender = Object.entries(columns).map((entry) => {
-    const [cmc, cards] = entry;
-    return <DeckListColumn cmc={cmc} cards={cards} />
-  })
-
-  return (
-    <div className="deckList">
-      <DeckListOptions options={Object.keys(sortBy)} setSortBy={setSortColumnsBy}/>
-      {columnsToRender}
+    <div className="decklist">
+      <Maindeck maindeck={maindeck} sideOut={sideOut}/>
+      <Sideboard sideboard={sideboard} sideIn={sideIn}/>
     </div>
   );
 };

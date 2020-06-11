@@ -1,24 +1,27 @@
 import { face } from "./enums";
 
 export const assignColumnsByCMC = (deckList) => {
-  return deckList.reduce((columns, card) => {
+  return deckList.reduce((columns, card, i) => {
     const { cmc } = card;
+    card.index = i;
     return addToObject(columns, cmc, card);
   }, {});
 };
 
 export const assignColumnsByColour = (decklist) => {
-  return decklist.reduce((columns, card) => {
+  return decklist.reduce((columns, card, i) => {
     const colours = parseColours(card);
     const colourIndex = coloursToColourIndex(colours);
+    card.index = i;
     return addToObject(columns, colourIndex, card);
   }, {});
 };
 
 export const assignColumnsByType = (decklist) => {
-  return decklist.reduce((columns, card) => {
+  return decklist.reduce((columns, card, i) => {
     const { type_line } = card;
     const typeIndex = 0;
+    card.index = i;
     return addToObject(columns, typeIndex, card);
   }, {});
 };

@@ -2,18 +2,31 @@ import React, { useState } from 'react';
 import './DeckBuilder.css';
 import CardSearch from "./Components/CardSearch";
 import DeckList from "./Components/DeckList";
-import CardClassScrapthis from "./Components/CardClass-scrapthis";
 
 
 const DeckBuilder = () => {
-  const [deckList, setDeckList] = useState([]);
+  const [maindeck, setMaindeck] = useState([]);
+  const [sideboard, setSideboard] = useState([]);
 
-  const addCard = (card) => setDeckList((prevList) => [...prevList, card]);
+  const addToMaindeck = (card) => setMaindeck((prevList) => [...prevList, card]);
+  const removeFromMaindeck = (cardIndex) => setMaindeck((prevList) => prevList.filter((c, i) => i !== cardIndex));
+
+  const addToSideboard = (card) => setSideboard((prevList) => [...prevList, card]);
+  const removeFromSideboard = (cardIndex) => setSideboard((prevList) => prevList.filter((c, i) => i !== cardIndex));
+
+  const sideOut = (card) => {
+    removeFromMaindeck(card.index);
+    addToSideboard(card);
+  };
+  const sideIn = (card) => {
+    removeFromSideboard(card.index);
+    addToMaindeck(card);
+  };
 
   return (
     <div className="deck-builder">
-      <DeckList deckList={deckList}/>
-      <CardSearch addCard={addCard}/>
+      <DeckList maindeck={maindeck} sideboard={sideboard} sideIn={sideIn} sideOut={sideOut}/>
+      <CardSearch addCard={addToMaindeck}/>
     </div>
   );
 };

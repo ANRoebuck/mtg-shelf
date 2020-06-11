@@ -2,7 +2,9 @@ import React from "react";
 import Maindeck from './Maindeck';
 import Sideboard from './Sideoard';
 
-const DeckList = ({ maindeck, sideboard, sideIn, sideOut }) => {
+const DeckList = ({ decklist, sideIn, sideOut }) => {
+  const maindeck = decklist.filter(({ ms }) => ms === 'm');
+  const sideboard = decklist.filter(({ ms }) => ms === 's');
 
   return (
     <div className="decklist">

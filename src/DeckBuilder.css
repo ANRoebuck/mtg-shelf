@@ -17,6 +17,10 @@
   border: 2px black;
   display: flex; }
 
-.deck-builder .decklist .deckListColumn .card.covered {
+.deck-builder .decklist .maindeck .decklist-column .card.covered {
+  height: 50px;
+  overflow: hidden; }
+
+.deck-builder .decklist .sideboard .decklist-column .card.covered {
   height: 50px;
   overflow: hidden; }

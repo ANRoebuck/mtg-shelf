@@ -21,14 +21,28 @@
     border: 2px black;
     display: flex;
 
-    .deckListColumn {
-      .card {
-        &.covered {
-          height: 50px;
-          overflow: hidden;
+    .maindeck {
+      .decklist-column {
+        .card {
+          &.covered {
+            height: 50px;
+            overflow: hidden;
+          }
         }
       }
     }
+
+    .sideboard {
+      .decklist-column {
+        .card {
+          &.covered {
+            height: 50px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+
   }
 
 }

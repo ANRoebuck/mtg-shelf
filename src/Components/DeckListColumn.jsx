@@ -8,7 +8,7 @@ const DeckListColumn = ({ cmc, cards, sideInOrOut }) => {
     <Card card={card} covered={i < lastCard} sideInOrOut={sideInOrOut}/>);
 
   return (
-    <div className="deckListColumn">
+    <div className="decklist-column">
       {cardsToDisplay}
     </div>
   );

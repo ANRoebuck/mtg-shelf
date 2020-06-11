@@ -5,28 +5,30 @@ import DeckList from "./Components/DeckList";
 
 
 const DeckBuilder = () => {
-  const [maindeck, setMaindeck] = useState([]);
-  const [sideboard, setSideboard] = useState([]);
+  // const [cardId, incrementCardId] = useState(0);
+  // const [maindeck, setMaindeck] = useState([]);
+  // const [sideboard, setSideboard] = useState([]);
+  const [decklist, setDecklist] = useState([]);
 
-  const addToMaindeck = (card) => setMaindeck((prevList) => [...prevList, card]);
-  const removeFromMaindeck = (cardIndex) => setMaindeck((prevList) => prevList.filter((c, i) => i !== cardIndex));
+  const addCard = (card) => setDecklist((prevList) => [ ...prevList, { ...card, ms: 'm', index: prevList.length}]);
 
-  const addToSideboard = (card) => setSideboard((prevList) => [...prevList, card]);
-  const removeFromSideboard = (cardIndex) => setSideboard((prevList) => prevList.filter((c, i) => i !== cardIndex));
-
-  const sideOut = (card) => {
-    removeFromMaindeck(card.index);
-    addToSideboard(card);
-  };
-  const sideIn = (card) => {
-    removeFromSideboard(card.index);
-    addToMaindeck(card);
-  };
+  const sideOut = (card) => setDecklist((prevList) => {
+    const newList = [...prevList];
+    const i = card.index;
+    newList[i].ms = 's';
+    return newList;
+  })
+  const sideIn = (card) => setDecklist((prevList) => {
+    const newList = [...prevList];
+    const i = card.index;
+    newList[i].ms = 'm';
+    return newList;
+  })
 
   return (
     <div className="deck-builder">
-      <DeckList maindeck={maindeck} sideboard={sideboard} sideIn={sideIn} sideOut={sideOut}/>
-      <CardSearch addCard={addToMaindeck}/>
+      <DeckList decklist={decklist} sideIn={sideIn} sideOut={sideOut}/>
+      <CardSearch addCard={addCard}/>
     </div>
   );
 };

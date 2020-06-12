@@ -28,6 +28,4 @@ const App = () => {
   );
 }
 
-// {/*<img src={logo} className="App-logo" alt="logo"/>*/}
-
 export default App;

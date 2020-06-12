@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './DeckBuilder.css';
 import CardSearch from "./Components/CardSearch";
-import DeckList from "./Components/DeckList";
+import Deck from "./Components/Deck";
 
 
 const DeckBuilder = () => {
@@ -24,7 +24,7 @@ const DeckBuilder = () => {
 
   return (
     <div className="deck-builder">
-      <DeckList decklist={decklist} sideIn={sideIn} sideOut={sideOut}/>
+      <Deck decklist={decklist} sideIn={sideIn} sideOut={sideOut}/>
       <CardSearch addCard={addCard}/>
     </div>
   );

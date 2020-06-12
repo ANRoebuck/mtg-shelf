@@ -1,15 +1,8 @@
 import { assignColumnsByCMC, assignColumnsByColour, assignColumnsByType } from "./utils";
+import { sortBy } from "./enums";
 
-export const sortBy = {
-  cmc: 'cmc',
-  colour: 'colour',
-  type: 'type',
-}
 
 class ColumnSorter {
-
-  constructor() {
-  }
 
   assignColumns = (deckList, sort) => {
     switch (sort) {

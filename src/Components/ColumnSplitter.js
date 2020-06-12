@@ -1,18 +1,12 @@
 import { splitColumnByCreatures } from "./utils";
+import { splitBy } from "./enums";
 
-export const splitBy = {
-  noSplit: 'noSplit',
-  spells: 'spells',
-}
 
 class ColumnSplitter {
 
-  constructor() {
-  }
-
   splitColumnsBy = (column, split) => {
     switch (split) {
-      case splitBy.noSplit:
+      case splitBy.none:
         return [column, []];
       case splitBy.spells:
         return splitColumnByCreatures(column);

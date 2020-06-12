@@ -1,37 +1,29 @@
 .deck-builder {
   display: flex;
   height: 100%; }
-
-.deck-builder .card-search {
-  padding: 10px;
-  width: 250px;
-  border: 2px black; }
-
-.deck-builder .card-search .search-result.covered {
-  height: 50px;
-  overflow: hidden; }
-
-.deck-builder .decklist {
-  width: 100%;
-  height: 100%;
-  border: 2px black;
-  display: flex; }
-
-.deck-builder .decklist .maindeck {
-  display: flex;
-  width: 100%; }
-
-.deck-builder .decklist .maindeck .decklist-column {
-  display: grid;
-  grid-template-rows: 1fr 1fr; }
-
-.deck-builder .decklist .maindeck .decklist-column .partial-decklist-column {
-  height: 100%; }
-
-.deck-builder .decklist .maindeck .decklist-column .partial-decklist-column .card.covered {
-  height: 50px;
-  overflow: hidden; }
-
-.deck-builder .decklist .sideboard .decklist-column .card.covered {
-  height: 50px;
-  overflow: hidden; }
+  .deck-builder .card-search {
+    padding: 10px;
+    width: 250px;
+    border: 2px black; }
+    .deck-builder .card-search .search-result.covered {
+      height: 50px;
+      overflow: hidden; }
+  .deck-builder .decklist {
+    width: 100%;
+    height: 100%;
+    border: 2px black;
+    display: flex; }
+    .deck-builder .decklist .maindeck {
+      display: flex;
+      width: 100%; }
+      .deck-builder .decklist .maindeck .decklist-column {
+        display: grid;
+        grid-template-rows: 1fr 1fr; }
+        .deck-builder .decklist .maindeck .decklist-column .partial-decklist-column {
+          height: 100%; }
+          .deck-builder .decklist .maindeck .decklist-column .partial-decklist-column .card.covered {
+            height: 50px;
+            overflow: hidden; }
+    .deck-builder .decklist .sideboard .decklist-column .card.covered {
+      height: 50px;
+      overflow: hidden; }

@@ -1,12 +1,12 @@
 import React from "react";
 import DeckListColumn from "./DeckListColumn";
-import { splitBy } from "./ColumnSplitter";
+import { splitBy } from "./enums";
 
 const Sideboard = ({ sideboard, sideIn }) => {
 
   return (
     <div className="sideboard">
-      <DeckListColumn cards={sideboard} sideInOrOut={sideIn} split={splitBy.noSplit}/>
+      <DeckListColumn cards={sideboard} sideInOrOut={sideIn} split={splitBy.none}/>
     </div>
   );
 };

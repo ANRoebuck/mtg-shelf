@@ -5,9 +5,6 @@ import DeckList from "./Components/DeckList";
 
 
 const DeckBuilder = () => {
-  // const [cardId, incrementCardId] = useState(0);
-  // const [maindeck, setMaindeck] = useState([]);
-  // const [sideboard, setSideboard] = useState([]);
   const [decklist, setDecklist] = useState([]);
 
   const addCard = (card) => setDecklist((prevList) => [ ...prevList, { ...card, ms: 'm', index: prevList.length}]);

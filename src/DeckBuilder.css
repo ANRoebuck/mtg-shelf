@@ -21,7 +21,14 @@
   display: flex;
   width: 100%; }
 
-.deck-builder .decklist .maindeck .decklist-column .card.covered {
+.deck-builder .decklist .maindeck .decklist-column {
+  display: grid;
+  grid-template-rows: 1fr 1fr; }
+
+.deck-builder .decklist .maindeck .decklist-column .partial-decklist-column {
+  height: 100%; }
+
+.deck-builder .decklist .maindeck .decklist-column .partial-decklist-column .card.covered {
   height: 50px;
   overflow: hidden; }
 

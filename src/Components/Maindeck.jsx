@@ -1,24 +1,28 @@
 import React, { useState } from "react";
-import DeckListColumn from "./DeckListColumn";
+import { splitBy } from "./ColumnSplitter";
 import ColumnSorter, { sortBy } from "./ColumnSorter";
-import DecklistOptions from './DecklistOptions';
+import DeckListColumn from "./DeckListColumn";
+import DecklistOptions from "./DecklistOptions";
+
 
 const Maindeck = ({ maindeck, sideOut }) => {
 
   const [sortColumnsBy, setSortColumnsBy] = useState(sortBy.cmc);
-  // const [splitColumnsBy, setSplitcolumnsBy] = useState();
+  const [splitColumnsBy, setSplitColumnsBy] = useState(splitBy.noSplit);
 
   const columnSorter = new ColumnSorter();
   const columns = columnSorter.assignColumns(maindeck, sortColumnsBy);
 
-  const columnsToRender = Object.entries(columns).map((entry) => {
-    const [cmc, cards] = entry;
-    return <DeckListColumn cmc={cmc} cards={cards} sideInOrOut={sideOut} />
-  })
+  const columnsToRender = Object.entries(columns).map(([ cmc, cards ]) =>
+    <DeckListColumn cards={cards} sideInOrOut={sideOut} split={splitColumnsBy} />);
 
   return (
     <div className="maindeck">
-      <DecklistOptions options={Object.keys(sortBy)} setSortBy={setSortColumnsBy}/>
+      <DecklistOptions
+        sortOptions={Object.keys(sortBy)}
+        setSortBy={setSortColumnsBy}
+        splitOptions={Object.keys(splitBy)}
+        setSplitBy={setSplitColumnsBy}/>
       {columnsToRender}
     </div>
   );

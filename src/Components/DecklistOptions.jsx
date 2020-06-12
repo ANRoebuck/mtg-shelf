@@ -1,21 +1,44 @@
 import React, { useState } from "react";
-import DeckListColumn from "./DeckListColumn";
-import ColumnSorter, { sortBy } from "./ColumnSorter";
 
-const DecklistOptions = ({ options, setSortBy }) => {
+const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy }) => {
 
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedSortOption, setSelectedSortOption] = useState(sortOptions[0]);
+  const [selectedSplitOption, setSelectedSplitOption] = useState(splitOptions[0]);
 
-  const handleChange = (e) => {
-    setSelectedOption(e.target.value);
+  const reSort = (e) => {
+    setSelectedSortOption(e.target.value);
     setSortBy(e.target.value);
   }
 
-  const optionsToRender = options.map(option => {
+  const reSplit = (e) => {
+    setSelectedSplitOption(e.target.value);
+    setSplitBy(e.target.value);
+  }
+
+  const sortOptionsToRender = sortOptions.map(option => {
     return (
       <div className="radio">
         <label>
-          <input type="radio" value={option} checked={option === selectedOption} onChange={handleChange}/>
+          <input
+            type="radio"
+            value={option}
+            checked={option === selectedSortOption}
+            onChange={reSort}/>
+          {option}
+        </label>
+      </div>
+    );
+  });
+
+  const splitOptionstoRender = splitOptions.map(option => {
+    return (
+      <div className="radio">
+        <label>
+          <input
+            type="radio"
+            value={option}
+            checked={option === selectedSplitOption}
+            onChange={reSplit}/>
           {option}
         </label>
       </div>
@@ -24,7 +47,10 @@ const DecklistOptions = ({ options, setSortBy }) => {
 
   return (
     <div className="decklist-options">
-      {optionsToRender}
+      <div>Sort columns by:</div>
+      {sortOptionsToRender}
+      <div>Split columns by:</div>
+      {splitOptionstoRender}
     </div>
   );
 }

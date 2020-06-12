@@ -27,10 +27,22 @@
 
 
       .decklist-column {
-        .card {
-          &.covered {
-            height: 50px;
-            overflow: hidden;
+
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+
+        .partial-decklist-column {
+          height: 100%;
+
+          .card {
+            &.covered {
+              height: 50px;
+              overflow: hidden;
+            }
+
+            .card-img {
+              //position: absolute;
+            }
           }
         }
       }

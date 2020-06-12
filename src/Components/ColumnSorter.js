@@ -6,11 +6,6 @@ export const sortBy = {
   type: 'type',
 }
 
-export const splitBy = {
-  spells: 'spells',
-  noSplit: 'noSplit'
-}
-
 class ColumnSorter {
 
   constructor() {

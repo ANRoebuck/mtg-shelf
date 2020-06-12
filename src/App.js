@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import DeckBuilder from "./DeckBuilder";
 import Home from "./Home";
 import Tool2 from "./Tool2";

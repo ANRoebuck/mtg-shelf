@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DecklistOptions from "./DecklistOptions";
 import { sortBy, splitBy, viewBy } from "./enums";
-import DeckView from "./DeckView";
+import DeckView from './DeckView';
 
 const Deck = ({ decklist, sideIn, sideOut }) => {
   const [sortColumnsBy, setSortColumnsBy] = useState(sortBy.cmc);

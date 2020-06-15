@@ -58,7 +58,7 @@ const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy, vie
           <input
             type="radio"
             value={option}
-            checked={option === setSelectedViewOption}
+            checked={option === setlectedViewOption}
             onChange={reView}/>
           {option}
         </label>

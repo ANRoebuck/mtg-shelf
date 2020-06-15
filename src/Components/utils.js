@@ -32,6 +32,8 @@ export const splitColumnByCreatures = (column) => {
   return [top, bottom];
 }
 
+export const groupCardsByName = (cards) => cards.reduce((groups, card) => addToObject(groups, card.name, card), {});
+
 const coloursToColourIndex = (colours: []) => {
   let colour;
   if(colours.length > 1) colour = 'M';
@@ -49,6 +51,9 @@ const typeLineToTypeIndex = (typeLine) => {
 const addToObject = (object, key, value) => {
   if(!object[key]) object[key] = [value];
   else object[key].push(value);
+  console.log(key);
+  console.log(value);
+  console.log(object);
   return object;
 }
 

@@ -3,6 +3,7 @@ import Card from "./Card";
 import ColumnSplitter from "./ColumnSplitter";
 
 const DeckListColumn = ({ cards, sideInOrOut, split }) => {
+
   const columnSplitter = new ColumnSplitter();
   const splits = columnSplitter.splitColumnsBy(cards, split);
 

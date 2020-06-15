@@ -1,10 +1,9 @@
 import React from "react";
-import ColumnSorter from "./ColumnSorter";
-import DeckListColumn from "./DeckListColumn";
-import Sideboard from "./Sideoard";
+import Sideboard from './Sideoard';
+import Maindeck from './Maindeck';
 
 
-const Maindeck = ({ maindeck, sideOut, sortColumnsBy, splitColumnsBy }) => {
+const ViewImages = ({ maindeck, sideboard, sideOut, sideIn, sortColumnsBy, splitColumnsBy }) => {
 
   return (
     <div className="view-images">
@@ -14,4 +13,4 @@ const Maindeck = ({ maindeck, sideOut, sortColumnsBy, splitColumnsBy }) => {
   );
 };
 
-export default Maindeck;
+export default ViewImages;

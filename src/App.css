@@ -1,13 +1,11 @@
 .App {
   height: 100%;
   text-align: center; }
-
-.App .menu {
-  display: flex;
-  justify-content: center; }
-
-.App .menu .menu-item {
-  margin: 20px; }
+  .App .menu {
+    display: flex;
+    justify-content: center; }
+    .App .menu .menu-item {
+      margin: 20px; }
 
 .App-header {
   background-color: #282c34;

@@ -68,12 +68,18 @@ const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy, vie
 
   return (
     <div className="decklist-options">
-      <div>Sort columns by:</div>
-      {sortOptionsToRender}
-      <div>Split columns by:</div>
-      {splitOptionstoRender}
-      <div>View by:</div>
-      {viewOptionsToRender}
+      <div className={"option-set"}>
+        <div>Sort columns:</div>
+        {sortOptionsToRender}
+      </div>
+      <div className={"option-set"}>
+        <div>Split columns:</div>
+        {splitOptionstoRender}
+      </div>
+      <div className={"option-set"}>
+        <div>View:</div>
+        {viewOptionsToRender}
+      </div>
     </div>
   );
 }

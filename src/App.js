@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import DeckBuilder from "./DeckBuilder";

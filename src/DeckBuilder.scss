@@ -1,11 +1,78 @@
 .deck-builder {
-  display: flex;
-  height: 100%;
+  display: grid;
+  //max-height: 400px;
+  grid-template-columns: 1fr 250px;
+  overflow-y: hidden;
+
+  .deck {
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+    height: 100%;
+    width: 100%;
+
+      .decklist-options {
+        display: flex;
+        justify-content: center;
+        max-height: 50px;
+        width: 100%;
+
+        .option-set {
+          display: flex;
+          flex-grow: 1;
+          justify-content: center;
+
+        }
+      }
+
+      .deck-view {
+
+        .view-images {
+          .maindeck {
+            display: flex;
+            width: 100%;
+            .decklist-column {
+              display: grid;
+              grid-template-rows: 1fr 1fr;
+              .partial-decklist-column {
+                height: 100%;
+                .card {
+                  &.covered {
+                    height: 50px;
+                    overflow: hidden;
+                  }
+                }
+              }
+            }
+          }
+          .sideboard {
+            .decklist-column {
+              .card {
+                &.covered {
+                  height: 50px;
+                  overflow: hidden;
+                }
+              }
+            }
+          }
+        }
+
+        .view-printable{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+  }
 
   .card-search {
     padding: 10px;
     width: 250px;
     border: 2px black;
+    height: 100%;
+
+    .search-results {
+      overflow-y: scroll;
+    }
 
     .search-result {
       &.covered {
@@ -13,52 +80,6 @@
         overflow: hidden;
       }
     }
-  }
-
-  .decklist {
-    width: 100%;
-    height: 100%;
-    border: 2px black;
-    display: flex;
-
-    .maindeck {
-      display: flex;
-      width: 100%;
-
-
-      .decklist-column {
-
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-
-        .partial-decklist-column {
-          height: 100%;
-
-          .card {
-            &.covered {
-              height: 50px;
-              overflow: hidden;
-            }
-
-            .card-img {
-              //position: absolute;
-            }
-          }
-        }
-      }
-    }
-
-    .sideboard {
-      .decklist-column {
-        .card {
-          &.covered {
-            height: 50px;
-            overflow: hidden;
-          }
-        }
-      }
-    }
-
   }
 
 }

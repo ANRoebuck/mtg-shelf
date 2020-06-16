@@ -1,18 +1,13 @@
 .App {
+  height: 100%;
   text-align: center; }
-  .App .menu {
-    display: flex;
-    justify-content: center; }
-    .App .menu .menu-item {
-      margin: 20px; }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none; }
+.App .menu {
+  display: flex;
+  justify-content: center; }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear; } }
+.App .menu .menu-item {
+  margin: 20px; }
 
 .App-header {
   background-color: #282c34;

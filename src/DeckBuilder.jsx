@@ -25,6 +25,7 @@ const DeckBuilder = () => {
   return (
     <div className="deck-builder">
       <Deck decklist={decklist} sideIn={sideIn} sideOut={sideOut}/>
+      {/*<hr/>*/}
       <CardSearch addCard={addCard}/>
     </div>
   );

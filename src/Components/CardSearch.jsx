@@ -30,7 +30,7 @@ const CardSearch = ({ addCard }) => {
           <input type="text" value={searchTerm} onChange={(e) => onChange(e)} />
         </label>
       </form>
-      <div>
+      <div className="search-results">
         {searchResults}
       </div>
     </div>

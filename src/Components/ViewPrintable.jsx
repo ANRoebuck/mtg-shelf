@@ -7,18 +7,27 @@ import { groupCardsByName } from "./utils";
 const ViewPrintable = ({ maindeck, sideboard, sideOut, sideIn, sortColumnsBy, splitColumnsBy }) => {
 
   const groupedMaindeck = groupCardsByName(maindeck);
-  console.log(groupedMaindeck);
-  console.log(Object.entries(groupedMaindeck));
-  Object.entries(groupedMaindeck).forEach(([cardname, cards]) => {
-    console.log(cardname);
-    console.log(cards);
-  });
-  const divs = Object.entries(groupedMaindeck).map(([cardname, cards]) =>
+  const groupedSideboard = groupCardsByName(sideboard);
+
+  const maindeckRows = Object.entries(groupedMaindeck).map(([cardname, cards]) =>
     <div>{`${cards.length}  ${cardname}`}</div>);
+
+  const sideboardRows = Object.entries(groupedSideboard).map(([cardname, cards]) =>
+    <div>{`${cards.length}  ${cardname}`}</div>);
+
+  const maindeckCount = `(${maindeckRows.length})`
+  const sideboardCount = `(${sideboardRows.length})`
 
   return (
     <div className="view-printable">
-      {divs}
+      <div className="printable-column">
+        Maindeck {maindeckCount}
+        {maindeckRows}
+      </div>
+      <div className="printable-column">
+        Sideboard {sideboardCount}
+        {sideboardRows}
+      </div>
     </div>
   );
 };

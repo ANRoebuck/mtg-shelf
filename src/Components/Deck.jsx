@@ -9,12 +9,13 @@ const Deck = ({ decklist, sideIn, sideOut }) => {
   const [viewDeckBy, setViewDeckBy] = useState(viewBy.images);
 
   return (
-    <div className="decklist">
+    <div className="deck">
       <DecklistOptions
         sortOptions={Object.keys(sortBy)} setSortBy={setSortColumnsBy}
         splitOptions={Object.keys(splitBy)} setSplitBy={setSplitColumnsBy}
         viewOptions={Object.keys(viewBy)} setViewBy={setViewDeckBy}
       />
+      {/*<hr/>*/}
       <DeckView
         decklist={decklist}
         sortColumnsBy={sortColumnsBy} splitColumnsBy={splitColumnsBy} viewDeckBy={viewDeckBy}

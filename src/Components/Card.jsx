@@ -22,7 +22,7 @@ const Card = ({card, covered, sideInOrOut}) => {
       onMouseLeave={mouseInOut}
       onClick={handleClick}
     >
-      <img className="card-img" src={src} alt={`card image for ${card.name}`}/>
+      <img className="card-img" src={src} alt={`${card.name}`}/>
     </div>
   );
 };

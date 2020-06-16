@@ -27,8 +27,6 @@ export const splitColumnByCreatures = (column) => {
   const regex = /[\s\S]*creature[\s\S]*/i;
   const top = column.filter(({ type_line })=> regex.test(type_line));
   const bottom = column.filter(({ type_line }) => !regex.test(type_line));
-  console.log(top);
-  console.log(bottom);
   return [top, bottom];
 }
 
@@ -51,9 +49,6 @@ const typeLineToTypeIndex = (typeLine) => {
 const addToObject = (object, key, value) => {
   if(!object[key]) object[key] = [value];
   else object[key].push(value);
-  console.log(key);
-  console.log(value);
-  console.log(object);
   return object;
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy, viewOptions, setViewBy }) => {
+const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy, viewOptions, setViewBy, saveDeck, loadDeck }) => {
 
   const [selectedSortOption, setSelectedSortOption] = useState(sortOptions[0]);
   const [selectedSplitOption, setSelectedSplitOption] = useState(splitOptions[0]);
@@ -79,6 +79,10 @@ const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy, vie
       <div className={"option-set"}>
         <div>View:</div>
         {viewOptionsToRender}
+      </div>
+      <div className="option-set">
+        <button type="button" onClick={saveDeck}>Save</button>
+        <button type="button" onClick={loadDeck}>Load</button>
       </div>
     </div>
   );

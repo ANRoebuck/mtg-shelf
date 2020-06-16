@@ -3,7 +3,7 @@ import DecklistOptions from "./DecklistOptions";
 import { sortBy, splitBy, viewBy } from "./enums";
 import DeckView from './DeckView';
 
-const Deck = ({ decklist, sideIn, sideOut }) => {
+const Deck = ({ decklist, sideIn, sideOut, saveDeck, loadDeck }) => {
   const [sortColumnsBy, setSortColumnsBy] = useState(sortBy.cmc);
   const [splitColumnsBy, setSplitColumnsBy] = useState(splitBy.none);
   const [viewDeckBy, setViewDeckBy] = useState(viewBy.images);
@@ -14,6 +14,8 @@ const Deck = ({ decklist, sideIn, sideOut }) => {
         sortOptions={Object.keys(sortBy)} setSortBy={setSortColumnsBy}
         splitOptions={Object.keys(splitBy)} setSplitBy={setSplitColumnsBy}
         viewOptions={Object.keys(viewBy)} setViewBy={setViewDeckBy}
+        saveDeck={saveDeck}
+        loadDeck={loadDeck}
       />
       {/*<hr/>*/}
       <DeckView

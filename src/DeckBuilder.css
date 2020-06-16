@@ -1,7 +1,6 @@
 .deck-builder {
   display: grid;
-  grid-template-columns: 1fr 250px;
-  overflow-y: hidden; }
+  grid-template-columns: 1fr 250px; }
 
 .deck-builder .deck {
   display: grid;

@@ -14,17 +14,20 @@ const DeckBuilder = () => {
     const i = card.index;
     newList[i].ms = 's';
     return newList;
-  })
+  });
   const sideIn = (card) => setDecklist((prevList) => {
     const newList = [...prevList];
     const i = card.index;
     newList[i].ms = 'm';
     return newList;
-  })
+  });
+
+  const saveDeck = () => localStorage.setItem('savedDeck', JSON.stringify(decklist));
+  const loadDeck = () => setDecklist(JSON.parse(localStorage.getItem('savedDeck')));
 
   return (
     <div className="deck-builder">
-      <Deck decklist={decklist} sideIn={sideIn} sideOut={sideOut}/>
+      <Deck decklist={decklist} sideIn={sideIn} sideOut={sideOut} saveDeck={saveDeck} loadDeck={loadDeck}/>
       {/*<hr/>*/}
       <CardSearch addCard={addCard}/>
     </div>

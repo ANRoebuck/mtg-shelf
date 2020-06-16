@@ -13,7 +13,6 @@ const Maindeck = ({ maindeck, sideOut, sortColumnsBy, splitColumnsBy }) => {
 
   return (
     <div className="maindeck">
-
       {columnsToRender}
     </div>
   );

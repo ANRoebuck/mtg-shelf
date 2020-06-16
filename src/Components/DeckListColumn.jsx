@@ -7,11 +7,12 @@ const DeckListColumn = ({ cards, sideInOrOut, split }) => {
   const columnSplitter = new ColumnSplitter();
   const splits = columnSplitter.splitColumnsBy(cards, split);
 
-  const lastCard = cards.length -1;
+  console.log(split);
+
   const cardsToDisplay = splits.map(split =>
     <div className="partial-decklist-column">
       {split.map((card, i) =>
-        <Card card={card} covered={i < lastCard} sideInOrOut={sideInOrOut}/>
+        <Card card={card} covered={i < split.length -1} sideInOrOut={sideInOrOut}/>
       )}
     </div>
   );

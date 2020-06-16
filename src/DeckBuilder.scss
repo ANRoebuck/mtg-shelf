@@ -27,6 +27,8 @@
       .deck-view {
 
         .view-images {
+          display: flex;
+
           .maindeck {
             display: flex;
             width: 100%;
@@ -59,6 +61,7 @@
         .view-printable{
           display: grid;
           grid-template-columns: 1fr 1fr;
+          margin-top: 35px;
         }
       }
 

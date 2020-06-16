@@ -19,6 +19,9 @@
   flex-grow: 1;
   justify-content: center; }
 
+.deck-builder .deck .deck-view .view-images {
+  display: flex; }
+
 .deck-builder .deck .deck-view .view-images .maindeck {
   display: flex;
   width: 100%; }
@@ -40,7 +43,8 @@
 
 .deck-builder .deck .deck-view .view-printable {
   display: grid;
-  grid-template-columns: 1fr 1fr; }
+  grid-template-columns: 1fr 1fr;
+  margin-top: 35px; }
 
 .deck-builder .card-search {
   padding: 10px;

@@ -18,7 +18,7 @@ export const assignColumnsByColour = (decklist) => {
 export const assignColumnsByType = (decklist) => {
   return decklist.reduce((columns, card) => {
     const { type_line } = card;
-    const typeIndex = 0;
+    const typeIndex = typeLineToTypeIndex(type_line);
     return addToObject(columns, typeIndex, card);
   }, {});
 };
@@ -42,8 +42,10 @@ const coloursToColourIndex = (colours: []) => {
 };
 
 const typeLineToTypeIndex = (typeLine) => {
-  const typesAndSubtypes = typeLine.split('—');
-  const types = typesAndSubtypes[0].split[' '];
+  // const typesAndSubtypes = typeLine.split('—');
+  // const types = typesAndSubtypes[0].split[' '];
+  console.log(typeLine);
+  return 0;
 }
 
 const addToObject = (object, key, value) => {

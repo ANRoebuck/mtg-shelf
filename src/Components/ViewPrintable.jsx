@@ -1,6 +1,4 @@
 import React from "react";
-import ColumnSorter from "./ColumnSorter";
-import DeckListColumn from "./DeckListColumn";
 import { groupCardsByName } from "./utils";
 
 

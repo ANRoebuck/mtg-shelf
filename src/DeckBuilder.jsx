@@ -8,6 +8,7 @@ const DeckBuilder = () => {
   const [decklist, setDecklist] = useState([]);
 
   const addCard = (card) => setDecklist((prevList) => [ ...prevList, { ...card, ms: 'm', index: prevList.length}]);
+  const removeCard = (cardToRemove) => setDecklist((prevList) => [ ...prevList.filter(card => card !== cardToRemove)])
 
   const sideOut = (card) => setDecklist((prevList) => {
     const newList = [...prevList];
@@ -27,7 +28,7 @@ const DeckBuilder = () => {
 
   return (
     <div className="deck-builder">
-      <Deck decklist={decklist} sideIn={sideIn} sideOut={sideOut} saveDeck={saveDeck} loadDeck={loadDeck}/>
+      <Deck decklist={decklist} sideIn={sideIn} sideOut={sideOut} saveDeck={saveDeck} loadDeck={loadDeck} removeCar={removeCard}/>
       {/*<hr/>*/}
       <CardSearch addCard={addCard}/>
     </div>

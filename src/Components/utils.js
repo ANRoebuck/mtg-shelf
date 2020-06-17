@@ -56,6 +56,12 @@ const incrementObjectOfNumbers = (object, key) => {
   return object;
 }
 
+const validateObjectProperties = (object, key, isValid) => {
+  if (!object[key]) object[key] = isValid;
+  if (object[key] && !isValid) object[key] = isValid;
+  return object;
+}
+
 export const nextInArray = (array: [], current: any) => {
   const i = array.indexOf(current);
   if (i === -1) return null;
@@ -93,3 +99,10 @@ export const cardsByCMC = (cards) => cards.reduce((cmcs, card) =>
 
 export const cardsByColour = (cards) => cards.reduce((colours, card) =>
   incrementObjectOfNumbers(colours, parseColours(card)), {});
+
+export const legalityByFormat = (cards) => cards.reduce((legalities, card) => {
+  Object.entries(card.legalities).forEach(([format, legality]) => {
+    validateObjectProperties(legalities, format, legality === 'legal')
+  });
+  return legalities;
+}, {});

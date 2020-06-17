@@ -1,5 +1,5 @@
 import React from "react";
-import { financeDeck, cardsByCMC, cardsByColour } from "./utils";
+import { financeDeck, cardsByCMC, cardsByColour, legalityByFormat } from "./utils";
 
 
 const ViewStats = ({ maindeck, sideboard }) => {
@@ -7,6 +7,7 @@ const ViewStats = ({ maindeck, sideboard }) => {
   const statsByFinance = financeDeck([...maindeck, ...sideboard]);
   const statsByCMC = cardsByCMC(maindeck);
   const statsByColour = cardsByColour(maindeck);
+  const legalities = legalityByFormat([...maindeck, ...sideboard]);
 
   return (
     <div className="view-stats">
@@ -19,6 +20,9 @@ const ViewStats = ({ maindeck, sideboard }) => {
       </div>
       <div className="single-stat">
         CARDS BY COLOUR {JSON.stringify(statsByColour)}
+      </div>
+      <div className="single-stat">
+        FORMAT LEGALITIES {JSON.stringify(legalities)}
       </div>
     </div>
   );

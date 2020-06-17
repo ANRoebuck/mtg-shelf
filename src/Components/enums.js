@@ -17,4 +17,5 @@ export const splitBy = {
 export const viewBy = {
   images: 'images',
   printable: 'printable',
+  stats: 'stats',
 }

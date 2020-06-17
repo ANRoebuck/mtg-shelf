@@ -62,6 +62,17 @@
           display: grid;
           grid-template-columns: 1fr 1fr;
           margin-top: 35px;
+
+          .printable-column-title {
+            text-align: center;
+          }
+          .printable-column-cards {
+            text-align: left;
+          }
+        }
+
+        .view-stats {
+
         }
       }
 

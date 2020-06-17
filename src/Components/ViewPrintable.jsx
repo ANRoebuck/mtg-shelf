@@ -19,12 +19,12 @@ const ViewPrintable = ({ maindeck, sideboard, sideOut, sideIn, sortColumnsBy, sp
   return (
     <div className="view-printable">
       <div className="printable-column">
-        Maindeck {maindeckCount}
-        {maindeckRows}
+        <div className="printable-column-title">Maindeck {maindeckCount}</div>
+        <div className="printable-column-cards">{maindeckRows}</div>
       </div>
       <div className="printable-column">
-        Sideboard {sideboardCount}
-        {sideboardRows}
+        <div className="printable-column-title">Sideboard {sideboardCount}</div>
+        <div className="printable-column-cards">{sideboardRows}</div>
       </div>
     </div>
   );

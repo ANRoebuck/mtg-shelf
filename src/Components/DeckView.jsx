@@ -2,6 +2,7 @@ import React from "react";
 import { viewBy } from "./enums";
 import ViewImages from './ViewImages';
 import ViewPrintable from './ViewPrintable';
+import ViewStats from './ViewStats';
 
 const DeckView = ({decklist, sortColumnsBy, splitColumnsBy, viewDeckBy, sideIn, sideOut}) => {
 
@@ -24,6 +25,10 @@ const DeckView = ({decklist, sortColumnsBy, splitColumnsBy, viewDeckBy, sideIn, 
             maindeck={maindeck} sideboard={sideboard}
             sideOut={sideOut} sideIn={sideIn}
           />);
+      case viewBy.stats:
+        return (
+          <ViewStats maindeck={maindeck} sideboard={sideboard}/>
+        )
       default:
         return null;
     }

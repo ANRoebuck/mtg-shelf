@@ -7,8 +7,6 @@ const DeckListColumn = ({ cards, sideInOrOut, split, removeCard }) => {
   const columnSplitter = new ColumnSplitter();
   const splits = columnSplitter.splitColumnsBy(cards, split);
 
-  console.log(split);
-
   const cardsToDisplay = splits.map(split =>
     <div className="partial-decklist-column">
       {split.map((card, i) =>

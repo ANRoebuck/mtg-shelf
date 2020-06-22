@@ -13,7 +13,7 @@ export const assignColumnsByColour = (decklist) => {
 
 export const assignColumnsByType = (decklist) => {
   return decklist.reduce((columns, card) => {
-    const {type_line} = card;
+    const { type_line } = card;
     const typeIndex = typeLineToTypeIndex(type_line);
     return pushToObjectOfArrays(columns, typeIndex, card);
   }, {});
@@ -38,10 +38,15 @@ const coloursToColourIndex = (colours: []) => {
 };
 
 const typeLineToTypeIndex = (typeLine) => {
-  // const typesAndSubtypes = typeLine.split('—');
-  // const types = typesAndSubtypes[0].split[' '];
-  console.log(typeLine);
-  return 0;
+  const typesAndSubtypes = typeLine.split('—');
+  const types = typesAndSubtypes[0].split(' ');
+  const typesArray = ['Land', 'Artifact', 'Creature', 'Planeswalker', 'Enchantment', 'Instant', 'Sorcery'];
+  let typeIndex = typesArray.length;
+  // const superTypesArray = ['Legendary', 'Snow', 'Basic'];
+  typesArray.forEach((type, i) => {
+    if(types[0] === type) typeIndex = i;
+  });
+  return typeIndex;
 }
 
 const pushToObjectOfArrays = (object, key, value) => {

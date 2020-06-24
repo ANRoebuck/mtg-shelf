@@ -8,7 +8,7 @@ const DeckBuilder = () => {
   const [decklist, setDecklist] = useState([]);
 
   const addToMain = (card) => addCard(card, 'm');
-  const addToSide = (card) => addCard(card, 's')
+  const addToSide = (card) => addCard(card, 's');
   const addCard = (card, ms) => setDecklist((prevList) => [ ...prevList, { ...card, ms, index: prevList.length}]);
   const removeCard = (cardToRemove) => setDecklist((prevList) => [ ...prevList.filter(card => card !== cardToRemove)])
 

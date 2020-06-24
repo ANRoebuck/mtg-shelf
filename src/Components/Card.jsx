@@ -4,7 +4,7 @@ import { face } from "./enums";
 import useRefCreator from "./useRefCreator";
 import ContextMenu from "./ContextMenu";
 
-const Card = ({card, covered, sideInOrOut, removeCard, index}) => {
+const Card = ({card, covered, sideInOrOut, removeCard}) => {
   const [ref, updateRef] = useRefCreator();
   const [showFace, setShowFace] = useState(face.FRONT);
 
@@ -16,17 +16,15 @@ const Card = ({card, covered, sideInOrOut, removeCard, index}) => {
 
   const src = parseImgSource(card, showFace);
 
-  // const callback = () => console.log('callback');
-
   const contextMenuItems = [
     {
-      label: `Remove ${card.name} from deck`,
+      label: `Move to ${card.ms === 'm' ? 'sideboard' : 'maindeck'}`,
+      callback: () => sideInOrOut(card)
+    },
+    {
+      label: `Remove from deck`,
       callback: () => removeCard(card)
     },
-    // {
-    //   label: 'item2',
-    //   callback
-    // }
   ];
 
   return (
@@ -39,7 +37,6 @@ const Card = ({card, covered, sideInOrOut, removeCard, index}) => {
         onMouseEnter={mouseInOut}
         onMouseLeave={mouseInOut}
         onClick={handleClick}
-        // onDoubleClick={handleDoubleClick}
       />
     </div>
   );

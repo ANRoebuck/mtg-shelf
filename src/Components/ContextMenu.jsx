@@ -11,20 +11,33 @@ const ContextMenu = ({containerRef, menuItems}) => {
     setVisible(true);
   }
 
+  const menuOnMouseLeave = () => setVisible(false);
+
   const renderMenuItems = (items) => {
     const style = {
       position: `absolute`,
-      top: `${position.y}px`,
-      left: `${position.x}px`
+      top: `${position.y -5}px`,
+      left: `${position.x -5}px`
     }
 
     return (
-      <div className="custom-context" style={style}>
+      <div
+        className="custom-context" style={style}
+        onMouseLeave={menuOnMouseLeave}
+      >
         {items.map((item, index, arr) => {
-          return <div className="custom-context-item-last" onClick={(e) => {
-            item.callback()
-            setVisible(false);
-          }}>{item.label}</div>
+          return (
+            <div
+              className={`custom-context-item-last${index === arr -1 ? `-last` : ``}`}
+              onClick={(e) => {
+                item.callback();
+                setVisible(false);
+              }}
+            >
+              {item.label}
+            </div>
+          )
+
           // else return <div className="custom-context-item">{item.label}</div>
         })}
       </div>

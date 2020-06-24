@@ -8,7 +8,7 @@ const ViewImages = ({ maindeck, sideboard, sideOut, sideIn, sortColumnsBy, split
   return (
     <div className="view-images">
       <Maindeck maindeck={maindeck} sideOut={sideOut} sortColumnsBy={sortColumnsBy} splitColumnsBy={splitColumnsBy} removeCard={removeCard} />
-      <Sideboard sideboard={sideboard} sideIn={sideIn} removeCar={removeCard}/>
+      <Sideboard sideboard={sideboard} sideIn={sideIn} removeCard={removeCard}/>
     </div>
   );
 };

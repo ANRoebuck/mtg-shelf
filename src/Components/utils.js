@@ -111,3 +111,13 @@ export const legalityByFormat = (cards) => cards.reduce((legalities, card) => {
   });
   return legalities;
 }, {});
+
+export const mousePositionRelativeToContainer = (event: MouseEvent) => {
+  const boundingRect = event.target.getBoundingClientRect();
+  const x = event.clientX - boundingRect.left + event.target.scrollLeft;
+  const y = event.clientY - boundingRect.top + event.target.scrollTop;
+  return {
+    x: Math.round(x),
+    y: Math.round(y),
+  };
+};

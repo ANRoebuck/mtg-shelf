@@ -1,11 +1,6 @@
 
 export const DECKBUILDER_STATE = 'deckbuilder';
-
-export const SOME_ACTION = `${DECKBUILDER_STATE}/SOME_ACTION`;
-
 export const SET_DECKLIST = `${DECKBUILDER_STATE}/SET_DECKLIST`;
-export const ADD_CARD = `${DECKBUILDER_STATE}/ADD_CARD`;
-
 
 
 export const setDecklist = (decklist) => (dispatch) => {

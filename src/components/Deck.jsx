@@ -15,7 +15,7 @@ const Deck = () => {
   const decklist = useSelector(selectDecklist);
   const dispatch = useDispatch();
 
-  const updateDecklist = (newList) => dispatch(setDecklist(newList))
+  const updateDecklist = (newList) => dispatch(setDecklist(newList));
 
   const saveDeck = () => localStorage.setItem('savedDeck', JSON.stringify(decklist));
   const loadDeck = () => updateDecklist(JSON.parse(localStorage.getItem('savedDeck')));

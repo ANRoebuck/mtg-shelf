@@ -1,6 +1,5 @@
 import Immutable from 'seamless-immutable';
 import {
-  SOME_ACTION,
   SET_DECKLIST,
 } from './deckBuilder-actions';
 

@@ -20,7 +20,6 @@ const addCard = (card, ms) => (dispatch, getState) => {
     decklist: updatedDecklist
   })
 };
-export increaseQtyTo (card,)
 
 export const removeCard = (cardToRemove) => (dispatch, getState) => {
   const { decklist } = getState()[DECKBUILDER_STATE];

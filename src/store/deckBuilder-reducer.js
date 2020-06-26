@@ -1,3 +1,13 @@
+import {
+  SOME_ACTION
+} from './deckBuilder-actions';
 
+export const defaultState = {
+};
 
-export const DECKBUILDER_STATE = 'deckbuilder';
+export default (state = defaultState, action = {}) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './DeckBuilder.css';
-import CardSearch from "./Components/CardSearch";
-import Deck from "./Components/Deck";
+import CardSearch from "./components/CardSearch";
+import Deck from "./components/Deck";
 
 
 const DeckBuilder = () => {

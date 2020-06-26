@@ -3,8 +3,9 @@ import { parseImgSource } from "./utils";
 import { face } from "./enums";
 import useRefCreator from "./useRefCreator";
 import ContextMenu from "./ContextMenu";
+import { removeCard } from "../store/deckBuilder-actions";
 
-const Card = ({card, covered, sideInOrOut, removeCard}) => {
+const Card = ({card, covered, sideInOrOut }) => {
   const [ref, updateRef] = useRefCreator();
   const [showFace, setShowFace] = useState(face.FRONT);
 

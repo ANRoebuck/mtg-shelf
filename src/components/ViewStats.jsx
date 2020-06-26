@@ -1,8 +1,13 @@
 import React from "react";
 import { financeDeck, cardsByCMC, cardsByColour, legalityByFormat } from "./utils";
+import { useSelector } from "react-redux";
+import { selectMaindeck, selectSideboard } from "../store/deckBuilder-selector";
 
 
-const ViewStats = ({ maindeck, sideboard }) => {
+const ViewStats = () => {
+
+  const maindeck = useSelector(selectMaindeck);
+  const sideboard = useSelector(selectSideboard);
 
   const statsByFinance = financeDeck([...maindeck, ...sideboard]);
   const statsByCMC = cardsByCMC(maindeck);

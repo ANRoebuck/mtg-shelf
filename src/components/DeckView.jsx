@@ -4,32 +4,16 @@ import ViewImages from './ViewImages';
 import ViewPrintable from './ViewPrintable';
 import ViewStats from './ViewStats';
 
-const DeckView = ({decklist, sortColumnsBy, splitColumnsBy, viewDeckBy, sideIn, sideOut, removeCard }) => {
-
-  const maindeck = decklist.filter(({ms}) => ms === 'm');
-  const sideboard = decklist.filter(({ms}) => ms === 's');
+const DeckView = ({ sortColumnsBy, splitColumnsBy, viewDeckBy }) => {
 
   const selectView = (viewDeckBy) => {
     switch (viewDeckBy) {
       case viewBy.images:
-        return (
-          <ViewImages
-            maindeck={maindeck} sideboard={sideboard}
-            sideOut={sideOut} sideIn={sideIn}
-            sortColumnsBy={sortColumnsBy} splitColumnsBy={splitColumnsBy}
-            removeCard={removeCard}
-          />
-        );
+        return <ViewImages sortColumnsBy={sortColumnsBy} splitColumnsBy={splitColumnsBy} />
       case viewBy.printable:
-        return (
-          <ViewPrintable
-            maindeck={maindeck} sideboard={sideboard}
-            sideOut={sideOut} sideIn={sideIn}
-          />);
+        return <ViewPrintable />
       case viewBy.stats:
-        return (
-          <ViewStats maindeck={maindeck} sideboard={sideboard}/>
-        )
+        return <ViewStats />
       default:
         return null;
     }

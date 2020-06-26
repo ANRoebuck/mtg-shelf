@@ -4,10 +4,14 @@ import { face } from "./enums";
 import useRefCreator from "./useRefCreator";
 import ContextMenu from "./ContextMenu";
 import { removeCard } from "../store/deckBuilder-actions";
+import { useDispatch } from "react-redux";
 
 const Card = ({card, covered, sideInOrOut }) => {
+
   const [ref, updateRef] = useRefCreator();
   const [showFace, setShowFace] = useState(face.FRONT);
+
+  const dispatch = useDispatch();
 
   const handleClick = () => sideInOrOut(card);
 
@@ -18,14 +22,10 @@ const Card = ({card, covered, sideInOrOut }) => {
   const src = parseImgSource(card, showFace);
 
   const contextMenuItems = [
-    {
-      label: `Move to ${card.ms === 'm' ? 'sideboard' : 'maindeck'}`,
-      callback: () => sideInOrOut(card)
-    },
-    {
-      label: `Remove from deck`,
-      callback: () => removeCard(card)
-    },
+    { label: `Move to ${card.ms === 'm' ? 'sideboard' : 'maindeck'}`,
+      callback: () => sideInOrOut(card) },
+    { label: `Remove from deck`,
+      callback: () => dispatch(removeCard(card)) }
   ];
 
   return (

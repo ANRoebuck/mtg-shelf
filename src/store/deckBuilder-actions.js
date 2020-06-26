@@ -10,8 +10,8 @@ export const setDecklist = (decklist) => (dispatch) => {
   });
 };
 
-export const addCardToMain = (card) => addCard(card, 'm');
-export const addCardToSide = (card) => addCard(card, 's');
+export const addCardToMain = (card) => (dispatch) => dispatch(addCard(card, 'm'));
+export const addCardToSide = (card) => (dispatch) => dispatch(addCard(card, 's'));
 const addCard = (card, ms) => (dispatch, getState) => {
   const { decklist } = getState()[DECKBUILDER_STATE];
   const updatedDecklist = [ ...decklist, { ...card, ms, index: decklist.length}];
@@ -30,11 +30,11 @@ export const removeCard = (cardToRemove) => (dispatch, getState) => {
   })
 };
 
-export const sideOut = (card) => {
-  removeCard(card);
-  addCardToSide(card);
+export const sideOut = (card) => (dispatch) => {
+  dispatch(removeCard(card));
+  dispatch(addCardToSide(card));
 };
-export const sideIn = (card) => {
-  removeCard(card);
-  addCardToMain(card);
+export const sideIn = (card) => (dispatch) => {
+  dispatch(removeCard(card));
+  dispatch(addCardToMain(card));
 };

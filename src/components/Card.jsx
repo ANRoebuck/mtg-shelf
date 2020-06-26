@@ -22,10 +22,18 @@ const Card = ({card, covered, sideInOrOut }) => {
   const src = parseImgSource(card, showFace);
 
   const contextMenuItems = [
-    { label: `Move to ${card.ms === 'm' ? 'sideboard' : 'maindeck'}`,
+    { label: `Move 1 to ${card.ms === 'm' ? 'sideboard' : 'maindeck'}`,
       callback: () => sideInOrOut(card) },
-    { label: `Remove from deck`,
-      callback: () => dispatch(removeCard(card)) }
+    { label: `// Move all to ${card.ms === 'm' ? 'sideboard' : 'maindeck'}`,
+      callback: () => null },
+    { label: `// Add 1 more`,
+      callback: () => null },
+    { label: `// Increase to 4`,
+      callback: () => null },
+    { label: `Remove 1`,
+      callback: () => dispatch(removeCard(card)) },
+    { label: `// Remove all`,
+      callback: () => null },
   ];
 
   return (

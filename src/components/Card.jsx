@@ -3,7 +3,7 @@ import { parseImgSource } from "./utils";
 import { face } from "./enums";
 import useRefCreator from "./useRefCreator";
 import ContextMenu from "./ContextMenu";
-import { removeCard } from "../store/deckBuilder-actions";
+import { addCardToMain, incrementToX, removeAllByNameAndZone, removeCard } from "../store/deckBuilder-actions";
 import { useDispatch } from "react-redux";
 
 const Card = ({card, covered, sideInOrOut }) => {
@@ -22,18 +22,18 @@ const Card = ({card, covered, sideInOrOut }) => {
   const src = parseImgSource(card, showFace);
 
   const contextMenuItems = [
-    { label: `Move 1 to ${card.ms === 'm' ? 'sideboard' : 'maindeck'}`,
+    { label: `Move to ${card.ms === 'm' ? 'sideboard' : 'maindeck'}`,
       callback: () => sideInOrOut(card) },
     { label: `// Move all to ${card.ms === 'm' ? 'sideboard' : 'maindeck'}`,
       callback: () => null },
-    { label: `// Add 1 more`,
-      callback: () => null },
-    { label: `// Increase to 4`,
-      callback: () => null },
+    { label: `Add 1`,
+      callback: () => dispatch(addCardToMain(card)) },
+    { label: `Increase to Max`,
+      callback: () => dispatch(incrementToX(card, 4)) },
     { label: `Remove 1`,
       callback: () => dispatch(removeCard(card)) },
-    { label: `// Remove all`,
-      callback: () => null },
+    { label: `Remove all`,
+      callback: () => dispatch(removeAllByNameAndZone(card)) },
   ];
 
   return (

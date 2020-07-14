@@ -5,22 +5,22 @@ import { setDecklist } from "../store/deckBuilder-actions";
 
 const SavedDecksMenu = () => {
 
-  const [currentDeck, setCurrentDeck] = useState([]);
-  const [savedDecks, setSavedDecks] = useState([]);
+  // const [currentDeck, setCurrentDeck] = useState([]);
+  // const [savedDecks, setSavedDecks] = useState([]);
 
   const decklist = useSelector(selectDecklist);
   const dispatch = useDispatch();
 
   const updateDecklist = (newList) => dispatch(setDecklist(newList));
 
-  const getSavedDecks = () => JSON.parse(localStorage.getItem('savedDecks'));
-  const addSavedDeck = (newDeckName) => {
-    const decklists = JSON.parse(localStorage.getItem('savedDecks'));
-    if((decklists.filter(decklist => decklist !== newDeckName)).length === 0){
-      decklists.push(newDeckName)
-      localStorage.setItem('savedDecks', decklists);
-    }
-  }
+  // const getSavedDecks = () => JSON.parse(localStorage.getItem('savedDecks'));
+  // const addSavedDeck = (newDeckName) => {
+  //   const decklists = JSON.parse(localStorage.getItem('savedDecks'));
+  //   if((decklists.filter(decklist => decklist !== newDeckName)).length === 0){
+  //     decklists.push(newDeckName)
+  //     localStorage.setItem('savedDecks', decklists);
+  //   }
+  // }
 
   const saveDeck = () => localStorage.setItem('savedDeck', JSON.stringify(decklist));
   const loadDeck = () => updateDecklist(JSON.parse(localStorage.getItem('savedDeck')));

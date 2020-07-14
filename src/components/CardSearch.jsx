@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { searchCards } from '../gateway/http';
 import SearchResult from './SearchResult';
 
-const CardSearch = ({ addCard }) => {
+const CardSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [cards, setCards] = useState([]);
 
@@ -20,7 +20,7 @@ const CardSearch = ({ addCard }) => {
 
   const lastCard = cards.length -1;
   const searchResults = cards.map((card, i) =>
-    <SearchResult card={card} addCard={addCard} covered={i < lastCard}/>);
+    <SearchResult card={card} covered={i < lastCard}/>);
 
   return (
     <div className="card-search">

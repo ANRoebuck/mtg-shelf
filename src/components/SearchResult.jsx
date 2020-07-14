@@ -1,12 +1,15 @@
 import React from "react";
 import { parseImgSource } from "./utils";
+import { useDispatch } from "react-redux";
+import { addCardToMain } from "../store/deckBuilder-actions";
 
-const SearchResult = ({ card, addCard, covered }) => {
+const SearchResult = ({ card, covered }) => {
+  const dispatch = useDispatch();
 
-  const onClick = () => addCard(card);
+  const handleClick = () => dispatch(addCardToMain(card));
 
   return (
-    <div className={`search-result${covered && ' covered'}`} onClick={onClick}>
+    <div className={`search-result${covered && ' covered'}`} onClick={handleClick}>
       <img className="search-result-img" src={parseImgSource(card)} alt={`search result for ${card.name}`}/>
     </div>
   );

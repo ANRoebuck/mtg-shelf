@@ -8,6 +8,7 @@
 
   .deck {
     display: grid;
+    grid-template-columns: auto auto;
     grid-template-rows: 1fr 9fr;
     height: 100%;
     width: 100%;
@@ -16,7 +17,7 @@
         display: flex;
         justify-content: center;
         max-height: 50px;
-        width: 100%;
+        //width: 100%;
 
         .option-set {
           display: flex;

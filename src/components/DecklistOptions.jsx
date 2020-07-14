@@ -80,10 +80,6 @@ const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy, vie
         <div>View:</div>
         {viewOptionsToRender}
       </div>
-      <div className="option-set">
-        <button type="button" onClick={saveDeck}>Save</button>
-        <button type="button" onClick={loadDeck}>Load</button>
-      </div>
     </div>
   );
 }

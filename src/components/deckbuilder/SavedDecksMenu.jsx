@@ -1,8 +1,8 @@
 // import React, { useState } from "react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectDecklist } from "../store/deckBuilder-selector";
-import { setDecklist } from "../store/deckBuilder-actions";
+import { selectDecklist } from "../../store/deckBuilder-selector";
+import { setDecklist } from "../../store/deckBuilder-actions";
 
 const SavedDecksMenu = () => {
 

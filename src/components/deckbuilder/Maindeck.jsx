@@ -2,8 +2,8 @@ import React from "react";
 import ColumnSorter from "./ColumnSorter";
 import DeckListColumn from "./DeckListColumn";
 import { useDispatch, useSelector } from "react-redux";
-import { selectMaindeck } from "../store/deckBuilder-selector";
-import { sideOut } from "../store/deckBuilder-actions";
+import { selectMaindeck } from "../../store/deckBuilder-selector";
+import { sideOut } from "../../store/deckBuilder-actions";
 
 
 const Maindeck = ({ sortColumnsBy, splitColumnsBy }) => {

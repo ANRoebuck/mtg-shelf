@@ -1,7 +1,7 @@
 import React from "react";
 import { parseImgSource } from "./utils";
 import { useDispatch } from "react-redux";
-import { addCardToMain, incrementToX } from "../store/deckBuilder-actions";
+import { addCardToMain, incrementToX } from "../../store/deckBuilder-actions";
 import useRefCreator from "./useRefCreator";
 import ContextMenu from "./ContextMenu";
 

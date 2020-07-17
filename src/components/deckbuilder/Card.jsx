@@ -3,7 +3,7 @@ import { parseImgSource } from "./utils";
 import { face } from "./enums";
 import useRefCreator from "./useRefCreator";
 import ContextMenu from "./ContextMenu";
-import { addCardToMain, incrementToX, removeAllByNameAndZone, removeCard } from "../store/deckBuilder-actions";
+import { addCardToMain, incrementToX, removeAllByNameAndZone, removeCard } from "../../store/deckBuilder-actions";
 import { useDispatch } from "react-redux";
 
 const Card = ({card, covered, sideInOrOut }) => {

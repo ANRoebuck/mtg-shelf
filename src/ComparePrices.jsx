@@ -48,7 +48,7 @@ const ComparePrices = () => {
         </div>
         <div className="stock">{stock}</div>
         <div className="price">{price}</div>
-        <img className="discovered-price-img" src={imgSrc}/>
+        <img className="discovered-price-img" src={imgSrc} alt={name}/>
       </div>
     )
   });

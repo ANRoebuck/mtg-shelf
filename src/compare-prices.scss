@@ -1,0 +1,16 @@
+
+.discovered-price {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  border: solid 2px black;
+  margin: 15px;
+  padding: 15px;
+
+  .discovered-price-img {
+    max-height: 125px;
+  }
+
+  & div {
+   margin: 10px;
+  }
+}

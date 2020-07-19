@@ -2,41 +2,48 @@ import axios from 'axios';
 
 class ModelTrollTrader {
 
-  cors = 'https://cors-anywhere.herokuapp.com/';
-  baseUrl = 'https://www.trolltradercards.com/products/search?q=';
   parser = new DOMParser();
-  whitespacestripper = /([\s]*)(\S[\s\S]*\S)([\s]*)/
 
-  searchTermToUrl = searchTerm => this.cors + this.baseUrl + searchTerm.toLowerCase().split(' ').join('+');
-  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm));
+  seller = 'Troll Trader';
+  cors = 'https://cors-anywhere.herokuapp.com/';
+  baseUrl = 'https://www.trolltradercards.com/';
+  searchPath = 'products/search?q=';
+  whitespaceStripper = /([\s]*)(\S[\s\S]*\S)([\s]*)/
 
   search = async (searchTerm) => {
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
     resultNodes.forEach(resultNode => {
-      const name = this.nameFromResultNode(resultNode);
-      const price = this.priceFromResultNode(resultNode);
-      const stock = this.stockFromResultNode(resultNode);
-      foundItems.push({name , price, stock});
+      foundItems.push({
+        seller: this.seller,
+        name: this.nameFromResultNode(resultNode),
+        price: this.priceFromResultNode(resultNode),
+        stock: this.stockFromResultNode(resultNode),
+        imgSrc: this.imgSrcFromResultNode(resultNode),
+        expansion: this.expansionFromResultNode(resultNode),
+      });
     });
     return foundItems;
   }
+
+  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm));
+
+  searchTermToUrl = searchTerm => this.cors + this.baseUrl + this.searchPath
+    + searchTerm.toLowerCase().split(' ').join('+');
 
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)
       .then(({data: html}) => {
         const document = this.parser.parseFromString(html, "text/html");
-        return document.querySelectorAll('div.search-results-products > ul > li')
+        return document.querySelectorAll('div.products-container > ul > li.product')
       });
   }
 
   nameFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div > div > div.product__details > div.product__details__title > a')
+    resultNode.querySelectorAll('div.inner > div > div.meta > a > h4')
       .forEach(node => {
-        node.firstChild.remove();
-        node.firstChild.remove();
-        let str = node.innerHTML.replace(this.whitespacestripper, `$2`);
+        let str = node.innerHTML.replace(this.whitespaceStripper, `$2`);
         arr.push(str);
       });
     return arr[0];
@@ -44,7 +51,7 @@ class ModelTrollTrader {
 
   priceFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div > div > div.product__options > div.product__details__prices > span > span > span > span.GBP')
+    resultNode.querySelectorAll('div.inner > div > div.meta > span.offers > span.price')
       .forEach(node => {
         arr.push(node.innerHTML);
       });
@@ -53,15 +60,30 @@ class ModelTrollTrader {
 
   stockFromResultNode = (resultNode) => {
     let arr =[];
-    resultNode.querySelectorAll('div > div > div.product__details > div.product__details__stock > span')
+    resultNode.querySelectorAll('div.inner > div > div.meta > span.offers > span.qty')
       .forEach(node => {
         arr.push(node.innerHTML);
       });
     return arr[0];
   }
 
+  imgSrcFromResultNode = (resultNode) => {
+    let arr = [];
+    resultNode.querySelectorAll('div.inner > div > div.image > a > img')
+      .forEach(node => {
+        arr.push(node.getAttribute('src'));
+      });
+    return arr[0];
+  }
 
-
+  expansionFromResultNode = (resultNode) => {
+    let arr = [];
+    resultNode.querySelectorAll('div.inner > div > div.meta > span.category')
+      .forEach(node => {
+        arr.push(node.innerHTML);
+      });
+    return arr[0];
+  }
 
 }
 

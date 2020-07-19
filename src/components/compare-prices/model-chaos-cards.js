@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-class ModelMadHouse {
+class ModelTrollTrader {
 
   parser = new DOMParser();
 
-  seller = 'Magic Madhouse';
+  seller = 'Chaos Cards';
   cors = 'https://cors-anywhere.herokuapp.com/';
-  baseUrl = 'https://www.magicmadhouse.co.uk/';
-  searchPath = 'search/';
+  baseUrl = 'https://www.trolltradercards.com/';
+  searchPath = 'products/search?q=';
   whitespaceStripper = /([\s]*)(\S[\s\S]*\S)([\s]*)/
 
   search = async (searchTerm) => {
@@ -20,7 +20,7 @@ class ModelMadHouse {
         price: this.priceFromResultNode(resultNode),
         stock: this.stockFromResultNode(resultNode),
         imgSrc: this.imgSrcFromResultNode(resultNode),
-        expansion: null,
+        expansion: this.expansionFromResultNode(resultNode),
       });
     });
     return foundItems;
@@ -29,22 +29,20 @@ class ModelMadHouse {
   getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm));
 
   searchTermToUrl = searchTerm => this.cors + this.baseUrl + this.searchPath
-    + searchTerm.toLowerCase().split(' ').join('-');
+    + searchTerm.toLowerCase().split(' ').join('+');
 
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)
       .then(({data: html}) => {
         const document = this.parser.parseFromString(html, "text/html");
-        return document.querySelectorAll('div.search-results-products > ul > li')
+        return document.querySelectorAll('div.products-container > ul > li.product')
       });
   }
 
   nameFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div > div > div.product__details > div.product__details__title > a')
+    resultNode.querySelectorAll('div.inner > div > div.meta > a > h4')
       .forEach(node => {
-        node.firstChild.remove();
-        node.firstChild.remove();
         let str = node.innerHTML.replace(this.whitespaceStripper, `$2`);
         arr.push(str);
       });
@@ -53,7 +51,7 @@ class ModelMadHouse {
 
   priceFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div > div > div.product__options > div.product__details__prices > span > span > span > span.GBP')
+    resultNode.querySelectorAll('div.inner > div > div.meta > span.offers > span.price')
       .forEach(node => {
         arr.push(node.innerHTML);
       });
@@ -62,7 +60,7 @@ class ModelMadHouse {
 
   stockFromResultNode = (resultNode) => {
     let arr =[];
-    resultNode.querySelectorAll('div > div > div.product__details > div.product__details__stock > span')
+    resultNode.querySelectorAll('div.inner > div > div.meta > span.offers > span.qty')
       .forEach(node => {
         arr.push(node.innerHTML);
       });
@@ -71,13 +69,22 @@ class ModelMadHouse {
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div > div.product__image > a > img')
+    resultNode.querySelectorAll('div.inner > div > div.image > a > img')
       .forEach(node => {
-        arr.push(this.baseUrl + node.getAttribute('data-src'));
+        arr.push(node.getAttribute('src'));
+      });
+    return arr[0];
+  }
+
+  expansionFromResultNode = (resultNode) => {
+    let arr = [];
+    resultNode.querySelectorAll('div.inner > div > div.meta > span.category')
+      .forEach(node => {
+        arr.push(node.innerHTML);
       });
     return arr[0];
   }
 
 }
 
-export default ModelMadHouse;
+export default ModelTrollTrader;

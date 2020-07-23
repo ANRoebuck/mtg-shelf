@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import ModelMadHouse from "./components/compare-prices/model-madhouse";
-import ModelTrollTrader from "./components/compare-prices/model-trolltrader";
 import './compare-prices.scss';
 import ModelAxion from "./components/compare-prices/model-axion";
+import ModelChaosCards from "./components/compare-prices/model-chaos-cards";
+import ModelMadHouse from "./components/compare-prices/model-madhouse";
 // import ModelPatriotGamesLeeds from "./components/compare-prices/model-patriot-games-leeds";
+import ModelTrollTrader from "./components/compare-prices/model-trolltrader";
 
 const ComparePrices = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,7 +14,8 @@ const ComparePrices = () => {
     new ModelMadHouse(),
     new ModelTrollTrader(),
     // new ModelPatriotGamesLeeds(),
-    new ModelAxion()
+    new ModelAxion(),
+    new ModelChaosCards(),
   ];
   const onChange = (event) => setSearchTerm(event.target.value);
 

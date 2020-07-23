@@ -4,9 +4,7 @@
   border: solid 2px black;
   margin: 15px;
   padding: 15px; }
-
-.discovered-price .discovered-price-img {
-  max-height: 125px; }
-
-.discovered-price div {
-  margin: 10px; }
+  .discovered-price .discovered-price-img {
+    max-height: 125px; }
+  .discovered-price div {
+    margin: 10px; }

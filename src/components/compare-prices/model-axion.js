@@ -53,19 +53,31 @@ class ModelAxion {
     let arr = [];
     resultNode.querySelectorAll('div.inner > div > div.meta > div > div > span.variant-buttons > form > div > span.regular')
       .forEach(node => {
-        arr.push(node.innerHTML);
+        const text = node.innerHTML;
+        arr.push({
+          text,
+          value: this.priceValueFromPriceText(text),
+        });
       });
+    arr.push({text: '', value: 9999});
     return arr[0];
   }
+  priceValueFromPriceText = (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999;
 
   stockFromResultNode = (resultNode) => {
     let arr =[];
     resultNode.querySelectorAll('div.inner > div > div.meta > div > div > span.variant-main-info > span.variant-qty')
       .forEach(node => {
-        arr.push(node.innerHTML);
+        const text = node.innerHTML;
+        arr.push({
+          text,
+          value: this.stockValueFromStockText(text),
+        });
       });
+    arr.push({text: 'Out of stock', value: 0});
     return arr[0];
   }
+  stockValueFromStockText = (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];

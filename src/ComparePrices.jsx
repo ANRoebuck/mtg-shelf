@@ -26,7 +26,6 @@ const ComparePrices = () => {
     e.preventDefault();
     for (const model of models) {
       const results = await model.search(searchTerm);
-      console.log(results);
       addDiscoveredPrices(results);
     }
   }
@@ -37,20 +36,39 @@ const ComparePrices = () => {
   const strongMatch = (discoveredPrice) => stripWord(discoveredPrice.name).includes(stripWord(lastSearched));
   const stripWord = (word) => word.split('').filter(l => /\w/.test(l)).join('').toLowerCase();
 
+  const cheapestFirst = (a, b) => a.price.value - b.price.value;
+  const outOfStockLast = (a, b) => {
+    const stockA = a.stock.value;
+    const stockB = b.stock.value;
+    if (stockA === 0 && stockB !== 0) return 1;
+    if (stockB === 0 && stockA !== 0) return -1;
+    return 0;
+  }
+
   const searchResults = discoveredPrices
     .filter(discoveredPrice => strongMatch(discoveredPrice))
+    .sort(cheapestFirst)
+    .sort(outOfStockLast)
     .map(discoveredPrice => {
     const { seller, name, price, stock, imgSrc, expansion } = discoveredPrice;
     return (
-      <div className="discovered-price">
-        <div className="seller">{seller}</div>
+      <div className="discovered-price" data-in-stock={stock.value > 0}>
+        <div className="seller">
+          <div>{seller}</div>
+        </div>
         <div className="details">
           <div className="name">{name}</div>
           <div className="expansion">{expansion}</div>
         </div>
-        <div className="stock">{stock}</div>
-        <div className="price">{price}</div>
-        <img className="discovered-price-img" src={imgSrc} alt={name}/>
+        <div className="stock">
+          <div>{stock.text}</div>
+        </div>
+        <div className="price">
+          <div>{price.text}</div>
+        </div>
+        <div className="img-container">
+          <img className="discovered-price-img" src={imgSrc} alt={name}/>
+        </div>
       </div>
     )
   });

@@ -53,20 +53,32 @@ class ModelPatriotGamesLeeds {
     let arr = [];
     resultNode.querySelectorAll('td.productListing-data > span.productBasePrice')
       .forEach(node => {
-        arr.push(node.innerHTML);
+        const text = node.innerHTML;
+        arr.push({
+          text,
+          value: this.priceValueFromPriceText(text),
+        });
       });
+    arr.push({text: '', value: 9999});
     return arr[0];
   }
+  priceValueFromPriceText = (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999;
 
   stockFromResultNode = (resultNode) => {
     return null;
     // let arr =[];
     // resultNode.querySelectorAll('div.inner > div > div.meta > span.offers > span.qty')
     //   .forEach(node => {
-    //     arr.push(node.innerHTML);
+    //     const text = node.replace(this.whitespaceStripper, `$2`);
+    //     arr.push({
+    //       text,
+    //       value: this.stockValueFromStockText(text),
+    //     });
     //   });
+    // arr.push({text: 'Out of stock', value: 0});
     // return arr[0];
   }
+  // stockValueFromStockText = (text) => text = 'Item out of Stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];

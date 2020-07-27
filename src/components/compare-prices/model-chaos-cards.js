@@ -57,19 +57,32 @@ class ModelChaosCards {
     resultNode.querySelectorAll(
       'div.product_details > div > div.product_price > span > span.price > span.inc > span.GBP')
       .forEach(node => {
-        arr.push(node.innerHTML);
+        const text = node.innerHTML;
+        arr.push({
+          text,
+          value: this.priceValueFromPriceText(text),
+        });
       });
+    arr.push({text: '', value: 9999});
     return arr[0];
   }
+  priceValueFromPriceText = (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999;
 
   stockFromResultNode = (resultNode) => {
     let arr =[];
-    resultNode.querySelectorAll('div.inner > div > div.meta > span.offers > span.qty')
+    resultNode.querySelectorAll('div.product_hover > div.product_hover_title > div.stock_levels')
       .forEach(node => {
-        arr.push(node.innerHTML);
+        const text = node.innerHTML.replace(this.whitespaceStripper, `$2`);
+        arr.push({
+          text,
+          value: this.stockValueFromStockText(text),
+        });
       });
-    return null;
+    arr.push({text: 'Out of stock', value: 0});
+    return arr[0];
   }
+  stockValueFromStockText = (text) =>
+    text === 'Sorry Item out of Stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];

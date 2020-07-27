@@ -14,3 +14,7 @@
    margin: 10px;
   }
 }
+
+[data-in-stock="false"] {
+  background-color: lightgrey;
+}

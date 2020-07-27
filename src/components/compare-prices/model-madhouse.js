@@ -55,19 +55,32 @@ class ModelMadHouse {
     let arr = [];
     resultNode.querySelectorAll('div > div > div.product__options > div.product__details__prices > span > span > span > span.GBP')
       .forEach(node => {
-        arr.push(node.innerHTML);
+        const text = node.innerHTML;
+        arr.push({
+          text,
+          value: this.priceValueFromPriceText(text),
+        });
       });
+    arr.push({text: '', value: 9999});
     return arr[0];
   }
+  priceValueFromPriceText = (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999;
 
   stockFromResultNode = (resultNode) => {
     let arr =[];
     resultNode.querySelectorAll('div > div > div.product__details > div.product__details__stock > span')
       .forEach(node => {
-        arr.push(node.innerHTML);
+        const text = node.innerHTML.replace(this.whitespaceStripper, `$2`);
+        arr.push({
+          text,
+          value: this.stockValueFromStockText(text),
+        });
       });
+    arr.push({text: 'Out of stock', value: 0});
     return arr[0];
   }
+  stockValueFromStockText = (text) => text === 'Item out of Stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
+
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];

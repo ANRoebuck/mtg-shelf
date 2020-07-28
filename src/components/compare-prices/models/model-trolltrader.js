@@ -1,24 +1,23 @@
 import axios from 'axios';
+import { cors, regex, seller } from "./utils";
 
-class ModelChaosCards {
+class ModelTrollTrader {
 
   parser = new DOMParser();
 
-  seller = 'Chaos Cards';
-  cors = 'https://cors-anywhere.herokuapp.com/';
-  baseUrl = 'https://www.chaoscards.co.uk/';
-  searchPath = 'search/';
-  whitespaceStripper = /([\s]*)(\S[\s\S]*\S)([\s]*)/;
-  perverseStripper = /^([\s\S]*):\s([\s\S]*)$/; // returns the groups separated by ": "
+  name = seller.trollTrader.name;
+  logo = seller.trollTrader.logo;
+  baseUrl = 'https://www.trolltradercards.com/';
+  searchPath = 'products/search?q=';
 
   search = async (searchTerm) => {
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
-    console.log(resultNodes.length);
     resultNodes.forEach(resultNode => {
       foundItems.push({
-        seller: this.seller,
-        name: this.nameFromResultNode(resultNode),
+        name: this.name,
+        logo: this.logo,
+        title: this.nameFromResultNode(resultNode),
         price: this.priceFromResultNode(resultNode),
         stock: this.stockFromResultNode(resultNode),
         imgSrc: this.imgSrcFromResultNode(resultNode),
@@ -30,23 +29,22 @@ class ModelChaosCards {
 
   getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm));
 
-  searchTermToUrl = searchTerm => this.cors + this.baseUrl + this.searchPath
-    + searchTerm.toLowerCase().split(' ').join('-');
+  searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath
+    + searchTerm.toLowerCase().split(' ').join('+');
 
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)
       .then(({data: html}) => {
         const document = this.parser.parseFromString(html, "text/html");
-        return document.querySelectorAll('div#search_results_grid > div#search_results_products > div.product')
+        return document.querySelectorAll('div.products-container > ul > li.product')
       });
   }
 
   nameFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div.product_details > div.product_title > a.product_title')
+    resultNode.querySelectorAll('div.inner > div > div.meta > a > h4')
       .forEach(node => {
-        node.firstChild.remove();
-        let str = node.innerHTML.replace(this.perverseStripper, `$2`);
+        let str = node.innerHTML.replace(this.whitespaceStripper, `$2`);
         arr.push(str);
       });
     return arr[0];
@@ -54,8 +52,7 @@ class ModelChaosCards {
 
   priceFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll(
-      'div.product_details > div > div.product_price > span > span.price > span.inc > span.GBP')
+    resultNode.querySelectorAll('div.inner > div > div.meta > span.offers > span.price')
       .forEach(node => {
         const text = node.innerHTML;
         arr.push({
@@ -70,36 +67,32 @@ class ModelChaosCards {
 
   stockFromResultNode = (resultNode) => {
     let arr =[];
-    resultNode.querySelectorAll('div.product_hover > div.product_hover_title > div.stock_levels')
+    resultNode.querySelectorAll('div.inner > div > div.meta > span.offers > span.qty')
       .forEach(node => {
-        const text = node.innerHTML.replace(this.whitespaceStripper, `$2`);
+        const text = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
         arr.push({
           text,
           value: this.stockValueFromStockText(text),
         });
       });
-    arr.push({text: 'Out of stock', value: 0});
+    arr.push({text: 'Out of Stock', value: 0});
     return arr[0];
   }
-  stockValueFromStockText = (text) =>
-    text === 'Sorry Item out of Stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
+  stockValueFromStockText = (text) => text === undefined ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('ul > li.product_image > a > img')
+    resultNode.querySelectorAll('div.inner > div > div.image > a > img')
       .forEach(node => {
-        arr.push(this.baseUrl + node.getAttribute('src'));
+        arr.push(node.getAttribute('src'));
       });
     return arr[0];
   }
 
   expansionFromResultNode = (resultNode) => {
     let arr = [];
-    const extremelyPerverseStripper = /^([^A-Z]*\s)([\w\W]*?)(\s[A-Z][a-z])([\s\S]*)$/;
-    resultNode.querySelectorAll('div.product_details > div.product_title > a.product_title')
+    resultNode.querySelectorAll('div.inner > div > div.meta > span.category')
       .forEach(node => {
-        let str = node.innerHTML.replace(extremelyPerverseStripper, `$2`);
-        arr.push(str);
         arr.push(node.innerHTML);
       });
     return arr[0];
@@ -107,4 +100,4 @@ class ModelChaosCards {
 
 }
 
-export default ModelChaosCards;
+export default ModelTrollTrader;

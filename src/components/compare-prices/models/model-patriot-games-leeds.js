@@ -1,22 +1,23 @@
 import axios from 'axios';
+import { cors, regex, seller } from "./utils";
 
-class ModelAxion {
+class ModelPatriotGamesLeeds {
 
   parser = new DOMParser();
 
-  seller = 'Axion';
-  cors = 'https://cors-anywhere.herokuapp.com/';
-  baseUrl = 'https://www.axionnow.com/';
-  searchPath = 'products/search?q=';
-  whitespaceStripper = /([\s]*)(\S[\s\S]*\S)([\s]*)/
+  name = seller.pgLeeds.name;
+  logo = seller.pgLeeds.logo;
+  baseUrl = 'http://www.patriotgamesleeds.com/';
+  searchPath = 'index.php?main_page=advanced_search_result&search_in_description=1&keyword=';
 
   search = async (searchTerm) => {
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
     resultNodes.forEach(resultNode => {
       foundItems.push({
-        seller: this.seller,
-        name: this.nameFromResultNode(resultNode),
+        name: this.name,
+        logo: this.logo,
+        title: this.nameFromResultNode(resultNode),
         price: this.priceFromResultNode(resultNode),
         stock: this.stockFromResultNode(resultNode),
         imgSrc: this.imgSrcFromResultNode(resultNode),
@@ -28,30 +29,31 @@ class ModelAxion {
 
   getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm));
 
-  searchTermToUrl = searchTerm => this.cors + this.baseUrl + this.searchPath
+  searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath
     + searchTerm.toLowerCase().split(' ').join('+');
 
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)
       .then(({data: html}) => {
         const document = this.parser.parseFromString(html, "text/html");
-        return document.querySelectorAll('ul.products > li.product')
+        return document.querySelectorAll('#productListing > table > tbody> tr')
       });
   }
 
   nameFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div.inner > div > div.meta > a > h4')
+    resultNode.querySelectorAll('td > h3.itemTitle > a')
       .forEach(node => {
-        let str = node.innerHTML.replace(this.whitespaceStripper, `$2`);
+        let str = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
         arr.push(str);
       });
+    arr.push('');
     return arr[0];
   }
 
   priceFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div.inner > div > div.meta > div > div > span.variant-buttons > form > div > span.regular')
+    resultNode.querySelectorAll('td.productListing-data > span.productBasePrice')
       .forEach(node => {
         const text = node.innerHTML;
         arr.push({
@@ -66,31 +68,31 @@ class ModelAxion {
 
   stockFromResultNode = (resultNode) => {
     let arr =[];
-    resultNode.querySelectorAll('div.inner > div > div.meta > div > div > span.variant-main-info > span.variant-qty')
+    resultNode.querySelectorAll('td[align="right"] > a')
       .forEach(node => {
-        const text = node.innerHTML;
+        const text = node.innerHTML === '... more info' ? "Out of Stock" : "In Stock";
         arr.push({
           text,
           value: this.stockValueFromStockText(text),
         });
       });
-    arr.push({text: 'Out of stock', value: 0});
+    arr.push({text: 'In Stock', value: 1});
     return arr[0];
   }
-  stockValueFromStockText = (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
+  stockValueFromStockText = (text) => text === 'Out of Stock' ? 0 : 1;
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div.inner > div > div.image > a > img')
+    resultNode.querySelectorAll('td.productListing-data > a > img')
       .forEach(node => {
-        arr.push(node.getAttribute('src'));
+        arr.push(this.baseUrl + node.getAttribute('src'));
       });
     return arr[0];
   }
 
   expansionFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div.inner > div > div.meta > a > span.category')
+    resultNode.querySelectorAll('td.productListing-data > div.listingDescription')
       .forEach(node => {
         arr.push(node.innerHTML);
       });
@@ -99,4 +101,4 @@ class ModelAxion {
 
 }
 
-export default ModelAxion;
+export default ModelPatriotGamesLeeds;

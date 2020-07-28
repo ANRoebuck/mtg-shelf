@@ -9,8 +9,8 @@ import ModelTrollTrader from "./components/compare-prices/models/model-trolltrad
 const configureModels = () => [
   new ModelMadHouse(),
   new ModelTrollTrader(),
-  new ModelPatriotGamesLeeds(),
   new ModelAxion(),
+  new ModelPatriotGamesLeeds(),
   new ModelChaosCards(),
 ].map(model => ({name: model.name, logo: model.logo, enabled: true, model}));
 

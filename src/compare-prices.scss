@@ -42,6 +42,15 @@
   }
 }
 
+.card-import {
+  width: 250px;
+  height: 500px;
+
+  .import-box {
+    height: 500px;
+  }
+}
+
 
 [data-in-stock="false"] {
   background-color: lightgrey;

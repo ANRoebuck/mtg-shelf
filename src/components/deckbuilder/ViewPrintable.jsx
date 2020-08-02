@@ -18,8 +18,8 @@ const ViewPrintable = () => {
   const sideboardRows = Object.entries(groupedSideboard).map(([cardname, cards]) =>
     <div>{`${cards.length}  ${cardname}`}</div>);
 
-  const maindeckCount = `(${maindeckRows.length})`
-  const sideboardCount = `(${sideboardRows.length})`
+  const maindeckCount = `(${maindeck.length})`
+  const sideboardCount = `(${sideboard.length})`
 
   return (
     <div className="view-printable">

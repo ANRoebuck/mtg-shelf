@@ -1,14 +1,13 @@
 import React from "react";
 import { parseImgSource } from "./utils";
 import { useDispatch } from "react-redux";
-import { addCardToMain, incrementToX } from "../../store/deckBuilder-actions";
+import { addCardToMain, incrementMaindeckToX } from "../../store/deckBuilder-actions";
 import useRefCreator from "./useRefCreator";
 import ContextMenu from "./ContextMenu";
 
 const SearchResult = ({ card, covered }) => {
 
   const [ref, updateRef] = useRefCreator();
-
   const dispatch = useDispatch();
 
   const handleClick = () => dispatch(addCardToMain(card));
@@ -17,7 +16,7 @@ const SearchResult = ({ card, covered }) => {
     { label: `Add 1`,
       callback: () => dispatch(addCardToMain(card)) },
     { label: `Increase to 4`,
-      callback: () => dispatch(incrementToX(card, 4)) },
+      callback: () => dispatch(incrementMaindeckToX(card, 4)) },
   ];
 
   return (

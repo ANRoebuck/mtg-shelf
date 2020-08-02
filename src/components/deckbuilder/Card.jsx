@@ -3,7 +3,7 @@ import { parseImgSource } from "./utils";
 import { face } from "./enums";
 import useRefCreator from "./useRefCreator";
 import ContextMenu from "./ContextMenu";
-import { addCardToMain, incrementToX, removeAllByNameAndZone, removeCard } from "../../store/deckBuilder-actions";
+import { addCardToMain, incrementMaindeckToX, removeAllByNameAndZone, removeCard } from "../../store/deckBuilder-actions";
 import { useDispatch } from "react-redux";
 
 const Card = ({card, covered, sideInOrOut }) => {
@@ -29,7 +29,7 @@ const Card = ({card, covered, sideInOrOut }) => {
     { label: `Add 1`,
       callback: () => dispatch(addCardToMain(card)) },
     { label: `Increase to 4`,
-      callback: () => dispatch(incrementToX(card, 4)) },
+      callback: () => dispatch(incrementMaindeckToX(card, 4)) },
     { label: `Remove 1`,
       callback: () => dispatch(removeCard(card)) },
     { label: `Remove all`,

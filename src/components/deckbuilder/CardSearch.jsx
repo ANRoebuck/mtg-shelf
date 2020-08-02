@@ -6,13 +6,11 @@ const CardSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [cards, setCards] = useState([]);
 
-  const onChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  const onChange = (event) => setSearchTerm(event.target.value);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    searchCards(searchTerm).then(({data: cards}) => {
+    searchCards(searchTerm).then((cards) => {
       setSearchTerm('');
       setCards(cards)
     });

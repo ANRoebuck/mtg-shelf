@@ -27,7 +27,7 @@ class ModelMadHouse {
     return foundItems;
   }
 
-  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm));
+  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => []);
 
   searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath
     + searchTerm.toLowerCase().split(' ').join('-');
@@ -71,7 +71,7 @@ class ModelMadHouse {
     let arr =[];
     resultNode.querySelectorAll('div > div > div.product__details > div.product__details__stock > span')
       .forEach(node => {
-        const text = node.innerHTML.replace(this.whitespaceStripper, `$2`);
+        const text = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
         arr.push({
           text,
           value: this.stockValueFromStockText(text),

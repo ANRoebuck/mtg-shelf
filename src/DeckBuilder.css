@@ -3,71 +3,56 @@
   grid-template-columns: 1fr 250px;
   padding-left: 20px;
   padding-right: 20px; }
-
-.deck-builder .deck {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: 1fr 9fr;
-  height: 100%;
-  width: 100%; }
-
-.deck-builder .deck .decklist-options {
-  display: flex;
-  justify-content: center;
-  max-height: 50px; }
-
-.deck-builder .deck .decklist-options .option-set {
-  display: flex;
-  flex-grow: 1;
-  justify-content: center; }
-
-.deck-builder .deck .deck-view .view-images {
-  display: flex; }
-
-.deck-builder .deck .deck-view .view-images .maindeck {
-  display: flex;
-  width: 100%; }
-
-.deck-builder .deck .deck-view .view-images .maindeck .decklist-column {
-  display: grid;
-  grid-template-rows: 1fr 1fr; }
-
-.deck-builder .deck .deck-view .view-images .maindeck .decklist-column .partial-decklist-column .card.covered {
-  height: 50px;
-  overflow: hidden; }
-
-.deck-builder .deck .deck-view .view-images .sideboard .decklist-column .card.covered {
-  height: 50px;
-  overflow: hidden; }
-
-.deck-builder .deck .deck-view .view-printable {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 35px; }
-
-.deck-builder .deck .deck-view .view-printable .printable-column-title {
-  text-align: center; }
-
-.deck-builder .deck .deck-view .view-printable .printable-column-cards {
-  text-align: left; }
-
-.deck-builder .card-search {
-  padding: 10px;
-  width: 250px;
-  border: 2px black;
-  height: 100%; }
-
-.deck-builder .card-search .search-results {
-  overflow-y: scroll; }
-
-.deck-builder .card-search .search-result.covered {
-  height: 50px;
-  overflow: hidden; }
-
-.deck-builder .card-import {
-  padding: 10px;
-  width: 250px;
-  border: 2px black;
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto auto auto; }
+  .deck-builder .deck {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr 9fr;
+    height: 100%;
+    width: 100%; }
+    .deck-builder .deck .decklist-options {
+      display: flex;
+      justify-content: center;
+      max-height: 50px; }
+      .deck-builder .deck .decklist-options .option-set {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center; }
+    .deck-builder .deck .deck-view .view-images {
+      display: flex; }
+      .deck-builder .deck .deck-view .view-images .maindeck {
+        display: flex;
+        width: 100%; }
+        .deck-builder .deck .deck-view .view-images .maindeck .decklist-column {
+          display: grid;
+          grid-template-rows: 1fr 1fr; }
+          .deck-builder .deck .deck-view .view-images .maindeck .decklist-column .partial-decklist-column .card.covered {
+            height: 50px;
+            overflow: hidden; }
+      .deck-builder .deck .deck-view .view-images .sideboard .decklist-column .card.covered {
+        height: 50px;
+        overflow: hidden; }
+    .deck-builder .deck .deck-view .view-printable {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 35px; }
+      .deck-builder .deck .deck-view .view-printable .printable-column-title {
+        text-align: center; }
+      .deck-builder .deck .deck-view .view-printable .printable-column-cards {
+        text-align: left; }
+  .deck-builder .card-search {
+    padding: 10px;
+    width: 250px;
+    border: 2px black;
+    height: 100%; }
+    .deck-builder .card-search .search-results {
+      overflow-y: scroll; }
+    .deck-builder .card-search .search-result.covered {
+      height: 50px;
+      overflow: hidden; }
+  .deck-builder .card-import {
+    padding: 10px;
+    width: 250px;
+    border: 2px black;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto auto auto; }

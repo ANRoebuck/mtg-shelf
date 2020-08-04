@@ -1,45 +1,67 @@
 import React, { useState } from "react";
 import './compare-prices.scss';
-import ModelAxion from "./components/compare-prices/models/model-axion";
-import ModelChaosCards from "./components/compare-prices/models/model-chaos-cards";
-import ModelMadHouse from "./components/compare-prices/models/model-madhouse";
-import ModelPatriotGamesLeeds from "./components/compare-prices/models/model-patriot-games-leeds";
-import ModelTrollTrader from "./components/compare-prices/models/model-trolltrader";
+import { configureModels } from "./components/compare-prices/models/configureModels";
 
-const configureModels = () => [
-  new ModelMadHouse(),
-  new ModelTrollTrader(),
-  new ModelAxion(),
-  new ModelPatriotGamesLeeds(),
-  new ModelChaosCards(),
-].map(model => ({name: model.name, logo: model.logo, enabled: true, model}));
 
 const ComparePrices = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [lastSearched, setLastSearched] = useState('');
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
-  const [sellers] = useState(configureModels());
-
-  // const updateSellers = () => setSellers([]);
+  const [sellers, setSellers] = useState(configureModels());
 
   const onChange = (event) => setSearchTerm(event.target.value);
 
   const onSubmit = async (e) => {
+    e.preventDefault();
+    const searchFor = searchTerm;
     setDiscoveredPrices([]);
     setLastSearched(searchTerm);
     setSearchTerm('');
-    e.preventDefault();
+    sellers.forEach(seller => {
+      seller.enabled && toggleSellerLoading(seller);
+      setSellerKeyValue('name', seller.name, 'results', '');
+      setSellerKeyValue('name', seller.name, 'inStock', '');
+    });
     for (const seller of sellers) {
-      const results = await seller.model.search(searchTerm);
-      addDiscoveredPrices(results);
+      seller.enabled && await getSearchResultsForSeller(seller, searchFor);
     }
   }
 
-  const addDiscoveredPrices = (newDiscoveredPrices) =>
-    setDiscoveredPrices((discoveredPrices) => discoveredPrices.concat(newDiscoveredPrices));
+  const getSearchResultsForSeller = async (seller, searchFor) => {
+    let results = await seller.model.search(searchFor);
+    results = results.filter(result => strongMatch(result.title, searchFor));
+    addDiscoveredPrices(results);
+    toggleSellerLoading(seller);
+    setSellerKeyValue('name', seller.name, 'results', results.length);
+    setSellerKeyValue('name', seller.name, 'inStock', results.filter(result => result.stock.value > 0).length);
+  }
 
-  const strongMatch = (discoveredPrice) => stripWord(discoveredPrice.title).includes(stripWord(lastSearched));
+  const catchUpSearchResultsForSeller = async (seller) => {
+    if (seller.results === '') {
+      !seller.loading && toggleSellerLoading(seller);
+      await getSearchResultsForSeller(seller, lastSearched);
+    }
+  }
+
+  const addDiscoveredPrices = (newDiscoveredPrices) => setDiscoveredPrices((discoveredPrices) =>
+    discoveredPrices.concat(newDiscoveredPrices));
+
+  const toggleSellerBoolean = (idKey, idValue, toggleKey) => setSellers((sellers) => sellers.map(seller =>
+    seller[idKey] === idValue ? {...seller, [toggleKey]: !seller[toggleKey]} : seller));
+  const toggleSellerLoading = (seller) => toggleSellerBoolean('name', seller.name, 'loading');
+  const toggleSellerEnabled = async (seller) => {
+    const wasEnabled = sellerIsEnabled(seller);
+    toggleSellerBoolean('name', seller.name, 'enabled');
+    !wasEnabled && await catchUpSearchResultsForSeller(seller);
+  }
+
+  const setSellerKeyValue = (idKey, idValue, updateKey, value) => setSellers((sellers) => sellers.map(seller =>
+    seller[idKey] === idValue ? {...seller, [updateKey]: value} : seller));
+
+  const strongMatch = (result, searchTerm) => stripWord(result).includes(stripWord(searchTerm));
   const stripWord = (word) => word.split('').filter(l => /\w/.test(l)).join('').toLowerCase();
+
+  const sellerIsEnabled = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name).enabled;
 
   const cheapestFirst = (a, b) => a.price.value - b.price.value;
   const outOfStockLast = (a, b) => {
@@ -53,13 +75,17 @@ const ComparePrices = () => {
   const sellerIcons = sellers.map(seller => {
     return (
       <div className="seller">
-        <img className="logo" src={seller.logo} alt={seller.name}/>
+        {seller.loading ? <div>Loading...</div> : null}
+        <img className="logo" src={seller.logo} alt={seller.name} onClick={() => toggleSellerEnabled(seller)}/>
+        <div>{seller.enabled ? 'enabled' : 'disabled'}</div>
+        <div>{`results: ${seller.results}`}</div>
+        <div>{`inStock: ${seller.inStock}`}</div>
       </div>
     )
   });
 
   const searchResults = discoveredPrices
-    .filter(discoveredPrice => strongMatch(discoveredPrice))
+    .filter(sellerIsEnabled)
     .sort(cheapestFirst)
     .sort(outOfStockLast)
     .map(discoveredPrice => {
@@ -68,6 +94,8 @@ const ComparePrices = () => {
         <div className="discovered-price" data-in-stock={stock.value > 0}>
           <div className="seller">
             <img className="logo" src={logo} alt={name}/>
+            {/*<div>{price.value}</div>*/}
+            {/*<div>{stock.value}</div>*/}
           </div>
           <div className="details">
             <div className="name">{title}</div>

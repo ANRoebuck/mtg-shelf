@@ -27,7 +27,7 @@ class ModelTrollTrader {
     return foundItems;
   }
 
-  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm));
+  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => []);
 
   searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath
     + searchTerm.toLowerCase().split(' ').join('+');

@@ -14,7 +14,6 @@ class ModelChaosCards {
   search = async (searchTerm) => {
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
-    console.log(resultNodes.length);
     resultNodes.forEach(resultNode => {
       foundItems.push({
         name: this.name,
@@ -29,7 +28,7 @@ class ModelChaosCards {
     return foundItems;
   }
 
-  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm));
+  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => []);
 
   searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath + searchTerm.toLowerCase().split(' ').join('-');
 
@@ -72,7 +71,7 @@ class ModelChaosCards {
     let arr =[];
     resultNode.querySelectorAll('div.product_hover > div.product_hover_title > div.stock_levels')
       .forEach(node => {
-        const text = node.innerHTML.replace(regex.whitespaceStripper, `$2`);
+        const text = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
         arr.push({
           text,
           value: this.stockValueFromStockText(text),

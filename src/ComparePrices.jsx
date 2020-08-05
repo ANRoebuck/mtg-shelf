@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './compare-prices.scss';
 import { configureModels } from "./components/compare-prices/models/configureModels";
-
+import SearchResult from "./components/compare-prices/SearchResult";
+import Seller from "./components/compare-prices/Seller";
 
 const ComparePrices = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -58,6 +59,11 @@ const ComparePrices = () => {
   const setSellerKeyValue = (idKey, idValue, updateKey, value) => setSellers((sellers) => sellers.map(seller =>
     seller[idKey] === idValue ? {...seller, [updateKey]: value} : seller));
 
+  const selectFavourite = (name) => {
+    sellers.forEach(seller => setSellerKeyValue('name', seller.name, 'favourite', false));
+    setSellerKeyValue('name', name, 'favourite', true);
+  }
+
   const strongMatch = (result, searchTerm) => stripWord(result).includes(stripWord(searchTerm));
   const stripWord = (word) => word.split('').filter(l => /\w/.test(l)).join('').toLowerCase();
 
@@ -72,47 +78,13 @@ const ComparePrices = () => {
     return 0;
   }
 
-  const sellerIcons = sellers.map(seller => {
-    return (
-      <div className="seller">
-        {seller.loading ? <div>Loading...</div> : null}
-        <img className="logo" src={seller.logo} alt={seller.name} onClick={() => toggleSellerEnabled(seller)}/>
-        <div>{seller.enabled ? 'enabled' : 'disabled'}</div>
-        <div>{`results: ${seller.results}`}</div>
-        <div>{`inStock: ${seller.inStock}`}</div>
-      </div>
-    )
-  });
+  const sellerIcons = sellers.map(seller => Seller(seller, toggleSellerEnabled, selectFavourite));
 
   const searchResults = discoveredPrices
     .filter(sellerIsEnabled)
     .sort(cheapestFirst)
     .sort(outOfStockLast)
-    .map(discoveredPrice => {
-      const {name, logo, title, price, stock, imgSrc, expansion} = discoveredPrice;
-      return (
-        <div className="discovered-price" data-in-stock={stock.value > 0}>
-          <div className="seller">
-            <img className="logo" src={logo} alt={name}/>
-            {/*<div>{price.value}</div>*/}
-            {/*<div>{stock.value}</div>*/}
-          </div>
-          <div className="details">
-            <div className="name">{title}</div>
-            <div className="expansion">{expansion}</div>
-          </div>
-          <div className="stock">
-            <div>{stock.text}</div>
-          </div>
-          <div className="price">
-            <div>{price.text}</div>
-          </div>
-          <div className="img-container">
-            <img className="discovered-price-img" src={imgSrc} alt={name}/>
-          </div>
-        </div>
-      )
-    });
+    .map(discoveredPrice => SearchResult(discoveredPrice));
 
   return (
     <div className="card-search">

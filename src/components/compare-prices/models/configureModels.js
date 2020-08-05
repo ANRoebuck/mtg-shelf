@@ -18,6 +18,7 @@ export const configureModels = () => [
       loading: false,
       results: '',
       inStock: '',
+      favourite: false,
       model
     }
   });

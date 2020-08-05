@@ -1,6 +1,6 @@
 import React from "react";
 import DeckListColumn from "./DeckListColumn";
-import { splitBy } from "./enums";
+import { splitBy } from "../enums";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSideboard } from "../../store/deckBuilder-selector";
 import { sideIn } from "../../store/deckBuilder-actions";

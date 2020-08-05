@@ -1,5 +1,5 @@
 import React from "react";
-import { financeDeck, cardsByCMC, cardsByColour, legalityByFormat } from "./utils";
+import { financeDeck, cardsByCMC, cardsByColour, legalityByFormat } from "../utils";
 import { useSelector } from "react-redux";
 import { selectMaindeck, selectSideboard } from "../../store/deckBuilder-selector";
 

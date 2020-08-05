@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import './compare-prices.scss';
-import { configureModels } from "./components/compare-prices/models/configureModels";
-import SearchResult from "./components/compare-prices/SearchResult";
-import Seller from "./components/compare-prices/Seller";
+import '../compare-prices.scss';
+import { configureModels } from "./models/configureModels";
+import SearchResult from "./components/SearchResult";
+import Seller from "./components/Seller";
 
 const ComparePrices = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -78,6 +78,8 @@ const ComparePrices = () => {
     return 0;
   }
 
+  const searchOptions = [''];
+
   const sellerIcons = sellers.map(seller => Seller(seller, toggleSellerEnabled, selectFavourite));
 
   const searchResults = discoveredPrices
@@ -94,6 +96,9 @@ const ComparePrices = () => {
           <input type="text" value={searchTerm} onChange={(e) => onChange(e)}/>
         </label>
       </form>
+      <div className="options">
+
+      </div>
       <div className="sellers">
         {sellerIcons}
       </div>

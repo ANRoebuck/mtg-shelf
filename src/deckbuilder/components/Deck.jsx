@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DecklistOptions from "./DecklistOptions";
-import { sortBy, splitBy, viewBy } from "./enums";
+import { sortBy, splitBy, viewBy } from "../enums";
 import DeckView from './DeckView';
 import SavedDecksMenu from "./SavedDecksMenu";
 

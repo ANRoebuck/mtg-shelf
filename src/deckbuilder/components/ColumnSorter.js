@@ -1,5 +1,5 @@
-import { assignColumnsByCMC, assignColumnsByColour, assignColumnsByType } from "./utils";
-import { sortBy } from "./enums";
+import { assignColumnsByCMC, assignColumnsByColour, assignColumnsByType } from "../utils";
+import { sortBy } from "../enums";
 
 
 class ColumnSorter {

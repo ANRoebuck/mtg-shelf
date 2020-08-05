@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
-import DeckBuilder from "./DeckBuilder";
+import DeckBuilder from "./deckbuilder/DeckBuilder";
 import Home from "./Home";
-import ComparePrices from "./ComparePrices";
+import ComparePrices from "./compare-prices/ComparePrices";
 
 const App = () => {
 

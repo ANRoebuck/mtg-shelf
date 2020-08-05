@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy, viewOptions, setViewBy, saveDeck, loadDeck }) => {
+const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy, viewOptions, setViewBy }) => {
 
   const [selectedSortOption, setSelectedSortOption] = useState(sortOptions[0]);
   const [selectedSplitOption, setSelectedSplitOption] = useState(splitOptions[0]);

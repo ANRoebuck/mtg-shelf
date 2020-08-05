@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './DeckBuilder.css';
-import CardSearch from "./components/deckbuilder/CardSearch";
-import Deck from "./components/deckbuilder/Deck";
-import CardImport from "./components/deckbuilder/CardImport";
-import { nextInArray } from "./components/deckbuilder/utils";
+import '../DeckBuilder.css';
+import CardSearch from "./components/CardSearch";
+import Deck from "./components/Deck";
+import CardImport from "./components/CardImport";
+import { nextInArray } from "./utils";
 
 const displayOptions = ['search', 'import'];
 

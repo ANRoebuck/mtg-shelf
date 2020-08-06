@@ -19,3 +19,4 @@ export const viewBy = {
   printable: 'printable',
   stats: 'stats',
 }
+

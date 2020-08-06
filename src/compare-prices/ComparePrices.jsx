@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import '../compare-prices.scss';
+import './compare-prices.scss';
 import { configureModels } from "./models/configureModels";
 import SearchResult from "./components/SearchResult";
 import Seller from "./components/Seller";
+import { sortOosBy } from "./enums";
 
 const ComparePrices = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [lastSearched, setLastSearched] = useState('');
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [sellers, setSellers] = useState(configureModels());
+  const [sortStockBy, setSortStockBy]  = useState(sortOosBy.last);
 
   const onChange = (event) => setSearchTerm(event.target.value);
 

@@ -9,7 +9,7 @@ const SearchOptions = ({ stockOptions, setSortStockBy }) => {
     setSortStockBy(e.target.value);
   };
 
-  const sortOptionsToRender = stockOptions.map(option => {
+  const optionsToRender = stockOptions.map(option => {
     return (
       <div className="radio">
         <label>
@@ -25,12 +25,10 @@ const SearchOptions = ({ stockOptions, setSortStockBy }) => {
   });
 
   return (
-    <div className="decklist-options">
       <div className={"option-set"}>
-        <div>Sort columns:</div>
-        {sortOptionsToRender}
+        <div>Sort out-of-stock items:</div>
+        {optionsToRender}
       </div>
-    </div>
   );
 }
 

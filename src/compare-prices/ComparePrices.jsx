@@ -4,13 +4,14 @@ import { configureModels } from "./models/configureModels";
 import SearchResult from "./components/SearchResult";
 import Seller from "./components/Seller";
 import { sortOosBy } from "./enums";
+import SearchOptions from "./components/SearchOptions";
 
 const ComparePrices = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [lastSearched, setLastSearched] = useState('');
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [sellers, setSellers] = useState(configureModels());
-  const [sortStockBy, setSortStockBy]  = useState(sortOosBy.last);
+  const [sortStockBy, setSortStockBy] = useState(sortOosBy.last);
 
   const onChange = (event) => setSearchTerm(event.target.value);
 
@@ -80,8 +81,6 @@ const ComparePrices = () => {
     return 0;
   }
 
-  const searchOptions = [''];
-
   const sellerIcons = sellers.map(seller => Seller(seller, toggleSellerEnabled, selectFavourite));
 
   const searchResults = discoveredPrices
@@ -99,7 +98,7 @@ const ComparePrices = () => {
         </label>
       </form>
       <div className="options">
-
+        <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
       </div>
       <div className="sellers">
         {sellerIcons}

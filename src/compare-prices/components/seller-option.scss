@@ -1,0 +1,18 @@
+.seller-options {
+  margin: 15px;
+  padding: 15px;
+  border: solid 2px black;
+
+  .logo {
+    max-width: 100px;
+    max-height: 40px;
+  }
+}
+
+[data-seller-enabled="false"] {
+  background-color: lightgrey;
+}
+
+[data-seller-favourite="true"] {
+  background-color: lightgreen;
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './compare-prices.scss';
 import { configureModels } from "./models/configureModels";
 import SearchResult from "./components/SearchResult";
-import Seller from "./components/Seller";
+import SellerOption from "./components/SellerOption";
 import { sortOosBy } from "./enums";
 import SearchOptions from "./components/SearchOptions";
 
@@ -62,32 +62,55 @@ const ComparePrices = () => {
   const setSellerKeyValue = (idKey, idValue, updateKey, value) => setSellers((sellers) => sellers.map(seller =>
     seller[idKey] === idValue ? {...seller, [updateKey]: value} : seller));
 
-  const selectFavourite = (name) => {
-    sellers.forEach(seller => setSellerKeyValue('name', seller.name, 'favourite', false));
-    setSellerKeyValue('name', name, 'favourite', true);
+  const assignFavourite = (seller) => {
+    if (sellerIsFavourite(seller)) setSellerKeyValue('name', seller.name, 'favourite', false);
+    else {
+      sellers.forEach(seller => setSellerKeyValue('name', seller.name, 'favourite', false));
+      setSellerKeyValue('name', seller.name, 'favourite', true);
+    }
   }
 
   const strongMatch = (result, searchTerm) => stripWord(result).includes(stripWord(searchTerm));
   const stripWord = (word) => word.split('').filter(l => /\w/.test(l)).join('').toLowerCase();
 
-  const sellerIsEnabled = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name).enabled;
+  const maybeFilterByStock = (item) => {
+    if (sortStockBy === sortOosBy.exclude) return itemIsOos(item);
+    return true;
+  }
+  const maybeSortByStock = (a, b) => {
+    if (sortStockBy === sortOosBy.last) return sortOutOfStockLast(a, b);
+    if (sortStockBy === sortOosBy.none) return sortNoSort(a, b);
+  }
 
-  const cheapestFirst = (a, b) => a.price.value - b.price.value;
-  const outOfStockLast = (a, b) => {
+  const sellerIsEnabled = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name).enabled;
+  const sellerIsFavourite = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name).favourite;
+  const itemIsOos = (item) => item.stock.value > 0;
+
+  const sortCheapestFirst = (a, b) => a.price.value - b.price.value;
+  const sortNoSort = () => 0;
+  const sortOutOfStockLast = (a, b) => {
     const stockA = a.stock.value;
     const stockB = b.stock.value;
     if (stockA === 0 && stockB !== 0) return 1;
     if (stockB === 0 && stockA !== 0) return -1;
     return 0;
   }
+  const sortFavouriteFirst = (a, b) => {
+    if (a.name === b.name) return 0;
+    else if (sellerIsFavourite(a)) return -1;
+    else if (sellerIsFavourite(b)) return 1;
+    return 0;
+  }
 
-  const sellerIcons = sellers.map(seller => Seller(seller, toggleSellerEnabled, selectFavourite));
+  const sellerOptions = sellers.map(seller => SellerOption(seller, toggleSellerEnabled, assignFavourite));
 
   const searchResults = discoveredPrices
     .filter(sellerIsEnabled)
-    .sort(cheapestFirst)
-    .sort(outOfStockLast)
-    .map(discoveredPrice => SearchResult(discoveredPrice));
+    .filter(maybeFilterByStock)
+    .sort(sortCheapestFirst)
+    .sort(maybeSortByStock)
+    .sort(sortFavouriteFirst)
+    .map(SearchResult);
 
   return (
     <div className="card-search">
@@ -101,7 +124,7 @@ const ComparePrices = () => {
         <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
       </div>
       <div className="sellers">
-        {sellerIcons}
+        {sellerOptions}
       </div>
       <div className="search-results">
         {searchResults}

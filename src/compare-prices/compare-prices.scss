@@ -1,17 +1,10 @@
 .sellers {
   display: flex;
   justify-content: center;
+}
 
-  .seller {
-    margin: 15px;
-    padding: 15px;
-
-    .logo {
-      max-height: 100px;
-      max-width: 100px;
-
-    }
-  }
+[data-in-stock="false"] {
+  background-color: lightgrey;
 }
 
 .search-results {
@@ -49,9 +42,4 @@
   .import-box {
     height: 500px;
   }
-}
-
-
-[data-in-stock="false"] {
-  background-color: lightgrey;
 }

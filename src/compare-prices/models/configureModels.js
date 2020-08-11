@@ -5,11 +5,11 @@ import ModelPatriotGamesLeeds from "./model-patriot-games-leeds";
 import ModelTrollTrader from "./model-trolltrader";
 
 export const configureModels = () => [
-  new ModelMadHouse(),
-  new ModelTrollTrader(),
   new ModelAxion(),
-  new ModelPatriotGamesLeeds(),
   new ModelChaosCards(),
+  new ModelMadHouse(),
+  new ModelPatriotGamesLeeds(),
+  new ModelTrollTrader(),
 ].map(model => {
     return {
       name: model.name,

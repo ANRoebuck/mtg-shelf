@@ -2,6 +2,10 @@ import React from "react";
 import { financeDeck, cardsByCMC, cardsByColour, legalityByFormat } from "../utils";
 import { useSelector } from "react-redux";
 import { selectMaindeck, selectSideboard } from "../../store/deckBuilder-selector";
+import StatsTableCMC from "./StatsTableCMC";
+import Finance from "./Finance";
+import StatsTableColour from "./StatsTableColour";
+import Legalities from "./Legalities";
 
 
 const ViewStats = () => {
@@ -9,26 +13,18 @@ const ViewStats = () => {
   const maindeck = useSelector(selectMaindeck);
   const sideboard = useSelector(selectSideboard);
 
-  const statsByFinance = financeDeck([...maindeck, ...sideboard]);
   const statsByCMC = cardsByCMC(maindeck);
   const statsByColour = cardsByColour(maindeck);
   const legalities = legalityByFormat([...maindeck, ...sideboard]);
+  const finance = financeDeck([...maindeck, ...sideboard]);
 
   return (
     <div className="view-stats">
       STATS
-      <div className="single-stat">
-        FINANCE {JSON.stringify(statsByFinance)}
-      </div>
-      <div className="single-stat">
-        CARDS BY CMC {JSON.stringify(statsByCMC)}
-      </div>
-      <div className="single-stat">
-        CARDS BY COLOUR {JSON.stringify(statsByColour)}
-      </div>
-      <div className="single-stat">
-        FORMAT LEGALITIES {JSON.stringify(legalities)}
-      </div>
+      <StatsTableCMC statsByCMC={statsByCMC} />
+      <StatsTableColour statsByColour={statsByColour} />
+      <Legalities legalities={legalities} />
+      <Finance finance={finance} />
     </div>
   );
 };

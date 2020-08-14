@@ -3,6 +3,7 @@ import { addSomeToSomewhere, where } from "../../store/deckBuilder-actions";
 import { searchCards } from '../../gateway/http';
 import { useDispatch } from "react-redux";
 import { isTransformCard } from "../utils";
+import './cardimport.scss';
 
 const CardSearch = () => {
 

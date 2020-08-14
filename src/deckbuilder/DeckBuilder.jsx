@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import './deck-builder.scss';
+import './deckbuilder.scss';
 import CardSearch from "./components/CardSearch";
 import Deck from "./components/Deck";
 import CardImport from "./components/CardImport";
 import { nextInArray } from "./utils";
+import SavedDecksMenu from "./components/SavedDecksMenu";
 
 const displayOptions = ['search', 'import'];
 
@@ -19,6 +20,7 @@ const DeckBuilder = () => {
     <div className="deck-builder">
       <Deck />
       <div className="search-container">
+        <SavedDecksMenu/>
         <button type="button" onClick={nextDisplay}>Search / Import</button>
         {toDisplay}
       </div>

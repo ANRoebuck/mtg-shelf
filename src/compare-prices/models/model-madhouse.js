@@ -21,6 +21,7 @@ class ModelMadHouse {
         price: this.priceFromResultNode(resultNode),
         stock: this.stockFromResultNode(resultNode),
         imgSrc: this.imgSrcFromResultNode(resultNode),
+        productRef: this.baseUrl + this.productRefFromResultNode(resultNode),
         expansion: this.expansionFromResultNode(resultNode),
       });
     });
@@ -88,6 +89,15 @@ class ModelMadHouse {
     resultNode.querySelectorAll('div > div.product__image > a > img')
       .forEach(node => {
         arr.push(this.baseUrl + node.getAttribute('data-src'));
+      });
+    return arr[0];
+  }
+
+  productRefFromResultNode = (resultNode) => {
+    let arr = [];
+    resultNode.querySelectorAll('div > div.product__image > a')
+      .forEach(node => {
+        arr.push(node.getAttribute('href'));
       });
     return arr[0];
   }

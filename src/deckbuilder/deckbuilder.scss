@@ -1,0 +1,9 @@
+.deck-builder {
+  display: grid;
+  //max-height: 400px;
+  grid-template-columns: 1fr 250px;
+  //overflow-y: hidden;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}

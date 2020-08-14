@@ -21,6 +21,7 @@ class ModelAxion {
         price: this.priceFromResultNode(resultNode),
         stock: this.stockFromResultNode(resultNode),
         imgSrc: this.imgSrcFromResultNode(resultNode),
+        productRef: this.baseUrl + this.productRefFromResultNode(resultNode),
         expansion: this.expansionFromResultNode(resultNode),
       });
     });
@@ -85,6 +86,15 @@ class ModelAxion {
     resultNode.querySelectorAll('div.inner > div > div.image > a > img')
       .forEach(node => {
         arr.push(node.getAttribute('src'));
+      });
+    return arr[0];
+  }
+
+  productRefFromResultNode = (resultNode) => {
+    let arr = [];
+    resultNode.querySelectorAll('div.inner > div > div.image > a')
+      .forEach(node => {
+        arr.push(node.getAttribute('href'));
       });
     return arr[0];
   }

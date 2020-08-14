@@ -2,7 +2,9 @@ import React from "react";
 
 const SearchResult = (discoveredPrice) => {
 
-  const {name, logo, title, price, stock, imgSrc, expansion} = discoveredPrice;
+  const {name, logo, title, price, stock, imgSrc, productRef, expansion} = discoveredPrice;
+
+  const onClickLink = () => window.open(productRef, "_blank");
 
   return (
     <div className="discovered-price" data-in-stock={stock.value > 0}>
@@ -23,6 +25,7 @@ const SearchResult = (discoveredPrice) => {
       </div>
       <div className="img-container">
         <img className="discovered-price-img" src={imgSrc} alt={name}/>
+        <div onClick={onClickLink}>Link</div>
       </div>
     </div>
   )

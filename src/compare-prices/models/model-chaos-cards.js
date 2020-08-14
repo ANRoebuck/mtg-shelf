@@ -22,6 +22,7 @@ class ModelChaosCards {
         price: this.priceFromResultNode(resultNode),
         stock: this.stockFromResultNode(resultNode),
         imgSrc: this.imgSrcFromResultNode(resultNode),
+        productRef: this.baseUrl + this.productRefFromResultNode(resultNode),
         expansion: this.expansionFromResultNode(resultNode),
       });
     });
@@ -88,6 +89,15 @@ class ModelChaosCards {
     resultNode.querySelectorAll('ul > li.product_image > a > img')
       .forEach(node => {
         arr.push(this.baseUrl + node.getAttribute('src'));
+      });
+    return arr[0];
+  }
+
+  productRefFromResultNode = (resultNode) => {
+    let arr = [];
+    resultNode.querySelectorAll('ul > li.product_image > a')
+      .forEach(node => {
+        arr.push(node.getAttribute('href'));
       });
     return arr[0];
   }

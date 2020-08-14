@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DecklistOptions from "./DecklistOptions";
 import { sortBy, splitBy, viewBy } from "../enums";
 import DeckView from './DeckView';
-import SavedDecksMenu from "./SavedDecksMenu";
+import './deck.scss';
 
 const Deck = () => {
 
@@ -19,7 +19,6 @@ const Deck = () => {
         viewOptions={Object.keys(viewBy)} setViewBy={setViewDeckBy}
 
       />
-      <SavedDecksMenu/>
       <DeckView
         sortColumnsBy={sortColumnsBy}
         splitColumnsBy={splitColumnsBy}

@@ -10,7 +10,7 @@ const displayOptions = ['search', 'import'];
 
 const DeckBuilder = () => {
 
-  const [display, setDisplay] = useState('import');
+  const [display, setDisplay] = useState('search');
 
   const nextDisplay = () => setDisplay(display => nextInArray(displayOptions, display));
 

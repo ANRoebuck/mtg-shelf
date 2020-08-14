@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { isTransformCard } from "../utils";
 import './cardimport.scss';
 
-const CardSearch = () => {
+const CardImport = () => {
 
   const [list, setList] = useState('');
   const dispatch = useDispatch();
@@ -56,4 +56,4 @@ const CardSearch = () => {
   )
 }
 
-export default CardSearch;
+export default CardImport;

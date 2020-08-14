@@ -25,6 +25,9 @@ const SavedDecksMenu = () => {
 
   const saveDeck = () => localStorage.setItem('savedDeck', JSON.stringify(decklist));
   const loadDeck = () => updateDecklist(JSON.parse(localStorage.getItem('savedDeck')));
+  // const clearDeck = () => {
+  //   updateDecklist([]);
+  // }
 
   return (
     <div className="decklist-options">

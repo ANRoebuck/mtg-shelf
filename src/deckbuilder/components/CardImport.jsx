@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { addSomeToSomewhere, where } from "../../store/deckBuilder-actions";
 import { searchCards } from '../../gateway/http';
 import { useDispatch } from "react-redux";
+import { isTransformCard } from "../utils";
 
 const CardSearch = () => {
 
@@ -14,26 +15,34 @@ const CardSearch = () => {
     .forEach((sublist, i) => sublist
       .forEach(subListItem =>
         getCard(subListItem.cardName)
-          .then(card => dispatch(addSomeToSomewhere(exactMatch(card, subListItem.cardName), subListItem.qty, where(i))))
-          .catch(e => errorHandle(e, subListItem))));
+          .then(card => {
+            dispatch(addSomeToSomewhere(card, subListItem.qty, where(i)));
+            removeItemFromList(subListItem);
+          })
+          .catch(e => console.log(`Could not add cards: ${subListItem}\n${e}`))
+      ));
+
+  const removeItemFromList = (itemToRemove) => setList(list => list
+    .split('\n')
+    .filter(ele => !(ele.startsWith(itemToRemove.qty) && ele.endsWith(itemToRemove.cardName)))
+    .join('\n'))
 
   const arraysFromList = (l) => l
     .split(/sideboard/i)
-    .map(subList =>
-      subList
-        .split('\n')
-        .map(item => ({qty: getQty(item), cardName: getCardName(item)}))
-    );
+    .map(subList => subList
+      .split('\n')
+      .map(item => ({qty: getQty(item), cardName: getCardNameFromList(item)})));
 
   const getQty = (item) => item.replace(/(\d*)\s*x*\s*(\S[\s\S]*)/, `$1`);
 
-  const getCardName = (item) => item.replace(/(\d*)\s*x*\s*(\S[\s\S]*)/, `$2`);
+  const getCardNameFromList = (item) => item.replace(/(\d*)\s*x*\s*(\S[\s\S]*)/, `$2`);
 
-  const exactMatch = (cardArray, cardName) => (cardArray.filter(c => c.name.toLowerCase() === cardName.toLowerCase())[0]);
+  const firstInclusiveMatch = (cardArray, cardName) => cardArray
+    .find(c => cardName.toLowerCase().includes(getCardNameFromResult(c).toLowerCase()));
 
-  const getCard = (cardName) => searchCards(cardName);
+  const getCardNameFromResult = (card) => isTransformCard(card) ? card.card_faces[0].name : card.name;
 
-  const errorHandle = (e, listItem) => 'nborked';
+  const getCard = (cardName) => searchCards(cardName).then(cards => firstInclusiveMatch(cards, cardName));
 
   return (
     <div className="card-import">

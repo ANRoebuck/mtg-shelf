@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import './deckbuilder.scss';
 import CardSearch from "./components/CardSearch";
-import Deck from "./components/Deck";
 import CardImport from "./components/CardImport";
 import { nextInArray } from "./utils";
 import SavedDecksMenu from "./components/SavedDecksMenu";
+import DecklistOptions from "./components/DecklistOptions";
+import { sortBy, splitBy, viewBy } from "./enums";
+import DeckView from "./components/DeckView";
 
 const displayOptions = ['search', 'import'];
 
 const DeckBuilder = () => {
-
+  const [sortColumnsBy, setSortColumnsBy] = useState(sortBy.cmc);
+  const [splitColumnsBy, setSplitColumnsBy] = useState(splitBy.none);
+  const [viewDeckBy, setViewDeckBy] = useState(viewBy.images);
   const [display, setDisplay] = useState('search');
 
   const nextDisplay = () => setDisplay(display => nextInArray(displayOptions, display));
@@ -18,12 +22,26 @@ const DeckBuilder = () => {
 
   return (
     <div className="deck-builder">
-      <Deck />
+
+      <DecklistOptions
+        sortOptions={Object.keys(sortBy)} setSortBy={setSortColumnsBy}
+        splitOptions={Object.keys(splitBy)} setSplitBy={setSplitColumnsBy}
+        viewOptions={Object.keys(viewBy)} setViewBy={setViewDeckBy}
+      />
+
+      <SavedDecksMenu/>
+
+      <DeckView
+        sortColumnsBy={sortColumnsBy}
+        splitColumnsBy={splitColumnsBy}
+        viewDeckBy={viewDeckBy}
+      />
+
       <div className="search-container">
-        <SavedDecksMenu/>
         <button type="button" onClick={nextDisplay}>Search / Import</button>
         {toDisplay}
       </div>
+
     </div>
   );
 };

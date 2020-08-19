@@ -1,9 +1,24 @@
 .deck-builder {
   display: grid;
-  //max-height: 400px;
   grid-template-columns: 1fr 250px;
+  grid-template-rows: 100px 1fr;
+  height: 100%;
   //overflow-y: hidden;
   padding-left: 20px;
   padding-right: 20px;
+
+
+  .decklist-options {
+    display: flex;
+    justify-content: center;
+    max-height: 50px;
+
+    .option-set {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+    }
+  }
+
 
 }

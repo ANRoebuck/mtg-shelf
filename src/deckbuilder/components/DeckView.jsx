@@ -3,6 +3,7 @@ import { viewBy } from "../enums";
 import ViewImages from './ViewImages';
 import ViewPrintable from './ViewPrintable';
 import ViewStats from './ViewStats';
+import './deck-view.scss';
 
 const DeckView = ({ sortColumnsBy, splitColumnsBy, viewDeckBy }) => {
 

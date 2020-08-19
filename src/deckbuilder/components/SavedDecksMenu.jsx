@@ -25,15 +25,14 @@ const SavedDecksMenu = () => {
 
   const saveDeck = () => localStorage.setItem('savedDeck', JSON.stringify(decklist));
   const loadDeck = () => updateDecklist(JSON.parse(localStorage.getItem('savedDeck')));
-  // const clearDeck = () => {
-  //   updateDecklist([]);
-  // }
+  const clearDeck = () => updateDecklist([]);
 
   return (
     <div className="decklist-options">
       <div className="option-set">
         <button type="button" onClick={saveDeck}>Save</button>
         <button type="button" onClick={loadDeck}>Load</button>
+        <button type="button" onClick={clearDeck}>Clear</button>
       </div>
     </div>
   );

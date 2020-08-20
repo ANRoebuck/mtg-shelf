@@ -33,8 +33,8 @@ const SaveAndLoadDecksMenu = ({ toggleDisplayAddOrSave }) => {
       <div className="option-set">
         {/*<button type="button" onClick={saveDeck}>Save</button>*/}
         {/*<button type="button" onClick={loadDeck}>Load</button>*/}
-        {/*<button type="button" onClick={clearDeck}>Clear</button>*/}
         <button type="button" onClick={toggleDisplayAddOrSave}>Cards / Decks</button>
+        <button type="button" onClick={clearDeck}>Clear</button>
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
-// import React, { useState } from "react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectDecklist } from "../../store/deckBuilder-selector";
 import { setDecklist } from "../../store/deckBuilder-actions";
 
-const SavedDecksMenu = () => {
+const SaveAndLoadDecksMenu = ({ toggleDisplayAddOrSave }) => {
 
   // const [currentDeck, setCurrentDeck] = useState([]);
   // const [savedDecks, setSavedDecks] = useState([]);
@@ -23,6 +22,8 @@ const SavedDecksMenu = () => {
   //   }
   // }
 
+  // const openSaveMenu = () =>
+  //
   const saveDeck = () => localStorage.setItem('savedDeck', JSON.stringify(decklist));
   const loadDeck = () => updateDecklist(JSON.parse(localStorage.getItem('savedDeck')));
   const clearDeck = () => updateDecklist([]);
@@ -30,12 +31,13 @@ const SavedDecksMenu = () => {
   return (
     <div className="decklist-options">
       <div className="option-set">
-        <button type="button" onClick={saveDeck}>Save</button>
-        <button type="button" onClick={loadDeck}>Load</button>
-        <button type="button" onClick={clearDeck}>Clear</button>
+        {/*<button type="button" onClick={saveDeck}>Save</button>*/}
+        {/*<button type="button" onClick={loadDeck}>Load</button>*/}
+        {/*<button type="button" onClick={clearDeck}>Clear</button>*/}
+        <button type="button" onClick={toggleDisplayAddOrSave}>Cards / Decks</button>
       </div>
     </div>
   );
 }
 
-export default SavedDecksMenu;
+export default SaveAndLoadDecksMenu;

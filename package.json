@@ -8,7 +8,7 @@
   "scripts": {
     "local": "npm-run-all -p watch:css start",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= react-scripts build",
     "build:css": "node-sass --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch:css": "yarn build:css && node-sass --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "test": "react-scripts test",

@@ -1,5 +1,5 @@
 import React from "react";
-import { groupCardsByName } from "../utils";
+import { groupCardsByName } from "../utils/utils";
 import { useSelector } from "react-redux";
 import { selectMaindeck, selectSideboard } from "../../store/deckBuilder-selector";
 

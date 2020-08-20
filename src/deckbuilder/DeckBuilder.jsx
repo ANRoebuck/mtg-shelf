@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import './deckbuilder.scss';
-import CardSearch from "./components/CardSearch";
-import CardImport from "./components/CardImport";
-import { nextInArray } from "./utils";
-import SavedDecksMenu from "./components/SavedDecksMenu";
+import { nextInArray } from "./utils/utils";
+import SaveAndLoadDecksMenu from "./components/SaveAndLoadDecksMenu";
 import DecklistOptions from "./components/DecklistOptions";
-import { sortBy, splitBy, viewBy } from "./enums";
+import { sortBy, splitBy, viewBy } from "./utils/enums";
 import DeckView from "./components/DeckView";
-
-const displayOptions = ['search', 'import'];
+import AddCardsMenu from "./components/AddCardsMenu";
+import SaveDeckMenu from "./components/SaveDeckMenu";
 
 const DeckBuilder = () => {
+
   const [sortColumnsBy, setSortColumnsBy] = useState(sortBy.cmc);
   const [splitColumnsBy, setSplitColumnsBy] = useState(splitBy.none);
   const [viewDeckBy, setViewDeckBy] = useState(viewBy.images);
-  const [display, setDisplay] = useState('search');
+  const [dispalyAddOrSave, setDisplayAddOrSave] = useState('add');
 
-  const nextDisplay = () => setDisplay(display => nextInArray(displayOptions, display));
-
-  const toDisplay = display === 'search' ? <CardSearch /> : <CardImport />;
+  const displayOptions = ['add', 'save'];
+  const toggleDisplayAddOrSave = () =>
+    setDisplayAddOrSave(display => nextInArray(displayOptions, display));
 
   return (
     <div className="deck-builder">
@@ -29,7 +28,7 @@ const DeckBuilder = () => {
         viewOptions={Object.keys(viewBy)} setViewBy={setViewDeckBy}
       />
 
-      <SavedDecksMenu/>
+      <SaveAndLoadDecksMenu toggleDisplayAddOrSave={toggleDisplayAddOrSave}/>
 
       <DeckView
         sortColumnsBy={sortColumnsBy}
@@ -37,10 +36,7 @@ const DeckBuilder = () => {
         viewDeckBy={viewDeckBy}
       />
 
-      <div className="search-container">
-        <button type="button" onClick={nextDisplay}>Search / Import</button>
-        {toDisplay}
-      </div>
+      {dispalyAddOrSave === 'add' ? <AddCardsMenu /> : <SaveDeckMenu />}
 
     </div>
   );

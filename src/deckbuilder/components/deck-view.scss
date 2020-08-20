@@ -12,6 +12,7 @@
       .decklist-column {
         display: grid;
         grid-template-rows: 1fr 1fr;
+        margin-left: 5px;
 
         .partial-decklist-column {
           //height: 100%;
@@ -26,6 +27,7 @@
     }
 
     .sideboard {
+      margin-left: 50px;
       .decklist-column {
         .card {
           &.covered {

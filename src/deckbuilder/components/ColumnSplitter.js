@@ -1,5 +1,5 @@
-import { splitColumnByCreatures } from "../utils";
-import { splitBy } from "../enums";
+import { splitColumnByCreatures } from "../utils/utils";
+import { splitBy } from "../utils/enums";
 
 
 class ColumnSplitter {

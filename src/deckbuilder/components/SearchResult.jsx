@@ -1,8 +1,8 @@
 import React from "react";
-import { parseImgSource } from "../utils";
+import { parseImgSource } from "../utils/utils";
 import { useDispatch } from "react-redux";
 import { addCardToMain, incrementMaindeckToX } from "../../store/deckBuilder-actions";
-import useRefCreator from "../useRefCreator";
+import useRefCreator from "../utils/useRefCreator";
 import ContextMenu from "./ContextMenu";
 
 const SearchResult = ({ card, covered }) => {

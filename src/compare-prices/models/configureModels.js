@@ -6,7 +6,7 @@ import ModelTrollTrader from "./model-trolltrader";
 
 export const configureModels = () => [
   new ModelAxion(),
-  new ModelChaosCards(),
+  // new ModelChaosCards(),
   new ModelMadHouse(),
   new ModelPatriotGamesLeeds(),
   new ModelTrollTrader(),

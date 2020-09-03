@@ -5,11 +5,12 @@
   height: 100%;
   padding-left: 20px;
   padding-right: 20px; }
-  .deck-builder .decklist-options {
-    display: flex;
-    justify-content: center;
-    max-height: 50px; }
-    .deck-builder .decklist-options .option-set {
-      display: flex;
-      flex-grow: 1;
-      justify-content: center; }
+
+.deck-builder .decklist-options {
+  display: flex;
+  justify-content: center; }
+
+.deck-builder .decklist-options .option-set {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center; }

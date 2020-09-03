@@ -1,0 +1,4 @@
+.saved-deck {
+  border: solid 1px black; }
+  .saved-deck .deck-box-img {
+    max-width: 100px; }

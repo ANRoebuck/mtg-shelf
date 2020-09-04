@@ -8,11 +8,11 @@ const DecklistOptions = ({ sortOptions, setSortBy, splitOptions, setSplitBy, vie
   return (
     <div className="decklist-options">
       {/*<OptionSetRadio title={'Sort :'} options={sortOptions} selectOption={setSortBy} />*/}
-      <OptionSetImages title={'Sort :'} options={sortOptions} sources={sortIcons} selectOption={setSortBy} />
+      <OptionSetImages options={sortOptions} sources={sortIcons} selectOption={setSortBy} />
       {/*<OptionSetRadio title={'Split :'} options={splitOptions} selectOption={setSplitBy} />*/}
-      <OptionSetImages title={'Split :'} options={splitOptions} sources={splitIcons} selectOption={setSplitBy} />
+      <OptionSetImages options={splitOptions} sources={splitIcons} selectOption={setSplitBy} />
       {/*<OptionSetRadio title={'View :'} options={viewOptions} selectOption={setViewBy} />*/}
-      <OptionSetImages title={'View :'} options={viewOptions} sources={viewIcons} selectOption={setViewBy} />
+      <OptionSetImages options={viewOptions} sources={viewIcons} selectOption={setViewBy} />
     </div>
   );
 }

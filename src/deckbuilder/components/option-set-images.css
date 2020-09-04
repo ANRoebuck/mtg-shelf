@@ -1,0 +1,14 @@
+.icon {
+  margin: 3px; }
+  .icon .icon-img {
+    transition-duration: 0.2s;
+    max-height: 75px; }
+  .icon .icon-img:hover {
+    transition-duration: 0.2s;
+    transform: scale(1.1);
+    background-color: slateblue; }
+
+.selected .icon-img {
+  outline: none;
+  border-color: #71d55f;
+  box-shadow: 0 0 10px #71d55f; }

@@ -12,7 +12,7 @@ const OptionSetImages = ({ title, options, sources, selectOption, defaultOption 
 
   const optionsToRender = options.map(option => {
     return (
-      <div className={option === selectedOption ? 'icon selected' : 'icon'}>
+      <div className={option === selectedOption ? 'icon-container selected' : 'icon-container'}>
         <img className="icon-img"
              src={sources[option]}
              alt={option}

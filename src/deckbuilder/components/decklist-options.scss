@@ -1,0 +1,12 @@
+.decklist-options {
+  border: solid 1px black;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+
+  .option-set {
+    display: flex;
+    //flex-grow: 1;
+    justify-content: center;
+  }
+}

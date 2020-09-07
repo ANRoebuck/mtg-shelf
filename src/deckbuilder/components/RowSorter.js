@@ -1,4 +1,5 @@
 import { assignLandPositionBy, rowsBy } from "../utils/enums";
+import { parseTypeLine } from "../utils/utils";
 
 class RowSorter {
 
@@ -38,11 +39,11 @@ const groupRowsByLands = (cards) => {
   const lands = [];
   const reducedObject = Object.entries(cards).reduce((acc, [key, cards]) => {
     cards
-      .filter(({type_line}) => regex.test(type_line))
+      .filter((card) => regex.test(parseTypeLine(card)))
       .forEach(card => lands.push(card));
     return {
       ...acc,
-      [key]: cards.filter(({type_line}) => !regex.test(type_line)),
+      [key]: cards.filter((card) => !regex.test(parseTypeLine(card))),
     }
   }, {});
   return { ...reducedObject, lands };

@@ -33,6 +33,12 @@ export const parseColours = (card) =>
 export const parseImgSource = (card, showFace = face.FRONT) =>
   isTransformCard(card) ? card.card_faces[showFace].image_uris.small : card.image_uris.small;
 
+export const parseTypeLine = (card) =>
+  isTransformCard(card) ? card.card_faces[face.FRONT].type_line : card.type_line;
+
+export const parseOracleText = (card) =>
+  isTransformCard(card) ? card.card_faces[face.FRONT].oracle_text : card.oracle_text;
+
 export const isTransformCard = (card) => card.layout === 'transform';
 
 
@@ -65,15 +71,17 @@ export const typeLineToTypeIndex = (typeLine) => {
 };
 
 
-export const landToManaTypesIndex = ({type_line, oracle_text}) => {
+export const landToManaTypesIndex = (card) => {
   const manaTypes = ['W', 'WU', 'U', 'UB', 'B', 'BR', 'R', 'RG', 'G', 'GW', 'WB', 'UR', 'BG', 'RW', 'UG', 'WUBRG', '<>'];
   const landTypes = {W: 'Plains', U: 'Island', B: 'Swamp', R: 'Mountain', G: 'Forest'};
   const manaSymbols = {W: '{W}', U: '{U}', B: '{B}', R: '{R}', G: '{G}'};
-  const rainbow = /[\s\S]*any color[\s\S]*/i;
 
+  const type_line = parseTypeLine(card);
+  const oracle_text = parseOracleText(card);
   const thisTypes = [];
 
   // assume "any colour" indicates rainbow land
+  const rainbow = /[\s\S]*any color[\s\S]*/i;
   if(rainbow.test(oracle_text)) return manaTypes.indexOf('WUBRG');
 
   // collect types based on type line and oracle text

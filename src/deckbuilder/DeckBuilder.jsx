@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './deckbuilder.scss';
 import './components/decklist-options.scss';
-import { nextInArray } from "./utils/utils";
 import SaveAndLoadDecksMenu from "./components/SaveAndLoadDecksMenu";
 import {
   columnIcons,
@@ -17,6 +16,7 @@ import DeckView from "./components/DeckView";
 import AddCardsMenu from "./components/AddCardsMenu";
 import SaveDeckMenu from "./components/SaveDeckMenu";
 import OptionSetImages from "./components/OptionSetImages";
+import { nextInArray } from "../common/utils";
 
 const DeckBuilder = () => {
 

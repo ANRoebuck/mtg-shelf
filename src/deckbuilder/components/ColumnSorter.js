@@ -1,9 +1,8 @@
 import {
-  coloursToColourIndex, landToManaTypesIndex, parseColours,
-  pushToObjectOfArrays, typeLineToTypeIndex
+  coloursToColourIndex, landToManaTypesIndex, parseColours, typeLineToTypeIndex
 } from "../utils/utils";
+import { pushToObjectOfArrays } from "../../common/utils";
 import { columnsBy } from "../utils/enums";
-
 
 class ColumnSorter {
 

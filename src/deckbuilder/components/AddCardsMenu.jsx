@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectDecklist } from "../../store/deckBuilder-selector";
-import { setDecklist } from "../../store/deckBuilder-actions";
 import CardSearch from "./CardSearch";
 import CardImport from "./CardImport";
-import { nextInArray } from "../utils/utils";
+import { nextInArray } from "../../common/utils";
 
 const AddCardsMenu = () => {
 

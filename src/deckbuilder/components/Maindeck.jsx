@@ -1,24 +1,29 @@
 import React from "react";
-import ColumnSorter from "./ColumnSorter";
-import DeckListColumn from "./DeckListColumn";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMaindeck } from "../../store/deckBuilder-selector";
 import { sideOut } from "../../store/deckBuilder-actions";
+import RowSorter from "./RowSorter";
+import DeckListRow from "./DeckListRow";
 
+const Maindeck = ({ sortRowsBy, sortColumnsBy, landPositionBy }) => {
 
-const Maindeck = ({ sortColumnsBy, splitColumnsBy }) => {
   const maindeck = useSelector(selectMaindeck);
   const dispatch = useDispatch();
 
-  const columnSorter = new ColumnSorter();
-  const columns = columnSorter.assignColumns(maindeck, sortColumnsBy);
+  const rowSorter = new RowSorter();
+  let rows = rowSorter.sortRowsBy(maindeck, sortRowsBy);
+  rows = rowSorter.landPositionBy(rows, landPositionBy);
 
-  const columnsToRender = Object.entries(columns).map(([ cmc, cards ]) =>
-    <DeckListColumn cards={cards} sideInOrOut={(card) => dispatch(sideOut(card))} split={splitColumnsBy} />);
+  const rowsToRender = Object.entries(rows).map(([key, cards]) =>
+    <DeckListRow
+      cards={cards}
+      sideInOrOut={(card) => dispatch(sideOut(card))}
+      sortColumnsBy={key === 'lands' ? 'lands' : sortColumnsBy}
+    />);
 
   return (
     <div className="maindeck">
-      {columnsToRender}
+      {rowsToRender}
     </div>
   );
 };

@@ -5,24 +5,24 @@ export const face = {
   BACK: 1,
 }
 
-export const sortBy = {
+export const rowsBy = {
+  none: 'none',
+  creatures: 'creatures',
+}
+export const rowIcons = {
+  [rowsBy.none]: resources.optionGroupCombined,
+  [rowsBy.creatures]: resources.optionGroupSplit,
+}
+
+export const columnsBy = {
   cmc: 'cmc',
   colour: 'colour',
   type: 'type',
 }
-export const sortIcons = {
-  [sortBy.cmc]: resources.optionSortCmc,
-  [sortBy.colour]: resources.optionSortColour,
-  [sortBy.type]: resources.optionSortType,
-}
-
-export const splitBy = {
-  none: 'none',
-  spells: 'spells',
-}
-export const splitIcons = {
-  [splitBy.none]: resources.optionGroupCombined,
-  [splitBy.spells]: resources.optionGroupSplit,
+export const columnIcons = {
+  [columnsBy.cmc]: resources.optionSortCmc,
+  [columnsBy.colour]: resources.optionSortColour,
+  [columnsBy.type]: resources.optionSortType,
 }
 
 export const viewBy = {
@@ -36,3 +36,11 @@ export const viewIcons = {
   [viewBy.stats]: resources.optionViewStats
 }
 
+export const assignLandPositionBy = {
+  default: 'default',
+  bottom: 'bottom',
+}
+export const landPositionIcons = {
+  [assignLandPositionBy.bottom]: resources.optionPositionBottom,
+  [assignLandPositionBy.default]: resources.optionPositionDefault,
+}

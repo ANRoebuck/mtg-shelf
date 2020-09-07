@@ -1,68 +1,78 @@
 import { face } from "./enums";
 
-export const assignColumnsByCMC = (deckList) =>
-  deckList.reduce((columns, card) => pushToObjectOfArrays(columns, card.cmc, card), {});
 
-export const assignColumnsByColour = (decklist) => {
-  return decklist.reduce((columns, card) => {
-    const colours = parseColours(card);
-    const colourIndex = coloursToColourIndex(colours);
-    return pushToObjectOfArrays(columns, colourIndex, card);
-  }, {});
-};
 
-export const assignColumnsByType = (decklist) => {
-  return decklist.reduce((columns, card) => {
-    const { type_line } = card;
-    const typeIndex = typeLineToTypeIndex(type_line);
-    return pushToObjectOfArrays(columns, typeIndex, card);
-  }, {});
-};
-
-export const splitColumnByCreatures = (column) => {
-  const regex = /[\s\S]*creature[\s\S]*/i;
-  const top = column.filter(({type_line}) => regex.test(type_line));
-  const bottom = column.filter(({type_line}) => !regex.test(type_line));
-  return [top, bottom];
-}
-
-export const groupCardsByName = (cards) => cards.reduce((groups, card) => pushToObjectOfArrays(groups, card.name, card), {});
-
-const coloursToColourIndex = (colours: []) => {
+const coloursArray = ['W', 'U', 'B', 'R', 'G', 'M', 'C'];
+export const coloursToColourIndex = (colours: []) => {
   let colour;
   if (colours.length > 1) colour = 'M';
   else if (colours.length === 0) colour = 'C';
   else [colour] = colours;
-  const coloursArray = ['W', 'U', 'B', 'R', 'G', 'M', 'C'];
   return coloursArray.indexOf(colour);
 };
 
-const typeLineToTypeIndex = (typeLine) => {
-  const typesAndSubtypes = typeLine.split('—');
-  const types = typesAndSubtypes[0].split(' ');
-  const typesArray = ['Land', 'Artifact', 'Creature', 'Planeswalker', 'Enchantment', 'Instant', 'Sorcery'];
-  let typeIndex = typesArray.length;
-  // const superTypesArray = ['Legendary', 'Snow', 'Basic'];
-  typesArray.forEach((type, i) => {
-    if(types[0] === type) typeIndex = i;
+const masterSuperTypesArray = ['Legendary', 'Snow', 'Basic'];
+const masterTypesArray = ['Land', 'Creature', 'Planeswalker', 'Artifact', 'Enchantment', 'Instant', 'Sorcery'];
+export const typeLineToTypeIndex = (typeLine) => {
+  const thisTypesAndSubtypes = typeLine.split('—');
+  const thisTypes = thisTypesAndSubtypes[0].split(' ');
+  let typeIndex;
+  masterTypesArray.forEach((masterType, i) => {
+    thisTypes.forEach(thisType => {
+      if (thisType === masterType) {
+        typeIndex = i;
+      }
+    });
   });
-  return typeIndex;
+  return typeIndex || 9;
 }
 
-const pushToObjectOfArrays = (object, key, value) => {
+const manaTypes = ['W', 'WU', 'U', 'UB', 'B', 'BR', 'R', 'RG', 'G', 'GW', 'WB', 'UR', 'BG', 'RW', 'UG', 'WUBRG', '<>'];
+const landTypes = {W: 'Plains', U: 'Island', B: 'Swamp', R: 'Mountain', G: 'Forest'};
+const manaSymbols = {W: '{W}', U: '{U}', B: '{B}', R: '{R}', G: '{G}'};
+const rainbow = /[\s\S]*any color[\s\S]*/i;
+export const landToManaTypesIndex = ({type_line, oracle_text}) => {
+  const thisTypes = [];
+
+  // assume "any colour" indicates rainbow land
+  if(rainbow.test(oracle_text)) return manaTypes.indexOf('WUBRG');
+
+  // collect types based on type line and oracle text
+  Object.entries(landTypes).forEach(([type, representation]) => {
+    if (type_line.includes(representation) && !thisTypes.includes(type)) thisTypes.push(type);
+  });
+  Object.entries(manaSymbols).forEach(([type, representation]) => {
+    if (oracle_text.includes(representation) && !thisTypes.includes(type)) thisTypes.push(type);
+  });
+
+  // treat >2 colours as rainbow
+  if(thisTypes.length > 2) return manaTypes.indexOf('WUBRG');
+
+  // treat 0 colorus as glass
+  if(thisTypes.length === 0) return manaTypes.indexOf('<>');
+
+  // mono colour
+  if(thisTypes.length === 1) return manaTypes.indexOf(thisTypes[0]);
+
+  // two colour
+  const guild = thisTypes.join('');
+  return manaTypes.indexOf(guild);
+}
+
+export const pushToObjectOfArrays = (object, key, value) => {
   if (!object[key]) object[key] = [value];
   else object[key].push(value);
   return object;
 }
 
-const incrementObjectOfNumbers = (object, key) => {
+export const incrementObjectOfNumbers = (object, key) => {
   if (!object[key]) object[key] = 1;
   else object[key] += 1;
   return object;
 }
 
-const validateObjectProperties = (object, key, isValid) => {
-  if (!object[key]) object[key] = isValid;
+export const validateObjectProperties = (object, key, isValid) => {
+  if (!object.hasOwnProperty(key)) object[key] = isValid;
   if (object[key] && !isValid) object[key] = isValid;
   return object;
 }
@@ -76,7 +86,7 @@ export const nextInArray = (array: [], current: any) => {
 
 export const isTransformCard = (card) => card.layout === 'transform';
 
-const parseColours = (card) => {
+export const parseColours = (card) => {
   if (isTransformCard(card)) {
     return card.card_faces[face.FRONT].colors;
   }
@@ -98,6 +108,9 @@ export const financeDeck = (cards) => cards.reduce((finance, card) => {
   });
   return finance;
 }, {});
+
+export const cardsByName = (cards) => cards.reduce((groups, card) =>
+  pushToObjectOfArrays(groups, card.name, card), {});
 
 export const cardsByCMC = (cards) => cards.reduce((cmcs, card) =>
   incrementObjectOfNumbers(cmcs, card.cmc), {});

@@ -16,7 +16,7 @@ const ViewStats = () => {
   const statsByCMC = cardsByCMC(maindeck);
   const statsByColour = cardsByColour(maindeck);
   const legalities = legalityByFormat([...maindeck, ...sideboard]);
-  const finance = financeDeck([...maindeck, ...sideboard]);
+  // const finance = financeDeck([...maindeck, ...sideboard]);
 
   return (
     <div className="view-stats">
@@ -24,7 +24,7 @@ const ViewStats = () => {
       <StatsTableCMC statsByCMC={statsByCMC} />
       <StatsTableColour statsByColour={statsByColour} />
       <Legalities legalities={legalities} />
-      <Finance finance={finance} />
+      {/*<Finance finance={finance} />*/}
     </div>
   );
 };

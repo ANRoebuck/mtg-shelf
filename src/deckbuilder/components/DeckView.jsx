@@ -5,12 +5,12 @@ import ViewPrintable from './ViewPrintable';
 import ViewStats from './ViewStats';
 import './deck-view.scss';
 
-const DeckView = ({ sortColumnsBy, splitColumnsBy, viewDeckBy }) => {
+const DeckView = ({ sortRowsBy, sortColumnsBy, landPositionBy, viewDeckBy }) => {
 
   const selectView = (viewDeckBy) => {
     switch (viewDeckBy) {
       case viewBy.images:
-        return <ViewImages sortColumnsBy={sortColumnsBy} splitColumnsBy={splitColumnsBy} />
+        return <ViewImages sortRowsBy={sortRowsBy} sortColumnsBy={sortColumnsBy} landPositionBy={landPositionBy} />
       case viewBy.printable:
         return <ViewPrintable />
       case viewBy.stats:

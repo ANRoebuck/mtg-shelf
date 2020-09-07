@@ -3,11 +3,11 @@ import Sideboard from './Sideoard';
 import Maindeck from './Maindeck';
 
 
-const ViewImages = ({ sortColumnsBy, splitColumnsBy }) => {
+const ViewImages = ({ sortRowsBy, sortColumnsBy, landPositionBy }) => {
 
   return (
     <div className="view-images">
-      <Maindeck sortColumnsBy={sortColumnsBy} splitColumnsBy={splitColumnsBy} />
+      <Maindeck sortRowsBy={sortRowsBy} sortColumnsBy={sortColumnsBy} landPositionBy={landPositionBy} />
       <Sideboard />
     </div>
   );

@@ -1,22 +1,39 @@
-import { assignColumnsByCMC, assignColumnsByColour, assignColumnsByType } from "../utils/utils";
-import { sortBy } from "../utils/enums";
+import {
+  coloursToColourIndex, landToManaTypesIndex, parseColours,
+  pushToObjectOfArrays, typeLineToTypeIndex
+} from "../utils/utils";
+import { columnsBy } from "../utils/enums";
 
 
 class ColumnSorter {
 
-  assignColumns = (deckList, sort) => {
+  assignColumns = (cards, sort) => {
     switch (sort) {
-      case sortBy.cmc:
-        return assignColumnsByCMC(deckList);
-      case sortBy.colour:
-        return assignColumnsByColour(deckList);
-      case sortBy.type:
-        return assignColumnsByType(deckList);
+      case columnsBy.cmc:
+        return assignColumnsByCMC(cards);
+      case columnsBy.colour:
+        return assignColumnsByColour(cards);
+      case columnsBy.type:
+        return assignColumnsByType(cards);
+      case 'lands':
+        return assignColumnsForLands(cards);
       default:
         return null;
     }
   }
 
 }
+
+const assignColumnsByCMC = (cards) => cards.reduce((columns, card) =>
+  pushToObjectOfArrays(columns, card.cmc, card), {});
+
+const assignColumnsByColour = (cards) => cards.reduce((columns, card) =>
+  pushToObjectOfArrays(columns, coloursToColourIndex(parseColours(card)), card), {});
+
+const assignColumnsByType = (cards) => cards.reduce((columns, card) =>
+  pushToObjectOfArrays(columns, typeLineToTypeIndex(card.type_line), card), {});
+
+const assignColumnsForLands = (cards) => cards.reduce((columns, card) =>
+  pushToObjectOfArrays(columns, landToManaTypesIndex(card), card), {});
 
 export default ColumnSorter;

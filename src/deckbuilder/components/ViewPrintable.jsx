@@ -1,5 +1,5 @@
 import React from "react";
-import { groupCardsByName } from "../utils/utils";
+import { cardsByName } from "../utils/utils";
 import { useSelector } from "react-redux";
 import { selectMaindeck, selectSideboard } from "../../store/deckBuilder-selector";
 
@@ -9,8 +9,8 @@ const ViewPrintable = () => {
   const maindeck = useSelector(selectMaindeck);
   const sideboard = useSelector(selectSideboard);
 
-  const groupedMaindeck = groupCardsByName(maindeck);
-  const groupedSideboard = groupCardsByName(sideboard);
+  const groupedMaindeck = cardsByName(maindeck);
+  const groupedSideboard = cardsByName(sideboard);
 
   const maindeckRows = Object.entries(groupedMaindeck).map(([cardname, cards]) =>
     <div>{`${cards.length}  ${cardname}`}</div>);

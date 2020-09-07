@@ -1,6 +1,6 @@
 import React from "react";
 import DeckListColumn from "./DeckListColumn";
-import { splitBy } from "../utils/enums";
+import { rowsBy } from "../utils/enums";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSideboard } from "../../store/deckBuilder-selector";
 import { sideIn } from "../../store/deckBuilder-actions";
@@ -11,7 +11,7 @@ const Sideboard = () => {
 
   return (
     <div className="sideboard">
-      <DeckListColumn cards={sideboard} sideInOrOut={(card) => dispatch(sideIn(card))} split={splitBy.none} />
+      <DeckListColumn cards={sideboard} sideInOrOut={(card) => dispatch(sideIn(card))} split={rowsBy.none} />
     </div>
   );
 };

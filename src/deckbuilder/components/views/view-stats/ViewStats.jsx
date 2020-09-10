@@ -21,10 +21,9 @@ const ViewStats = () => {
 
   return (
     <div className="view-stats">
-      STATS
       <StatsTableCMC statsByCMC={statsByCMC} />
       <StatsTableColour statsByColour={statsByColour} />
-      <Legalities legalities={legalities} />
+      {/*<Legalities legalities={legalities} />*/}
       {/*<Finance finance={finance} />*/}
     </div>
   );

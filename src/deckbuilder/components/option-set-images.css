@@ -5,15 +5,13 @@
 
 .icon-container {
   margin: 3px; }
-
-.icon-container .icon-img {
-  transition-duration: 0.2s;
-  max-height: 75px; }
-
-.icon-container .icon-img:hover {
-  transition-duration: 0.2s;
-  transform: scale(1.1);
-  background-color: slateblue; }
+  .icon-container .icon-img {
+    transition-duration: 0.2s;
+    max-height: 75px; }
+  .icon-container .icon-img:hover {
+    transition-duration: 0.2s;
+    transform: scale(1.1);
+    background-color: slateblue; }
 
 .selected .icon-img {
   outline: none;

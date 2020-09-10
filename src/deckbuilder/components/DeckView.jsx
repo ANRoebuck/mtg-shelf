@@ -1,8 +1,8 @@
 import React from "react";
 import { viewBy } from "../utils/enums";
-import ViewImages from './ViewImages';
-import ViewPrintable from './ViewPrintable';
-import ViewStats from './ViewStats';
+import ViewImages from './views/view-images/ViewImages';
+import ViewPrintable from './views/view-printable/ViewPrintable';
+import ViewStats from './views/view-stats/ViewStats';
 import './deck-view.scss';
 
 const DeckView = ({ sortRowsBy, sortColumnsBy, landPositionBy, viewDeckBy }) => {

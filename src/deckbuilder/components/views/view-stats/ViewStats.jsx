@@ -1,11 +1,12 @@
 import React from "react";
-import { financeDeck, cardsByCMC, cardsByColour, legalityByFormat } from "../utils/utils";
+import { financeDeck, cardsByCMC, cardsByColour, legalityByFormat } from "../../../utils/utils";
 import { useSelector } from "react-redux";
-import { selectMaindeck, selectSideboard } from "../../store/deckBuilder-selector";
+import { selectMaindeck, selectSideboard } from "../../../../store/deckBuilder-selector";
 import StatsTableCMC from "./StatsTableCMC";
-import Finance from "./Finance";
+import Finance from "../../Finance";
 import StatsTableColour from "./StatsTableColour";
 import Legalities from "./Legalities";
+import './view-stats.scss';
 
 
 const ViewStats = () => {

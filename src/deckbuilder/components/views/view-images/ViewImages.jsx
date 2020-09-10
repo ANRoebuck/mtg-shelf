@@ -1,6 +1,6 @@
 import React from "react";
-import Sideboard from './Sideoard';
-import Maindeck from './Maindeck';
+import Sideboard from '../../Sideoard';
+import Maindeck from '../../Maindeck';
 
 
 const ViewImages = ({ sortRowsBy, sortColumnsBy, landPositionBy }) => {

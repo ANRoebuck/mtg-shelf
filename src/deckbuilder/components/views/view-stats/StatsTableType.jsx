@@ -1,19 +1,19 @@
 import React from "react";
-import { Bar } from 'react-chartjs-2';
+import { Bar } from "react-chartjs-2";
+import { cardsByType, typesByTypeIndex } from "../../../utils/utils";
 import { useSelector } from "react-redux";
 import { selectMaindeck } from "../../../../store/deckBuilder-selector";
-import { cardsByCMC, nonLands } from "../../../utils/utils";
 import { chartOptions } from "./utils";
 
-const StatsTableCMC = () => {
+const StatsTableType = () => {
 
   const maindeck = useSelector(selectMaindeck);
 
-  const nonLandCards = nonLands(maindeck);
-  const statsByCMC = cardsByCMC(nonLandCards);
+  const statsByType = cardsByType(maindeck);
 
-  const labels = Object.keys(statsByCMC);
-  const chartData = labels.map(label => statsByCMC[label]);
+
+  const labels = Object.keys(statsByType).sort(typesByTypeIndex);
+  const chartData = labels.map(label => statsByType[label]);
   const chartColours = labels.map(label => 'black');
   const data = {
     labels,
@@ -22,10 +22,10 @@ const StatsTableCMC = () => {
         data: chartData,
         backgroundColor: chartColours,
       }
-    ]
+    ],
   };
 
-  const options = chartOptions(`Nonland Cards by CMC (${nonLandCards.length})`);
+  const options = chartOptions(`Cards by Type (${maindeck.length})`);
 
   return (
     <div className="single-stat">
@@ -34,4 +34,4 @@ const StatsTableCMC = () => {
   );
 };
 
-export default StatsTableCMC;
+export default StatsTableType;

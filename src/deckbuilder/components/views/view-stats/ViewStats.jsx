@@ -1,28 +1,19 @@
 import React from "react";
-import { financeDeck, cardsByCMC, cardsByColour, legalityByFormat, nonLands } from "../../../utils/utils";
-import { useSelector } from "react-redux";
-import { selectMaindeck, selectSideboard } from "../../../../store/deckBuilder-selector";
 import StatsTableCMC from "./StatsTableCMC";
 import Finance from "../../Finance";
 import StatsTableColour from "./StatsTableColour";
 import Legalities from "./Legalities";
 import './view-stats.scss';
+import StatsTableType from "./StatsTableType";
 
 
 const ViewStats = () => {
 
-  const maindeck = useSelector(selectMaindeck);
-  const sideboard = useSelector(selectSideboard);
-
-  const statsByCMC = cardsByCMC(nonLands(maindeck));
-  const statsByColour = cardsByColour(nonLands(maindeck));
-  // const legalities = legalityByFormat([...maindeck, ...sideboard]);
-  // const finance = financeDeck([...maindeck, ...sideboard]);
-
   return (
     <div className="view-stats">
-      <StatsTableCMC statsByCMC={statsByCMC} />
-      <StatsTableColour statsByColour={statsByColour} />
+      <StatsTableCMC />
+      <StatsTableColour />
+      <StatsTableType />
       {/*<Legalities legalities={legalities} />*/}
       {/*<Finance finance={finance} />*/}
     </div>

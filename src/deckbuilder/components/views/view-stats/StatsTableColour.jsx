@@ -1,8 +1,16 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { coloursByColourIndex, colourToColourName } from "../../../utils/utils";
+import { cardsByColour, coloursByColourIndex, colourToColourName, nonLands } from "../../../utils/utils";
+import { useSelector } from "react-redux";
+import { selectMaindeck } from "../../../../store/deckBuilder-selector";
+import { chartOptions } from "./utils";
 
-const StatsTableColour = ({statsByColour}) => {
+const StatsTableColour = () => {
+
+  const maindeck = useSelector(selectMaindeck);
+
+  const nonLandCards = nonLands(maindeck);
+  const statsByColour = cardsByColour(nonLandCards);
 
   const labels = Object.keys(statsByColour).sort(coloursByColourIndex);
   const chartData = labels.map(label => statsByColour[label]);
@@ -17,18 +25,7 @@ const StatsTableColour = ({statsByColour}) => {
     ],
   };
 
-  const options = {
-    scales: {
-      yAxes: [{ticks: {beginAtZero: true, stepSize: 1}}]
-    },
-    title: {
-      display: true,
-      text: 'Nonland Cards by Colour',
-    },
-    legend: {
-      display: false,
-    },
-  };
+  const options = chartOptions(`Nonland Cards by Colour (${nonLandCards.length})`);
 
   return (
     <div className="single-stat">

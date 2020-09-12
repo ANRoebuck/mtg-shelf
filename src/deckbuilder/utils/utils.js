@@ -10,6 +10,9 @@ export const cardsByCMC = (cards) => cards.reduce((cmcs, card) =>
 export const cardsByColour = (cards) => cards.reduce((colours, card) =>
   incrementObjectOfNumbers(colours, coloursToColour(parseColours(card))), {});
 
+export const cardsByType = (cards) => cards.reduce((types, card) =>
+  incrementObjectOfNumbers(types, typeLinetoType(card.type_line)), {});
+
 export const nonLands = (cards) => cards.filter(({type_line}) => !type_line.includes('Land'));
 
 export const legalityByFormat = (cards) => cards.reduce((legalities, card) => {
@@ -76,21 +79,27 @@ export const colourToColourName = (c: string) => {
 }
 
 
-export const typeLineToTypeIndex = (typeLine) => {
-  // const masterSuperTypesArray = ['Legendary', 'Snow', 'Basic'];
-  const masterTypesArray = ['Land', 'Creature', 'Planeswalker', 'Artifact', 'Enchantment', 'Instant', 'Sorcery'];
+// const masterSuperTypesArray = ['Legendary', 'Snow', 'Basic'];
+const masterTypesArray = ['Land', 'Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment'];
 
+const typeLinetoType = (typeLine: string) => typeIndexToType(typeLineToTypeIndex(typeLine));
+
+const typeIndexToType = (tI: number) => masterTypesArray[tI];
+
+const typeToTypeIndex = (type: string) => masterTypesArray.indexOf(type);
+
+export const typesByTypeIndex = (tA, tB) => typeToTypeIndex(tA) - typeToTypeIndex(tB);
+
+export const typeLineToTypeIndex = (typeLine: string) => {
   const thisTypesAndSubtypes = typeLine.split('—');
   const thisTypes = thisTypesAndSubtypes[0].split(' ');
-  let typeIndex;
-  masterTypesArray.forEach((masterType, i) => {
+  let typeIndex = 10;
+  masterTypesArray.forEach((masterType, i) =>
     thisTypes.forEach(thisType => {
-      if (thisType === masterType) {
-        typeIndex = i;
-      }
-    });
-  });
-  return typeIndex || 9;
+      if (thisType === masterType) typeIndex = i;
+    })
+  );
+  return typeIndex;
 };
 
 
@@ -105,7 +114,7 @@ export const landToManaTypesIndex = (card) => {
 
   // assume "any colour" indicates rainbow land
   const rainbow = /[\s\S]*any color[\s\S]*/i;
-  if(rainbow.test(oracle_text)) return manaTypes.indexOf('WUBRG');
+  if (rainbow.test(oracle_text)) return manaTypes.indexOf('WUBRG');
 
   // collect types based on type line and oracle text
   Object.entries(landTypes).forEach(([type, representation]) => {
@@ -117,13 +126,13 @@ export const landToManaTypesIndex = (card) => {
   });
 
   // treat >2 colours as rainbow
-  if(thisTypes.length > 2) return manaTypes.indexOf('WUBRG');
+  if (thisTypes.length > 2) return manaTypes.indexOf('WUBRG');
 
   // treat 0 colorus as glass
-  if(thisTypes.length === 0) return manaTypes.indexOf('<>');
+  if (thisTypes.length === 0) return manaTypes.indexOf('<>');
 
   // mono colour
-  if(thisTypes.length === 1) return manaTypes.indexOf(thisTypes[0]);
+  if (thisTypes.length === 1) return manaTypes.indexOf(thisTypes[0]);
 
   // two colour
   const guild = thisTypes.join('');

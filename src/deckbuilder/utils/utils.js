@@ -8,7 +8,9 @@ export const cardsByCMC = (cards) => cards.reduce((cmcs, card) =>
   incrementObjectOfNumbers(cmcs, card.cmc), {});
 
 export const cardsByColour = (cards) => cards.reduce((colours, card) =>
-  incrementObjectOfNumbers(colours, parseColours(card)), {});
+  incrementObjectOfNumbers(colours, coloursToColour(parseColours(card))), {});
+
+export const nonLands = (cards) => cards.filter(({type_line}) => !type_line.includes('Land'));
 
 export const legalityByFormat = (cards) => cards.reduce((legalities, card) => {
   Object.entries(card.legalities).forEach(([format, legality]) => {
@@ -42,15 +44,36 @@ export const parseOracleText = (card) =>
 export const isTransformCard = (card) => card.layout === 'transform';
 
 
-export const coloursToColourIndex = (colours: []) => {
-  const coloursArray = ['W', 'U', 'B', 'R', 'G', 'M', 'C'];
+const coloursArray = ['W', 'U', 'B', 'R', 'G', 'M', 'C'];
 
+const coloursToColour = (colours: []) => colourIndexToColour(coloursToColourIndex(colours));
+
+const colourIndexToColour = (cI: number) => coloursArray[cI];
+
+const colourIndexToColourName = (cI: number) => colourToColourName(colourIndexToColour(cI));
+
+export const coloursByColourIndex = (cA, cB) => coloursToColourIndex([cA]) - coloursToColourIndex([cB]);
+
+export const coloursToColourIndex = (colours: []) => {
   let colour;
   if (colours.length > 1) colour = 'M';
   else if (colours.length === 0) colour = 'C';
   else [colour] = colours;
   return coloursArray.indexOf(colour);
 };
+
+export const colourToColourName = (c: string) => {
+  const indexToName = {
+    'W': 'white',
+    'U': 'blue',
+    'B': 'black',
+    'R': 'red',
+    'G': 'green',
+    'M': 'yellow',
+    'C': 'grey'
+  }
+  return indexToName[c];
+}
 
 
 export const typeLineToTypeIndex = (typeLine) => {
@@ -87,6 +110,7 @@ export const landToManaTypesIndex = (card) => {
   // collect types based on type line and oracle text
   Object.entries(landTypes).forEach(([type, representation]) => {
     if (type_line.includes(representation) && !thisTypes.includes(type)) thisTypes.push(type);
+    // if (oracle_text.includes(representation) && !thisTypes.includes(type)) thisTypes.push(type);
   });
   Object.entries(manaSymbols).forEach(([type, representation]) => {
     if (oracle_text.includes(representation) && !thisTypes.includes(type)) thisTypes.push(type);

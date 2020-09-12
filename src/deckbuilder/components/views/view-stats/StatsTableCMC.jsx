@@ -1,38 +1,37 @@
 import React from "react";
 import { Bar } from 'react-chartjs-2';
 
-const StatsTableCMC = ({ statsByCMC }) => {
+const StatsTableCMC = ({statsByCMC}) => {
 
   const labels = Object.keys(statsByCMC);
   const chartData = labels.map(label => statsByCMC[label]);
-  // const chartColours = labels.map(label => faker.commerce.color());
-  // console.log(chartColours);
-
+  const chartColours = labels.map(label => 'black');
   const data = {
     labels,
     datasets: [
       {
         data: chartData,
-        // backgroundColor: chartColours
+        backgroundColor: chartColours,
       }
     ]
   };
 
-  // const data = {
-  //   labels: [Object.keys(statsByCMC)],
-  //   datasets: Object.values(statsByCMC).map(value => ({
-  //     barPercentage: 0.5,
-  //     barThickness: 6,
-  //     maxBarThickness: 8,
-  //     minBarLength: 2,
-  //     data: [value],
-  //   }))
-  // };
+  const options = {
+    scales: {
+      yAxes: [{ticks: {beginAtZero: true, stepSize: 1}}]
+    },
+    title: {
+      display: true,
+      text: 'Nonland Cards by CMC',
+    },
+    legend: {
+      display: false,
+    },
+  };
 
   return (
     <div className="single-stat">
-      CARDS BY CMC {JSON.stringify(statsByCMC)}
-      <Bar data={data} />
+      <Bar data={data} options={options}/>
     </div>
   );
 };

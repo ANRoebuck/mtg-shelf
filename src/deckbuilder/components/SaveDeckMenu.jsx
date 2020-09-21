@@ -9,7 +9,6 @@ const SaveDeckMenu = () => {
 
   const [savedDecks, setSavedDecks] = useState([]);
   const [newDeckName, setNewDeckName] = useState('');
-  // useEffect(() => clearAll(), []);
 
   const decklist = useSelector(selectDecklist);
   useEffect(() => refreshSavedDecks(), []);
@@ -24,20 +23,20 @@ const SaveDeckMenu = () => {
   }
   
   const savedDecksToRender = savedDecks.map(savedDeck =>
-    <SavedDeckMenuItem savedDeck={savedDeck} refresh={refreshSavedDecks}/>)
+    <SavedDeckMenuItem savedDeck={savedDeck} refresh={refreshSavedDecks} />)
 
   return (
     <div className="saved-decks-menu">
-      <div className="new-deck">
-        <input
-          type="text"
-          value={newDeckName}
-          onChange={(e) => handleChange(e)}
-          placeholder="new deck name"/>
-        <div className="option-set">
-          <button type="button" onClick={handleSaveDeck}>Save</button>
-        </div>
-      </div>
+      {/*<div className="new-deck">*/}
+      {/*  <input*/}
+      {/*    type="text"*/}
+      {/*    value={newDeckName}*/}
+      {/*    onChange={(e) => handleChange(e)}*/}
+      {/*    placeholder="new deck name"/>*/}
+      {/*  <div className="option-set">*/}
+      {/*    <button type="button" onClick={handleSaveDeck}>Save</button>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
       {savedDecksToRender}
     </div>
   );

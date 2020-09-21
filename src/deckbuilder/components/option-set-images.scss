@@ -2,13 +2,13 @@
   border: solid 1px black;
   background-color: lightgrey;
   margin: 5px 10px;
+  display: flex;
   //padding: 5px;
 }
 
 .icon-container {
   margin: 3px;
-  //padding: 3px;
-  //max-height: 75px;
+  max-height: 75px;
 
   .icon-img {
     transition-duration: 0.2s;

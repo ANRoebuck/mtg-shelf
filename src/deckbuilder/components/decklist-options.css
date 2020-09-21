@@ -1,8 +1,55 @@
 .decklist-options {
   border: solid 1px black;
   display: flex;
-  justify-content: center;
+  justify-content: center; }
+
+.decklist-options .main-view-options {
+  margin-right: auto;
   margin-bottom: 5px; }
-  .decklist-options .option-set {
-    display: flex;
-    justify-content: center; }
+
+.decklist-options .view-sub-options {
+  display: flex;
+  margin-bottom: 5px; }
+
+.decklist-options .active-deck-window {
+  max-height: 100px;
+  max-width: 20%;
+  margin-left: auto;
+  justify-content: right;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "img name o-butn" "img t-btn o-butn"; }
+
+.decklist-options .active-deck-window .deck-box-img {
+  grid-area: img;
+  margin-left: auto;
+  max-height: 90%; }
+
+.decklist-options .active-deck-window .this-deck {
+  margin: 5px; }
+
+.decklist-options .active-deck-window .this-deck .active-deck-name {
+  grid-area: name;
+  border-bottom: black solid 1px;
+  align-self: center;
+  padding: 5px;
+  max-width: 100%; }
+
+.decklist-options .active-deck-window .this-deck .button-set-horizontal {
+  grid-area: t-btn;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: flex; }
+
+.decklist-options .active-deck-window .other-decks {
+  margin: 5px; }
+
+.decklist-options .active-deck-window .other-decks .button-set-vertical {
+  grid-area: o-btn;
+  display: flex;
+  flex-direction: column; }
+
+.decklist-options .active-deck-window .other-decks .button-set-vertical button {
+  margin-top: 5px;
+  margin-bottom: 5px; }

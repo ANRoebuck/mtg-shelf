@@ -1,6 +1,6 @@
 import React from "react";
 import StatsTableCMC from "./StatsTableCMC";
-import Finance from "../../Finance";
+import Finance from "./Finance";
 import StatsTableColour from "./StatsTableColour";
 import Legalities from "./Legalities";
 import './view-stats.scss';

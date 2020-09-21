@@ -1,5 +1,6 @@
 .new-deck {
   border: solid 1px black;
-  padding: 20px; }
+  padding: 20px;
+  margin: 5px; }
   .new-deck .deck-box-img {
     max-width: 100px; }

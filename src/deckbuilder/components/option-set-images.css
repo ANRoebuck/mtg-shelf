@@ -1,10 +1,12 @@
 .option-set {
   border: solid 1px black;
   background-color: lightgrey;
-  margin: 5px 10px; }
+  margin: 5px 10px;
+  display: flex; }
 
 .icon-container {
-  margin: 3px; }
+  margin: 3px;
+  max-height: 75px; }
   .icon-container .icon-img {
     transition-duration: 0.2s;
     max-height: 75px; }

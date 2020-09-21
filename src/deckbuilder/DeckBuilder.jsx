@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './deckbuilder.scss';
 import './components/decklist-options.scss';
-import SaveAndLoadDecksMenu from "./components/SaveAndLoadDecksMenu";
+import ActiveDeckWindow from "./components/ActiveDeckWindow";
 import {
   columnIcons,
   columnsBy,
@@ -16,31 +16,45 @@ import DeckView from "./components/DeckView";
 import AddCardsMenu from "./components/AddCardsMenu";
 import SaveDeckMenu from "./components/SaveDeckMenu";
 import OptionSetImages from "./components/OptionSetImages";
-import { nextInArray } from "../common/utils";
+import { useSelector } from "react-redux";
+import { selectSearchOrDecks } from "../store/deckBuilder-selector";
 
 const DeckBuilder = () => {
+
+  const searchOrDecks = useSelector(selectSearchOrDecks);
 
   const [sortRowsBy, setSortRowsBy] = useState(rowsBy.none);
   const [sortColumnsBy, setSortColumnsBy] = useState(columnsBy.cmc);
   const [landPositionBy, setLandPositionBy] = useState(assignLandPositionBy.bottom);
   const [viewDeckBy, setViewDeckBy] = useState(viewBy.images);
-  const [dispalyAddOrSave, setDisplayAddOrSave] = useState('add');
 
-  const displayOptions = ['add', 'save'];
-  const toggleDisplayAddOrSave = () =>
-    setDisplayAddOrSave(display => nextInArray(displayOptions, display));
+  const subOptionstoRender = () => {
+    switch (viewDeckBy) {
+      case viewBy.images:
+        return (
+          <div className="view-sub-options">
+            <OptionSetImages options={Object.keys(columnsBy)} sources={columnIcons} selectOption={setSortColumnsBy}/>
+            <OptionSetImages options={Object.keys(rowsBy)} sources={rowIcons} selectOption={setSortRowsBy}/>
+            <OptionSetImages options={Object.keys(assignLandPositionBy)} sources={landPositionIcons} selectOption={setLandPositionBy} defaultOption={1}/>
+          </div>
+        );
+      default:
+        return <div></div>;
+    }
+  }
 
   return (
     <div className="deck-builder">
 
       <div className="decklist-options">
-        <OptionSetImages options={Object.keys(columnsBy)} sources={columnIcons} selectOption={setSortColumnsBy}/>
-        <OptionSetImages options={Object.keys(rowsBy)} sources={rowIcons} selectOption={setSortRowsBy}/>
-        <OptionSetImages options={Object.keys(assignLandPositionBy)} sources={landPositionIcons} selectOption={setLandPositionBy} defaultOption={1}/>
-        <OptionSetImages options={Object.keys(viewBy)} sources={viewIcons} selectOption={setViewDeckBy}/>
+        <div className="main-view-options">
+          <OptionSetImages options={Object.keys(viewBy)} sources={viewIcons} selectOption={setViewDeckBy}/>
+        </div>
+        {subOptionstoRender()}
+        <ActiveDeckWindow />
       </div>
 
-      <SaveAndLoadDecksMenu toggleDisplayAddOrSave={toggleDisplayAddOrSave}/>
+      {searchOrDecks === 'search' ? <AddCardsMenu /> : <SaveDeckMenu />}
 
       <DeckView
         sortRowsBy={sortRowsBy}
@@ -49,7 +63,6 @@ const DeckBuilder = () => {
         viewDeckBy={viewDeckBy}
       />
 
-      {dispalyAddOrSave === 'add' ? <AddCardsMenu /> : <SaveDeckMenu />}
 
     </div>
   );

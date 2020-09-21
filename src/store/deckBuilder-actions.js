@@ -1,6 +1,15 @@
 export const DECKBUILDER_STATE = 'deckbuilder';
 export const SET_DECKLIST = `${DECKBUILDER_STATE}/SET_DECKLIST`;
+export const SET_DECKNAME = `${DECKBUILDER_STATE}/SET_DECKNAME`;
+export const SET_SAVE_OR_SAVEAS = `${DECKBUILDER_STATE}/SET_SAVE_OR_SAVEAS`;
+export const SET_SEARCH_OR_DECKS = `${DECKBUILDER_STATE}/SET_SEARCH_OR_DECKS`;
 
+
+export const loadDeck = (savedDeck) => (dispatch) => {
+  const {name, deck} = savedDeck;
+  dispatch(setDecklist(deck));
+  dispatch(setDeckName(name));
+};
 
 export const setDecklist = (decklist) => (dispatch) => {
   dispatch({
@@ -8,6 +17,31 @@ export const setDecklist = (decklist) => (dispatch) => {
     decklist
   });
 };
+
+export const setDeckName = (deckName) => (dispatch) => {
+  dispatch({
+    type: SET_DECKNAME,
+    deckName
+  })
+};
+
+export const toggleSaveOrSaveAs = () => (dispatch, getState) =>
+  dispatch(setSaveOrSaveAs(getState()[DECKBUILDER_STATE].saveOrSaveAs === 'save' ? 'saveAs' : 'save'));
+const setSaveOrSaveAs = (saveOrSaveAs) => (dispatch) => {
+  dispatch({
+    type: SET_SAVE_OR_SAVEAS,
+    saveOrSaveAs
+  })
+};
+
+export const toggleSearchOrDecks = () => (dispatch, getState) =>
+  dispatch(setSearchOrDecks(getState()[DECKBUILDER_STATE].searchOrDecks === 'search' ? 'decks' : 'search'));
+const setSearchOrDecks = (searchOrDecks) => (dispatch) => {
+  dispatch({
+    type: SET_SEARCH_OR_DECKS,
+    searchOrDecks
+  })
+}
 
 export const addCardToMain = (card) => (dispatch) => dispatch(addCard(card, 'm'));
 export const addCardToSide = (card) => (dispatch) => dispatch(addCard(card, 's'));
@@ -64,7 +98,7 @@ export const addSomeToSomewhere = (cardToAdd, some, somewhere) => (dispatch) => 
     default:
       return null;
   }
-}
+};
 
 export const where = (i) => {
   switch (i) {
@@ -75,12 +109,12 @@ export const where = (i) => {
     default:
       return null;
   }
-}
+};
 export const addSomeToMain = (cardToAdd, some) => (dispatch) => {
   for (let i = 0; i < some; i++) {
     dispatch(addCardToMain(cardToAdd));
   }
-}
+};
 
 export const addSomeToSide = (cardToAdd, some) => (dispatch) => {
   for (let i = 0; i < some; i++) {

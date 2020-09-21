@@ -1,12 +1,74 @@
 .decklist-options {
   border: solid 1px black;
   display: flex;
+  //display: grid;
+  //grid-template-columns: 1fr 3fr 1fr;
   justify-content: center;
-  margin-bottom: 5px;
+  //margin-bottom: 5px;
 
-  .option-set {
+  .main-view-options {
+    margin-right: auto;
+    margin-bottom: 5px;
+  }
+
+  .view-sub-options {
     display: flex;
-    //flex-grow: 1;
-    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .active-deck-window {
+    max-height: 100px;
+    max-width: 20%;
+    margin-left: auto;
+    //flex: 1;
+    justify-content: right;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "img name o-butn"
+      "img t-btn o-butn";
+
+
+    .deck-box-img {
+      grid-area: img;
+      margin-left: auto;
+      max-height: 90%;
+    }
+
+    .this-deck {
+      margin: 5px;
+
+      .active-deck-name{
+        grid-area: name;
+        border-bottom: black solid 1px;
+        align-self: center;
+        padding: 5px;
+        max-width: 100%;
+      }
+
+      .button-set-horizontal{
+        grid-area: t-btn;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        display: flex;
+      }
+    }
+
+    .other-decks {
+      margin: 5px;
+
+      .button-set-vertical {
+        grid-area: o-btn;
+        display: flex;
+        flex-direction: column;
+
+        button {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+    }
   }
 }
+

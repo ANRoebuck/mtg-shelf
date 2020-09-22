@@ -71,7 +71,9 @@ const ActiveDeckWindow = () => {
 
   return (
     <div className="active-deck-window">
-      <img className="deck-box-img" src={closedDeckBoxImg}/>
+      <div className="deck-box-img-container">
+        <img className="deck-box-img" src={closedDeckBoxImg}/>
+      </div>
       <div className="this-deck">
         {deckNameDisplay()}
         <div className="button-set-horizontal">

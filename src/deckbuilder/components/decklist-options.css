@@ -1,7 +1,8 @@
 .decklist-options {
-  border: solid 1px black;
-  display: flex;
-  justify-content: center; }
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  justify-content: center;
+  max-width: 100%; }
 
 .decklist-options .main-view-options {
   margin-right: auto;
@@ -9,22 +10,26 @@
 
 .decklist-options .view-sub-options {
   display: flex;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  margin-right: auto;
+  max-width: 100%; }
 
 .decklist-options .active-deck-window {
   max-height: 100px;
-  max-width: 20%;
-  margin-left: auto;
+  width: min-content;
   justify-content: right;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "img name o-butn" "img t-btn o-butn"; }
 
-.decklist-options .active-deck-window .deck-box-img {
+.decklist-options .active-deck-window .deck-box-img-container {
   grid-area: img;
-  margin-left: auto;
-  max-height: 90%; }
+  margin-left: auto; }
+
+.decklist-options .active-deck-window .deck-box-img-container .deck-box-img {
+  max-height: 90%;
+  max-width: 100px; }
 
 .decklist-options .active-deck-window .this-deck {
   margin: 5px; }

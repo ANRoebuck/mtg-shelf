@@ -33,9 +33,12 @@ const DeckBuilder = () => {
       case viewBy.images:
         return (
           <div className="view-sub-options">
-            <OptionSetImages options={Object.keys(columnsBy)} sources={columnIcons} selectOption={setSortColumnsBy}/>
-            <OptionSetImages options={Object.keys(rowsBy)} sources={rowIcons} selectOption={setSortRowsBy}/>
-            <OptionSetImages options={Object.keys(assignLandPositionBy)} sources={landPositionIcons} selectOption={setLandPositionBy} defaultOption={1}/>
+            <OptionSetImages options={Object.keys(columnsBy)} sources={columnIcons}
+                             selectOption={setSortColumnsBy}/>
+            <OptionSetImages options={Object.keys(rowsBy)} sources={rowIcons}
+                             selectOption={setSortRowsBy}/>
+            <OptionSetImages options={Object.keys(assignLandPositionBy)} sources={landPositionIcons}
+                             selectOption={setLandPositionBy} defaultOption={1}/>
           </div>
         );
       default:
@@ -44,25 +47,28 @@ const DeckBuilder = () => {
   }
 
   return (
-    <div className="deck-builder">
+    <div className="deck-builder-container">
 
-      <div className="decklist-options">
-        <div className="main-view-options">
-          <OptionSetImages options={Object.keys(viewBy)} sources={viewIcons} selectOption={setViewDeckBy}/>
+      <div className="deck-builder">
+
+        <div className="decklist-options">
+          <div className="main-view-options">
+            <OptionSetImages options={Object.keys(viewBy)} sources={viewIcons} selectOption={setViewDeckBy}/>
+          </div>
+          {subOptionstoRender()}
+          <ActiveDeckWindow/>
         </div>
-        {subOptionstoRender()}
-        <ActiveDeckWindow />
+
+        {searchOrDecks === 'search' ? <AddCardsMenu/> : <SaveDeckMenu/>}
+
+        <DeckView
+          sortRowsBy={sortRowsBy}
+          sortColumnsBy={sortColumnsBy}
+          landPositionBy={landPositionBy}
+          viewDeckBy={viewDeckBy}
+        />
+
       </div>
-
-      {searchOrDecks === 'search' ? <AddCardsMenu /> : <SaveDeckMenu />}
-
-      <DeckView
-        sortRowsBy={sortRowsBy}
-        sortColumnsBy={sortColumnsBy}
-        landPositionBy={landPositionBy}
-        viewDeckBy={viewDeckBy}
-      />
-
 
     </div>
   );

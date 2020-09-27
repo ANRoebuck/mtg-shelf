@@ -32,3 +32,16 @@ export const mousePositionRelativeToContainer = (event: MouseEvent) => {
     y: Math.round(y),
   };
 };
+
+export const randomSubSet = (superArray: [], size: number) => {
+  let superSet = [...superArray];
+  let subSet = [];
+  for(let i = 0; i < size; i ++) {
+    const randomIndex = randomIntBetween(0, superSet.length - 1);
+    const randomEle = superSet.splice(randomIndex, 1);
+    subSet.push(randomEle[0]);
+  }
+  return subSet;
+}
+
+const randomIntBetween = (min, max) => Math.floor(Math.random() * (max - min) + min);

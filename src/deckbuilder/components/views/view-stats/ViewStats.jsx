@@ -5,6 +5,7 @@ import StatsTableColour from "./StatsTableColour";
 import Legalities from "./Legalities";
 import './view-stats.scss';
 import StatsTableType from "./StatsTableType";
+import StatsTableSampleHand from "./StatsTableSampleHand";
 
 
 const ViewStats = () => {
@@ -14,7 +15,8 @@ const ViewStats = () => {
       <StatsTableCMC />
       <StatsTableColour />
       <StatsTableType />
-      {/*<Legalities legalities={legalities} />*/}
+      <StatsTableSampleHand />
+      <Legalities />
       {/*<Finance finance={finance} />*/}
     </div>
   );

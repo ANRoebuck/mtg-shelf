@@ -28,7 +28,7 @@ const StatsTableCMC = () => {
   const options = chartOptions(`Nonland Cards by CMC (${nonLandCards.length})`);
 
   return (
-    <div className="single-stat">
+    <div className="single-stat cmc">
       <Bar data={data} options={options}/>
     </div>
   );

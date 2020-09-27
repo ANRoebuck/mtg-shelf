@@ -11,7 +11,6 @@ const StatsTableType = () => {
 
   const statsByType = cardsByType(maindeck);
 
-
   const labels = Object.keys(statsByType).sort(typesByTypeIndex);
   const chartData = labels.map(label => statsByType[label]);
   const chartColours = labels.map(label => 'black');
@@ -28,7 +27,7 @@ const StatsTableType = () => {
   const options = chartOptions(`Cards by Type (${maindeck.length})`);
 
   return (
-    <div className="single-stat">
+    <div className="single-stat type">
       <Bar data={data} options={options}/>
     </div>
   );

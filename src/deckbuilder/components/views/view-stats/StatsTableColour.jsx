@@ -28,7 +28,7 @@ const StatsTableColour = () => {
   const options = chartOptions(`Nonland Cards by Colour (${nonLandCards.length})`);
 
   return (
-    <div className="single-stat">
+    <div className="single-stat colour">
       <Bar data={data} options={options}/>
     </div>
   );

@@ -25,7 +25,7 @@ const SearchResult = (discoveredPrice) => {
       </div>
       <div className="img-container">
         <img className="discovered-price-img" src={imgSrc} alt={name}/>
-        <div onClick={onClickLink}>Link</div>
+        <div className="link" onClick={onClickLink}>Link</div>
       </div>
     </div>
   )

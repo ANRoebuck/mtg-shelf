@@ -2,12 +2,23 @@
   margin: 15px;
   padding: 15px;
   border: solid 2px black; }
-  .seller-options .logo {
-    max-width: 100px;
-    max-height: 40px; }
+
+.seller-options .logo {
+  max-width: 100px;
+  max-height: 40px; }
 
 [data-seller-enabled="false"] {
   background-color: lightgrey; }
 
 [data-seller-favourite="true"] {
   background-color: lightgreen; }
+
+@media only screen and (max-width: 425px) {
+  .seller-options {
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    display: flex; }
+  .seller-options .logo {
+    max-width: 60px;
+    max-height: 40px; } }

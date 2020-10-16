@@ -1,0 +1,46 @@
+.game {
+  max-width: 100vw;
+  height: 100%;
+  display: grid;
+
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 9fr 1fr;
+  grid-template-areas:
+    "battlefield library"
+    "battlefield graveyard"
+    "battlefield graveyard"
+    "hand hand";
+
+  .box {
+    //min-height: 500px;
+    //width: 500px;
+    border: solid black 1px;
+  }
+
+  .battlefield {
+    grid-area: battlefield;
+    display: flex;
+    min-width: 100%;
+  }
+
+  .library {
+    grid-area: library;
+  }
+
+  .graveyard {
+    grid-area: graveyard;
+  }
+
+  .hand {
+    grid-area: hand;
+    display: flex;
+  }
+
+  .card {
+    .card-img[data-tapped="true"] {
+      transform: rotate(80deg);
+    }
+  }
+
+
+}

@@ -16,7 +16,9 @@ export const validateObjectProperties = (object, key, isValid) => {
   return object;
 }
 
-export const nextInArray = (array: [], current: any) => {
+export const randomFromArray = (array) => array[randomIntBetween(0, array.length - 1)];
+
+export const nextInArray = (array, current) => {
   const i = array.indexOf(current);
   if (i === -1) return null;
   if (i === array.length - 1) return array[0];

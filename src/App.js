@@ -4,7 +4,7 @@ import './App.scss';
 import DeckBuilder from "./deckbuilder/DeckBuilder";
 import Home from "./Home";
 import ComparePrices from "./compare-prices/ComparePrices";
-import Game from "./game/Game";
+import Game from "./game/GameMenu";
 
 const App = () => {
 

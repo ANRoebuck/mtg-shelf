@@ -1,11 +1,13 @@
 .App {
   height: 100vh;
   text-align: center; }
-  .App .menu {
-    display: flex;
-    justify-content: center; }
-    .App .menu .menu-item {
-      margin: 20px; }
+
+.App .menu {
+  display: flex;
+  justify-content: center; }
+
+.App .menu .menu-item {
+  margin: 5px 20px 5px; }
 
 .the-shelf-img {
   max-height: 650px; }

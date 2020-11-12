@@ -9,7 +9,9 @@ class ModelChaosCards {
   logo = seller.chaos.logo;
   baseUrl = 'https://www.chaoscards.co.uk/';
   searchPath = 'search/';
-  perverseStripper = /^([\s\S]*):\s([\s\S]*)$/; // returns the groups separated by ": "
+  searchSuffix = '#/embedded/query=raven%20familiar&page=1&filter%5Bavailability%5D=In%20stock&lang=en&skuFld=id&query_name=match_and';
+  colonSplitter = /^([\s\S]*):\s([\s\S]*)$/; // returns the groups separated by ": "
+  firstMajusculeString = /^[^A-Z]*([A-Z'\s]*)\s[^A-Z]?/;
 
   search = async (searchTerm) => {
     const foundItems = [];
@@ -31,22 +33,23 @@ class ModelChaosCards {
 
   getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => []);
 
-  searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath + searchTerm.toLowerCase().split(' ').join('-');
+  searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath +
+    searchTerm.toLowerCase().split(' ').join('%20') + this.searchSuffix;
 
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)
       .then(({data: html}) => {
         const document = this.parser.parseFromString(html, "text/html");
-        return document.querySelectorAll('div#search_results_grid > div#search_results_products > div.product')
+        return document.querySelectorAll('div.df-embedded__content > div.df-main > div.df-results > div.df-card')
       });
   }
 
   nameFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div.product_details > div.product_title > a.product_title')
+    resultNode.querySelectorAll('a > div.df-card__content > div.df-card__title')
       .forEach(node => {
         node.firstChild.remove();
-        let str = node.innerHTML.replace(this.perverseStripper, `$2`);
+        let str = node.innerHTML.replace(this.colonSplitter, `$1`);
         arr.push(str);
       });
     return arr[0];
@@ -54,8 +57,7 @@ class ModelChaosCards {
 
   priceFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll(
-      'div.product_details > div > div.product_price > span > span.price > span.inc > span.GBP')
+    resultNode.querySelectorAll('a > div.df-card__content > div.df-card__pricing > span')
       .forEach(node => {
         const text = node.innerHTML;
         arr.push({
@@ -69,33 +71,33 @@ class ModelChaosCards {
   priceValueFromPriceText = (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999;
 
   stockFromResultNode = (resultNode) => {
-    let arr =[];
-    resultNode.querySelectorAll('div.product_hover > div.product_hover_title > div.stock_levels')
-      .forEach(node => {
-        const text = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
-        arr.push({
-          text,
-          value: this.stockValueFromStockText(text),
-        });
-      });
+    let arr = [];
+    // resultNode.querySelectorAll('div.product_hover > div.product_hover_title > div.stock_levels')
+    //   .forEach(node => {
+    //     const text = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
+    //     arr.push({
+    //       text,
+    //       value: this.stockValueFromStockText(text),
+    //     });
+    //   });
+    arr.push({text: 'In Stock', value: 1});
     arr.push({text: 'Out of Stock', value: 0});
     return arr[0];
   }
-  stockValueFromStockText = (text) =>
-    text === 'Sorry Item out of Stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
+  stockValueFromStockText = (text) => text === 'Out of Stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('ul > li.product_image > a > img')
+    resultNode.querySelectorAll('a > figure.df-card__image > img')
       .forEach(node => {
-        arr.push(this.baseUrl + node.getAttribute('src'));
+        arr.push(node.getAttribute('src'));
       });
     return arr[0];
   }
 
   productRefFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('ul > li.product_image > a')
+    resultNode.querySelectorAll('a')
       .forEach(node => {
         arr.push(node.getAttribute('href'));
       });
@@ -104,10 +106,9 @@ class ModelChaosCards {
 
   expansionFromResultNode = (resultNode) => {
     let arr = [];
-    const extremelyPerverseStripper = /^([^A-Z]*\s)([\w\W]*?)(\s[A-Z][a-z])([\s\S]*)$/;
-    resultNode.querySelectorAll('div.product_details > div.product_title > a.product_title')
+    resultNode.querySelectorAll('a > div.df-card__content > div.df-card__title')
       .forEach(node => {
-        let str = node.innerHTML.replace(extremelyPerverseStripper, `$2`);
+        let str = node.innerHTML.replace(this.colonSplitter, `$2`).replace(this.firstMajusculeString, `$1`);
         arr.push(str);
         arr.push(node.innerHTML);
       });

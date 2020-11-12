@@ -8,8 +8,8 @@ import ModelBigOrbitCards from "./model-big-orbit-cards";
 
 export const configureModels = () => [
   new ModelAxion(),
-  // new ModelChaosCards(),
   new ModelBigOrbitCards(),
+  // new ModelChaosCards(),
   new ModelMagicCardTrader(),
   new ModelMagicMadHouse(),
   new ModelPatriotGamesLeeds(),

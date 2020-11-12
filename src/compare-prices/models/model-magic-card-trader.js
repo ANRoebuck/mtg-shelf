@@ -45,7 +45,7 @@ class ModelMagicCardTrader {
     let arr = [];
     resultNode.querySelectorAll('div.inner > div.image-meta > div.meta > a > h4.name')
       .forEach(node => {
-        let str = node.innerHTML.replace(regex.whitespaceStripper, `$2`);
+        let str = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
         arr.push(str);
       });
     return arr[0];

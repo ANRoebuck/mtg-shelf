@@ -1,17 +1,14 @@
 import axios from 'axios';
 import { cors, regex, seller } from "./utils";
 
-class ModelChaosCards {
+class ModelMagicCardTrader {
 
   parser = new DOMParser();
 
-  name = seller.chaos.name;
-  logo = seller.chaos.logo;
-  baseUrl = 'https://www.chaoscards.co.uk/';
-  searchPath = 'search/';
-  searchSuffix = '#/embedded/query=raven%20familiar&page=1&filter%5Bavailability%5D=In%20stock&lang=en&skuFld=id&query_name=match_and';
-  colonSplitter = /^([\s\S]*):\s([\s\S]*)$/; // returns the groups separated by ": "
-  firstMajusculeString = /^[^A-Z]*([A-Z'\s]*)\s[^A-Z]?/;
+  name = seller.magicCardTrader.name;
+  logo = seller.magicCardTrader.logo;
+  baseUrl = 'https://www.themagiccardtrader.com/';
+  searchPath = 'products/search?q=';
 
   search = async (searchTerm) => {
     const foundItems = [];
@@ -33,23 +30,22 @@ class ModelChaosCards {
 
   getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => []);
 
-  searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath +
-    searchTerm.toLowerCase().split(' ').join('%20') + this.searchSuffix;
+  searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath
+    + searchTerm.toLowerCase().split(' ').join('+');
 
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)
       .then(({data: html}) => {
         const document = this.parser.parseFromString(html, "text/html");
-        return document.querySelectorAll('div.df-embedded__content > div.df-main > div.df-results > div.df-card')
+        return document.querySelectorAll('div.products-container > ul > li')
       });
   }
 
   nameFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('a > div.df-card__content > div.df-card__title')
+    resultNode.querySelectorAll('div.inner > div.image-meta > div.meta > a > h4.name')
       .forEach(node => {
-        node.firstChild.remove();
-        let str = node.innerHTML.replace(this.colonSplitter, `$1`);
+        let str = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
         arr.push(str);
       });
     return arr[0];
@@ -57,7 +53,7 @@ class ModelChaosCards {
 
   priceFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('a > div.df-card__content > div.df-card__pricing > span')
+    resultNode.querySelectorAll('div.inner > div.variants > div.variant-row > span.variant-buttons > form > div.product-price-qty > span')
       .forEach(node => {
         const text = node.innerHTML;
         arr.push({
@@ -71,24 +67,24 @@ class ModelChaosCards {
   priceValueFromPriceText = (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999;
 
   stockFromResultNode = (resultNode) => {
-    let arr = [];
-    // resultNode.querySelectorAll('div.product_hover > div.product_hover_title > div.stock_levels')
-    //   .forEach(node => {
-    //     const text = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
-    //     arr.push({
-    //       text,
-    //       value: this.stockValueFromStockText(text),
-    //     });
-    //   });
-    arr.push({text: 'In Stock', value: 1});
+    let arr =[];
+    resultNode.querySelectorAll('div.inner > div.variants > div.variant-row > span.variant-main-info > span.variant-qty')
+      .forEach(node => {
+        const text = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
+        arr.push({
+          text,
+          value: this.stockValueFromStockText(text),
+        });
+      });
     arr.push({text: 'Out of Stock', value: 0});
     return arr[0];
   }
-  stockValueFromStockText = (text) => text === 'Out of Stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
+  stockValueFromStockText = (text) => text === 'Out of stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
+
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('a > figure.df-card__image > img')
+    resultNode.querySelectorAll('div.inner > div.image-meta > div.image > a > img')
       .forEach(node => {
         arr.push(node.getAttribute('src'));
       });
@@ -97,7 +93,7 @@ class ModelChaosCards {
 
   productRefFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('a')
+    resultNode.querySelectorAll('div.inner > div.image-meta > div.image > a')
       .forEach(node => {
         arr.push(node.getAttribute('href'));
       });
@@ -106,15 +102,14 @@ class ModelChaosCards {
 
   expansionFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('a > div.df-card__content > div.df-card__title')
+    resultNode.querySelectorAll('div.inner > div.image-meta > div.meta > a > span.category')
       .forEach(node => {
-        let str = node.innerHTML.replace(this.colonSplitter, `$2`).replace(this.firstMajusculeString, `$1`);
-        arr.push(str);
         arr.push(node.innerHTML);
       });
     return arr[0];
+    return null;
   }
 
 }
 
-export default ModelChaosCards;
+export default ModelMagicCardTrader;

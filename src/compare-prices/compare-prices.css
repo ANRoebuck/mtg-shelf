@@ -63,9 +63,10 @@
   .compare-prices .search-result.covered {
     height: 50px;
     overflow: hidden; }
-  .sellers .seller-options .radio {
-    display: none; }
-  .sellers .seller-options .stock-p-t {
+  .sellers .seller-options .widgets {
+    display: flex;
+    flex-direction: column; }
+  .sellers .seller-options .stock {
     display: none; }
   .search-results .discovered-price {
     margin: 5px;

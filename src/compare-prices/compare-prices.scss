@@ -93,10 +93,11 @@
 
   .sellers {
     .seller-options {
-      .radio {
-        display: none;
+      .widgets {
+        display: flex;
+        flex-direction: column;
       }
-      .stock-p-t {
+      .stock {
         display: none;
       }
     }

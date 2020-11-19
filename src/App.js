@@ -10,8 +10,8 @@ const App = () => {
 
   const pages = {
     home: 'Home',
-    deckBuilder: 'Deck Builder',
     comparePrices: 'Compare Prices',
+    deckBuilder: 'Deck Builder',
     // draft: 'Draft',
     // game: 'Game',
   }

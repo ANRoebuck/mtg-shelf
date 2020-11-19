@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { cors, regex, seller } from "./utils";
 
-class ModelMadHouse {
+class ModelMagicMadHouse {
 
   parser = new DOMParser();
 
-  name = seller.madhouse.name;
-  logo = seller.madhouse.logo;
+  name = seller.magicMadhouse.name;
+  logo = seller.magicMadhouse.logo;
   baseUrl = 'https://www.magicmadhouse.co.uk/';
   searchPath = 'search/';
 
@@ -47,7 +47,7 @@ class ModelMadHouse {
       .forEach(node => {
         node.firstChild.remove();
         node.firstChild.remove();
-        let str = node.innerHTML.replace(regex.whitespaceStripper, `$2`);
+        let str = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
         arr.push(str);
       });
     return arr[0];
@@ -114,4 +114,4 @@ class ModelMadHouse {
 
 }
 
-export default ModelMadHouse;
+export default ModelMagicMadHouse;

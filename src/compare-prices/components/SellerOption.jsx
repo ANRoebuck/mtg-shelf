@@ -8,13 +8,17 @@ const SellerOption = (seller, toggleSellerEnabled, assignFavourite) => {
 
   return (
     <div className="seller-options" data-seller-enabled={enabled} data-seller-favourite={favourite}>
-      {loading ? <div>Loading...</div> : null}
-      <img className="logo" src={logo} alt={name} onClick={() => toggleSellerEnabled(seller)}/>
-      <CheckBox option={null} checked={favourite} onChange={() => assignFavourite(seller)}/>
-      {/*<div>{enabled ? 'enabled' : 'disabled'}</div>*/}
-      {/*<div>{results !== '' ? `results: ${results}` : null}</div>*/}
-      {/*<div>{inStock !== '' ? `inStock: ${inStock}` : null}</div>*/}
-      <div className="stock-p-t">{results !== '' ? `${inStock} / ${results}` : null}</div>
+      <div className="logo-container">
+        {loading
+          ? <div className="loading">Loading...</div>
+          : <img className="logo" src={logo} alt={name} />}
+      </div>
+      <div className="widgets">
+        <CheckBox option={null} checked={enabled} onChange={() => toggleSellerEnabled(seller)}/>
+        <CheckBox option={null} checked={favourite} onChange={() => assignFavourite(seller)}/>
+        {/*<input className="star" type="checkbox" checked={favourite} onChange={() => assignFavourite(seller)} />*/}
+        <div className="stock">{results !== '' ? `${inStock} / ${results}` : '* / *'}</div>
+      </div>
     </div>
   )
 };

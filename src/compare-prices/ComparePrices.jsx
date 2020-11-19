@@ -113,18 +113,18 @@ const ComparePrices = () => {
     .map(SearchResult);
 
   return (
-    <div className="card-search">
+    <div className="compare-prices">
       <form onSubmit={(e) => onSubmit(e)}>
         <label>
           Card Search:
           <input type="text" value={searchTerm} onChange={(e) => onChange(e)}/>
         </label>
       </form>
-      <div className="options">
-        <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
-      </div>
       <div className="sellers">
         {sellerOptions}
+        <div className="options">
+          <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
+        </div>
       </div>
       <div className="search-results">
         {searchResults}

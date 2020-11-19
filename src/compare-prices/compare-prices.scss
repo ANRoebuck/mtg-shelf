@@ -1,7 +1,27 @@
-.card-search {
+.compare-prices {
   padding: 10px;
   border: 2px black;
   height: 100%;
+
+  .sellers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .options {
+      padding: 10px;
+      height: 100%;
+
+      .option-set {
+        margin: 0px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-align: left;
+      }
+    }
+  }
 
   .search-results {
     overflow-y: scroll;
@@ -15,11 +35,6 @@
   }
 }
 
-.sellers {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
 
 [data-in-stock="false"] {
   background-color: lightgrey;
@@ -54,7 +69,7 @@
 
 @media only screen and (max-width: 425px) {
 
-  .card-search {
+  .compare-prices {
     padding: 0px;
     margin: 0px;
     border: 1px black;
@@ -78,10 +93,11 @@
 
   .sellers {
     .seller-options {
-      .radio {
-        display: none;
+      .widgets {
+        display: flex;
+        flex-direction: column;
       }
-      .stock-p-t {
+      .stock {
         display: none;
       }
     }

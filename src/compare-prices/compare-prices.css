@@ -1,17 +1,26 @@
-.card-search {
+.compare-prices {
   padding: 10px;
   border: 2px black;
   height: 100%; }
-  .card-search .search-results {
+  .compare-prices .sellers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .compare-prices .sellers .options {
+      padding: 10px;
+      height: 100%; }
+      .compare-prices .sellers .options .option-set {
+        margin: 0px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-align: left; }
+  .compare-prices .search-results {
     overflow-y: scroll; }
-  .card-search .search-result.covered {
+  .compare-prices .search-result.covered {
     height: 50px;
     overflow: hidden; }
-
-.sellers {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; }
 
 [data-in-stock="false"] {
   background-color: lightgrey; }
@@ -33,21 +42,22 @@
     margin: 10px; }
 
 @media only screen and (max-width: 425px) {
-  .card-search {
+  .compare-prices {
     padding: 0px;
     margin: 0px;
     border: 1px black;
     height: 100%; }
-    .card-search .options {
+    .compare-prices .options {
       display: none; }
-    .card-search .search-results {
+    .compare-prices .search-results {
       overflow-y: scroll; }
-    .card-search .search-result.covered {
+    .compare-prices .search-result.covered {
       height: 50px;
       overflow: hidden; }
-  .sellers .seller-options .radio {
-    display: none; }
-  .sellers .seller-options .stock-p-t {
+  .sellers .seller-options .widgets {
+    display: flex;
+    flex-direction: column; }
+  .sellers .seller-options .stock {
     display: none; }
   .search-results .discovered-price {
     margin: 5px;

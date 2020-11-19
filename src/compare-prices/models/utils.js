@@ -1,23 +1,33 @@
-import axionLogo from '../resources/axionLogo.png';
-import chaosLogo from '../resources/chaosCardsLogo.png';
-import madhouseLogo from '../resources/madhouseLogo.png';
-import pgLeedsLogo from '../resources/patriotGamesLeedsLogo.png';
-import trollLogo from '../resources/trollTraderLogo.png';
+import axionLogo from '../resources/axionLogo 150x60.png';
+import bigOrbitLogo from '../resources/bigOrbitCardsLogo 150x60.png';
+import chaosLogo from '../resources/chaosCardsLogo 150x60.png';
+import magicCardTraderLogo from '../resources/magicCardTraderLogo-black 150x60.png';
+import magicMadhouseLogo from '../resources/magicMadhouseLogo 150x60.png';
+import pgLeedsLogo from '../resources/patriotGamesLeedsLogo 150x60.png';
+import trollLogo from '../resources/trollTraderLogo 150x60.png';
 
-export const cors = 'https://cors-anywhere.herokuapp.com/';
+export const cors = 'https://mtg-shelf.herokuapp.com/';
 
 export const seller = {
   axion: {
     name: 'Axion Now',
     logo: axionLogo,
   },
+  bigOrbit: {
+    name: 'Big Orbit Cards',
+    logo: bigOrbitLogo,
+  },
   chaos: {
     name: 'Chaos Cards',
     logo: chaosLogo,
   },
-  madhouse: {
+  magicCardTrader: {
+    name: 'Magic Card Trader',
+    logo: magicCardTraderLogo,
+  },
+  magicMadhouse: {
     name: 'Magic Madhouse',
-    logo: madhouseLogo,
+    logo: magicMadhouseLogo,
   },
   pgLeeds: {
     name: 'Patriot Games - Leeds',
@@ -31,8 +41,10 @@ export const seller = {
 
 export const logo = {
   axion: axionLogo,
+  bigOrbit: bigOrbitLogo,
   chaos: chaosLogo,
-  madhouse: madhouseLogo,
+  magicCardTrader: magicCardTraderLogo,
+  magicMadhouse: magicMadhouseLogo,
   pgLeeds: pgLeedsLogo,
   trollTrader: trollLogo,
 }

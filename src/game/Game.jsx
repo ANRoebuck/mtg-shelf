@@ -5,7 +5,7 @@ import { selectDecklist, selectDeckName, selectMaindeck } from "../store/deckBui
 import Card from "./Card";
 import { randomFromArray } from "../common/utils";
 
-const Playmat = () => {
+const Game = () => {
 
   // const deckName = useSelector(selectDeckName);
   // const deckList = useSelector(selectDecklist);
@@ -67,58 +67,57 @@ const Playmat = () => {
   };
 
   const displayHand = hand.map(card => <Card card={card} onDragStart={onDragStart} originArea="hand"/>);
-  const displayBattlefield = battlefield.map(card => <Card card={card} onDragStart={onDragStart}
-                                                           originArea="battlefield"/>);
+  const displayBattlefield = battlefield.map(card => <Card card={card} onDragStart={onDragStart} originArea="battlefield"/>);
   const displayGraveyard = graveyard.map(card => <Card card={card} onDragStart={onDragStart} originArea="graveyard"/>);
   const displayExile = exile.map(card => <Card card={card} onDragStart={onDragStart} originArea="exile"/>);
 
   return (
-      <div className="game">
+    <div className="game">
 
-        <div className="library" value="library">
-          <div>{`Cards in Library: ${library.length}`}</div>
-          <button type="button" onClick={draw}>Draw 1</button>
-          <img/>
-        </div>
-
-        <div
-          className="box hand"
-          value="hand"
-          onDragOver={(e) => allowDrop(e)}
-          onDrop={(e) => onDrop(e, 'hand')}
-        >
-          {displayHand}
-        </div>
-        <div
-          className="box battlefield"
-          value="battlefield"
-          onDragOver={(e) => allowDrop(e)}
-          onDrop={(e) => onDrop(e, 'battlefield')}
-        >
-          {displayBattlefield}
-        </div>
-
-        <div
-          className="box graveyard"
-          value="graveyard"
-          onDragOver={(e) => allowDrop(e)}
-          onDrop={(e) => onDrop(e, 'graveyard')}
-        >
-          {displayGraveyard}
-        </div>
-
-        {/*<div*/}
-        {/*  className="box exile"*/}
-        {/*  value="exile"*/}
-        {/*  onDragOver={(e) => allowDrop(e)}*/}
-        {/*  onDrop={(e) => onDrop(e, 'exile')}*/}
-        {/*>*/}
-        {/*  Exile*/}
-        {/*  {displayExile}*/}
-        {/*</div>*/}
-
+      <div className="library" value="library">
+        <div>{`Cards in Library: ${library.length}`}</div>
+        <button type="button" onClick={draw}>Draw 1</button>
+        <img/>
       </div>
+
+      <div
+        className="box hand"
+        value="hand"
+        onDragOver={(e) => allowDrop(e)}
+        onDrop={(e) => onDrop(e, 'hand')}
+      >
+        {displayHand}
+      </div>
+      <div
+        className="box battlefield"
+        value="battlefield"
+        onDragOver={(e) => allowDrop(e)}
+        onDrop={(e) => onDrop(e, 'battlefield')}
+      >
+        {displayBattlefield}
+      </div>
+
+      <div
+        className="box graveyard"
+        value="graveyard"
+        onDragOver={(e) => allowDrop(e)}
+        onDrop={(e) => onDrop(e, 'graveyard')}
+      >
+        {displayGraveyard}
+      </div>
+
+      {/*<div*/}
+      {/*  className="box exile"*/}
+      {/*  value="exile"*/}
+      {/*  onDragOver={(e) => allowDrop(e)}*/}
+      {/*  onDrop={(e) => onDrop(e, 'exile')}*/}
+      {/*>*/}
+      {/*  Exile*/}
+      {/*  {displayExile}*/}
+      {/*</div>*/}
+
+    </div>
   );
 };
 
-export default Playmat;
+export default Game;

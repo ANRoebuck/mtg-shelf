@@ -1,21 +1,13 @@
 .App {
   height: 100vh;
-  text-align: center;
+  text-align: center; }
 
-
-  .menu {
-    display: flex;
-    justify-content: center;
-
-    .menu-item {
-      margin: 20px;
-    }
-  }
-}
+.App .menu {
+  display: flex;
+  justify-content: center; }
 
 .the-shelf-img {
-  max-height: 650px;
-}
+  max-height: 650px; }
 
 .App-header {
   background-color: #282c34;
@@ -25,18 +17,13 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-}
+  color: white; }
 
 .App-link {
-  color: #61dafb;
-}
+  color: #61dafb; }
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
   to {
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }

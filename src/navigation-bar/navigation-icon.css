@@ -1,0 +1,29 @@
+.menu-item {
+  transition-duration: 0.2s;
+  position: relative;
+  margin: 10px 20px 10px;
+  max-width: 175px;
+  border: solid black 0px; }
+
+.menu-item:hover {
+  transition-duration: 0.2s;
+  transform: scale(1.1); }
+
+.menu-item[data-active="true"] {
+  outline: none;
+  border-color: royalblue;
+  box-shadow: 0 0 10px royalblue; }
+
+.menu-item .navigation-icon-image {
+  max-width: 100%; }
+
+.menu-item .page-name {
+  min-width: 125px;
+  white-space: nowrap;
+  background-color: white;
+  border: solid black 1px;
+  opacity: 0.8;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }

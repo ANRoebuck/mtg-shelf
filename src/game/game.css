@@ -5,24 +5,18 @@
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 9fr 1fr;
   grid-template-areas: "battlefield library" "battlefield graveyard" "battlefield graveyard" "hand hand"; }
-
-.game .box {
-  border: solid black 1px; }
-
-.game .battlefield {
-  grid-area: battlefield;
-  display: flex;
-  min-width: 100%; }
-
-.game .library {
-  grid-area: library; }
-
-.game .graveyard {
-  grid-area: graveyard; }
-
-.game .hand {
-  grid-area: hand;
-  display: flex; }
-
-.game .card .card-img[data-tapped="true"] {
-  transform: rotate(80deg); }
+  .game .box {
+    border: solid black 1px; }
+  .game .battlefield {
+    grid-area: battlefield;
+    display: flex;
+    min-width: 100%; }
+  .game .library {
+    grid-area: library; }
+  .game .graveyard {
+    grid-area: graveyard; }
+  .game .hand {
+    grid-area: hand;
+    display: flex; }
+  .game .card .card-img[data-tapped="true"] {
+    transform: rotate(80deg); }

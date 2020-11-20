@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './app.scss';
 import Home from "./Home";
@@ -31,7 +31,29 @@ const App = () => {
   const [display, setDisplay] = useState(pages.home);
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(setWsConnection(handshake())), []);
+  const ws = useRef(null);
+
+  useEffect(() => {
+    ws.current = new WebSocket("ws://127.0.0.1:8000");
+    ws.current.onopen = () => console.log("ws opened");
+    ws.current.onclose = () => console.log("ws closed");
+
+    dispatch(setWsConnection(client));
+
+    return () => {
+      ws.current.close();
+    };
+  }, []);
+
+  // useEffect(() => {
+  //   // handshake();
+  //   const client = new W3CWebSocket('ws://127.0.0.1:8000');
+  //
+  //   client.onopen = () => {
+  //     console.log('WebSocket Client Connected');
+  //     dispatch(setWsConnection(client))
+  //   }
+  // }, []);
 
   const navigationIcons = Object.values(pages).map((page, i) =>
     <NavigationIcon page={page} value={i} active={display === page} setDisplay={setDisplay}/>);

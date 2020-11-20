@@ -3,6 +3,7 @@ import {
   SET_DECKLIST, SET_DECKNAME, SET_SAVE_OR_SAVEAS, SET_SEARCH_OR_DECKS,
 } from './deckBuilder-actions';
 
+
 export const defaultState = Immutable.from({
   decklist: [],
   deckName: '',

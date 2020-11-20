@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './app.scss';
 import Home from "./Home";
@@ -6,6 +6,15 @@ import NavigationIcon from "./navigation-bar/NavigationIcon";
 import ComparePrices from "./compare-prices/ComparePrices";
 import DeckBuilder from "./deckbuilder/DeckBuilder";
 import Game from "./game/Game";
+import { w3cwebsocket as W3CWebSocket } from "websocket/lib/websocket";
+
+const client = new W3CWebSocket('ws://127.0.0.1:8000');
+
+const handshake = () => {
+  client.onopen = () => {
+    console.log('WebSocket Client Connected');
+  }
+}
 
 const App = () => {
 
@@ -18,6 +27,11 @@ const App = () => {
   }
 
   const [display, setDisplay] = useState(pages.home);
+
+  const [client, setClient] = useState(null);
+
+  useEffect(() => setClient(handshake()), []);
+
 
   const navigationIcons = Object.values(pages).map((page, i) =>
     <NavigationIcon page={page} value={i} active={display === page} setDisplay={setDisplay}/>);

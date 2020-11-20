@@ -3,6 +3,7 @@
   position: relative;
   margin: 10px 20px 10px;
   max-width: 175px;
+  max-height: 89px;
   border: solid black 0px; }
 
 .menu-item:hover {

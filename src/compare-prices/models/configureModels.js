@@ -1,5 +1,4 @@
 import ModelAxion from "./model-axion";
-import ModelChaosCards from "./model-chaos-cards";
 import ModelMagicMadHouse from "./model-magic-mad-house";
 import ModelPatriotGamesLeeds from "./model-patriot-games-leeds";
 import ModelTrollTrader from "./model-trolltrader";
@@ -9,7 +8,6 @@ import ModelBigOrbitCards from "./model-big-orbit-cards";
 export const configureModels = () => [
   new ModelAxion(),
   new ModelBigOrbitCards(),
-  // new ModelChaosCards(),
   new ModelMagicCardTrader(),
   new ModelMagicMadHouse(),
   new ModelPatriotGamesLeeds(),

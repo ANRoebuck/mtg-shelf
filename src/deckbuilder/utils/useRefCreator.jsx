@@ -2,14 +2,14 @@ import { useCallback, useState } from 'react';
 
 const useRefCreator = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [ref, setRef] = useState(null);
+  const [containerRef, setContainerRef] = useState(null);
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const updateRef = useCallback((node) => {
+  const updateContainerRef = useCallback((node) => {
     if (node !== null) {
-      setRef(node);
+      setContainerRef(node);
     }
   }, []);
-  return [ref, updateRef];
+  return [containerRef, updateContainerRef];
 };
 
 export default useRefCreator;

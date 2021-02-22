@@ -37,7 +37,7 @@ const Card = ({card, covered, sideInOrOut }) => {
   ];
 
   return (
-    <div className={`card${covered ? ' covered' : ''} index=${card.index}`} ref={updateRef} >
+    <div className={`card${covered ? ' covered' : ''} index=${card.index}`} >
       <ContextMenu containerRef={ref} menuItems={contextMenuItems}/>
       <img
         className="card-img"
@@ -46,6 +46,7 @@ const Card = ({card, covered, sideInOrOut }) => {
         onMouseEnter={mouseInOut}
         onMouseLeave={mouseInOut}
         onClick={handleClick}
+        ref={updateRef}
       />
     </div>
   );

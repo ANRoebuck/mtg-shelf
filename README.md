@@ -1,3 +1,11 @@
+## Release History
+
+## 1.0.1
+* Fix bug causing right-click-menu to appear in incorrect place when screen is scrolled
+
+
+~~~~~~~
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

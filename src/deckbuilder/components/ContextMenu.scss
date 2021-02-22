@@ -15,3 +15,7 @@
 .custom-context-item-last{
   padding: 5px 25px;
 }
+.custom-context-item:hover, .custom-context-item-last:hover {
+  background: #3a3f5a;
+  color: white;
+}

@@ -7,41 +7,11 @@ const ContextMenu = ({containerRef, menuItems}) => {
 
   const onContextMenu = (e) => {
     e.preventDefault();
-    setPosition({x: e.clientX, y: e.clientY});
+    setPosition({
+      x: containerRef.getBoundingClientRect().left + (e.pageX - containerRef.getBoundingClientRect().left),
+      y: containerRef.getBoundingClientRect().top + (e.pageY - containerRef.getBoundingClientRect().top),
+    });
     setVisible(true);
-  }
-
-  const menuOnMouseLeave = () => setVisible(false);
-
-  const renderMenuItems = (items) => {
-    const style = {
-      position: `absolute`,
-      top: `${position.y -5}px`,
-      left: `${position.x -5}px`
-    }
-
-    return (
-      <div
-        className="custom-context" style={style}
-        onMouseLeave={menuOnMouseLeave}
-      >
-        {items.map((item, index, arr) => {
-          return (
-            <div
-              className={`custom-context-item-last${index === arr -1 ? `-last` : ``}`}
-              onClick={(e) => {
-                item.callback();
-                setVisible(false);
-              }}
-            >
-              {item.label}
-            </div>
-          )
-
-          // else return <div className="custom-context-item">{item.label}</div>
-        })}
-      </div>
-    )
   }
 
   useEffect(() => {
@@ -54,6 +24,38 @@ const ContextMenu = ({containerRef, menuItems}) => {
       }
     };
   }, [containerRef]);
+
+  const menuOnMouseLeave = () => setVisible(false);
+
+  const renderMenuItems = (items) => {
+    const style = {
+      position: `absolute`,
+      top: `${position.y -10}px`,
+      left: `${position.x -10}px`
+    }
+
+    return (
+      <div
+        className="custom-context" style={style}
+        onMouseLeave={menuOnMouseLeave}
+      >
+        {items.map((item, index, arr) => {
+          return (
+            <div
+              className={`custom-context-item${index === arr.length - 1 ? '-last' : ''}`}
+              onClick={(e) => {
+                item.callback();
+                setVisible(false);
+              }}
+            >
+              {item.label}
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
 
   return (
     <div className="custom-context-menu">

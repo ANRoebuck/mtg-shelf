@@ -3,12 +3,13 @@ import { cors, regex, seller } from "./utils";
 
 class ModelAxion {
 
-  parser = new DOMParser();
-
-  name = seller.axion.name;
-  logo = seller.axion.logo;
-  baseUrl = 'https://www.axionnow.com/';
-  searchPath = 'products/search?q=';
+  constructor() {
+    this.parser = new DOMParser();
+    this.name = seller.axion.name;
+    this.logo = seller.axion.logo;
+    this.baseUrl = 'https://www.axionnow.com/';
+    this.searchPath = 'products/search?q=';
+  }
 
   search = async (searchTerm) => {
     const foundItems = [];

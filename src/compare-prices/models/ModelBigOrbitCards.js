@@ -3,13 +3,14 @@ import { cors, regex, seller } from "./utils";
 
 class ModelBigOrbitCards {
 
-  parser = new DOMParser();
-
-  name = seller.bigOrbit.name;
-  logo = seller.bigOrbit.logo;
-  baseUrl = 'https://www.bigorbitcards.co.uk/';
-  searchPath = '?match=all&subcats=Y&pcode_from_q=N&pshort=N&pfull=N&pname=Y&pkeywords=N&search_performed=Y&product_variants=N&q=';
-  searchSuffix = '&dispatch=products.search';
+  constructor() {
+    this.parser = new DOMParser();
+    this.name = seller.bigOrbit.name;
+    this.logo = seller.bigOrbit.logo;
+    this.baseUrl = 'https://www.bigorbitcards.co.uk/';
+    this.searchPath = '?match=all&subcats=Y&pcode_from_q=N&pshort=N&pfull=N&pname=Y&pkeywords=N&search_performed=Y&product_variants=N&q=';
+    this.searchSuffix = '&dispatch=products.search';
+  }
 
   search = async (searchTerm) => {
     const foundItems = [];

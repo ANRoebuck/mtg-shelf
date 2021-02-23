@@ -3,12 +3,13 @@ import { cors, regex, seller } from "./utils";
 
 class ModelMagicMadhouse {
 
-  parser = new DOMParser();
-
-  name = seller.magicMadhouse.name;
-  logo = seller.magicMadhouse.logo;
-  baseUrl = 'https://www.magicmadhouse.co.uk/';
-  searchPath = 'search/';
+  constructor() {
+    this.parser = new DOMParser();
+    this.name = seller.magicMadhouse.name;
+    this.logo = seller.magicMadhouse.logo;
+    this.baseUrl = 'https://www.magicmadhouse.co.uk/';
+    this.searchPath = 'search/';
+  }
 
   search = async (searchTerm) => {
     const foundItems = [];

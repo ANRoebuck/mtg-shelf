@@ -3,12 +3,13 @@ import { cors, regex, seller } from "./utils";
 
 class ModelTrollTrader {
 
-  parser = new DOMParser();
-
-  name = seller.trollTrader.name;
-  logo = seller.trollTrader.logo;
-  baseUrl = 'https://www.trolltradercards.com/';
-  searchPath = 'products/search?q=';
+  constructor() {
+    this.parser = new DOMParser();
+    this.name = seller.trollTrader.name;
+    this.logo = seller.trollTrader.logo;
+    this.baseUrl = 'https://www.trolltradercards.com/';
+    this.searchPath = 'products/search?q=';
+  }
 
   search = async (searchTerm) => {
     const foundItems = [];

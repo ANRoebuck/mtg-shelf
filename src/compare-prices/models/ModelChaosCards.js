@@ -3,15 +3,16 @@ import { cors, regex, seller } from "./utils";
 
 class ModelChaosCards {
 
-  parser = new DOMParser();
-
-  name = seller.chaos.name;
-  logo = seller.chaos.logo;
-  baseUrl = 'https://www.chaoscards.co.uk/';
-  searchPath = 'search/';
-  searchSuffix = '#/embedded/query=raven%20familiar&page=1&filter%5Bavailability%5D=In%20stock&lang=en&skuFld=id&query_name=match_and';
-  colonSplitter = /^([\s\S]*):\s([\s\S]*)$/; // returns the groups separated by ": "
-  firstMajusculeString = /^[^A-Z]*([A-Z'\s]*)\s[^A-Z]?/;
+  constructor() {
+    this.parser = new DOMParser();
+    this.name = seller.chaos.name;
+    this.logo = seller.chaos.logo;
+    this.baseUrl = 'https://www.chaoscards.co.uk/';
+    this.searchPath = 'search/';
+    this.searchSuffix = '#/embedded/query=raven%20familiar&page=1&filter%5Bavailability%5D=In%20stock&lang=en&skuFld=id&query_name=match_and';
+    this.colonSplitter = /^([\s\S]*):\s([\s\S]*)$/; // returns the groups separated by ": "
+    this.firstMajusculeString = /^[^A-Z]*([A-Z'\s]*)\s[^A-Z]?/;
+  }
 
   search = async (searchTerm) => {
     const foundItems = [];

@@ -23,7 +23,7 @@ const ContextMenu = ({containerRef, menuItems}) => {
         containerRef.removeEventListener('contextmenu', onContextMenu);
       }
     };
-  }, [containerRef]);
+  }, [containerRef, onContextMenu]);
 
   const menuOnMouseLeave = () => setVisible(false);
 

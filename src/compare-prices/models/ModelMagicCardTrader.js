@@ -3,12 +3,13 @@ import { cors, regex, seller } from "./utils";
 
 class ModelMagicCardTrader {
 
-  parser = new DOMParser();
-
-  name = seller.magicCardTrader.name;
-  logo = seller.magicCardTrader.logo;
-  baseUrl = 'https://www.themagiccardtrader.com/';
-  searchPath = 'products/search?q=';
+  constructor() {
+    this.parser = new DOMParser();
+    this.name = seller.magicCardTrader.name;
+    this.logo = seller.magicCardTrader.logo;
+    this.baseUrl = 'https://www.themagiccardtrader.com/';
+    this.searchPath = 'products/search?q=';
+  }
 
   search = async (searchTerm) => {
     const foundItems = [];

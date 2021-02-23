@@ -3,12 +3,13 @@ import { cors, regex, seller } from "./utils";
 
 class ModelPatriotGamesLeeds {
 
-  parser = new DOMParser();
-
-  name = seller.pgLeeds.name;
-  logo = seller.pgLeeds.logo;
-  baseUrl = 'http://www.patriotgamesleeds.com/';
-  searchPath = 'index.php?main_page=advanced_search_result&search_in_description=1&keyword=';
+  constructor() {
+    this.parser = new DOMParser();
+    this.name = seller.pgLeeds.name;
+    this.logo = seller.pgLeeds.logo;
+    this.baseUrl = 'http://www.patriotgamesleeds.com/';
+    this.searchPath = 'index.php?main_page=advanced_search_result&search_in_description=1&keyword=';
+  }
 
   search = async (searchTerm) => {
     const foundItems = [];

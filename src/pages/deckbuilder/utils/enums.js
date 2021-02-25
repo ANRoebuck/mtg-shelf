@@ -1,4 +1,4 @@
-import resources from '../resources/index';
+import resources from '../resources';
 
 export const face = {
   FRONT: 0,

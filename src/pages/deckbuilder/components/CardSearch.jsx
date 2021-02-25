@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { searchCards } from '../../gateway/http';
+import { searchCards } from '../../../gateway/http';
 import SearchResult from './SearchResult';
 import './cardsearch.scss';
 

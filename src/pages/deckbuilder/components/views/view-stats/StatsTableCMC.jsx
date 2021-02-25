@@ -1,7 +1,7 @@
 import React from "react";
 import { Bar } from 'react-chartjs-2';
 import { useSelector } from "react-redux";
-import { selectMaindeck } from "../../../../store/deckBuilder-selector";
+import { selectMaindeck } from "../../../../../store/deckBuilder-selector";
 import { cardsByCMC, nonLands } from "../../../utils/utils";
 import { chartOptions } from "./utils";
 

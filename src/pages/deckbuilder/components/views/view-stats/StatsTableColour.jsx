@@ -2,7 +2,7 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import { cardsByColour, coloursByColourIndex, colourToColourName, nonLands } from "../../../utils/utils";
 import { useSelector } from "react-redux";
-import { selectMaindeck } from "../../../../store/deckBuilder-selector";
+import { selectMaindeck } from "../../../../../store/deckBuilder-selector";
 import { chartOptions } from "./utils";
 
 const StatsTableColour = () => {

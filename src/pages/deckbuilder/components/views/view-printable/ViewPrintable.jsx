@@ -1,7 +1,7 @@
 import React from "react";
 import { cardsByName } from "../../../utils/utils";
 import { useSelector } from "react-redux";
-import { selectMaindeck, selectSideboard } from "../../../../store/deckBuilder-selector";
+import { selectMaindeck, selectSideboard } from "../../../../../store/deckBuilder-selector";
 
 
 const ViewPrintable = () => {

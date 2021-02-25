@@ -2,9 +2,9 @@ import React from "react";
 import closedDeckBoxImg from '../resources/deckbox-closed.jpg';
 import './saved-deck-menu-item.scss';
 import { addSavedDeck, deleteSavedDeck } from "../utils/localStorageInteractions";
-import { loadDeck, toggleSearchOrDecks } from "../../store/deckBuilder-actions";
+import { loadDeck, toggleSearchOrDecks } from "../../../store/deckBuilder-actions";
 import { useDispatch, useSelector } from "react-redux";
-import { selectDecklist, selectDeckName, selectSaveOrSaveAs } from "../../store/deckBuilder-selector";
+import { selectDecklist, selectDeckName, selectSaveOrSaveAs } from "../../../store/deckBuilder-selector";
 
 const SavedDeckMenuItem = ({ savedDeck, refresh }) => {
 

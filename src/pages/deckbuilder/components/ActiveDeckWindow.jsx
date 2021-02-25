@@ -5,13 +5,13 @@ import {
   selectDeckName,
   selectSaveOrSaveAs,
   selectSearchOrDecks
-} from "../../store/deckBuilder-selector";
+} from "../../../store/deckBuilder-selector";
 import {
   loadDeck,
   setDeckName,
   toggleSaveOrSaveAs,
   toggleSearchOrDecks
-} from "../../store/deckBuilder-actions";
+} from "../../../store/deckBuilder-actions";
 import closedDeckBoxImg from "../resources/deckbox-closed.jpg";
 import { addSavedDeck } from "../utils/localStorageInteractions";
 

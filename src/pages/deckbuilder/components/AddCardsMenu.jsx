@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CardSearch from "./CardSearch";
 import CardImport from "./CardImport";
-import { nextInArray } from "../../common/utils";
+import { nextInArray } from "../../../common/utils";
 
 const AddCardsMenu = () => {
 

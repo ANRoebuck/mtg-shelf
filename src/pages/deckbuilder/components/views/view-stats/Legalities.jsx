@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectDecklist } from "../../../../store/deckBuilder-selector";
+import { selectDecklist } from "../../../../../store/deckBuilder-selector";
 import { legalityByFormat } from "../../../utils/utils";
 
 const Legalities = () => {

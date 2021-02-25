@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectMaindeck } from "../../../../store/deckBuilder-selector";
+import { selectMaindeck } from "../../../../../store/deckBuilder-selector";
 import SampleCard from "./SampleCard";
-import { randomSubSet } from "../../../../common/utils";
+import { randomSubSet } from "../../../../../common/utils";
 
 const StatsTableSampleHand = () => {
 

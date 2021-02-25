@@ -2,8 +2,8 @@ import React from "react";
 import DeckListColumn from "./DeckListColumn";
 import { rowsBy } from "../utils/enums";
 import { useDispatch, useSelector } from "react-redux";
-import { selectSideboard } from "../../store/deckBuilder-selector";
-import { sideIn } from "../../store/deckBuilder-actions";
+import { selectSideboard } from "../../../store/deckBuilder-selector";
+import { sideIn } from "../../../store/deckBuilder-actions";
 
 const Sideboard = () => {
   const sideboard = useSelector(selectSideboard);

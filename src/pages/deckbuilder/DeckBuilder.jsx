@@ -17,7 +17,7 @@ import AddCardsMenu from "./components/AddCardsMenu";
 import SaveDeckMenu from "./components/SaveDeckMenu";
 import OptionSetImages from "./components/OptionSetImages";
 import { useSelector } from "react-redux";
-import { selectSearchOrDecks } from "../store/deckBuilder-selector";
+import { selectSearchOrDecks } from "../../store/deckBuilder-selector";
 
 const DeckBuilder = () => {
 

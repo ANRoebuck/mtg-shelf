@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { addSomeToSomewhere, where } from "../../store/deckBuilder-actions";
-import { searchCards } from '../../gateway/http';
+import { addSomeToSomewhere, where } from "../../../store/deckBuilder-actions";
+import { searchCards } from '../../../gateway/http';
 import { useDispatch } from "react-redux";
 import { isTransformCard } from "../utils/utils";
 import './cardimport.scss';

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SavedDeckMenuItem from "./SavedDeckMenuItem";
 import { addSavedDeck, getSavedDecks } from "../utils/localStorageInteractions";
 import { useSelector } from "react-redux";
-import { selectDecklist } from "../../store/deckBuilder-selector";
+import { selectDecklist } from "../../../store/deckBuilder-selector";
 import './saved-deck-menu.scss';
 
 const SaveDeckMenu = () => {
@@ -14,14 +14,14 @@ const SaveDeckMenu = () => {
   useEffect(() => refreshSavedDecks(), []);
 
   const refreshSavedDecks = () => setSavedDecks(getSavedDecks());
-  
+
   const handleChange = (e) => setNewDeckName(e.target.value);
 
   const handleSaveDeck = () => {
     addSavedDeck(newDeckName, decklist);
     refreshSavedDecks();
   }
-  
+
   const savedDecksToRender = savedDecks.map(savedDeck =>
     <SavedDeckMenuItem savedDeck={savedDeck} refresh={refreshSavedDecks} />)
 

@@ -1,5 +1,5 @@
 import { face } from "./enums";
-import { incrementObjectOfNumbers, pushToObjectOfArrays, validateObjectProperties } from "../../common/utils";
+import { incrementObjectOfNumbers, pushToObjectOfArrays, validateObjectProperties } from "../../../common/utils";
 
 export const cardsByName = (cards) => cards.reduce((groups, card) =>
   pushToObjectOfArrays(groups, card.name, card), {});

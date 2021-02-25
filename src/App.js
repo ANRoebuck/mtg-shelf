@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './app.scss';
-import DeckBuilder from "./deckbuilder/DeckBuilder";
-import Home from "./Home";
-import ComparePrices from "./compare-prices/ComparePrices";
-import NavigationIcon from "./navigation-bar/NavigationIcon";
+import NavBar from './navigation-bar/NavBar';
+import DeckBuilder from "./pages/deckbuilder/DeckBuilder";
+import Home from "./pages/home/Home";
+import ComparePrices from "./pages/compare-prices/ComparePrices";
 
 const App = () => {
 
@@ -12,17 +11,14 @@ const App = () => {
     home: 'Home',
     comparePrices: 'Compare Prices',
     deckBuilder: 'Deck Builder',
-    // draft: 'Draft',
+    draft: 'Draft',
     // game: 'Game',
   }
 
-  const [display, setDisplay] = useState(pages.home);
-
-  const navigationIcons = Object.values(pages).map((page, i) =>
-    <NavigationIcon page={page} value={i} active={display === page} setDisplay={setDisplay}/>);
+  const [selected, setSelected] = useState(pages.home);
 
   const getPageToDisplay = () => {
-    switch (display) {
+    switch (selected) {
       case pages.deckBuilder:
         return <DeckBuilder/>;
       case pages.comparePrices:
@@ -35,27 +31,15 @@ const App = () => {
   const pageToDisplay = getPageToDisplay();
 
   return (
-    // <Router>
     <div className="App">
-      {/*<ul className="menu">*/}
-      {/*  <li className="menu-item"><Link exact to={'/'}>Home</Link></li>*/}
-      {/*  <li className="menu-item"><Link to={'/deckBuilder'}>Deck Builder</Link></li>*/}
-      {/*  <li className="menu-item"><Link to={'/comparePrices'}>Compare Prices</Link></li>*/}
-      {/*</ul>*/}
 
-      <div className="menu">
-        {navigationIcons}
+      <NavBar pages={pages} selected={selected} setSelected={setSelected}/>
+
+      <div className="real-shit">
+        {pageToDisplay}
       </div>
 
-      <hr/>
-
-      {pageToDisplay}
-
-      {/*<Route exact path='/' component={Home}/>*/}
-      {/*<Route path='/deckBuilder' component={DeckBuilder}/>*/}
-      {/*<Route path='/comparePrices' component={ComparePrices}/>*/}
     </div>
-    // </Router>
   );
 }
 

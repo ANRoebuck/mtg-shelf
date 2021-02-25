@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectMaindeck } from "../../store/deckBuilder-selector";
-import { sideOut } from "../../store/deckBuilder-actions";
+import { selectMaindeck } from "../../../store/deckBuilder-selector";
+import { sideOut } from "../../../store/deckBuilder-actions";
 import RowSorter from "./RowSorter";
 import DeckListRow from "./DeckListRow";
 

@@ -6,16 +6,14 @@
 
 .App .nav-bar {
   position: absolute;
-  left: -150px; }
+  left: -125px; }
 
 .App .real-shit {
-  max-height: 100%;
-  max-width: 100%;
+  align-items: center;
+  border-left: 1px black solid;
+  display: flex;
+  flex: auto;
+  justify-content: center;
   margin-left: 75px;
-  border-left: 1px black solid; }
-
-.the-shelf-img {
-  max-height: 650px; }
-
-.App-link {
-  color: #61dafb; }
+  max-height: 100%;
+  max-width: 100%; }

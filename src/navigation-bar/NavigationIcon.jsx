@@ -21,7 +21,7 @@ const NavigationIcon = ({page, value, selected, setSelected}) => {
     <div className={`menu-item ${displayMenu ? 'display' : 'hide'}`} data-active={selected} onClick={() => setSelected(page)} onMouseEnter={mouseOver} onMouseLeave={mouseOut}>
       <div style={{position: 'relative'}}>
         <img className="navigation-icon-image" src={getImg(value)} alt="theShelf"/>
-        <div className="page-name">{page}</div>
+        { displayMenu && <div className="page-name">{page}</div>}
       </div>
     </div>
   );

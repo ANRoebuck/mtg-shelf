@@ -1,5 +1,6 @@
 import React from "react";
 import theShelf from './the_shelf 750x655.jpg';
+import './Home.scss';
 
 const Home = () => {
 

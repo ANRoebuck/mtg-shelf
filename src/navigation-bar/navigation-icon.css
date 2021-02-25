@@ -17,8 +17,8 @@
 
 .menu-item[data-active="true"] {
   outline: none;
-  border-color: royalblue;
-  box-shadow: 0 0 10px royalblue; }
+  border-color: greenyellow;
+  box-shadow: 0 0 10px greenyellow; }
 
 .menu-item .navigation-icon-image {
   max-width: 100%; }
@@ -34,3 +34,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
+
+.App-link {
+  color: #61dafb; }

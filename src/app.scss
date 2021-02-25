@@ -6,22 +6,20 @@
 
   .nav-bar {
     position: absolute;
-    left: -150px;
+    left: -125px;
   }
 
   .real-shit {
+    align-items: center;
+    //background-color: black;
+    border-left: 1px black solid;
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    margin-left: 75px;
     max-height: 100%;
     max-width: 100%;
-    margin-left: 75px;
-    border-left: 1px black solid;
   }
 
 }
 
-.the-shelf-img {
-  max-height: 650px;
-}
-
-.App-link {
-  color: #61dafb;
-}

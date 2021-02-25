@@ -21,8 +21,8 @@
 
   &[data-active="true"] {
     outline: none;
-    border-color: royalblue;
-    box-shadow: 0 0 10px royalblue;
+    border-color: greenyellow;
+    box-shadow: 0 0 10px greenyellow;
   }
 
   .navigation-icon-image {
@@ -44,4 +44,9 @@
     transform: translate(-50%, -50%);
   }
 
+}
+
+
+.App-link {
+  color: #61dafb;
 }

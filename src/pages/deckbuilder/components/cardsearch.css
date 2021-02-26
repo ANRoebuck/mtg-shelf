@@ -1,9 +1,25 @@
-.card-search {
-  margin: 10px;
+.search-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  overflow: auto; }
+
+.search-container .search-menu-toggle {
+  margin: 20px; }
+
+.search-container .card-search {
   border: 2px black;
-  height: 100%; }
-  .card-search .search-results {
-    overflow-y: scroll; }
-  .card-search .search-result.covered {
-    height: 50px;
-    overflow: hidden; }
+  max-height: 100%; }
+
+.search-container .card-search form {
+  margin: 10px; }
+
+.search-container .card-search form label {
+  color: white; }
+
+.search-container .card-search .search-results {
+  max-height: 100%;
+  overflow: auto; }
+
+.search-container .card-search .search-result.covered {
+  height: 50px; }

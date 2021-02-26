@@ -4,7 +4,6 @@
   flex-direction: row;
   height: 100vh;
   min-width: 100vw;
-  //max-width: fit-content;
 
   .nav-bar {
     position: absolute;
@@ -13,14 +12,13 @@
 
   .page {
     align-items: center;
-    //background-color: black;
-    border-left: 1px black solid;
     display: flex;
     flex: auto;
     justify-content: center;
     margin-left: 60px;
     max-height: 100vh;
     max-width: 100vw;
+    overflow: hidden;
   }
 
 }

@@ -1,11 +1,7 @@
 .compare-prices {
-  //margin: 10px;
-  //border: 2px black;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-content: center;
-
 
   .search-input {
     margin: 20px;
@@ -21,16 +17,11 @@
     };
   }
 
-
   .sellers {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
-
   }
-
-
 
   .search-results {
     overflow-y: auto;

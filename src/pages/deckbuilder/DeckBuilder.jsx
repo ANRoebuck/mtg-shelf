@@ -59,7 +59,9 @@ const DeckBuilder = () => {
           <ActiveDeckWindow/>
         </div>
 
-        {searchOrDecks === 'search' ? <AddCardsMenu/> : <SaveDeckMenu/>}
+        <div className="decklist-side-panel">
+          {searchOrDecks === 'search' ? <AddCardsMenu/> : <SaveDeckMenu/>}
+        </div>
 
         <DeckView
           sortRowsBy={sortRowsBy}

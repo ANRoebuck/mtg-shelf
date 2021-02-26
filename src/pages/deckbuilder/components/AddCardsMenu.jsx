@@ -13,7 +13,7 @@ const AddCardsMenu = () => {
 
   return (
     <div className="search-container">
-      <button type="button" onClick={toggleDisplaySearchOrImport}>Search / Import</button>
+      <button className="search-menu-toggle" type="button" onClick={toggleDisplaySearchOrImport}>Search / Import</button>
       {displaySearchOrImport === 'search' ? <CardSearch /> : <CardImport />}
     </div>
   );

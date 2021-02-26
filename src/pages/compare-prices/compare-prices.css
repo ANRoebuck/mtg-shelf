@@ -1,8 +1,7 @@
 .compare-prices {
   height: 100%;
   display: flex;
-  flex-direction: column;
-  align-content: center; }
+  flex-direction: column; }
 
 .compare-prices .search-input {
   margin: 20px;

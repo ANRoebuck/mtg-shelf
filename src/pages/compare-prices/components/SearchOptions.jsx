@@ -26,7 +26,10 @@ const SearchOptions = ({ stockOptions, setSortStockBy }) => {
 
   return (
       <div className={"option-set"}>
-        {optionsToRender}
+        <label>
+          Ouf of stock items:
+          {optionsToRender}
+        </label>
       </div>
   );
 }

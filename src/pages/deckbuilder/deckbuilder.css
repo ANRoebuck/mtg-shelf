@@ -1,13 +1,18 @@
 .deck-builder-container {
   max-width: 100vw;
   height: 100%; }
-  .deck-builder-container .deck-builder {
-    display: grid;
-    grid-template-columns: auto 250px;
-    grid-template-rows: 100px 1fr;
-    height: 100%;
-    margin: 20px;
-    max-width: 100%; }
-    .deck-builder-container .deck-builder .deck-view {
-      max-width: 100%;
-      height: 100%; }
+
+.deck-builder-container .main-view-options {
+  display: flex;
+  flex-wrap: wrap; }
+
+.deck-builder-container .deck-builder {
+  display: grid;
+  grid-template-columns: auto 250px;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  max-width: 100vw; }
+
+.deck-builder-container .deck-builder .deck-view {
+  max-width: 100%;
+  height: 100%; }

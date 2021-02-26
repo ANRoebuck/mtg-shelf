@@ -41,7 +41,7 @@ const App = () => {
 
       <NavBar pages={pages} selected={selected} setSelected={setSelected}/>
 
-      <div className="real-shit">
+      <div className="page">
         {pageToDisplay}
       </div>
 

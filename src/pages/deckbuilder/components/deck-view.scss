@@ -1,6 +1,9 @@
 .deck-view {
-  border: solid black 2px;
-  padding: 5px;
+  //border: solid black 1px;
+  //box-sizing: border-box;
+  //padding: 10px;
+  background-color: white;
+  overflow: auto;
 
   .view-images {
     display: flex;

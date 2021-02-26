@@ -1,6 +1,6 @@
 .deck-view {
-  border: solid black 2px;
-  padding: 5px; }
+  background-color: white;
+  overflow: auto; }
   .deck-view .view-images {
     display: flex; }
     .deck-view .view-images .maindeck {

@@ -28,11 +28,13 @@ const DeckBuilder = () => {
   const [landPositionBy, setLandPositionBy] = useState(assignLandPositionBy.bottom);
   const [viewDeckBy, setViewDeckBy] = useState(viewBy.images);
 
-  const subOptionstoRender = () => {
+  const optionstoRender = () => {
     switch (viewDeckBy) {
       case viewBy.images:
         return (
-          <div className="view-sub-options">
+          <div className="main-view-options">
+            <OptionSetImages options={Object.keys(viewBy)} sources={viewIcons} selectOption={setViewDeckBy}/>
+
             <OptionSetImages options={Object.keys(columnsBy)} sources={columnIcons}
                              selectOption={setSortColumnsBy}/>
             <OptionSetImages options={Object.keys(rowsBy)} sources={rowIcons}
@@ -42,7 +44,8 @@ const DeckBuilder = () => {
           </div>
         );
       default:
-        return <div></div>;
+        return <OptionSetImages options={Object.keys(viewBy)} sources={viewIcons} selectOption={setViewDeckBy}/>
+
     }
   }
 
@@ -52,10 +55,7 @@ const DeckBuilder = () => {
       <div className="deck-builder">
 
         <div className="decklist-options">
-          <div className="main-view-options">
-            <OptionSetImages options={Object.keys(viewBy)} sources={viewIcons} selectOption={setViewDeckBy}/>
-          </div>
-          {subOptionstoRender()}
+          {optionstoRender()}
           <ActiveDeckWindow/>
         </div>
 

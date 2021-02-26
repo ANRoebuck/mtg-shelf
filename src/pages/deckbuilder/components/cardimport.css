@@ -1,13 +1,8 @@
 .card-import {
-  padding: 10px;
-  width: 250px;
+  margin: 10px;
   border: 2px black;
   height: 100%;
   display: grid;
   grid-template-rows: auto auto auto; }
-
-.card-import {
-  width: 250px;
-  height: 500px; }
   .card-import .import-box {
     height: 500px; }

@@ -4,33 +4,51 @@
   border: solid 1px black;
   background-color: #40403f;
   border-radius: 10px; }
-  .seller-options .logo-container {
-    height: 40px;
-    width: 100px;
-    background-color: black;
-    border: solid 1px black;
-    margin-bottom: 5px; }
-    .seller-options .logo-container .loading {
-      color: white; }
-    .seller-options .logo-container .logo {
-      max-height: 100%;
-      max-width: 100%; }
-  .seller-options .widgets {
-    display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-    grid-template-areas: "enabled favoruite stock"; }
-    .seller-options .widgets .enabled {
-      grid-area: enabled; }
-    .seller-options .widgets .favourite {
-      grid-area: favourite; }
-    .seller-options .widgets .stock {
-      grid-area: stock;
-      border: solid 1px white;
-      color: white;
-      background-color: #1f1f1d;
-      border-radius: 5px;
-      padding-left: 5px;
-      padding-right: 5px; }
+
+.seller-options .logo-container {
+  height: 40px;
+  width: 100px;
+  background-color: black;
+  border: solid 1px black;
+  margin-bottom: 5px; }
+
+.seller-options .logo-container .loading {
+  color: white; }
+
+.seller-options .logo-container .logo {
+  max-height: 100%;
+  max-width: 100%; }
+
+.seller-options .widgets {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-areas: "enabled favoruite stock"; }
+
+.seller-options .widgets .enabled {
+  grid-area: enabled; }
+
+.seller-options .widgets .favourite {
+  grid-area: favourite; }
+
+.seller-options .widgets .stock {
+  grid-area: stock;
+  border: solid 1px white;
+  color: white;
+  background-color: #1f1f1d;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px; }
+
+.options .option-set {
+  background-color: #40403f;
+  color: white;
+  border: solid 1px black;
+  padding: 5px 10px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border-radius: 10px; }
 
 [data-seller-enabled="false"] {
   background-color: lightgrey; }
@@ -44,6 +62,6 @@
     padding: 5px;
     border: none;
     display: flex; }
-    .seller-options .logo {
-      max-width: 60px;
-      max-height: 40px; } }
+  .seller-options .logo {
+    max-width: 60px;
+    max-height: 40px; } }

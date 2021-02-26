@@ -1,7 +1,5 @@
 .decklist-options {
-  //border: solid 1px black;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  display: flex;
   justify-content: center;
   max-width: 100%;
 
@@ -46,7 +44,7 @@
         grid-area: name;
         border-bottom: black solid 1px;
         align-self: center;
-        padding: 5px;
+        margin: 5px;
         max-width: 100%;
       }
 

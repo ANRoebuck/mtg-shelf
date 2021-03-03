@@ -13,8 +13,8 @@ const App = () => {
     home: 'Home',
     comparePrices: 'Compare Prices',
     deckBuilder: 'Deck Builder',
-    draft: 'Draft',
-    game: 'Game',
+    draft: 'Feature',
+    game: 'Feature',
   }
 
   const [selected, setSelected] = useState(pages.home);

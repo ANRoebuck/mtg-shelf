@@ -1,0 +1,63 @@
+.deck-view {
+  //border: solid black 1px;
+  //box-sizing: border-box;
+  //padding: 10px;
+  background-color: white;
+  overflow: auto;
+
+  .view-images {
+    display: flex;
+
+    .maindeck {
+      width: 100%;
+
+      .decklist-row {
+        display: flex;
+        width: 100%;
+        grid-template-rows: 1fr 1fr;
+        margin: 20px;
+
+        .decklist-column {
+          margin: 5px;
+          .card {
+            &.covered {
+              height: 40px;
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+
+    .sideboard {
+      margin: 25px 25px 25px 50px;
+
+      .decklist-column {
+        .card {
+          &.covered {
+            height: 50px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
+  .view-printable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 35px;
+
+    .printable-column-title {
+      text-align: center;
+    }
+
+    .printable-column-cards {
+      text-align: left;
+    }
+  }
+
+  .view-stats {
+
+  }
+}

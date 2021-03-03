@@ -1,9 +1,0 @@
-.card-search {
-  padding: 10px;
-  border: 2px black;
-  height: 100%; }
-  .card-search .search-results {
-    overflow-y: scroll; }
-  .card-search .search-result.covered {
-    height: 50px;
-    overflow: hidden; }

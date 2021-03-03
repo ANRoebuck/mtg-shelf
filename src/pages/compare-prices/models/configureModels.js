@@ -1,15 +1,17 @@
-import ModelAxion from "./ModelAxion";
-import ModelMagicMadhouse from "./ModelMagicMadhouse";
-import ModelPatriotGamesLeeds from "./ModelPatriotGamesLeeds";
-import ModelTrollTrader from "./ModelTrollTrader";
-import ModelMagicCardTrader from "./ModelMagicCardTrader";
-import ModelBigOrbitCards from "./ModelBigOrbitCards";
+import ModelAxion from './ModelAxion';
+import ModelBigOrbitCards from './ModelBigOrbitCards';
+import ModelMagicCardTrader from './ModelMagicCardTrader';
+import ModelMagicMadhouse from './ModelMagicMadhouse';
+import ModelManaLeak from './ModelManaLeak';
+import ModelPatriotGamesLeeds from './ModelPatriotGamesLeeds';
+import ModelTrollTrader from './ModelTrollTrader';
 
 export const configureModels = () => [
   new ModelAxion(),
   new ModelBigOrbitCards(),
   new ModelMagicCardTrader(),
   new ModelMagicMadhouse(),
+  new ModelManaLeak(),
   new ModelPatriotGamesLeeds(),
   new ModelTrollTrader(),
 ].map(model => {

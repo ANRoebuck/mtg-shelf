@@ -3,6 +3,7 @@ import bigOrbitLogo from '../resources/bigOrbitCardsLogo 150x60.png';
 import chaosLogo from '../resources/chaosCardsLogo 150x60.png';
 import magicCardTraderLogo from '../resources/magicCardTraderLogo-black 150x60.png';
 import magicMadhouseLogo from '../resources/magicMadhouseLogo 150x60.png';
+import manaleakLogo from '../resources/manaLeakLogo 150x60.png';
 import pgLeedsLogo from '../resources/patriotGamesLeedsLogo 150x60.png';
 import trollLogo from '../resources/trollTraderLogo 150x60.png';
 
@@ -28,6 +29,10 @@ export const seller = {
   magicMadhouse: {
     name: 'Magic Madhouse',
     logo: magicMadhouseLogo,
+  },
+  manaLeak: {
+    name: 'Manaleak',
+    logo: manaleakLogo,
   },
   pgLeeds: {
     name: 'Patriot Games - Leeds',

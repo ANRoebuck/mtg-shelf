@@ -1,8 +1,10 @@
 .saved-deck {
   border: solid 1px black;
+  border-radius: 10px;
+
   display: grid;
   padding: 10px;
-  margin: 2px;
+  margin: 10px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 75%;
   grid-template-areas:

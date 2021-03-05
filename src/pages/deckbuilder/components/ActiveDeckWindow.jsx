@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './active-deck-window.css';
 import {
   selectDecklist,
   selectDeckName,
@@ -12,7 +13,6 @@ import {
   toggleSaveOrSaveAs,
   toggleSearchOrDecks
 } from "../../../store/deckBuilder-actions";
-import closedDeckBoxImg from "../resources/deckbox-closed.jpg";
 import { addSavedDeck } from "../utils/localStorageInteractions";
 
 const ActiveDeckWindow = () => {
@@ -71,9 +71,6 @@ const ActiveDeckWindow = () => {
 
   return (
     <div className="active-deck-window">
-      {/*<div className="deck-box-img-container">*/}
-      {/*  <img className="deck-box-img" src={closedDeckBoxImg}/>*/}
-      {/*</div>*/}
       <div className="this-deck">
         {deckNameDisplay()}
         <div className="button-set-horizontal">

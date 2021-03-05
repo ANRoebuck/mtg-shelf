@@ -7,21 +7,17 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 75%;
   grid-template-areas: "header header" "img buttons"; }
-
-.saved-deck .deck-name {
-  grid-area: header;
-  margin: 10px; }
-
-.saved-deck .deck-box-img {
-  grid-area: img;
-  max-width: 100px; }
-
-.saved-deck .button-set-vertical {
-  grid-area: buttons;
-  display: flex;
-  flex-direction: column;
-  vertical-align: center; }
-
-.saved-deck .button-set-vertical button {
-  margin-top: 2px;
-  margin-bottom: 2px; }
+  .saved-deck .deck-name {
+    grid-area: header;
+    margin: 10px; }
+  .saved-deck .deck-box-img {
+    grid-area: img;
+    max-width: 100px; }
+  .saved-deck .button-set-vertical {
+    grid-area: buttons;
+    display: flex;
+    flex-direction: column;
+    vertical-align: center; }
+    .saved-deck .button-set-vertical button {
+      margin-top: 2px;
+      margin-bottom: 2px; }

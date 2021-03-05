@@ -83,6 +83,7 @@
 
     .search-results {
       overflow-y: scroll;
+      max-width: 100%;
     }
 
     .search-result {
@@ -154,6 +155,7 @@
       .stock {
         grid-area: stock;
         margin: 0px;
+        overflow: hidden;
       }
 
       .link {

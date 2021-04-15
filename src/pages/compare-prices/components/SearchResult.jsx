@@ -1,4 +1,5 @@
 import React from "react";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const SearchResult = (discoveredPrice) => {
 
@@ -25,7 +26,7 @@ const SearchResult = (discoveredPrice) => {
       </div>
       <div className="img-container">
         <img className="discovered-price-img" src={imgSrc} alt={name}/>
-        <div className="link" onClick={onClickLink}>Link</div>
+        <ShoppingCartIcon onClick={onClickLink} />
       </div>
     </div>
   )

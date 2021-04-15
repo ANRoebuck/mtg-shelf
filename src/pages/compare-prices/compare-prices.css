@@ -59,8 +59,7 @@
   .compare-prices .options {
     display: none; }
   .compare-prices .search-results {
-    overflow-y: scroll;
-    max-width: 100%; }
+    overflow-y: scroll; }
   .compare-prices .search-result.covered {
     height: 50px;
     overflow: hidden; }
@@ -96,7 +95,6 @@
     display: none; }
   .search-results .discovered-price .stock {
     grid-area: stock;
-    margin: 0px;
-    overflow: hidden; }
+    margin: 0px; }
   .search-results .discovered-price .link {
     display: none; } }

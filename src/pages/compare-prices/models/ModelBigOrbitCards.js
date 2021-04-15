@@ -23,7 +23,7 @@ class ModelBigOrbitCards {
         price: this.priceFromResultNode(resultNode),
         stock: this.stockFromResultNode(resultNode),
         imgSrc: this.imgSrcFromResultNode(resultNode),
-        productRef: this.baseUrl + this.productRefFromResultNode(resultNode),
+        productRef: this.productRefFromResultNode(resultNode),
         expansion: this.expansionFromResultNode(resultNode),
       });
     });
@@ -91,7 +91,7 @@ class ModelBigOrbitCards {
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('form > div.ty-compact-list__content > div.ty-compact-list__image > a > img')
+    resultNode.querySelectorAll('form > div.ty-compact-list__content > div.ty-compact-list__image > label > a > picture > img')
       .forEach(node => {
         arr.push(node.getAttribute('src'));
       });
@@ -100,7 +100,7 @@ class ModelBigOrbitCards {
 
   productRefFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('form > div.ty-compact-list__content > div.ty-compact-list__image > a')
+    resultNode.querySelectorAll('form > div.ty-compact-list__content > div.ty-compact-list__image > label > a')
       .forEach(node => {
         arr.push(node.getAttribute('href'));
       });

@@ -2,13 +2,11 @@
   display: flex;
   justify-content: center;
   max-width: 100%; }
-
-.decklist-options .main-view-options {
-  margin-right: auto;
-  margin-bottom: 5px; }
-
-.decklist-options .view-sub-options {
-  display: flex;
-  margin-bottom: 5px;
-  margin-right: auto;
-  max-width: 100%; }
+  .decklist-options .main-view-options {
+    margin-right: auto;
+    margin-bottom: 5px; }
+  .decklist-options .view-sub-options {
+    display: flex;
+    margin-bottom: 5px;
+    margin-right: auto;
+    max-width: 100%; }

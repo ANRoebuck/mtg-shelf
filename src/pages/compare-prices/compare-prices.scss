@@ -2,20 +2,49 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
-  .search-input {
-    margin: 20px;
-    align-self: center;
-    justify-content: center;
+  .compare-prices-menu {
+    display: flex;
+    flex-direction: row;
 
-    input, label {
-      display: block;
+
+    .search-input {
+      margin: 20px;
+      //align-self: center;
+      //justify-content: center;
+
+      input, label {
+        display: block;
+      }
+
+      label {
+        color: white;
+      };
     }
 
-    label {
-      color: white;
-    };
+
+    .views {
+      display: flex;
+      flex-direction: row;
+
+      .compare-prices-view-option {
+        border: solid 1px black;
+        margin: 15px;
+        padding: 15px;
+        background-color: #40403f;
+        border-radius: 10px;
+        color: white;
+      }
+
+      [data-selected="true"] {
+        background-color: grey;
+      }
+    }
+
   }
+
+
 
   .sellers {
     display: flex;

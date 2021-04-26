@@ -5,8 +5,17 @@ import SearchResult from "./components/SearchResult";
 import SellerOption from "./components/SellerOption";
 import { sortOosBy } from "./enums";
 import SearchOptions from "./components/SearchOptions";
+import ComparePricesViewIcon from "./components/ComparePricesViewIcon";
+
+const views = {
+  results: 'Results',
+  sellers: 'Sellers',
+  options: 'Options',
+}
 
 const ComparePrices = () => {
+
+  const [selected, setSelected] = useState(views.results);
   const [searchTerm, setSearchTerm] = useState('');
   const [lastSearched, setLastSearched] = useState('');
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
@@ -102,9 +111,9 @@ const ComparePrices = () => {
     return 0;
   }
 
-  const sellerOptions = sellers.map(seller => SellerOption(seller, toggleSellerEnabled, assignFavourite));
+  const sellerOptions = () => sellers.map(seller => SellerOption(seller, toggleSellerEnabled, assignFavourite));
 
-  const searchResults = discoveredPrices
+  const searchResults = () => discoveredPrices
     .filter(sellerIsEnabled)
     .filter(maybeFilterByStock)
     .sort(sortCheapestFirst)
@@ -112,29 +121,49 @@ const ComparePrices = () => {
     .sort(sortFavouriteFirst)
     .map(SearchResult);
 
+  const view = () => {
+    switch (selected) {
+      case views.results :
+        return <div className="search-results">
+          {searchResults()}
+        </div>;
+      case views.sellers:
+        return <div className="sellers">
+          {sellerOptions()}
+        </div>;
+      case views.options:
+        return <div className="options">
+          <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
+        </div>;
+      default:
+        return null;
+    }
+  }
+
   return (
     <div className="compare-prices">
 
 
-      <div className="search-input">
-        <form onSubmit={(e) => onSubmit(e)}>
-          <label>
-            Card Search
-            <input type="text" value={searchTerm} onChange={(e) => onChange(e)}/>
-          </label>
-        </form>
-      </div>
+      <div className="compare-prices-menu">
 
-      <div className="sellers">
-        {sellerOptions}
-        <div className="options">
-          <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
+        <div className="views">
+          {Object.values(views).map(v =>
+            <ComparePricesViewIcon option={v} selected={selected === v} setSelected={setSelected}/>)}
         </div>
+
+        <div className="search-input">
+          <form onSubmit={(e) => onSubmit(e)}>
+            <label>
+              Card Search
+              <input type="text" value={searchTerm} onChange={(e) => onChange(e)}/>
+            </label>
+          </form>
+        </div>
+
       </div>
 
-      <div className="search-results">
-        {searchResults}
-      </div>
+      {view()}
+
     </div>
   );
 };

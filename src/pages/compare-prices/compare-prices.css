@@ -1,18 +1,36 @@
 .compare-prices {
   height: 100%;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 100%; }
 
-.compare-prices .search-input {
-  margin: 20px;
-  align-self: center;
-  justify-content: center; }
+.compare-prices .compare-prices-menu {
+  display: flex;
+  flex-direction: row; }
 
-.compare-prices .search-input input, .compare-prices .search-input label {
+.compare-prices .compare-prices-menu .search-input {
+  margin: 20px; }
+
+.compare-prices .compare-prices-menu .search-input input, .compare-prices .compare-prices-menu .search-input label {
   display: block; }
 
-.compare-prices .search-input label {
+.compare-prices .compare-prices-menu .search-input label {
   color: white; }
+
+.compare-prices .compare-prices-menu .views {
+  display: flex;
+  flex-direction: row; }
+
+.compare-prices .compare-prices-menu .views .compare-prices-view-option {
+  border: solid 1px black;
+  margin: 15px;
+  padding: 15px;
+  background-color: #40403f;
+  border-radius: 10px;
+  color: white; }
+
+.compare-prices .compare-prices-menu .views [data-selected="true"] {
+  background-color: grey; }
 
 .compare-prices .sellers {
   display: flex;

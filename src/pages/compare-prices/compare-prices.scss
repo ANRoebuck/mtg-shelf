@@ -8,7 +8,6 @@
     display: flex;
     flex-direction: row;
 
-
     .search-input {
       margin: 20px;
       //align-self: center;
@@ -30,10 +29,10 @@
 
       .compare-prices-view-option {
         border: solid 1px black;
+        border-radius: 10px;
         margin: 15px;
         padding: 15px;
         background-color: #40403f;
-        border-radius: 10px;
         color: white;
       }
 
@@ -44,9 +43,7 @@
 
   }
 
-
-
-  .sellers {
+  .sellers, .options {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -54,47 +51,56 @@
 
   .search-results {
     overflow-y: auto;
-  }
 
-  .search-result {
-    &.covered {
-      height: 50px;
-      overflow: hidden;
-    }
-  }
-}
+    .discovered-price {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr 125px;
+      border: solid 1px black;
+      border-radius: 10px;
+      margin: 15px;
+      padding: 15px;
+      background-color: white;
 
-
-.search-results {
-  .discovered-price {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    border: solid 2px black;
-    margin: 15px;
-    padding: 15px;
-    background-color: white;
-
-
-    .seller {
-      max-width: 100%;
-
-      .logo {
+      .seller {
+        margin: 10px;
         max-width: 100%;
-        max-height: 75px;
+
+        .logo {
+          max-width: 100%;
+          max-height: 75px;
+        }
       }
+
+      .details {
+        margin: 10px;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      .img-container {
+        text-align: center;
+
+        .discovered-price-img {
+          max-height: 150px;
+        }
+      }
+
+      .stock-info {
+        display: grid;
+        grid-template-rows: 50px 50px 1fr;
+        margin: 10px;
+
+        .product-link {
+          text-align: right;
+        }
+      }
+
     }
 
-    .discovered-price-img {
-      max-height: 150px;
+    [data-in-stock="false"] {
+      background-color: grey;
     }
 
-    & div {
-      margin: 10px;
-    }
-  }
-
-  [data-in-stock="false"] {
-    background-color: grey;
   }
 }
 
@@ -114,12 +120,6 @@
       overflow-y: scroll;
     }
 
-    .search-result {
-      &.covered {
-        height: 50px;
-        overflow: hidden;
-      }
-    }
   }
 
   .sellers {

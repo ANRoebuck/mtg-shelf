@@ -105,6 +105,8 @@
 
 
     .search-results {
+
+
       .discovered-price {
         margin: 5px;
         border: none;
@@ -117,7 +119,7 @@
               "card stock";
 
         .details {
-          grid-area: name;
+          grid-area: logo;
 
           .name {
             margin: 0px;
@@ -138,10 +140,11 @@
         }
 
         .stock-info {
-          grid-template-rows: auto auto auto;
-
-          grid-area: stock;
-          margin: 0;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas:
+              "stock stock"
+              "price cart";
 
           .price {
             grid-area: price;

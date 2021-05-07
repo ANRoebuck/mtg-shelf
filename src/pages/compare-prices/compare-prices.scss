@@ -2,22 +2,47 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  width: 1000px;
+  max-width: 800px;
 
-  .search-input {
-    margin: 20px;
-    align-self: center;
-    justify-content: center;
+  .compare-prices-menu {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
 
-    input, label {
-      display: block;
+    .search-input {
+      margin: 20px;
+
+      input, label {
+        display: block;
+      }
+
+      label {
+        color: white;
+      }
     }
 
-    label {
-      color: white;
-    };
+    .views {
+      display: flex;
+      flex-direction: row;
+
+      .compare-prices-view-option {
+        border: solid 1px black;
+        border-radius: 10px;
+        margin: 15px;
+        padding: 15px;
+        background-color: #40403f;
+        color: white;
+      }
+
+      [data-selected="true"] {
+        background-color: grey;
+      }
+    }
+
   }
 
-  .sellers {
+  .sellers, .options {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -25,47 +50,47 @@
 
   .search-results {
     overflow-y: auto;
-  }
 
-  .search-result {
-    &.covered {
-      height: 50px;
-      overflow: hidden;
-    }
-  }
-}
+    .discovered-price {
+      display: grid;
+      grid-template-columns: 1fr 1fr 150px;
+      border: solid 1px black;
+      border-radius: 10px;
+      margin: 15px;
+      padding: 15px;
+      background-color: white;
 
-
-.search-results {
-  .discovered-price {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    border: solid 2px black;
-    margin: 15px;
-    padding: 15px;
-    background-color: white;
-
-
-    .seller {
-      max-width: 100%;
-
-      .logo {
-        max-width: 100%;
-        max-height: 75px;
+      .details {
+        .logo {
+          max-width: 100%;
+          max-height: 75px;
+        }
       }
+
+      .img-container {
+        text-align: center;
+
+        .discovered-price-img {
+          max-height: 250px;
+        }
+      }
+
+      .stock-info {
+        display: grid;
+        grid-template-rows: 50px 50px 1fr;
+        margin: 10px;
+
+        .product-link {
+          text-align: right;
+        }
+      }
+
     }
 
-    .discovered-price-img {
-      max-height: 150px;
+    [data-in-stock="false"] {
+      background-color: grey;
     }
 
-    & div {
-      margin: 10px;
-    }
-  }
-
-  [data-in-stock="false"] {
-    background-color: grey;
   }
 }
 
@@ -76,94 +101,90 @@
     margin: 0px;
     border: 1px black;
     height: 100%;
+    max-width: 100%;
 
-    .options {
-      display: none;
+    .compare-prices-menu {
+      display: grid;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+              "search-input"
+              "views";
+      max-width: 100%;
+
+      .views {
+        grid-area: views;
+
+        .compare-prices-view-option {
+          width: 60px;
+          text-align: center;
+          margin: 10px;
+          padding: 10px;
+        }
+      }
+
+      .search-input {
+        grid-area: search-input;
+      }
     }
+
 
     .search-results {
-      overflow-y: scroll;
-      max-width: 100%;
-    }
+      .discovered-price {
+        margin: 5px;
+        padding: 10px;
+        border: none;
+        border-bottom: solid 1px black;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+              "card logo"
+              "card stock"
+              "card price";
 
-    .search-result {
-      &.covered {
-        height: 50px;
-        overflow: hidden;
-      }
-    }
-  }
+        .details {
+          grid-area: logo;
 
-  .sellers {
-    .seller-options {
-      .widgets {
-        display: flex;
-        flex-direction: column;
-      }
+          .name {
+            display: none;
+          }
 
-      .stock {
-        display: none;
-      }
-    }
-  }
-
-  .search-results {
-    .discovered-price {
-      margin: 5px;
-      border: none;
-      border-bottom: solid 1px black;
-      grid-template-columns: 4fr 1fr 2fr;
-      grid-template-rows: auto auto auto auto;
-      grid-template-areas:
-              "card . logo"
-              "card name name"
-              "card stock stock"
-              "card . price";
-
-      .img-container {
-        grid-area: card;
-        margin: 0px;
-      }
-
-      .seller {
-        grid-area: logo;
-        margin: 0px;
-
-        .logo {
-          max-width: 100%;
-          max-height: 40px;
+          .expansion {
+            display: none;
+          }
         }
-      }
 
-      .price {
-        grid-area: price;
-        margin: 0px;
-      }
-
-      .details {
-        grid-area: name;
-
-        .name {
+        .img-container {
+          grid-area: card;
           margin: 0px;
+
+          .discovered-price-img {
+            max-height: 150px;
+            max-width: 100%;
+          }
         }
 
-        .expansion {
-          display: none;
+        .stock-info {
+          margin: 0px;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas:
+              "stock stock"
+              "price cart";
+
+          .stock-count {
+            grid-area: stock;
+          }
+
+          .price {
+            grid-area: price;
+            margin: 0px;
+          }
         }
-      }
 
-      .stock {
-        grid-area: stock;
-        margin: 0px;
-        overflow: hidden;
       }
-
-      .link {
-        display: none;
-      }
-
     }
   }
+
 
 }
 

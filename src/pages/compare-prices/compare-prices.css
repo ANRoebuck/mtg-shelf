@@ -1,100 +1,109 @@
 .compare-prices {
   height: 100%;
   display: flex;
-  flex-direction: column; }
-
-.compare-prices .search-input {
-  margin: 20px;
-  align-self: center;
-  justify-content: center; }
-
-.compare-prices .search-input input, .compare-prices .search-input label {
-  display: block; }
-
-.compare-prices .search-input label {
-  color: white; }
-
-.compare-prices .sellers {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; }
-
-.compare-prices .search-results {
-  overflow-y: auto; }
-
-.compare-prices .search-result.covered {
-  height: 50px;
-  overflow: hidden; }
-
-.search-results .discovered-price {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  border: solid 2px black;
-  margin: 15px;
-  padding: 15px;
-  background-color: white; }
-
-.search-results .discovered-price .seller {
-  max-width: 100%; }
-
-.search-results .discovered-price .seller .logo {
-  max-width: 100%;
-  max-height: 75px; }
-
-.search-results .discovered-price .discovered-price-img {
-  max-height: 150px; }
-
-.search-results .discovered-price div {
-  margin: 10px; }
-
-.search-results [data-in-stock="false"] {
-  background-color: grey; }
+  flex-direction: column;
+  width: 1000px;
+  max-width: 800px; }
+  .compare-prices .compare-prices-menu {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%; }
+    .compare-prices .compare-prices-menu .search-input {
+      margin: 20px; }
+      .compare-prices .compare-prices-menu .search-input input, .compare-prices .compare-prices-menu .search-input label {
+        display: block; }
+      .compare-prices .compare-prices-menu .search-input label {
+        color: white; }
+    .compare-prices .compare-prices-menu .views {
+      display: flex;
+      flex-direction: row; }
+      .compare-prices .compare-prices-menu .views .compare-prices-view-option {
+        border: solid 1px black;
+        border-radius: 10px;
+        margin: 15px;
+        padding: 15px;
+        background-color: #40403f;
+        color: white; }
+      .compare-prices .compare-prices-menu .views [data-selected="true"] {
+        background-color: grey; }
+  .compare-prices .sellers, .compare-prices .options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; }
+  .compare-prices .search-results {
+    overflow-y: auto; }
+    .compare-prices .search-results .discovered-price {
+      display: grid;
+      grid-template-columns: 1fr 1fr 150px;
+      border: solid 1px black;
+      border-radius: 10px;
+      margin: 15px;
+      padding: 15px;
+      background-color: white; }
+      .compare-prices .search-results .discovered-price .details .logo {
+        max-width: 100%;
+        max-height: 75px; }
+      .compare-prices .search-results .discovered-price .img-container {
+        text-align: center; }
+        .compare-prices .search-results .discovered-price .img-container .discovered-price-img {
+          max-height: 250px; }
+      .compare-prices .search-results .discovered-price .stock-info {
+        display: grid;
+        grid-template-rows: 50px 50px 1fr;
+        margin: 10px; }
+        .compare-prices .search-results .discovered-price .stock-info .product-link {
+          text-align: right; }
+    .compare-prices .search-results [data-in-stock="false"] {
+      background-color: grey; }
 
 @media only screen and (max-width: 425px) {
   .compare-prices {
     padding: 0px;
     margin: 0px;
     border: 1px black;
-    height: 100%; }
-  .compare-prices .options {
-    display: none; }
-  .compare-prices .search-results {
-    overflow-y: scroll; }
-  .compare-prices .search-result.covered {
-    height: 50px;
-    overflow: hidden; }
-  .sellers .seller-options .widgets {
-    display: flex;
-    flex-direction: column; }
-  .sellers .seller-options .stock {
-    display: none; }
-  .search-results .discovered-price {
-    margin: 5px;
-    border: none;
-    border-bottom: solid 1px black;
-    grid-template-columns: 4fr 1fr 2fr;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas: "card . logo" "card name name" "card stock stock" "card . price"; }
-  .search-results .discovered-price .img-container {
-    grid-area: card;
-    margin: 0px; }
-  .search-results .discovered-price .seller {
-    grid-area: logo;
-    margin: 0px; }
-  .search-results .discovered-price .seller .logo {
-    max-width: 100%;
-    max-height: 40px; }
-  .search-results .discovered-price .price {
-    grid-area: price;
-    margin: 0px; }
-  .search-results .discovered-price .details {
-    grid-area: name; }
-  .search-results .discovered-price .details .name {
-    margin: 0px; }
-  .search-results .discovered-price .details .expansion {
-    display: none; }
-  .search-results .discovered-price .stock {
-    grid-area: stock;
-    margin: 0px; }
-  .search-results .discovered-price .link {
-    display: none; } }
+    height: 100%;
+    max-width: 100%; }
+    .compare-prices .compare-prices-menu {
+      display: grid;
+      grid-template-rows: auto auto;
+      grid-template-areas: "search-input" "views";
+      max-width: 100%; }
+      .compare-prices .compare-prices-menu .views {
+        grid-area: views; }
+        .compare-prices .compare-prices-menu .views .compare-prices-view-option {
+          width: 60px;
+          text-align: center;
+          margin: 10px;
+          padding: 10px; }
+      .compare-prices .compare-prices-menu .search-input {
+        grid-area: search-input; }
+    .compare-prices .search-results .discovered-price {
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      border-bottom: solid 1px black;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-areas: "card logo" "card stock" "card price"; }
+      .compare-prices .search-results .discovered-price .details {
+        grid-area: logo; }
+        .compare-prices .search-results .discovered-price .details .name {
+          display: none; }
+        .compare-prices .search-results .discovered-price .details .expansion {
+          display: none; }
+      .compare-prices .search-results .discovered-price .img-container {
+        grid-area: card;
+        margin: 0px; }
+        .compare-prices .search-results .discovered-price .img-container .discovered-price-img {
+          max-height: 150px;
+          max-width: 100%; }
+      .compare-prices .search-results .discovered-price .stock-info {
+        margin: 0px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "stock stock" "price cart"; }
+        .compare-prices .search-results .discovered-price .stock-info .stock-count {
+          grid-area: stock; }
+        .compare-prices .search-results .discovered-price .stock-info .price {
+          grid-area: price;
+          margin: 0px; } }

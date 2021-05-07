@@ -8,7 +8,7 @@
   .compare-prices-menu {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    max-width: 100%;
 
     .search-input {
       margin: 20px;
@@ -25,7 +25,6 @@
     .views {
       display: flex;
       flex-direction: row;
-      width: 100%;
 
       .compare-prices-view-option {
         border: solid 1px black;
@@ -103,6 +102,30 @@
     border: 1px black;
     height: 100%;
     max-width: 100%;
+
+    .compare-prices-menu {
+      display: grid;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+              "search-input"
+              "views";
+      max-width: 100%;
+
+      .views {
+        grid-area: views;
+
+        .compare-prices-view-option {
+          width: 60px;
+          text-align: center;
+          margin: 10px;
+          padding: 10px;
+        }
+      }
+
+      .search-input {
+        grid-area: search-input;
+      }
+    }
 
 
     .search-results {

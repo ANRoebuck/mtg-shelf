@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import './active-deck-window.css';
+import './active-deck-window.scss';
 import {
   selectDecklist,
   selectDeckName,

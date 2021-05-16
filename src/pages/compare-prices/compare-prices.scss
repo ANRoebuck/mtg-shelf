@@ -121,11 +121,8 @@
 
       .product-link {
         grid-area: product-link;
+        display: block;
         text-align: right;
-
-        display: flex;
-        align-items: center;
-        justify-content: right;
       }
 
     }
@@ -184,7 +181,6 @@
                 "card logo"
                 "card stock-details"
                 "card product-link";
-
 
         .name {
           grid-area: name;

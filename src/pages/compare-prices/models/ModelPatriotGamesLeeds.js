@@ -105,7 +105,8 @@ class ModelPatriotGamesLeeds {
     let arr = [];
     resultNode.querySelectorAll('td.productListing-data > div.listingDescription')
       .forEach(node => {
-        arr.push(node.innerHTML);
+        let r = /.*Set\:(.*)Rarity.*/;
+        arr.push(node.innerHTML.replace(r, `$1`));
       });
     return arr[0];
   }

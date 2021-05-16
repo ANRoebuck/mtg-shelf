@@ -18,12 +18,13 @@ const SearchResult = (discoveredPrice) => {
         <img className="discovered-price-img" src={imgSrc} alt={name}/>
       </div>
 
-      <div className="stock-info">
+      <div className="stock-details">
         <div className="price">{price.text}</div>
         <div className="stock-count">{stock.text}</div>
-        <div className="product-link">
-          <ShoppingCartIcon onClick={onClickLink}/>
-        </div>
+      </div>
+
+      <div className="product-link">
+        <ShoppingCartIcon onClick={onClickLink}/>
       </div>
 
     </div>

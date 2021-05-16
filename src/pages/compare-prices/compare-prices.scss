@@ -102,23 +102,18 @@
         grid-template-columns: 1fr 1fr;
         grid-template-areas: "stock price";
 
-        padding-bottom: 10px;
-        padding-top: 10px;
-
         .stock-count {
           grid-area: stock;
+          display: block;
           text-align: left;
-          display: flex;
-          align-items: center;
-          justify-content: left;
-          border-right: 1px black solid;
+          margin-top: 10px;
         }
 
         .price {
           grid-area: price;
-          display: flex;
-          align-items: center;
-          justify-content: right;
+          display: inline;
+          text-align: right;
+          margin-top: 10px;
         }
 
 

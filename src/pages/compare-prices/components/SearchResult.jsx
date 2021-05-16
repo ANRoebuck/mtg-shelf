@@ -10,11 +10,9 @@ const SearchResult = (discoveredPrice) => {
   return (
     <div className="discovered-price" data-in-stock={stock.value > 0}>
 
-      <div className="details">
-        <img className="logo" src={logo} alt={name}/>
-        <div className="name">{title}</div>
-        <div className="expansion">{expansion}</div>
-      </div>
+      <img className="logo" src={logo} alt={name}/>
+      <div className="name">{title}</div>
+      <div className="expansion">{expansion}</div>
 
       <div className="img-container">
         <img className="discovered-price-img" src={imgSrc} alt={name}/>

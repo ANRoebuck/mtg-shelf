@@ -60,11 +60,9 @@
       padding: 15px;
       background-color: white;
 
-      .details {
-        .logo {
-          max-width: 100%;
-          max-height: 75px;
-        }
+      .logo {
+        max-width: 100%;
+        max-height: 75px;
       }
 
       .img-container {
@@ -135,22 +133,22 @@
         border: none;
         border-bottom: solid 1px black;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
         grid-template-areas:
+              "name name"
               "card logo"
-              "card stock"
-              "card price";
+              "card ."
+              "card stock";
 
-        .details {
-          grid-area: logo;
 
-          .name {
-            display: none;
-          }
+        .name {
+          grid-area: name;
+          padding-bottom: 5px;
+          text-align: center;
+        }
 
-          .expansion {
-            display: none;
-          }
+        .expansion {
+          display: none;
         }
 
         .img-container {

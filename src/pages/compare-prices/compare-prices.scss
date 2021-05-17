@@ -6,11 +6,16 @@
   max-width: 800px;
 
   .compare-prices-menu {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 200px;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+          ". search doughnut"
+          "views views views";
     max-width: 100%;
 
     .search-input {
+      grid-area: search;
       margin: 20px;
 
       input, label {
@@ -22,7 +27,18 @@
       }
     }
 
+    .loading-doughnut {
+      grid-area: doughnut;
+      max-height: 100px;
+      .element {
+        max-height: 100px;
+        max-width: 100px;
+      }
+    }
+
     .views {
+      grid-area: views;
+
       display: flex;
       flex-direction: row;
 
@@ -121,11 +137,8 @@
 
       .product-link {
         grid-area: product-link;
+        display: block;
         text-align: right;
-
-        display: flex;
-        align-items: center;
-        justify-content: right;
       }
 
     }
@@ -148,11 +161,20 @@
 
     .compare-prices-menu {
       display: grid;
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
       grid-template-areas:
-              "search-input"
-              "views";
+              "search doughnut"
+              "views views";
       max-width: 100%;
+
+      .search-input {
+        grid-area: search;
+      }
+
+      .loading-doughnut {
+        grid-area: doughnut;
+      }
 
       .views {
         grid-area: views;
@@ -165,9 +187,6 @@
         }
       }
 
-      .search-input {
-        grid-area: search-input;
-      }
     }
 
 
@@ -184,7 +203,6 @@
                 "card logo"
                 "card stock-details"
                 "card product-link";
-
 
         .name {
           grid-area: name;
@@ -224,7 +242,7 @@
 
           .price {
             grid-area: price;
-            margin: 0px;
+            margin: 0;
           }
         }
 

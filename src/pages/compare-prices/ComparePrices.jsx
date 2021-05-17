@@ -6,6 +6,7 @@ import SellerOption from "./components/SellerOption";
 import { sortOosBy } from "./enums";
 import SearchOptions from "./components/SearchOptions";
 import ComparePricesViewIcon from "./components/ComparePricesViewIcon";
+import LoadingDoughnut from "./components/LoadingDoughnut";
 
 const views = {
   results: 'Results',
@@ -55,6 +56,8 @@ const ComparePrices = () => {
       await getSearchResultsForSeller(seller, lastSearched);
     }
   }
+
+  const numberLoading = sellers.filter(s => s.loading).length;
 
   const addDiscoveredPrices = (newDiscoveredPrices) => setDiscoveredPrices((discoveredPrices) =>
     discoveredPrices.concat(newDiscoveredPrices));
@@ -143,13 +146,7 @@ const ComparePrices = () => {
   return (
     <div className="compare-prices">
 
-
       <div className="compare-prices-menu">
-
-        <div className="views">
-          {Object.values(views).map(v =>
-            <ComparePricesViewIcon option={v} selected={selected === v} setSelected={setSelected}/>)}
-        </div>
 
         <div className="search-input">
           <form onSubmit={(e) => onSubmit(e)}>
@@ -158,6 +155,13 @@ const ComparePrices = () => {
               <input type="text" value={searchTerm} onChange={(e) => onChange(e)}/>
             </label>
           </form>
+        </div>
+
+        <LoadingDoughnut loaded={sellers.length - numberLoading} total={sellers.length} />
+
+        <div className="views">
+          {Object.values(views).map(v =>
+            <ComparePricesViewIcon option={v} selected={selected === v} setSelected={setSelected}/>)}
         </div>
 
       </div>

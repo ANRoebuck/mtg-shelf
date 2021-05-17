@@ -161,11 +161,20 @@
 
     .compare-prices-menu {
       display: grid;
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
       grid-template-areas:
-              "search-input"
-              "views";
+              "search doughnut"
+              "views views";
       max-width: 100%;
+
+      .search-input {
+        grid-area: search;
+      }
+
+      .loading-doughnut {
+        grid-area: doughnut;
+      }
 
       .views {
         grid-area: views;
@@ -178,9 +187,6 @@
         }
       }
 
-      .search-input {
-        grid-area: search-input;
-      }
     }
 
 

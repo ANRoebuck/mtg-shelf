@@ -7,12 +7,21 @@ import { sortOosBy } from "./enums";
 import SearchOptions from "./components/SearchOptions";
 import ComparePricesViewIcon from "./components/ComparePricesViewIcon";
 import LoadingDoughnut from "./components/LoadingDoughnut";
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 const views = {
   results: 'Results',
   sellers: 'Sellers',
   options: 'Options',
-}
+};
+
+const TabPanel = ({ children, value, index }) => (
+  <div className="tab-panel" hidden={value !== index} data-testid={`tab-panel-${index}`}>
+    {children}
+  </div>
+);
 
 const ComparePrices = () => {
 
@@ -22,8 +31,11 @@ const ComparePrices = () => {
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [sellers, setSellers] = useState(configureModels());
   const [sortStockBy, setSortStockBy] = useState(sortOosBy.last);
+  const [tab, setTab] = React.useState(0);
 
-  const onChange = (event) => setSearchTerm(event.target.value);
+  const onChangeTab = (event, newValue) => setTab(newValue);
+
+  const onChangeSearchTerm = (event) => setSearchTerm(event.target.value);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -152,21 +164,45 @@ const ComparePrices = () => {
           <form onSubmit={(e) => onSubmit(e)}>
             <label>
               Card Search
-              <input type="text" value={searchTerm} onChange={(e) => onChange(e)}/>
+              <input type="text" value={searchTerm} onChange={(e) => onChangeSearchTerm(e)}/>
             </label>
           </form>
         </div>
 
         <LoadingDoughnut loaded={sellers.length - numberLoading} total={sellers.length} />
 
-        <div className="views">
-          {Object.values(views).map(v =>
-            <ComparePricesViewIcon option={v} selected={selected === v} setSelected={setSelected}/>)}
-        </div>
-
+        {/*<div className="views">*/}
+        {/*  {Object.values(views).map(v =>*/}
+        {/*    <ComparePricesViewIcon option={v} selected={selected === v} setSelected={setSelected}/>)}*/}
+        {/*</div>*/}
       </div>
 
-      {view()}
+      <AppBar position="static">
+        <Tabs value={tab} onChange={onChangeTab} >
+          {Object.values(views).map(v => <Tab label={v} />)}
+        </Tabs>
+      </AppBar>
+
+      <TabPanel value={tab} index={0}>
+        <div className="search-results">
+          {searchResults()}
+        </div>
+      </TabPanel>
+
+      <TabPanel value={tab} index={1}>
+        <div className="sellers">
+          {sellerOptions()}
+        </div>
+      </TabPanel>
+
+      <TabPanel value={tab} index={2}>
+        <div className="options">
+          <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
+        </div>;
+      </TabPanel>
+
+
+      {/*{view()}*/}
 
     </div>
   );

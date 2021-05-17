@@ -21,8 +21,8 @@ const LoadingDoughnut = ({loaded, total}) => {
     }
   };
 
-  const height = 100;
-  const width = 100;
+  const height = 80;
+  const width = 80;
 
   return (
     <div className="loading-doughnut">

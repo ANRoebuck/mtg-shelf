@@ -6,11 +6,16 @@
   max-width: 800px;
 
   .compare-prices-menu {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 200px;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+          ". search doughnut"
+          "views views views";
     max-width: 100%;
 
     .search-input {
+      grid-area: search;
       margin: 20px;
 
       input, label {
@@ -22,7 +27,18 @@
       }
     }
 
+    .loading-doughnut {
+      grid-area: doughnut;
+      max-height: 100px;
+      .element {
+        max-height: 100px;
+        max-width: 100px;
+      }
+    }
+
     .views {
+      grid-area: views;
+
       display: flex;
       flex-direction: row;
 
@@ -220,7 +236,7 @@
 
           .price {
             grid-area: price;
-            margin: 0px;
+            margin: 0;
           }
         }
 

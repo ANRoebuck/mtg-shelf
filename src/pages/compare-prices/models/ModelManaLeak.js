@@ -16,7 +16,6 @@ class ModelManaLeak {
   search = async (searchTerm) => {
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
-    console.log(resultNodes)
     resultNodes.forEach(resultNode => {
       foundItems.push({
         name: this.name,
@@ -29,7 +28,6 @@ class ModelManaLeak {
         expansion: this.expansionFromResultNode(resultNode),
       });
     });
-    console.log(foundItems);
     return foundItems;
   }
 

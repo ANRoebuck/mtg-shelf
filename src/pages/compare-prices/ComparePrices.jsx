@@ -36,9 +36,10 @@ const ComparePrices = () => {
 
   const onChangeSearchTerm = (event) => setSearchTerm(event.target.value);
 
-  const onSubmit = async (e) => {
+  const onSubmit = async e => {
     e.preventDefault();
-    e.target.blur();
+    document.body.focus();
+
     const searchFor = searchTerm;
     setDiscoveredPrices([]);
     setLastSearched(searchTerm);
@@ -142,7 +143,7 @@ const ComparePrices = () => {
       <div className="compare-prices-menu">
 
         <div className="search-input">
-          <form onSubmit={(e) => onSubmit(e)}>
+          <form onSubmit={onSubmit}>
             <label>
               Card Search
               <input type="text" value={searchTerm} onChange={(e) => onChangeSearchTerm(e)}/>

@@ -58,9 +58,6 @@ class ModelBigOrbitCards {
     resultNode.querySelectorAll('form > div.ty-compact-list__content > div.ty-compact-list__controls.compact_list_add_to_cart > div > div > span > span:nth-child(2)')
       .forEach(node => {
         const text = node.innerHTML;
-        console.log(text);
-        console.log(this.priceValueFromPriceText(text));
-        console.log(this.priceDisplayFromPriceText(text));
         arr.push({
           text: this.priceDisplayFromPriceText(text),
           value: this.priceValueFromPriceText(text),
@@ -114,7 +111,6 @@ class ModelBigOrbitCards {
         arr.push(node.innerHTML);
       });
     return arr[0];
-    return null;
   }
 
 }

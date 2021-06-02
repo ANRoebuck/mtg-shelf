@@ -108,7 +108,6 @@ class ModelMagicCardTrader {
         arr.push(node.innerHTML);
       });
     return arr[0];
-    return null;
   }
 
 }

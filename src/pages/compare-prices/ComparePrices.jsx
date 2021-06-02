@@ -25,7 +25,6 @@ const TabPanel = ({ children, value, index }) => (
 
 const ComparePrices = () => {
 
-  const [selected, setSelected] = useState(views.results);
   const [searchTerm, setSearchTerm] = useState('');
   const [lastSearched, setLastSearched] = useState('');
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
@@ -39,6 +38,7 @@ const ComparePrices = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    e.target.blur();
     const searchFor = searchTerm;
     setDiscoveredPrices([]);
     setLastSearched(searchTerm);
@@ -136,25 +136,6 @@ const ComparePrices = () => {
     .sort(sortFavouriteFirst)
     .map(SearchResult);
 
-  const view = () => {
-    switch (selected) {
-      case views.results :
-        return <div className="search-results">
-          {searchResults()}
-        </div>;
-      case views.sellers:
-        return <div className="sellers">
-          {sellerOptions()}
-        </div>;
-      case views.options:
-        return <div className="options">
-          <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
-        </div>;
-      default:
-        return null;
-    }
-  }
-
   return (
     <div className="compare-prices">
 
@@ -171,10 +152,6 @@ const ComparePrices = () => {
 
         <LoadingDoughnut loaded={sellers.length - numberLoading} total={sellers.length} />
 
-        {/*<div className="views">*/}
-        {/*  {Object.values(views).map(v =>*/}
-        {/*    <ComparePricesViewIcon option={v} selected={selected === v} setSelected={setSelected}/>)}*/}
-        {/*</div>*/}
       </div>
 
       <AppBar position="static">
@@ -200,9 +177,6 @@ const ComparePrices = () => {
           <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
         </div>;
       </TabPanel>
-
-
-      {/*{view()}*/}
 
     </div>
   );

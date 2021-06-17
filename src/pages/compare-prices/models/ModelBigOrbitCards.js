@@ -15,18 +15,33 @@ class ModelBigOrbitCards {
   search = async (searchTerm) => {
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
+
     resultNodes.forEach(resultNode => {
+
+      let name = this.name;
+      let logo = this.logo;
+      let title = this.nameFromResultNode(resultNode);
+      let price = this.priceFromResultNode(resultNode);
+      let stock = this.stockFromResultNode(resultNode);
+      let imgSrc = this.imgSrcFromResultNode(resultNode);
+      let productRef = this.productRefFromResultNode(resultNode);
+      let expansion = this.expansionFromResultNode(resultNode);
+      let isFoil = this.isFoilFromTitle(title);
+
       foundItems.push({
-        name: this.name,
-        logo: this.logo,
-        title: this.nameFromResultNode(resultNode),
-        price: this.priceFromResultNode(resultNode),
-        stock: this.stockFromResultNode(resultNode),
-        imgSrc: this.imgSrcFromResultNode(resultNode),
-        productRef: this.productRefFromResultNode(resultNode),
-        expansion: this.expansionFromResultNode(resultNode),
+        name,
+        logo,
+        title,
+        price,
+        stock,
+        imgSrc,
+        productRef,
+        expansion,
+        isFoil,
       });
+
     });
+
     return foundItems;
   }
 
@@ -58,9 +73,6 @@ class ModelBigOrbitCards {
     resultNode.querySelectorAll('form > div.ty-compact-list__content > div.ty-compact-list__controls.compact_list_add_to_cart > div > div > span > span:nth-child(2)')
       .forEach(node => {
         const text = node.innerHTML;
-        console.log(text);
-        console.log(this.priceValueFromPriceText(text));
-        console.log(this.priceDisplayFromPriceText(text));
         arr.push({
           text: this.priceDisplayFromPriceText(text),
           value: this.priceValueFromPriceText(text),
@@ -114,7 +126,10 @@ class ModelBigOrbitCards {
         arr.push(node.innerHTML);
       });
     return arr[0];
-    return null;
+  }
+
+  isFoilFromTitle = (title) => {
+    return title.toLowerCase().includes('foil');
   }
 
 }

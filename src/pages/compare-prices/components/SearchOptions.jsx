@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-const SearchOptions = ({ stockOptions, setSortStockBy }) => {
+const SearchOptions = ({ title, options, selectOption }) => {
 
-  const [selectedSortOption, setSelectedSortOption] = useState(stockOptions[0]);
+  const [selectedSortOption, setSelectedSortOption] = useState(options[0]);
 
   const changeSort = (e) => {
     setSelectedSortOption(e.target.value);
-    setSortStockBy(e.target.value);
+    selectOption(e.target.value);
   };
 
-  const optionsToRender = stockOptions.map(option => {
+  const optionsToRender = options.map(option => {
     return (
       <div className="radio">
         <label>
@@ -27,7 +27,7 @@ const SearchOptions = ({ stockOptions, setSortStockBy }) => {
   return (
       <div className={"option-set"}>
         <label>
-          Ouf of stock items:
+          {title}:
           {optionsToRender}
         </label>
       </div>

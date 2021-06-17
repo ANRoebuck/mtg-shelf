@@ -9,3 +9,8 @@ export const filterFoilsBy = {
   foil: 'Foil',
   nonFoil: 'Non-Foil',
 }
+
+export const sortPriceBy = {
+  asc: 'Ascending',
+  dsc: 'Descending',
+}

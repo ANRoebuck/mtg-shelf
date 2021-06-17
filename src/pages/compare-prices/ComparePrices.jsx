@@ -3,7 +3,7 @@ import './compare-prices.scss';
 import { configureModels } from "./models/configureModels";
 import SearchResult from "./components/SearchResult";
 import SellerOption from "./components/SellerOption";
-import { sortOosBy, filterFoilsBy } from "./enums";
+import { sortOosBy, filterFoilsBy, sortPriceBy } from "./enums";
 import SearchOptions from "./components/SearchOptions";
 import LoadingDoughnut from "./components/LoadingDoughnut";
 import AppBar from '@material-ui/core/AppBar';
@@ -28,9 +28,11 @@ const ComparePrices = () => {
   const [lastSearched, setLastSearched] = useState('');
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [sellers, setSellers] = useState(configureModels());
+  const [tab, setTab] = React.useState(0);
+
   const [sortStock, setSortStock] = useState(sortOosBy.last);
   const [filterFoils, setFilterFoils] = useState(filterFoilsBy.all);
-  const [tab, setTab] = React.useState(0);
+  const [sortPrice, setSortPrice] = useState(sortPriceBy.asc);
 
   const onChangeTab = (event, newValue) => setTab(newValue);
 
@@ -117,8 +119,11 @@ const ComparePrices = () => {
   const itemIsOos = (item) => item.stock.value > 0;
   const itemIsFoil = (item) => item.isFoil;
 
-  const sortCheapestFirst = (a, b) => a.price.value - b.price.value;
-  const sortNoSort = () => 0;
+  const sortByPrice = (a, b) => {
+    if (sortPrice === sortPriceBy.asc) return a.price.value - b.price.value;
+    if (sortPrice === sortPriceBy.dsc) return b.price.value - a.price.value;
+    return 0;
+  }
   const sortOutOfStockLast = (a, b) => {
     const stockA = a.stock.value;
     const stockB = b.stock.value;
@@ -132,6 +137,7 @@ const ComparePrices = () => {
     else if (sellerIsFavourite(b)) return 1;
     return 0;
   }
+  const sortNoSort = () => 0;
 
   const sellerOptions = () => sellers.map(seller => SellerOption(seller, toggleSellerEnabled, assignFavourite));
 
@@ -139,7 +145,7 @@ const ComparePrices = () => {
     .filter(sellerIsEnabled)
     .filter(maybeFilterByFoil)
     .filter(maybeFilterByStock)
-    .sort(sortCheapestFirst)
+    .sort(sortByPrice)
     .sort(maybeSortByStock)
     .sort(sortFavouriteFirst)
     .map(SearchResult);
@@ -182,6 +188,7 @@ const ComparePrices = () => {
 
       <TabPanel value={tab} index={2}>
         <div className="options">
+          <SearchOptions title={"Sort price"} options={Object.values(sortPriceBy)} selectOption={setSortPrice}/>
           <SearchOptions title={"Sort out of stock items"} options={Object.values(sortOosBy)} selectOption={setSortStock}/>
           <SearchOptions title={"Filter foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils}/>
         </div>;

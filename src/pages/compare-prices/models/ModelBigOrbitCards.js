@@ -15,18 +15,33 @@ class ModelBigOrbitCards {
   search = async (searchTerm) => {
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
+
     resultNodes.forEach(resultNode => {
+
+      let name = this.name;
+      let logo = this.logo;
+      let title = this.nameFromResultNode(resultNode);
+      let price = this.priceFromResultNode(resultNode);
+      let stock = this.stockFromResultNode(resultNode);
+      let imgSrc = this.imgSrcFromResultNode(resultNode);
+      let productRef = this.productRefFromResultNode(resultNode);
+      let expansion = this.expansionFromResultNode(resultNode);
+      let isFoil = this.isFoilFromTitle(title);
+
       foundItems.push({
-        name: this.name,
-        logo: this.logo,
-        title: this.nameFromResultNode(resultNode),
-        price: this.priceFromResultNode(resultNode),
-        stock: this.stockFromResultNode(resultNode),
-        imgSrc: this.imgSrcFromResultNode(resultNode),
-        productRef: this.productRefFromResultNode(resultNode),
-        expansion: this.expansionFromResultNode(resultNode),
+        name,
+        logo,
+        title,
+        price,
+        stock,
+        imgSrc,
+        productRef,
+        expansion,
+        isFoil,
       });
+
     });
+
     return foundItems;
   }
 
@@ -111,6 +126,10 @@ class ModelBigOrbitCards {
         arr.push(node.innerHTML);
       });
     return arr[0];
+  }
+
+  isFoilFromTitle = (title) => {
+    return title.toLowerCase().includes('foil');
   }
 
 }

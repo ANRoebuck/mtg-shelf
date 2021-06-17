@@ -3,3 +3,9 @@ export const sortOosBy = {
   exclude : 'Exclude',
   none : 'Don\'t sort',
 }
+
+export const filterFoilsBy = {
+  all: 'All',
+  foil: 'Foil',
+  nonFoil: 'Non-Foil',
+}

@@ -3,9 +3,8 @@ import './compare-prices.scss';
 import { configureModels } from "./models/configureModels";
 import SearchResult from "./components/SearchResult";
 import SellerOption from "./components/SellerOption";
-import { sortOosBy } from "./enums";
+import { sortOosBy, filterFoilsBy } from "./enums";
 import SearchOptions from "./components/SearchOptions";
-import ComparePricesViewIcon from "./components/ComparePricesViewIcon";
 import LoadingDoughnut from "./components/LoadingDoughnut";
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -29,7 +28,8 @@ const ComparePrices = () => {
   const [lastSearched, setLastSearched] = useState('');
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [sellers, setSellers] = useState(configureModels());
-  const [sortStockBy, setSortStockBy] = useState(sortOosBy.last);
+  const [sortStock, setSortStock] = useState(sortOosBy.last);
+  const [filterFoils, setFilterFoils] = useState(filterFoilsBy.all);
   const [tab, setTab] = React.useState(0);
 
   const onChangeTab = (event, newValue) => setTab(newValue);
@@ -98,18 +98,24 @@ const ComparePrices = () => {
   const strongMatch = (result, searchTerm) => stripWord(result).includes(stripWord(searchTerm));
   const stripWord = (word) => word.split('').filter(l => /\w/.test(l)).join('').toLowerCase();
 
+  const maybeFilterByFoil = (item) => {
+    if (filterFoils === filterFoilsBy.foil) return itemIsFoil(item);
+    if (filterFoils === filterFoilsBy.nonFoil) return !itemIsFoil(item);
+    return true;
+  }
   const maybeFilterByStock = (item) => {
-    if (sortStockBy === sortOosBy.exclude) return itemIsOos(item);
+    if (sortStock === sortOosBy.exclude) return itemIsOos(item);
     return true;
   }
   const maybeSortByStock = (a, b) => {
-    if (sortStockBy === sortOosBy.last) return sortOutOfStockLast(a, b);
-    if (sortStockBy === sortOosBy.none) return sortNoSort(a, b);
+    if (sortStock === sortOosBy.last) return sortOutOfStockLast(a, b);
+    if (sortStock === sortOosBy.none) return sortNoSort(a, b);
   }
 
   const sellerIsEnabled = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name).enabled;
   const sellerIsFavourite = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name).favourite;
   const itemIsOos = (item) => item.stock.value > 0;
+  const itemIsFoil = (item) => item.isFoil;
 
   const sortCheapestFirst = (a, b) => a.price.value - b.price.value;
   const sortNoSort = () => 0;
@@ -131,6 +137,7 @@ const ComparePrices = () => {
 
   const searchResults = () => discoveredPrices
     .filter(sellerIsEnabled)
+    .filter(maybeFilterByFoil)
     .filter(maybeFilterByStock)
     .sort(sortCheapestFirst)
     .sort(maybeSortByStock)
@@ -175,7 +182,8 @@ const ComparePrices = () => {
 
       <TabPanel value={tab} index={2}>
         <div className="options">
-          <SearchOptions stockOptions={Object.values(sortOosBy)} setSortStockBy={setSortStockBy}/>
+          <SearchOptions title={"Sort out of stock items"} options={Object.values(sortOosBy)} selectOption={setSortStock}/>
+          <SearchOptions title={"Filter foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils}/>
         </div>;
       </TabPanel>
 

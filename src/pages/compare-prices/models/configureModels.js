@@ -1,5 +1,6 @@
 import ModelAxion from './ModelAxion';
 import ModelBigOrbitCards from './ModelBigOrbitCards';
+import ModelChaosCards from './ModelChaosCards';
 import ModelMagicCardTrader from './ModelMagicCardTrader';
 import ModelMagicMadhouse from './ModelMagicMadhouse';
 import ModelManaLeak from './ModelManaLeak';
@@ -9,9 +10,10 @@ import ModelTrollTrader from './ModelTrollTrader';
 export const configureModels = () => [
   new ModelAxion(),
   new ModelBigOrbitCards(),
+  // new ModelChaosCards(),
   new ModelMagicCardTrader(),
   new ModelMagicMadhouse(),
-  new ModelManaLeak(),
+  // new ModelManaLeak(),
   new ModelPatriotGamesLeeds(),
   new ModelTrollTrader(),
 ].map(model => {

@@ -13,7 +13,7 @@ export const configureModels = () => [
   // new ModelChaosCards(),
   new ModelMagicCardTrader(),
   new ModelMagicMadhouse(),
-  // new ModelManaLeak(),
+  new ModelManaLeak(),
   new ModelPatriotGamesLeeds(),
   new ModelTrollTrader(),
 ].map(model => {

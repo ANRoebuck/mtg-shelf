@@ -8,9 +8,8 @@ class ModelManaLeak {
     this.parser = new DOMParser();
     this.name = seller.manaLeak.name;
     this.logo = seller.manaLeak.logo;
-    this.baseUrl = 'http://www.manaleak.com/';
-    this.prefix = 'magic-the-gathering/';
-    this.searchPath = '/advanced_search_result.php?keywords=';
+    this.baseUrl = 'https://www.manaleak.com/';
+    this.searchPath = '/index.php?route=product/search&search=';
   }
 
   search = async (searchTerm) => {
@@ -48,20 +47,20 @@ class ModelManaLeak {
 
   getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => []);
 
-  searchTermToUrl = searchTerm => cors + this.baseUrl + this.prefix + this.searchPath +
+  searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath +
     searchTerm.toLowerCase().split(' ').join('+');
 
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)
       .then(({data: html}) => {
         const document = this.parser.parseFromString(html, "text/html");
-        return document.querySelectorAll('div.module_listing > form > div.contentBlock > div.content > ul > li')
+        return document.querySelectorAll('div.main-products > div.product-list-item');
       });
   }
 
   nameFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div > div > div.row_01 > h3 > span > a')
+    resultNode.querySelectorAll('div.caption > div.name > a')
       .forEach(node => {
         let str = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
         arr.push(str);
@@ -71,7 +70,7 @@ class ModelManaLeak {
 
   priceFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div > div > div.row_02 > div > div > span')
+    resultNode.querySelectorAll('div.caption > div.price')
       .forEach(node => {
         const text = node.innerHTML;
         arr.push({
@@ -85,32 +84,26 @@ class ModelManaLeak {
   priceValueFromPriceText = (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999;
 
   stockFromResultNode = (resultNode) => {
-    let arr = [];
-    resultNode.querySelectorAll('div > div > div.row_01 > div.listing > table > tbody > tr > td.td_right > strong')
-      .forEach(node => {
-        const text = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
-        arr.push({
-          text,
-          value: this.stockValueFromStockText(text),
-        });
-      });
-    arr.push({text: 'Out of Stock', value: 0});
-    return arr[0];
+    // Stock count is not displayed. An out of stock spanner either is or is not present.
+
+    let isInStock = resultNode.querySelectorAll('div.image > span.label-outofstock').length === 0;
+    let text = isInStock ? 'In Stock' : 'Out of Stock';
+    let value = isInStock ? 9999 : 0;
+    return { text, value };
   }
-  stockValueFromStockText = (text) => text === 'Out of Stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`));
 
   imgSrcFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div > div.product_pic_wrapper > a > img')
+    resultNode.querySelectorAll('div.image > a > img')
       .forEach(node => {
-        arr.push(this.baseUrl + this.prefix + node.getAttribute('src'));
+        arr.push(node.getAttribute('data-src'));
       });
     return arr[0];
   }
 
   productRefFromResultNode = (resultNode) => {
     let arr = [];
-    resultNode.querySelectorAll('div > div.product_pic_wrapper > a')
+    resultNode.querySelectorAll('div.image > a')
       .forEach(node => {
         arr.push(node.getAttribute('href'));
       });
@@ -118,13 +111,12 @@ class ModelManaLeak {
   }
 
   expansionFromResultNode = (resultNode) => {
-    // let arr = [];
-    // resultNode.querySelectorAll('div.inner > div > div.meta > a > span.category')
-    //   .forEach(node => {
-    //     arr.push(node.innerHTML);
-    //   });
-    // return arr[0];
-    return null;
+    let arr = [];
+    resultNode.querySelectorAll('div.caption > div.description > p > a')
+      .forEach(node => {
+        arr.push(node.innerHTML);
+      });
+    return arr[0];
   }
 
   isFoilFromTitle = (title) => {

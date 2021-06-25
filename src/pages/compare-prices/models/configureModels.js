@@ -12,7 +12,7 @@ export const configureModels = () => [
   new ModelAxion(),
   new ModelBigOrbitCards(),
   // new ModelChaosCards(),
-  new ModelChaosCards_LazyLoading(),
+  // new ModelChaosCards_LazyLoading(),
   new ModelMagicCardTrader(),
   new ModelMagicMadhouse(),
   new ModelManaLeak(),

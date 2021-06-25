@@ -55,7 +55,6 @@ class ModelChaosCards {
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)
       .then(({data: html}) => {
-        console.log(html);
         const document = this.parser.parseFromString(html, "text/html");
         return document.querySelectorAll('div.df-embedded__content > div.df-main > div.df-results > div.df-card')
       });

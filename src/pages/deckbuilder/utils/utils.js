@@ -44,7 +44,7 @@ export const parseTypeLine = (card) =>
 export const parseOracleText = (card) =>
   isTransformCard(card) ? card.card_faces[face.FRONT].oracle_text : card.oracle_text;
 
-export const isTransformCard = (card) => card.layout === 'transform';
+export const isTransformCard = (card) => ['transform', 'modal_dfc'].includes(card.layout);
 
 
 const coloursArray = ['W', 'U', 'B', 'R', 'G', 'M', 'C'];

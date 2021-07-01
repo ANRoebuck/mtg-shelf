@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { parseImgSource } from "../utils/utils";
+import { isTransformCard, parseImgSource } from "../utils/utils";
 import { face } from "../utils/enums";
 import useRefCreator from "../utils/useRefCreator";
 import ContextMenu from "./ContextMenu";
@@ -16,7 +16,7 @@ const Card = ({card, covered, sideInOrOut }) => {
   const handleClick = () => sideInOrOut(card);
 
   const mouseInOut = () => {
-    if (card.layout === 'transform') setShowFace(() => showFace === face.FRONT ? face.BACK : face.FRONT);
+    if (isTransformCard(card)) setShowFace(() => showFace === face.FRONT ? face.BACK : face.FRONT);
   }
 
   const src = parseImgSource(card, showFace);

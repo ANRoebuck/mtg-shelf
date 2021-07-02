@@ -115,7 +115,7 @@ class ModelChaosCards {
     let arr = [];
     resultNode.querySelectorAll('a')
       .forEach(node => {
-        arr.push(node.getAttribute('href'));
+        arr.push(this.baseUrl + node.getAttribute('href'));
       });
     return arr[0];
   }

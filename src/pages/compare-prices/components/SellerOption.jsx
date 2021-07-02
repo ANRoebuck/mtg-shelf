@@ -1,10 +1,11 @@
 import React from "react";
 import './seller-option.scss';
-import CheckBox from "./CheckBox";
+import CheckBox from './CheckBox';
+import StarCheckBox from './StarCheckBox';
 
 const SellerOption = (seller, toggleSellerEnabled, assignFavourite) => {
 
-  const { loading, logo, name, enabled, results, inStock, favourite } = seller;
+  const { loading, logo, name, enabled, favourite } = seller;
 
   return (
     <div className="seller-options" data-seller-enabled={enabled} data-seller-favourite={favourite}>
@@ -15,9 +16,7 @@ const SellerOption = (seller, toggleSellerEnabled, assignFavourite) => {
       </div>
       <div className="widgets">
         <CheckBox option={null} checked={enabled} onChange={() => toggleSellerEnabled(seller)}/>
-        <CheckBox option={null} checked={favourite} onChange={() => assignFavourite(seller)}/>
-        {/*<input className="star" type="checkbox" checked={favourite} onChange={() => assignFavourite(seller)} />*/}
-        <div className="stock">{results !== '' ? `${inStock} / ${results}` : '* / *'}</div>
+        <StarCheckBox option={null} checked={favourite} onChange={() => assignFavourite(seller)}/>
       </div>
     </div>
   )

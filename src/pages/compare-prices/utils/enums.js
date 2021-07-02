@@ -7,8 +7,6 @@ import manaleakLogo from '../resources/manaLeakLogo 150x60.png';
 import pgLeedsLogo from '../resources/patriotGamesLeedsLogo 150x60.png';
 import trollLogo from '../resources/trollTraderLogo 150x60.png';
 
-export const cors = 'https://mtg-shelf.herokuapp.com/';
-
 export const seller = {
   axion: {
     name: 'Axion Now',
@@ -35,7 +33,7 @@ export const seller = {
     logo: manaleakLogo,
   },
   pgLeeds: {
-    name: 'Patriot Games - Leeds',
+    name: 'Patriot Games Leeds',
     logo: pgLeedsLogo,
   },
   trollTrader: {
@@ -44,16 +42,19 @@ export const seller = {
   },
 };
 
-export const logo = {
-  axion: axionLogo,
-  bigOrbit: bigOrbitLogo,
-  chaos: chaosLogo,
-  magicCardTrader: magicCardTraderLogo,
-  magicMadhouse: magicMadhouseLogo,
-  pgLeeds: pgLeedsLogo,
-  trollTrader: trollLogo,
-}
+export const sortOosBy = {
+  last : 'Last',
+  exclude : 'Exclude',
+  none : 'Don\'t sort',
+};
 
-export const regex = {
-  whiteSpaceStripper: /([\s]*)(\S[\s\S]*\S)([\s]*)/
-}
+export const filterFoilsBy = {
+  all: 'All',
+  foil: 'Foil',
+  nonFoil: 'Non-Foil',
+};
+
+export const sortPriceBy = {
+  asc: 'Ascending',
+  dsc: 'Descending',
+};

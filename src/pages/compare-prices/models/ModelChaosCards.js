@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { cors, regex, seller } from "./utils";
+import { cors, regex } from '../utils/utils';
+import { seller } from '../utils/enums';
 
 class ModelChaosCards {
 
@@ -10,8 +11,6 @@ class ModelChaosCards {
     this.baseUrl = 'https://www.chaoscards.co.uk/';
     this.searchPath = 'search/';
     this.searchSuffix = '#/embedded/query=raven%20familiar&page=1&filter%5Bavailability%5D=In%20stock&lang=en&skuFld=id&query_name=match_and';
-    this.colonSplitter = /^([\s\S]*):\s([\s\S]*)$/; // returns the groups separated by ": "
-    this.firstMajusculeString = /^[^A-Z]*([A-Z'\s]*)\s[^A-Z]?/;
   }
 
   search = async (searchTerm) => {
@@ -124,7 +123,7 @@ class ModelChaosCards {
     let arr = [];
     resultNode.querySelectorAll('a > div.df-card__content > div.df-card__title')
       .forEach(node => {
-        let str = node.innerHTML.replace(this.colonSplitter, `$2`).replace(this.firstMajusculeString, `$1`);
+        let str = node.innerHTML.replace(regex.colonSplitter, `$2`).replace(regex.firstMajusculeString, `$1`);
         arr.push(str);
         arr.push(node.innerHTML);
       });

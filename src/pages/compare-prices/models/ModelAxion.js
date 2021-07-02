@@ -110,7 +110,7 @@ class ModelAxion {
     let arr = [];
     resultNode.querySelectorAll('div.inner > div > div.image > a')
       .forEach(node => {
-        arr.push(node.getAttribute('href'));
+        arr.push(this.baseUrl + node.getAttribute('href'));
       });
     return arr[0];
   }

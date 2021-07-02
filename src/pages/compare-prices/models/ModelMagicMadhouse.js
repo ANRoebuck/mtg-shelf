@@ -113,7 +113,7 @@ class ModelMagicMadhouse {
     let arr = [];
     resultNode.querySelectorAll('div > div.product__image > a')
       .forEach(node => {
-        arr.push(node.getAttribute('href'));
+        arr.push(this.baseUrl + node.getAttribute('href'));
       });
     return arr[0];
   }

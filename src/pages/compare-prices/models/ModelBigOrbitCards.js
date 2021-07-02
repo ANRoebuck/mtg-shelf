@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { cors, regex } from '../utils/utils';
 import { seller } from '../utils/enums';
+import AbstractModel from './AbstractModel';
 
-class ModelBigOrbitCards {
+class ModelBigOrbitCards extends AbstractModel{
 
   constructor() {
-    this.parser = new DOMParser();
+    super();
     this.name = seller.bigOrbit.name;
     this.logo = seller.bigOrbit.logo;
     this.baseUrl = 'https://www.bigorbitcards.co.uk/';

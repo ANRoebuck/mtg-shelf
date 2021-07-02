@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { cors, regex } from '../utils/utils';
 import { seller } from '../utils/enums';
+import AbstractModel from './AbstractModel';
 
-class ModelManaLeak {
+class ModelManaLeak extends AbstractModel {
 
   constructor() {
-    this.parser = new DOMParser();
+    super();
     this.name = seller.manaLeak.name;
     this.logo = seller.manaLeak.logo;
     this.baseUrl = 'https://www.manaleak.com/';

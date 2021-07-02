@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { cors, regex } from '../utils/utils';
 import { seller } from '../utils/enums';
+import AbstractModel from './AbstractModel';
 
-class ModelAxion {
+class ModelAxion extends AbstractModel {
 
   constructor() {
-    this.parser = new DOMParser();
+    super();
     this.name = seller.axion.name;
     this.logo = seller.axion.logo;
     this.baseUrl = 'https://www.axionnow.com/';

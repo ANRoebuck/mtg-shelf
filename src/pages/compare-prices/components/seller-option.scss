@@ -1,13 +1,15 @@
 .seller-options {
+  background-color: #40403f;
+  border: solid 1px black;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
   margin: 5px;
   padding: 10px;
-  border: solid 1px black;
-  background-color: #40403f;
-  border-radius: 10px;
 
   .logo-container {
-    height: 40px;
-    width: 100px;
+    height: 50px;
+    width: 125px;
     background-color: black;
     border: solid 1px black;
     margin-bottom: 5px;
@@ -24,9 +26,7 @@
   }
 
   .widgets {
-    display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-    grid-template-areas: "enabled favoruite stock";
+    margin-left: 5px;
 
     .enabled {
       grid-area: enabled;
@@ -65,11 +65,11 @@
 
 
 [data-seller-enabled="false"] {
-  background-color: lightgrey;
+  background-color: darkred;
 }
 
 [data-seller-favourite="true"] {
-  background-color: lightgreen;
+  background-color: green;
 }
 
 @media only screen and (max-width: 425px) {

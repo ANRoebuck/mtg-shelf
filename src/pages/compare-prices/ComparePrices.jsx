@@ -142,8 +142,8 @@ const ComparePrices = () => {
     .filter(maybeFilterByFoil)
     .filter(maybeFilterByStock)
     .sort(sortByPrice)
-    .sort(maybeSortByStock)
     .sort(sortFavouriteFirst)
+    .sort(maybeSortByStock)
     .map(SearchResult);
 
   const views = {

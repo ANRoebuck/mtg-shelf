@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { cors, regex, seller } from "./utils";
+import { cors, regex } from '../utils/utils';
+import { seller } from '../utils/enums';
 
 class ModelPatriotGamesLeeds {
 

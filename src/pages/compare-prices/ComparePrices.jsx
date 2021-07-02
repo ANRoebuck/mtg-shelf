@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import './compare-prices.scss';
-import { configureModels } from "./models/configureModels";
-import SearchResult from "./components/SearchResult";
-import SellerOption from "./components/SellerOption";
-import { sortOosBy, filterFoilsBy, sortPriceBy } from "./enums";
-import SearchOptions from "./components/SearchOptions";
-import LoadingDoughnut from "./components/LoadingDoughnut";
+import { configureModels } from './models/configureModels';
+import SearchResult from './components/SearchResult';
+import SellerOption from './components/SellerOption';
+import { sortOosBy, filterFoilsBy, sortPriceBy } from './utils/enums';
+import SearchOptions from './components/SearchOptions';
+import LoadingDoughnut from './components/LoadingDoughnut';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-const views = {
-  results: 'Results',
-  sellers: 'Sellers',
-  options: 'Options',
-};
+
 
 const TabPanel = ({ children, value, index }) => (
   <div className="tab-panel" hidden={value !== index} data-testid={`tab-panel-${index}`}>
@@ -150,6 +146,11 @@ const ComparePrices = () => {
     .sort(sortFavouriteFirst)
     .map(SearchResult);
 
+  const views = {
+    results: 'Results',
+    options: 'Options',
+  };
+
   return (
     <div className="compare-prices">
 
@@ -180,18 +181,21 @@ const ComparePrices = () => {
         </div>
       </TabPanel>
 
+
       <TabPanel value={tab} index={1}>
+
+        <div className="section-heading">Sort and Filter</div>
+        <div className="options">
+          <SearchOptions title={"Price"} options={Object.values(sortPriceBy)} selectOption={setSortPrice}/>
+          <SearchOptions title={"Out of Stock Items"} options={Object.values(sortOosBy)} selectOption={setSortStock}/>
+          <SearchOptions title={"Foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils}/>
+        </div>
+
+        <div className="section-heading">Sellers</div>
         <div className="sellers">
           {sellerOptions()}
         </div>
-      </TabPanel>
 
-      <TabPanel value={tab} index={2}>
-        <div className="options">
-          <SearchOptions title={"Sort price"} options={Object.values(sortPriceBy)} selectOption={setSortPrice}/>
-          <SearchOptions title={"Sort out of stock items"} options={Object.values(sortOosBy)} selectOption={setSortStock}/>
-          <SearchOptions title={"Filter foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils}/>
-        </div>;
       </TabPanel>
 
     </div>

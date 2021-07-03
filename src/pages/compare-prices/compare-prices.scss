@@ -27,6 +27,12 @@
       label {
         color: white;
       }
+
+      .radio {
+        .label {
+          display: flex;
+        }
+      }
     }
 
     .loading-doughnut {

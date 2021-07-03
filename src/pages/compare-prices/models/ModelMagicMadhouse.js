@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { cors, regex } from '../utils/utils';
 import { seller } from '../utils/enums';
+import AbstractModel from './AbstractModel';
 
-class ModelMagicMadhouse {
+class ModelMagicMadhouse extends AbstractModel {
 
   constructor() {
-    this.parser = new DOMParser();
+    super();
     this.name = seller.magicMadhouse.name;
     this.logo = seller.magicMadhouse.logo;
     this.baseUrl = 'https://www.magicmadhouse.co.uk/';

@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { cors, regex, } from '../utils/utils';
 import { seller } from '../utils/enums';
+import AbstractModel from './AbstractModel';
 
-class ModelTrollTrader {
+class ModelTrollTrader extends AbstractModel {
 
   constructor() {
-    this.parser = new DOMParser();
+    super();
     this.name = seller.trollTrader.name;
     this.logo = seller.trollTrader.logo;
     this.baseUrl = 'https://www.trolltradercards.com/';

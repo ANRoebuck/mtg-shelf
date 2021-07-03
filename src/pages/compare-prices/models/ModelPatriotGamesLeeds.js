@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { cors, regex } from '../utils/utils';
 import { seller } from '../utils/enums';
+import AbstractModel from './AbstractModel';
 
-class ModelPatriotGamesLeeds {
+class ModelPatriotGamesLeeds extends AbstractModel {
 
   constructor() {
-    this.parser = new DOMParser();
+    super();
     this.name = seller.pgLeeds.name;
     this.logo = seller.pgLeeds.logo;
     this.baseUrl = 'http://www.patriotgamesleeds.com/';

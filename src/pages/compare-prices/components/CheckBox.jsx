@@ -4,7 +4,7 @@ const CheckBox = ({ option, checked, onChange }) => {
 
   return (
     <div className="radio">
-      <label>
+      <label className="label">
         <input
           type="checkbox"
           value={option}

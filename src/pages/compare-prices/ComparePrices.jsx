@@ -9,10 +9,10 @@ import LoadingDoughnut from './components/LoadingDoughnut';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import CheckBox from './components/CheckBox';
 
 
-
-const TabPanel = ({ children, value, index }) => (
+const TabPanel = ({children, value, index}) => (
   <div className="tab-panel" hidden={value !== index} data-testid={`tab-panel-${index}`}>
     {children}
   </div>
@@ -22,6 +22,7 @@ const ComparePrices = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [lastSearched, setLastSearched] = useState('');
+  const [clearOnSearch, setClearOnSearch] = useState(true);
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [sellers, setSellers] = useState(configureModels());
   const [tab, setTab] = React.useState(0);
@@ -39,7 +40,7 @@ const ComparePrices = () => {
     document.body.focus();
 
     const searchFor = searchTerm;
-    setDiscoveredPrices([]);
+    if (clearOnSearch) setDiscoveredPrices([]);
     setLastSearched(searchTerm);
     setSearchTerm('');
     sellers.forEach(seller => {
@@ -163,15 +164,17 @@ const ComparePrices = () => {
               <input type="text" value={searchTerm} onChange={(e) => onChangeSearchTerm(e)}/>
             </label>
           </form>
+          <CheckBox option="Clear previous on search" checked={clearOnSearch}
+                    onChange={() => setClearOnSearch(prevState => !prevState)}/>
         </div>
 
-        <LoadingDoughnut loaded={sellers.length - numberLoading} total={sellers.length} />
+        <LoadingDoughnut loaded={sellers.length - numberLoading} total={sellers.length}/>
 
       </div>
 
       <AppBar position="static">
-        <Tabs value={tab} onChange={onChangeTab} >
-          {Object.values(views).map(v => <Tab label={v} />)}
+        <Tabs value={tab} onChange={onChangeTab}>
+          {Object.values(views).map(v => <Tab label={v}/>)}
         </Tabs>
       </AppBar>
 

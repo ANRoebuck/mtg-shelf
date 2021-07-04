@@ -81,7 +81,7 @@
               "logo picture name name"
               "logo picture expansion expansion"
               ". picture stock price"
-              "foil-star picture . product-link";
+              "foil-star picture . widgets";
       margin: 15px;
       padding: 25px;
 
@@ -121,7 +121,6 @@
         border-radius: 10px;
         margin-left: 10px;
         margin-right: 10px;
-        padding: 5px;
         background-color: white;
 
 
@@ -144,9 +143,10 @@
         margin-top: 10px;
       }
 
-      .product-link {
-        grid-area: product-link;
-        display: block;
+      .widgets {
+        grid-area: widgets;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         text-align: right;
       }
 
@@ -211,7 +211,7 @@
                 "name name name"
                 "picture logo logo"
                 "picture stock price"
-                "picture foil-star product-link";
+                "picture foil-star widgets";
 
         .name {
           padding-bottom: 5px;

@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './compare-prices.scss';
 import { configureModels } from './models/configureModels';
 import SearchResult from './components/SearchResult';
 import SellerOption from './components/SellerOption';
-import { sortOosBy, filterFoilsBy, sortPriceBy } from './utils/enums';
+import { filterFoilsBy, sortOosBy, sortPriceBy } from './utils/enums';
 import SearchOptions from './components/SearchOptions';
 import LoadingDoughnut from './components/LoadingDoughnut';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import CheckBox from './components/CheckBox';
+import { addSavedCard, getSavedCards, removeSavedCard, uniqueKey } from './components/localStorageInteractions';
 
 
 const TabPanel = ({children, value, index}) => (
@@ -24,6 +25,7 @@ const ComparePrices = () => {
   const [lastSearched, setLastSearched] = useState('');
   const [clearOnSearch, setClearOnSearch] = useState(true);
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
+  const [savedPrices, setSavedPrices] = useState([]);
   const [sellers, setSellers] = useState(configureModels());
   const [tab, setTab] = React.useState(0);
 
@@ -31,13 +33,17 @@ const ComparePrices = () => {
   const [filterFoils, setFilterFoils] = useState(filterFoilsBy.all);
   const [sortPrice, setSortPrice] = useState(sortPriceBy.asc);
 
+
+  useEffect(() => {
+    setSavedPrices(getSavedCards());
+  }, []);
+
   const onChangeTab = (event, newValue) => setTab(newValue);
 
   const onChangeSearchTerm = (event) => setSearchTerm(event.target.value);
 
   const onSubmit = async e => {
     e.preventDefault();
-    document.body.focus();
 
     const searchFor = searchTerm;
     if (clearOnSearch) setDiscoveredPrices([]);
@@ -73,6 +79,23 @@ const ComparePrices = () => {
 
   const addDiscoveredPrices = (newDiscoveredPrices) => setDiscoveredPrices((discoveredPrices) =>
     discoveredPrices.concat(newDiscoveredPrices));
+
+
+  const addSavedPrice = (discoveredPrice) => {
+    setSavedPrices(prevState => ({
+      ...prevState,
+      [uniqueKey(discoveredPrice)]: discoveredPrice,
+    }));
+    addSavedCard(discoveredPrice);
+  };
+
+  const removeSavedPrice = (discoveredPrice) => {
+    setSavedPrices(prevState => Object.fromEntries(
+      Object.entries(prevState)
+        .filter(([k, v]) => k !== uniqueKey(discoveredPrice))
+    ));
+    removeSavedCard(discoveredPrice);
+  };
 
   const toggleSellerBoolean = (idKey, idValue, toggleKey) => setSellers((sellers) => sellers.map(seller =>
     seller[idKey] === idValue ? {...seller, [toggleKey]: !seller[toggleKey]} : seller));
@@ -138,6 +161,11 @@ const ComparePrices = () => {
 
   const sellerOptions = () => sellers.map(seller => SellerOption(seller, toggleSellerEnabled, assignFavourite));
 
+  const isSaved = (discoveredPrice) => Object.keys(savedPrices).includes(uniqueKey(discoveredPrice));
+
+  const mapToSearchResult = (discoveredPrice) =>
+    SearchResult(discoveredPrice, isSaved(discoveredPrice), addSavedPrice, removeSavedPrice);
+
   const searchResults = () => discoveredPrices
     .filter(sellerIsEnabled)
     .filter(maybeFilterByFoil)
@@ -145,11 +173,21 @@ const ComparePrices = () => {
     .sort(sortByPrice)
     .sort(sortFavouriteFirst)
     .sort(maybeSortByStock)
-    .map(SearchResult);
+    .map(mapToSearchResult);
+
+  const savedResults = () => Object.values(savedPrices)
+    .filter(sellerIsEnabled)
+    .filter(maybeFilterByFoil)
+    .filter(maybeFilterByStock)
+    .sort(sortByPrice)
+    .sort(sortFavouriteFirst)
+    .sort(maybeSortByStock)
+    .map(mapToSearchResult);
 
   const views = {
     results: 'Results',
     options: 'Options',
+    bookmarks: 'Bookmarks',
   };
 
   return (
@@ -164,7 +202,7 @@ const ComparePrices = () => {
               <input type="text" value={searchTerm} onChange={(e) => onChangeSearchTerm(e)}/>
             </label>
           </form>
-          <CheckBox option="Clear previous on search" checked={clearOnSearch}
+          <CheckBox option="Clear previous results" checked={clearOnSearch}
                     onChange={() => setClearOnSearch(prevState => !prevState)}/>
         </div>
 
@@ -199,6 +237,12 @@ const ComparePrices = () => {
           {sellerOptions()}
         </div>
 
+      </TabPanel>
+
+      <TabPanel value={tab} index={2}>
+        <div className="search-results">
+          {savedResults()}
+        </div>
       </TabPanel>
 
     </div>

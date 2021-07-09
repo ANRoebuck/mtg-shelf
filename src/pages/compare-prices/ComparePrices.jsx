@@ -15,6 +15,9 @@ import axios from 'axios';
 import { cors } from './utils/utils';
 
 
+
+const demoLink = 'https://www.youtube.com/watch?v=NGPw8K3Juc0';
+
 const TabPanel = ({children, value, index}) => (
   <div className="tab-panel" hidden={value !== index} data-testid={`tab-panel-${index}`}>
     {children}
@@ -191,6 +194,7 @@ const ComparePrices = () => {
     results: 'Results',
     options: 'Options',
     bookmarks: 'Bookmarks',
+    faq: 'FAQ',
   };
 
   return (
@@ -245,6 +249,15 @@ const ComparePrices = () => {
       <TabPanel value={tab} index={2}>
         <div className="search-results">
           {savedResults()}
+        </div>
+      </TabPanel>
+
+      <TabPanel value={tab} index={3}>
+        <div className="faq">
+          <h2>How does this thing work ?</h2>
+          <div className="link" onClick={() => window.open(demoLink, "_blank")}>
+            DEMO
+          </div>
         </div>
       </TabPanel>
 

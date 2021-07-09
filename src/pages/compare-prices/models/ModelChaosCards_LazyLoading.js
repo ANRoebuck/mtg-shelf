@@ -19,6 +19,10 @@ class ModelChaosCards_LazyLoading extends AbstractModel {
   }
 
   search = async (searchTerm) => {
+
+    const cachedResults = this.readCachedResults(this.name, searchTerm);
+    if (cachedResults) return cachedResults;
+
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
 
@@ -47,6 +51,8 @@ class ModelChaosCards_LazyLoading extends AbstractModel {
       });
 
     });
+
+    this.cacheResults(this.name, searchTerm, foundItems);
 
     return foundItems;
   }

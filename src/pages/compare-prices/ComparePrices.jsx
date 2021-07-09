@@ -10,7 +10,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import CheckBox from './components/CheckBox';
-import { addSavedCard, getSavedCards, removeSavedCard, uniqueKey } from './components/localStorageInteractions';
+import { addSavedCard, getSavedCards, removeSavedCard, uniqueSavedResultKey } from './components/localStorageInteractions';
+import axios from 'axios';
+import { cors } from './utils/utils';
 
 
 const TabPanel = ({children, value, index}) => (
@@ -35,6 +37,7 @@ const ComparePrices = () => {
 
 
   useEffect(() => {
+    axios.get(cors).then(console.log("Server OK"));
     setSavedPrices(getSavedCards());
   }, []);
 
@@ -84,7 +87,7 @@ const ComparePrices = () => {
   const addSavedPrice = (discoveredPrice) => {
     setSavedPrices(prevState => ({
       ...prevState,
-      [uniqueKey(discoveredPrice)]: discoveredPrice,
+      [uniqueSavedResultKey(discoveredPrice)]: discoveredPrice,
     }));
     addSavedCard(discoveredPrice);
   };
@@ -92,7 +95,7 @@ const ComparePrices = () => {
   const removeSavedPrice = (discoveredPrice) => {
     setSavedPrices(prevState => Object.fromEntries(
       Object.entries(prevState)
-        .filter(([k, v]) => k !== uniqueKey(discoveredPrice))
+        .filter(([k, v]) => k !== uniqueSavedResultKey(discoveredPrice))
     ));
     removeSavedCard(discoveredPrice);
   };
@@ -161,7 +164,7 @@ const ComparePrices = () => {
 
   const sellerOptions = () => sellers.map(seller => SellerOption(seller, toggleSellerEnabled, assignFavourite));
 
-  const isSaved = (discoveredPrice) => Object.keys(savedPrices).includes(uniqueKey(discoveredPrice));
+  const isSaved = (discoveredPrice) => Object.keys(savedPrices).includes(uniqueSavedResultKey(discoveredPrice));
 
   const mapToSearchResult = (discoveredPrice) =>
     SearchResult(discoveredPrice, isSaved(discoveredPrice), addSavedPrice, removeSavedPrice);

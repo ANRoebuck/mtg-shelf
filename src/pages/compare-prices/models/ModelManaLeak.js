@@ -14,6 +14,10 @@ class ModelManaLeak extends AbstractModel {
   }
 
   search = async (searchTerm) => {
+
+    const cachedResults = this.readCachedResults(this.name, searchTerm);
+    if (cachedResults) return cachedResults;
+
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
 
@@ -42,6 +46,8 @@ class ModelManaLeak extends AbstractModel {
       });
 
     });
+
+    this.cacheResults(this.name, searchTerm, foundItems);
 
     return foundItems;
   }

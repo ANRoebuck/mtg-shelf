@@ -62,7 +62,8 @@ const FAQ = () => {
          That being said, the goal is to improve the app as much as possible as and when time allows.
          If you know about a site you think should be added, please send an email to ANRoebuck@googlemail.com with the
          subject "Your stupid app".
-         ____
+
+         <br/>
 
          Every website is built differently, which means not every website is equally easy to integrate. Additionally,
          basic vetting (ie, searching for a few popular or valuable cards) may show that a site doesn't have good stock

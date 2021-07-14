@@ -7,9 +7,9 @@ class ModelAxion extends AbstractModel {
 
   constructor() {
     super();
-    this.name = seller.axion.name;
-    this.logo = seller.axion.logo;
-    this.baseUrl = 'https://www.axionnow.com/';
+    this.name = seller.mountBatten.name;
+    this.logo = seller.mountBatten.logo;
+    this.baseUrl = 'https://www.mountbattencollectables.com/';
     this.searchPath = 'products/search?q=';
   }
 
@@ -20,6 +20,8 @@ class ModelAxion extends AbstractModel {
 
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
+
+    console.log(resultNodes);
 
     resultNodes.forEach(resultNode => {
 

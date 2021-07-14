@@ -6,6 +6,7 @@ import Home from "./pages/home/Home";
 import ComparePrices from "./pages/compare-prices/ComparePrices";
 import Draft from "./pages/draft/Draft";
 import Game from "./pages/game/Game";
+import Event from "./pages/event/Event";
 
 const App = () => {
 
@@ -13,8 +14,9 @@ const App = () => {
     home: 'Home',
     comparePrices: 'Compare Prices',
     deckBuilder: 'Deck Builder',
+    event: 'Event',
     draft: 'Feature',
-    game: 'Feature',
+    // game: 'Feature',
   }
 
   const [selected, setSelected] = useState(pages.home);
@@ -27,6 +29,8 @@ const App = () => {
         return <DeckBuilder/>;
       case pages.draft:
         return <Draft />;
+      case pages.event:
+        return <Event />;
       case pages.game:
         return <Game />;
       default:

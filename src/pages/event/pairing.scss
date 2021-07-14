@@ -1,0 +1,25 @@
+
+
+.pairing {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+
+  .player {
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    justify-content: center;
+  }
+
+  .button-container {
+
+    button {
+      width: 100px;
+      margin: 20px;
+    }
+  }
+}

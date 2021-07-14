@@ -13,10 +13,9 @@ import CheckBox from './components/CheckBox';
 import { addSavedCard, getSavedCards, removeSavedCard, uniqueSavedResultKey } from './components/localStorageInteractions';
 import axios from 'axios';
 import { cors } from './utils/utils';
+import FAQ from "./components/FAQ";
 
 
-
-const demoLink = 'https://www.youtube.com/watch?v=NGPw8K3Juc0';
 
 const TabPanel = ({children, value, index}) => (
   <div className="tab-panel" hidden={value !== index} data-testid={`tab-panel-${index}`}>
@@ -253,12 +252,7 @@ const ComparePrices = () => {
       </TabPanel>
 
       <TabPanel value={tab} index={3}>
-        <div className="faq">
-          <h2>How does this thing work ?</h2>
-          <div className="link" onClick={() => window.open(demoLink, "_blank")}>
-            DEMO
-          </div>
-        </div>
+        <FAQ />
       </TabPanel>
 
     </div>

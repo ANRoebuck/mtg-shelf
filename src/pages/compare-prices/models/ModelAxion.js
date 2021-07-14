@@ -69,7 +69,7 @@ class ModelAxion extends AbstractModel {
     let arr = [];
     resultNode.querySelectorAll('div.inner > div > div.meta > a > h4')
       .forEach(node => {
-        let str = node.innerHTML.replace(regex.whitespaceStripper, `$2`);
+        let str = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
         arr.push(str);
       });
     return arr[0];

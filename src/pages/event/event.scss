@@ -2,4 +2,11 @@
 .event {
   display: flex;
   flex-direction: column;
+  max-height: 100%;
+
+
+  .pairings {
+    overflow-y: auto;
+
+  }
 }

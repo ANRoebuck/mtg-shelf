@@ -6,25 +6,24 @@ import './event.scss';
 
 const host = 'https://mtg-shelf-event-manager.herokuapp.com/'
 const localHost = 'http://localhost:9090/';
-const baseUrl = host + 'api/eventManager/';
+const baseUrl = localHost + 'api/eventManager/';
 
 const Event = () => {
 
   const [eventId, setEventId] = useState(null);
   const [pairings, setPairings] = useState([]);
   const [completedMatches, setCompletedMatches] = useState([]);
+  const [inputValue, setInputValue] = useState(8);
 
 
-  const createEvent = () => axios.get(baseUrl + 'new/50').then(({data}) => {
-    console.log(data);
-    setEventId(data.eventId);
-  });
+  const createEvent = () => {
+    axios.get(baseUrl + `new/${inputValue}`).then(({data}) => setEventId(data.eventId));
+  }
 
   const getPairings = () => axios
     .get(baseUrl + `currentRound/${eventId}`)
     .then(({data}) => axios.get(baseUrl + `pairings/${eventId}/${data.currentRound}`))
     .then(({data}) => {
-      console.log(data);
       setCompletedMatches([]);
       setPairings(data.pairings);
       markByeComplete(data.pairings);
@@ -57,7 +56,11 @@ const Event = () => {
         </div>
         :
         <div className="event-button" >
-          <button onClick={() => createEvent()}>
+          <div className="input-container">
+            <input type="number" value={inputValue}
+                   onChange={(e) => setInputValue(e.target.value)} min={8} max={1000} />
+          </div>
+          <button disabled={inputValue < 8} onClick={() => createEvent()}>
             Create new event
           </button>
         </div>

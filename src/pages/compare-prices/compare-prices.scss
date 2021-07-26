@@ -7,7 +7,7 @@
 
   .compare-prices-menu {
     display: grid;
-    grid-template-columns: 1fr 1fr 200px;
+    grid-template-columns: 200px 1fr 200px;
     grid-template-rows: auto auto auto;
     grid-template-areas:
           ". search doughnut"
@@ -16,23 +16,17 @@
     min-height: 100px;
     max-width: 100%;
 
-    .search-input {
+    .auto-suggest-search-bar {
       grid-area: search;
-      margin: 20px;
-
-      input, label {
-        display: block;
-      }
-
-      label {
-        color: white;
-      }
+      margin: 20px 0;
 
       .radio {
         .label {
+          color: white;
           display: flex;
         }
       }
+
     }
 
     .loading-doughnut {
@@ -51,9 +45,14 @@
 
   }
 
+  header {
+    z-index: 1;
+  }
+
   .tab-panel {
     grid-area: tab;
     overflow-y: auto;
+    min-height: 100%;
   }
 
   .section-heading {

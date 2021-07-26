@@ -21,8 +21,6 @@ class ModelAxion extends AbstractModel {
     const foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
 
-    console.log(resultNodes);
-
     resultNodes.forEach(resultNode => {
 
       let name = this.name;

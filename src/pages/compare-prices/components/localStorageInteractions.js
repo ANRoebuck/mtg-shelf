@@ -4,7 +4,14 @@ const SAVED_CARDS_KEY = 'savedCards';
 
 export const uniqueSavedResultKey = ({name, title, expansion}) => name + '-' + title + '-' + expansion;
 export const getSavedCards = () => JSON.parse(localStorage.getItem(SAVED_CARDS_KEY)) || {};
-const setSavedCards = (cards) => localStorage.setItem(SAVED_CARDS_KEY, JSON.stringify(cards));
+const setSavedCards = (cards) => {
+  try {
+    localStorage.setItem(SAVED_CARDS_KEY, JSON.stringify(cards));
+  }
+  catch {
+    console.log('could not save cards');
+  }
+}
 export const addSavedCard = (card) => {
   const cards = getSavedCards();
   const updatedCards = {
@@ -27,8 +34,14 @@ const CACHED_RESULTS_PREFIX = 'cachedResults_';
 
 const getCachedResultsForSeller = (sellerName) =>
   JSON.parse(sessionStorage.getItem(CACHED_RESULTS_PREFIX + sellerName)) || {};
-const setCachedResultsForSeller = (sellerName, resultsToCache) =>
-  sessionStorage.setItem(CACHED_RESULTS_PREFIX + sellerName, JSON.stringify(resultsToCache));
+const setCachedResultsForSeller = (sellerName, resultsToCache) => {
+  try {
+    sessionStorage.setItem(CACHED_RESULTS_PREFIX + sellerName, JSON.stringify(resultsToCache));
+  }
+  catch {
+    console.log('could not cache results');
+  }
+}
 export const setCachedResultsForSearch = (sellerName, searchTerm, results) => {
   // const timeStamp = null;
   const resultsToCache = {

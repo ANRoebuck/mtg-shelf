@@ -6,11 +6,13 @@ import AbstractModel from './AbstractModel';
 class ModelAxion extends AbstractModel {
 
   constructor() {
-    super();
-    this.name = seller.axion.name;
-    this.logo = seller.axion.logo;
-    this.baseUrl = 'https://www.axionnow.com/';
-    this.searchPath = 'products/search?q=';
+    super({
+      name: seller.axion.name,
+      logo: seller.axion.logo,
+      baseUrl: 'https://www.axionnow.com/',
+      searchPath: 'products/search?q=',
+      searchSuffix: '',
+    });
   }
 
   search = async (searchTerm) => {
@@ -130,10 +132,6 @@ class ModelAxion extends AbstractModel {
         arr.push(node.innerHTML);
       });
     return arr[0];
-  }
-
-  isFoilFromTitle = (title) => {
-    return title.toLowerCase().includes('foil');
   }
 
 }

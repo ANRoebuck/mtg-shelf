@@ -6,11 +6,13 @@ import AbstractModel from './AbstractModel';
 class ModelMagicMadhouse extends AbstractModel {
 
   constructor() {
-    super();
-    this.name = seller.magicMadhouse.name;
-    this.logo = seller.magicMadhouse.logo;
-    this.baseUrl = 'https://www.magicmadhouse.co.uk/';
-    this.searchPath = 'search/';
+    super({
+      name: seller.magicMadhouse.name,
+      logo: seller.magicMadhouse.logo,
+      baseUrl: 'https://www.magicmadhouse.co.uk/',
+      searchPath: 'search/',
+      searchSuffix: '',
+    });
   }
 
   search = async (searchTerm) => {
@@ -134,10 +136,6 @@ class ModelMagicMadhouse extends AbstractModel {
     //   });
     // return arr[0];
     return null;
-  }
-
-  isFoilFromTitle = (title) => {
-    return title.toLowerCase().includes('foil');
   }
 
 }

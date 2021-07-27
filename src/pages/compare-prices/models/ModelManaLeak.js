@@ -6,11 +6,13 @@ import AbstractModel from './AbstractModel';
 class ModelManaLeak extends AbstractModel {
 
   constructor() {
-    super();
-    this.name = seller.manaLeak.name;
-    this.logo = seller.manaLeak.logo;
-    this.baseUrl = 'https://www.manaleak.com/';
-    this.searchPath = '/index.php?route=product/search&search=';
+    super({
+      name: seller.manaLeak.name,
+      logo: seller.manaLeak.logo,
+      baseUrl: 'https://www.manaleak.com/',
+      searchPath: '/index.php?route=product/search&search=',
+      searchSuffix: '',
+    });
   }
 
   search = async (searchTerm) => {
@@ -124,10 +126,6 @@ class ModelManaLeak extends AbstractModel {
         arr.push(node.innerHTML);
       });
     return arr[0];
-  }
-
-  isFoilFromTitle = (title) => {
-    return title.toLowerCase().includes('foil');
   }
 
 }

@@ -6,11 +6,13 @@ import AbstractModel from './AbstractModel';
 class ModelAxion extends AbstractModel {
 
   constructor() {
-    super();
-    this.name = seller.mountBatten.name;
-    this.logo = seller.mountBatten.logo;
-    this.baseUrl = 'https://www.mountbattencollectables.com/';
-    this.searchPath = 'products/search?q=';
+    super({
+      name: seller.mountBatten.name,
+      logo: seller.mountBatten.logo,
+      baseUrl: 'https://www.mountbattencollectables.com/',
+      searchPath: 'products/search?q=',
+      searchSuffix: '',
+    });
   }
 
   search = async (searchTerm) => {
@@ -130,10 +132,6 @@ class ModelAxion extends AbstractModel {
         arr.push(node.innerHTML);
       });
     return arr[0];
-  }
-
-  isFoilFromTitle = (title) => {
-    return title.toLowerCase().includes('foil');
   }
 
 }

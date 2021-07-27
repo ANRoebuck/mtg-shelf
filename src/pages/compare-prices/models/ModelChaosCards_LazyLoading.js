@@ -6,15 +6,15 @@ import AbstractModel from './AbstractModel';
 class ModelChaosCards_LazyLoading extends AbstractModel {
 
   constructor() {
-    super();
-    this.name = seller.chaos.name;
-    this.logo = seller.chaos.logo;
-
-    // lazy loading website means GET request to main page does not return results
-    // instead, make cheeky request to their back end
-    this.baseUrl = 'https://eu1-search.doofinder.com/5/search?hashid=e335ee744310ac28c6e30f4083912586&query_counter=1&page=1&rpp=10&filter%5Bavailability%5D=In%20stock&transformer=basic&query_name=match_and&query=';
-    this.searchPath = '';
-    this.searchSuffix = '';
+    super({
+      name: seller.chaos.name,
+      logo: seller.chaos.logo,
+      // lazy loading website means GET request to main page does not return results
+      // instead, make cheeky request to their back end
+      baseUrl: 'https://eu1-search.doofinder.com/5/search?hashid=e335ee744310ac28c6e30f4083912586&query_counter=1&page=1&rpp=10&filter%5Bavailability%5D=In%20stock&transformer=basic&query_name=match_and&query=',
+      searchPath: '',
+      searchSuffix: '',
+    });
     this.isMagicCard = ' - Magic the Gathering Single Card';
   }
 
@@ -108,10 +108,6 @@ class ModelChaosCards_LazyLoading extends AbstractModel {
 
   expansionFromResultNode = (resultNode) => {
     return resultNode.title.replace(regex.colonSplitter, `$2`).replace(this.isMagicCard, '');
-  }
-
-  isFoilFromTitle = (title) => {
-    return title.toLowerCase().includes('foil');
   }
 
 }

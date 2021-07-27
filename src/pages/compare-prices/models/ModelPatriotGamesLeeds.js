@@ -6,11 +6,13 @@ import AbstractModel from './AbstractModel';
 class ModelPatriotGamesLeeds extends AbstractModel {
 
   constructor() {
-    super();
-    this.name = seller.pgLeeds.name;
-    this.logo = seller.pgLeeds.logo;
-    this.baseUrl = 'http://www.patriotgamesleeds.com/';
-    this.searchPath = 'index.php?main_page=advanced_search_result&search_in_description=1&keyword=';
+    super({
+      name: seller.pgLeeds.name,
+      logo: seller.pgLeeds.logo,
+      baseUrl: 'http://www.patriotgamesleeds.com/',
+      searchPath: 'index.php?main_page=advanced_search_result&search_in_description=1&keyword=',
+      searchSuffix: '',
+    });
   }
 
   search = async (searchTerm) => {
@@ -132,10 +134,6 @@ class ModelPatriotGamesLeeds extends AbstractModel {
         arr.push(node.innerHTML.replace(r, `$1`));
       });
     return arr[0];
-  }
-
-  isFoilFromTitle = (title) => {
-    return title.toLowerCase().includes('foil');
   }
 
 }

@@ -6,11 +6,13 @@ import AbstractModel from './AbstractModel';
 class ModelTrollTrader extends AbstractModel {
 
   constructor() {
-    super();
-    this.name = seller.trollTrader.name;
-    this.logo = seller.trollTrader.logo;
-    this.baseUrl = 'https://www.trolltradercards.com/';
-    this.searchPath = 'products/search?q=';
+    super({
+      name: seller.trollTrader.name,
+      logo: seller.trollTrader.logo,
+      baseUrl: 'https://www.trolltradercards.com/',
+      searchPath: 'products/search?q=',
+      searchSuffix: '',
+    });
   }
 
   search = async (searchTerm) => {
@@ -130,10 +132,6 @@ class ModelTrollTrader extends AbstractModel {
         arr.push(node.innerHTML);
       });
     return arr[0];
-  }
-
-  isFoilFromTitle = (title) => {
-    return title.toLowerCase().includes('foil');
   }
 
 }

@@ -6,12 +6,13 @@ import AbstractModel from './AbstractModel';
 class ModelBigOrbitCards extends AbstractModel{
 
   constructor() {
-    super();
-    this.name = seller.bigOrbit.name;
-    this.logo = seller.bigOrbit.logo;
-    this.baseUrl = 'https://www.bigorbitcards.co.uk/';
-    this.searchPath = '?match=all&subcats=Y&pcode_from_q=N&pshort=N&pfull=N&pname=Y&pkeywords=N&search_performed=Y&product_variants=N&q=';
-    this.searchSuffix = '&dispatch=products.search';
+    super({
+      name: seller.bigOrbit.name,
+      logo: seller.bigOrbit.logo,
+      baseUrl: 'https://www.bigorbitcards.co.uk/',
+      searchPath: '?match=all&subcats=Y&pcode_from_q=N&pshort=N&pfull=N&pname=Y&pkeywords=N&search_performed=Y&product_variants=N&q=',
+      searchSuffix: '&dispatch=products.search',
+    });
   }
 
   search = async (searchTerm) => {
@@ -134,10 +135,6 @@ class ModelBigOrbitCards extends AbstractModel{
         arr.push(node.innerHTML);
       });
     return arr[0];
-  }
-
-  isFoilFromTitle = (title) => {
-    return title.toLowerCase().includes('foil');
   }
 
 }

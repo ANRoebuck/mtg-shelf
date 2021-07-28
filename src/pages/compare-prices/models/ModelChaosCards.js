@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { cors, regex } from '../utils/utils';
+import { regex } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 
@@ -12,6 +11,7 @@ class ModelChaosCards extends AbstractModel {
       baseUrl: 'https://www.chaoscards.co.uk/',
       searchPath: 'search/',
       searchSuffix: '#/embedded/query=raven%20familiar&page=1&filter%5Bavailability%5D=In%20stock&lang=en&skuFld=id&query_name=match_and',
+      searchJoin: '%20',
     });
   }
 
@@ -53,11 +53,6 @@ class ModelChaosCards extends AbstractModel {
 
     return foundItems;
   }
-
-  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => []);
-
-  searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath +
-    searchTerm.toLowerCase().split(' ').join('%20') + this.searchSuffix;
 
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)

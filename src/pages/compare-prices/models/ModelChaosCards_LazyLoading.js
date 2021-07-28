@@ -14,6 +14,7 @@ class ModelChaosCards_LazyLoading extends AbstractModel {
       baseUrl: 'https://eu1-search.doofinder.com/5/search?hashid=e335ee744310ac28c6e30f4083912586&query_counter=1&page=1&rpp=10&filter%5Bavailability%5D=In%20stock&transformer=basic&query_name=match_and&query=',
       searchPath: '',
       searchSuffix: '',
+      searchJoin: '%20',
     });
     this.isMagicCard = ' - Magic the Gathering Single Card';
   }
@@ -56,11 +57,6 @@ class ModelChaosCards_LazyLoading extends AbstractModel {
 
     return foundItems;
   }
-
-  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => []);
-
-  searchTermToUrl = searchTerm => cors + this.baseUrl + this.searchPath +
-    searchTerm.toLowerCase().split(' ').join('%20') + this.searchSuffix;
 
   allResults = async (searchTerm) => {
     return this.getHtml(searchTerm)

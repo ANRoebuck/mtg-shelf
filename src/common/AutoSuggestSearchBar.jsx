@@ -50,7 +50,7 @@ const AutoSuggestSearchBar = ({
   return (
     <div className="auto-suggest-search-bar">
       <div className="input-container">
-        <form onSubmit={() => execute(searchTerm)}>
+        <form onSubmit={(e) => { e.preventDefault(); execute(searchTerm); }}>
           <label>
             {label}
             <div className="auto-complete-input">

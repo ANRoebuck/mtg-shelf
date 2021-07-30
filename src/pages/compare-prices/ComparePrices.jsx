@@ -10,11 +10,17 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import CheckBox from './components/CheckBox';
-import { addSavedCard, getSavedCards, removeSavedCard, uniqueSavedResultKey } from './components/localStorageInteractions';
+import {
+  addSavedCard,
+  getSavedCards,
+  removeSavedCard,
+  uniqueSavedResultKey
+} from './components/localStorageInteractions';
 import axios from 'axios';
 import { cors } from './utils/utils';
 import FAQ from "./components/FAQ";
-
+import AutoSuggestSearchBar from "../../common/AutoSuggestSearchBar";
+import { autocomplete } from "../../gateway/http";
 
 
 const TabPanel = ({children, value, index}) => (
@@ -45,14 +51,14 @@ const ComparePrices = () => {
 
   const onChangeTab = (event, newValue) => setTab(newValue);
 
-  const onChangeSearchTerm = (event) => setSearchTerm(event.target.value);
+  const getUpdatedSuggestions = async (term) => {
+    if (term.length < 3) return [];
+    return autocomplete(term);
+  }
 
-  const onSubmit = async e => {
-    e.preventDefault();
-
-    const searchFor = searchTerm;
+  const onSubmit = async (searchFor) => {
     if (clearOnSearch) setDiscoveredPrices([]);
-    setLastSearched(searchTerm);
+    setLastSearched(searchFor);
     setSearchTerm('');
     sellers.forEach(seller => {
       seller.enabled && toggleSellerLoading(seller);
@@ -196,27 +202,24 @@ const ComparePrices = () => {
     faq: 'FAQ',
   };
 
+
   return (
     <div className="compare-prices">
 
       <div className="compare-prices-menu">
 
-        <div className="search-input">
-          <form onSubmit={onSubmit}>
-            <label>
-              Card Search
-              <input type="text" value={searchTerm} onChange={(e) => onChangeSearchTerm(e)}/>
-            </label>
-          </form>
+        <AutoSuggestSearchBar placeholderText="Type to search" onSubmit={onSubmit} getUpdateSuggestions={getUpdatedSuggestions}
+                              optionalExternallyManagedSearchTerm={searchTerm}
+                              optionalSetExternallyManagedSearchTerm={setSearchTerm}>
           <CheckBox option="Clear previous results" checked={clearOnSearch}
                     onChange={() => setClearOnSearch(prevState => !prevState)}/>
-        </div>
+        </AutoSuggestSearchBar>
 
         <LoadingDoughnut loaded={sellers.length - numberLoading} total={sellers.length}/>
 
       </div>
 
-      <AppBar position="static">
+      <AppBar position="static" >
         <Tabs value={tab} onChange={onChangeTab}>
           {Object.values(views).map(v => <Tab label={v}/>)}
         </Tabs>
@@ -252,7 +255,7 @@ const ComparePrices = () => {
       </TabPanel>
 
       <TabPanel value={tab} index={3}>
-        <FAQ />
+        <FAQ/>
       </TabPanel>
 
     </div>

@@ -1,0 +1,47 @@
+.input-container {
+
+  label {
+    color: white;
+    display: block;
+  }
+
+  .auto-complete-input {
+
+    border: 1px solid grey;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 4px 1px rgba(0, 0, 0, .18);
+
+    position: sticky;
+    z-index: 100;
+
+    input {
+      border: none;
+      display: block;
+      width: 100%;
+
+      padding: 10px 5px;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    ul {
+      list-style-type: none;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+      background-color: #3a3f5a;
+    }
+
+    li {
+      padding: 10px 5px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      text-decoration: underline;
+      background-color: rgba(128, 128, 128, 0.20);
+    }
+  }
+
+}
+
+.children {}

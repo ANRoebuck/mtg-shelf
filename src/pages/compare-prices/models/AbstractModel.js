@@ -39,7 +39,7 @@ class AbstractModel {
     const cachedResults = this.readCachedResults(this.name, searchTerm);
     if (cachedResults) return cachedResults;
 
-    const foundItems = [];
+    let foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
 
     resultNodes.forEach(resultNode => {
@@ -68,7 +68,11 @@ class AbstractModel {
 
     });
 
+    foundItems = foundItems.filter(result => this.strongMatch(result.title, searchTerm));
+
     this.cacheResults(this.name, searchTerm, foundItems);
+
+    // console.log(foundItems);
 
     return foundItems;
   }
@@ -86,6 +90,7 @@ class AbstractModel {
   allResults = async (searchTerm) =>
     this.getHtml(searchTerm)
       .then(({ data: html }) => {
+        // console.log(html);
         const document = this.parser.parseFromString(html, "text/html");
         return document.querySelectorAll(this.resultSelector);
       });
@@ -139,6 +144,9 @@ class AbstractModel {
 
   readCachedResults = (sellerName, searchTerm) => getCachedResultsForSearch(sellerName, searchTerm);
   cacheResults = (sellerName, searchTerm, results) => setCachedResultsForSearch(sellerName, searchTerm, results);
+
+  strongMatch = (result, searchTerm) => this.stripWord(result).includes(this.stripWord(searchTerm));
+  stripWord = (word) => word.split('').filter(l => /\w/.test(l)).join('').toLowerCase();
 
 }
 

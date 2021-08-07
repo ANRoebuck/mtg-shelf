@@ -72,7 +72,6 @@ const ComparePrices = () => {
 
   const getSearchResultsForSeller = async (seller, searchFor) => {
     let results = await seller.model.search(searchFor);
-    results = results.filter(result => strongMatch(result.title, searchFor));
     addDiscoveredPrices(results);
     toggleSellerLoading(seller);
     setSellerKeyValue('name', seller.name, 'results', results.length);
@@ -127,9 +126,6 @@ const ComparePrices = () => {
       setSellerKeyValue('name', seller.name, 'favourite', true);
     }
   }
-
-  const strongMatch = (result, searchTerm) => stripWord(result).includes(stripWord(searchTerm));
-  const stripWord = (word) => word.split('').filter(l => /\w/.test(l)).join('').toLowerCase();
 
   const maybeFilterByFoil = (item) => {
     if (filterFoils === filterFoilsBy.foil) return itemIsFoil(item);

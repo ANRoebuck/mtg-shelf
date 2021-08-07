@@ -17,7 +17,7 @@ const AutoSuggestSearchBar = ({
   // a separate useState and useEffect are combined here to emulate a conditional setState callback
   // setState calls are asynchronous
   // a callback is required to ensure that logic executed only after the state is updated
-  // react hooks setState methods do not accept a callback function as an arguments
+  // react hooks setState methods do not accept a callback function as an argument
   // useEffect using the searchTerm state would be called on every keystroke, so a separate piece of state is used
   const [v, execute] = useState('');
   useEffect(() => {

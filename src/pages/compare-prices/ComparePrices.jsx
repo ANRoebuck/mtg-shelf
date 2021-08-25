@@ -195,7 +195,7 @@ const ComparePrices = () => {
     results: 'Results',
     options: 'Options',
     bookmarks: 'Bookmarks',
-    faq: 'FAQ',
+    // faq: 'FAQ',
   };
 
 
@@ -250,9 +250,9 @@ const ComparePrices = () => {
         </div>
       </TabPanel>
 
-      <TabPanel value={tab} index={3}>
-        <FAQ/>
-      </TabPanel>
+      {/*<TabPanel value={tab} index={3}>*/}
+      {/*  <FAQ/>*/}
+      {/*</TabPanel>*/}
 
     </div>
   );

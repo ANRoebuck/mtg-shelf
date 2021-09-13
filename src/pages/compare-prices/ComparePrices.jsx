@@ -65,9 +65,8 @@ const ComparePrices = () => {
       setSellerKeyValue('name', seller.name, 'results', '');
       setSellerKeyValue('name', seller.name, 'inStock', '');
     });
-    for (const seller of sellers) {
-      seller.enabled && await getSearchResultsForSeller(seller, searchFor);
-    }
+    const enabledSellers = sellers.filter(s => s.enabled);
+    enabledSellers.forEach(s => getSearchResultsForSeller(s, searchFor));
   }
 
   const getSearchResultsForSeller = async (seller, searchFor) => {
@@ -195,7 +194,7 @@ const ComparePrices = () => {
     results: 'Results',
     options: 'Options',
     bookmarks: 'Bookmarks',
-    faq: 'FAQ',
+    // faq: 'FAQ',
   };
 
 
@@ -250,9 +249,9 @@ const ComparePrices = () => {
         </div>
       </TabPanel>
 
-      <TabPanel value={tab} index={3}>
-        <FAQ/>
-      </TabPanel>
+      {/*<TabPanel value={tab} index={3}>*/}
+      {/*  <FAQ/>*/}
+      {/*</TabPanel>*/}
 
     </div>
   );

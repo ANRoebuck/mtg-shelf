@@ -223,6 +223,7 @@ const ComparePrices = () => {
       <TabPanel value={tab} index={0}>
         <div className="search-results">
           {searchResults()}
+          {/*<div className="void-filler" />*/}
         </div>
       </TabPanel>
 

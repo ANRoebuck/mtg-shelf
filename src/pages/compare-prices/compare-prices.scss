@@ -5,6 +5,9 @@
   width: 1000px;
   max-width: 800px;
 
+  overflow-y: auto;
+
+
   .compare-prices-menu {
     display: grid;
     grid-template-columns: 200px 1fr 200px;
@@ -51,7 +54,6 @@
 
   .tab-panel {
     grid-area: tab;
-    overflow-y: auto;
     min-height: 100%;
   }
 
@@ -155,6 +157,10 @@
       background-color: grey;
     }
 
+  }
+
+  .void-filler {
+    min-height: 50px;
   }
 
   .faq {

@@ -68,11 +68,13 @@ class AbstractModel {
 
     });
 
-    foundItems = foundItems.filter(result => this.strongMatch(result.title, searchTerm));
+    foundItems = foundItems
+      .filter(result => this.strongMatch(result.title, searchTerm))
+      .filter(result => this.excludeArtCard(result.title));
 
     this.cacheResults(this.name, searchTerm, foundItems);
 
-    // console.log(foundItems);
+
 
     return foundItems;
   }
@@ -145,8 +147,13 @@ class AbstractModel {
   readCachedResults = (sellerName, searchTerm) => getCachedResultsForSearch(sellerName, searchTerm);
   cacheResults = (sellerName, searchTerm, results) => setCachedResultsForSearch(sellerName, searchTerm, results);
 
-  strongMatch = (result, searchTerm) => this.stripWord(result).includes(this.stripWord(searchTerm));
+
   stripWord = (word) => word.split('').filter(l => /\w/.test(l)).join('').toLowerCase();
+  strongMatch = (title, searchTerm) => this.stripWord(title).includes(this.stripWord(searchTerm));
+  excludeArtCard = (title) => {
+    const strippedTitle = this.stripWord(title);
+    return !(strippedTitle.includes('artcard') || strippedTitle.includes('artseries') || title.includes('(Art)'));
+  }
 
 }
 

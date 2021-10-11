@@ -51,10 +51,7 @@ const ComparePrices = () => {
 
   const onChangeTab = (event, newValue) => setTab(newValue);
 
-  const getUpdatedSuggestions = async (term) => {
-    if (term.length < 3) return [];
-    return autocomplete(term);
-  }
+  const getUpdatedSuggestions = async (term) => term.length > 1 ? autocomplete(term) : [];
 
   const onSubmit = async (searchFor) => {
     if (clearOnSearch) setDiscoveredPrices([]);
@@ -203,7 +200,8 @@ const ComparePrices = () => {
 
       <div className="compare-prices-menu">
 
-        <AutoSuggestSearchBar placeholderText="Type to search" onSubmit={onSubmit} getUpdateSuggestions={getUpdatedSuggestions}
+        <AutoSuggestSearchBar placeholderText="Type to search" onSubmit={onSubmit}
+                              getUpdateSuggestions={getUpdatedSuggestions}
                               optionalExternallyManagedSearchTerm={searchTerm}
                               optionalSetExternallyManagedSearchTerm={setSearchTerm}>
           <CheckBox option="Clear previous results" checked={clearOnSearch}

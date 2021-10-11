@@ -41,11 +41,12 @@ const AutoSuggestSearchBar = ({
     throttledUpdate(updatedSearchTerm);
   }
 
-  const suggestionsToDisplay = () =>
+  const suggestionsToDisplay = () => searchTerm ?
     <ul>
       {suggestions.slice(0, maxSuggestions)
         .map(suggestion => <li onClick={() => execute(suggestion)}>{suggestion}</li>)}
     </ul>
+    : null;
 
   return (
     <div className="auto-suggest-search-bar">
@@ -54,8 +55,9 @@ const AutoSuggestSearchBar = ({
           <label>
             {label}
             <div className="auto-complete-input">
-              <input type="text" value={searchTerm} onChange={(e) => onChangeSearchTerm(e)}
-                     placeholder={placeholderText}/>
+              <input type="text" value={searchTerm} placeholder={placeholderText}
+                     onChange={(e) => onChangeSearchTerm(e)}
+              />
               {suggestionsToDisplay()}
             </div>
           </label>

@@ -6,6 +6,7 @@ import magicMadhouseLogo from '../resources/magicMadhouseLogo 150x60.png';
 import manaleakLogo from '../resources/manaLeakLogo 150x60.png';
 import mountBattelnLogo from '../resources/mountbatten_raw.png';
 import pgLeedsLogo from '../resources/patriotGamesLeedsLogo 150x60.png';
+import starCityGamesLogo from '../resources/starCityGames 150x60.png';
 import trollLogo from '../resources/trollTraderLogo 150x60.png';
 
 export const seller = {
@@ -40,6 +41,10 @@ export const seller = {
   pgLeeds: {
     name: 'Patriot Games Leeds',
     logo: pgLeedsLogo,
+  },
+  starCityGames: {
+    name: 'Star City Games',
+    logo: starCityGamesLogo,
   },
   trollTrader: {
     name: 'Troll Trader',

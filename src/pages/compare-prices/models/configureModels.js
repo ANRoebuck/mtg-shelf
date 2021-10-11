@@ -5,6 +5,7 @@ import ModelMagicMadhouse from './ModelMagicMadhouse';
 import ModelManaLeak from './ModelManaLeak';
 import ModelMountBatten from './ModelMountBatten';
 import ModelPatriotGamesLeeds from './ModelPatriotGamesLeeds';
+import ModelStarCityGames from './ModelStarCityGames';
 import ModelTrollTrader from './ModelTrollTrader';
 
 export const configureModels = () => [
@@ -15,6 +16,7 @@ export const configureModels = () => [
   new ModelManaLeak(),
   new ModelMountBatten(),
   new ModelPatriotGamesLeeds(),
+  new ModelStarCityGames(),
   new ModelTrollTrader(),
 ].map(model => {
     return {

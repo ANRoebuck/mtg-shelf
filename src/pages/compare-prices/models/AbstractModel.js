@@ -36,11 +36,14 @@ class AbstractModel {
 
   search = async (searchTerm) => {
 
-    const cachedResults = this.readCachedResults(this.name, searchTerm);
+    // const cachedResults = this.readCachedResults(this.name, searchTerm);
+    const cachedResults = null;
     if (cachedResults) return cachedResults;
 
     let foundItems = [];
     const resultNodes = await this.allResults(searchTerm);
+
+    console.log(resultNodes.length);
 
     resultNodes.forEach(resultNode => {
 
@@ -80,7 +83,7 @@ class AbstractModel {
   }
 
 
-  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => []);
+  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => ({data: ''}));
 
 
   searchTermToUrl = (searchTerm) => cors

@@ -140,8 +140,8 @@ const ComparePrices = () => {
     if (sortStock === sortOosBy.none) return sortNoSort(a, b);
   }
 
-  const sellerIsEnabled = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name).enabled;
-  const sellerIsFavourite = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name).favourite;
+  const sellerIsEnabled = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name)?.enabled;
+  const sellerIsFavourite = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name)?.favourite;
   const itemIsOos = (item) => item.stock.value > 0;
   const itemIsFoil = (item) => item.isFoil;
 

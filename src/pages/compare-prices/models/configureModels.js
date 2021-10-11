@@ -9,15 +9,15 @@ import ModelStarCityGames from './ModelStarCityGames';
 import ModelTrollTrader from './ModelTrollTrader';
 
 export const configureModels = () => [
-  // new ModelAxion(),
-  // new ModelBigOrbitCards(),
-  // new ModelMagicCardTrader(),
-  // new ModelMagicMadhouse(),
-  // new ModelManaLeak(),
-  // new ModelMountBatten(),
-  // new ModelPatriotGamesLeeds(),
+  new ModelAxion(),
+  new ModelBigOrbitCards(),
+  new ModelMagicCardTrader(),
+  new ModelMagicMadhouse(),
+  new ModelManaLeak(),
+  new ModelMountBatten(),
+  new ModelPatriotGamesLeeds(),
   new ModelStarCityGames(),
-  // new ModelTrollTrader(),
+  new ModelTrollTrader(),
 ].map(model => {
     return {
       name: model.name,

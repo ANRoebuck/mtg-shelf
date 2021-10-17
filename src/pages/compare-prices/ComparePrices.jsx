@@ -166,7 +166,7 @@ const ComparePrices = () => {
 
   const isSaved = (discoveredPrice) => Object.keys(savedPrices).includes(uniqueSavedResultKey(discoveredPrice));
 
-  const mapToSearchResult = (discoveredPrice) =>
+  const toSearchResult = (discoveredPrice) =>
     SearchResult(discoveredPrice, isSaved(discoveredPrice), addSavedPrice, removeSavedPrice);
 
   const searchResults = () => discoveredPrices
@@ -176,7 +176,7 @@ const ComparePrices = () => {
     .sort(sortByPrice)
     .sort(sortFavouriteFirst)
     .sort(maybeSortByStock)
-    .map(mapToSearchResult);
+    .map(toSearchResult);
 
   const savedResults = () => Object.values(savedPrices)
     .filter(sellerIsEnabled)
@@ -185,7 +185,7 @@ const ComparePrices = () => {
     .sort(sortByPrice)
     .sort(sortFavouriteFirst)
     .sort(maybeSortByStock)
-    .map(mapToSearchResult);
+    .map(toSearchResult);
 
   const views = {
     results: 'Results',
@@ -231,7 +231,7 @@ const ComparePrices = () => {
         <div className="section-heading">Sort and Filter</div>
         <div className="options">
           <SearchOptions title={"Price"} options={Object.values(sortPriceBy)} selectOption={setSortPrice}/>
-          <SearchOptions title={"Out of Stock Items"} options={Object.values(sortOosBy)} selectOption={setSortStock}/>
+          <SearchOptions title={"Out of Stock"} options={Object.values(sortOosBy)} selectOption={setSortStock}/>
           <SearchOptions title={"Foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils}/>
         </div>
 

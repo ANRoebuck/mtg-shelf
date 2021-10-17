@@ -9,7 +9,7 @@ class ModelMagicMadhouse extends AbstractModel {
       name: seller.magicMadhouse.name,
       logo: seller.magicMadhouse.logo,
       baseUrl: 'https://www.magicmadhouse.co.uk/',
-      searchPath: 'search/',
+      searchPath: 'search.php?search_query=',
       searchSuffix: '',
       searchJoin: '-',
       resultSelector: 'div.search-results-products > ul > li',

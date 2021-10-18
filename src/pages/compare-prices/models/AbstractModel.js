@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { cors, regex } from '../utils/utils';
+import { cors, regex, removeDiacritics } from '../utils/utils';
 import { getCachedResultsForSearch, setCachedResultsForSearch } from '../components/localStorageInteractions';
 
 
@@ -34,16 +34,18 @@ class AbstractModel {
     this.expansionSelector = expansionSelector;
   }
 
-  search = async (searchTerm) => {
+  search = async (input) => {
 
-    // const cachedResults = this.readCachedResults(this.name, searchTerm);
+    const sanitisedSearchTerm = removeDiacritics(input);
+
+    // const cachedResults = this.readCachedResults(this.name, sanitisedSearchTerm);
     const cachedResults = null;
     if (cachedResults) return cachedResults;
 
     let foundItems = [];
-    const resultNodes = await this.allResults(searchTerm);
+    const resultNodes = await this.allResults(sanitisedSearchTerm);
 
-    console.log(resultNodes.length);
+    // console.log(resultNodes.length);
 
     resultNodes.forEach(resultNode => {
 
@@ -72,12 +74,12 @@ class AbstractModel {
     });
 
     foundItems = foundItems
-      .filter(result => this.strongMatch(result.title, searchTerm))
+      .filter(result => this.strongMatch(result.title, sanitisedSearchTerm))
       .filter(result => this.excludeArtCard(result.title));
 
-    this.cacheResults(this.name, searchTerm, foundItems);
+    this.cacheResults(this.name, sanitisedSearchTerm, foundItems);
 
-
+    // console.log(foundItems);
 
     return foundItems;
   }
@@ -152,7 +154,7 @@ class AbstractModel {
 
 
   stripWord = (word) => word.split('').filter(l => /\w/.test(l)).join('').toLowerCase();
-  strongMatch = (title, searchTerm) => this.stripWord(title).includes(this.stripWord(searchTerm));
+  strongMatch = (title, searchTerm) => this.stripWord(removeDiacritics(title)).includes(this.stripWord(searchTerm));
   excludeArtCard = (title) => {
     const strippedTitle = this.stripWord(title);
     return !(strippedTitle.includes('artcard') || strippedTitle.includes('artseries') || title.includes('(Art)'));

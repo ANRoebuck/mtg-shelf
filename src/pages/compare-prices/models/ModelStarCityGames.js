@@ -24,7 +24,7 @@ class ModelStarCityGames extends AbstractModel {
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
       productSelector: 'div > div > div > h2 > a',
-      productBaseUrl: 'https://starcitygames.com/',
+      productBaseUrl: 'https://starcitygames.com',
       productRefAttribute: 'href',
       expansionSelector: 'div > div > p > a',
     });

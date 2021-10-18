@@ -51,10 +51,7 @@ const ComparePrices = () => {
 
   const onChangeTab = (event, newValue) => setTab(newValue);
 
-  const getUpdatedSuggestions = async (term) => {
-    if (term.length < 3) return [];
-    return autocomplete(term);
-  }
+  const getUpdatedSuggestions = async (term) => term.length > 1 ? autocomplete(term) : [];
 
   const onSubmit = async (searchFor) => {
     if (clearOnSearch) setDiscoveredPrices([]);
@@ -169,7 +166,7 @@ const ComparePrices = () => {
 
   const isSaved = (discoveredPrice) => Object.keys(savedPrices).includes(uniqueSavedResultKey(discoveredPrice));
 
-  const mapToSearchResult = (discoveredPrice) =>
+  const toSearchResult = (discoveredPrice) =>
     SearchResult(discoveredPrice, isSaved(discoveredPrice), addSavedPrice, removeSavedPrice);
 
   const searchResults = () => discoveredPrices
@@ -179,7 +176,7 @@ const ComparePrices = () => {
     .sort(sortByPrice)
     .sort(sortFavouriteFirst)
     .sort(maybeSortByStock)
-    .map(mapToSearchResult);
+    .map(toSearchResult);
 
   const savedResults = () => Object.values(savedPrices)
     .filter(sellerIsEnabled)
@@ -188,7 +185,7 @@ const ComparePrices = () => {
     .sort(sortByPrice)
     .sort(sortFavouriteFirst)
     .sort(maybeSortByStock)
-    .map(mapToSearchResult);
+    .map(toSearchResult);
 
   const views = {
     results: 'Results',
@@ -203,7 +200,8 @@ const ComparePrices = () => {
 
       <div className="compare-prices-menu">
 
-        <AutoSuggestSearchBar placeholderText="Type to search" onSubmit={onSubmit} getUpdateSuggestions={getUpdatedSuggestions}
+        <AutoSuggestSearchBar placeholderText="Type to search" onSubmit={onSubmit}
+                              getUpdateSuggestions={getUpdatedSuggestions}
                               optionalExternallyManagedSearchTerm={searchTerm}
                               optionalSetExternallyManagedSearchTerm={setSearchTerm}>
           <CheckBox option="Clear previous results" checked={clearOnSearch}
@@ -233,7 +231,7 @@ const ComparePrices = () => {
         <div className="section-heading">Sort and Filter</div>
         <div className="options">
           <SearchOptions title={"Price"} options={Object.values(sortPriceBy)} selectOption={setSortPrice}/>
-          <SearchOptions title={"Out of Stock Items"} options={Object.values(sortOosBy)} selectOption={setSortStock}/>
+          <SearchOptions title={"Out of Stock"} options={Object.values(sortOosBy)} selectOption={setSortStock}/>
           <SearchOptions title={"Foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils}/>
         </div>
 

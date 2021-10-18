@@ -30,6 +30,7 @@ class ModelStarCityGames extends AbstractModel {
     });
   }
 
+  // @Override
   getHtml = (searchTerm) => axios
     .get(this.searchTermToUrl(searchTerm))
     .then(({ data }) => {

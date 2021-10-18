@@ -8,26 +8,21 @@ class ModelMagicMadhouse extends AbstractModel {
     super({
       name: seller.magicMadhouse.name,
       logo: seller.magicMadhouse.logo,
-      baseUrl: 'https://www.magicmadhouse.co.uk/',
-      searchPath: 'search.php?search_query=',
-      searchSuffix: '',
-      searchJoin: '-',
-      resultSelector: 'div.search-results-products > ul > li',
-      nameSelector: 'div > div > div.product__details > div.product__details__title > a',
-      priceSelector: 'div > div > div.product__options > div.product__details__prices > span > span > span > span.GBP',
+      baseUrl: 'https://eucs25.ksearchnet.com/',
+      searchPath: 'cloud-search/n-search/search?ticket=klevu-161710301480613427&term=',
+      searchSuffix: '&paginationStartsFrom=0&sortPrice=false&ipAddress=undefined&analyticsApiKey=klevu-161710301480613427&showOutOfStockProducts=true&klevuFetchPopularTerms=false&klevu_priceInterval=500&fetchMinMaxPrice=true&klevu_multiSelectFilters=true&noOfResults=36&klevuSort=rel&enableFilters=true&filterResults=&visibility=search&category=KLEVU_PRODUCT&klevu_filterLimit=400&sv=121&lsqt=&responseType=json&priceFieldSuffix=GBP&klevu_loginCustomerGroup=',
+      searchJoin: '%20',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999,
-      stockSelector: 'div > div > div.product__details > div.product__details__stock > span',
-      stockValueFromStockText: (text) => text === 'Item out of Stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
-      imgSelector: 'div > div.product__image > a > img',
-      imgBaseUrl: 'https://www.magicmadhouse.co.uk/',
-      imgSrcAttribute: 'data-src',
-      productSelector: 'div > div.product__image > a',
-      productBaseUrl: 'https://www.magicmadhouse.co.uk/',
-      productRefAttribute: 'href',
-      expansionSelector: 'expansion is not displayed'
     });
   }
+
+  // @Override
+  allResults = async (searchTerm) =>
+    this.getHtml(searchTerm)
+      .then(({ data }) => {
+        return data.result || [];
+      });
 
   // @Override
   nameFromResultNode = (resultNode) => {
@@ -43,8 +38,24 @@ class ModelMagicMadhouse extends AbstractModel {
   }
 
   // @Override
-  expansionFromResultNode = nullifyingFunction;
+  nameFromResultNode = (resultNode) => resultNode.name.split('|')[0];
+  priceFromResultNode = ({ price }) => {
+    return {
+      text: "£ " + this.priceToDisplayFromPriceText(price),
+      value: this.priceValueFromPriceText(price),
+    };
+  };
+  stockFromResultNode = ({ inventory_level }) => {
+    const value = parseInt(inventory_level);
+    return {
+      value,
+      text: value + ' in Stock',
+    };
+  }
+  imgSrcFromResultNode = (resultNode) => resultNode.image;
+  productRefFromResultNode = (resultNode) => resultNode.url;
+  expansionFromResultNode = (resultNode) => resultNode.magic_set;
 
-}
+  }
 
 export default ModelMagicMadhouse;

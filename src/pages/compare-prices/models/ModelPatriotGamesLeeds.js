@@ -32,7 +32,7 @@ class ModelPatriotGamesLeeds extends AbstractModel {
   // @Override
   stockFromResultNode = (resultNode) => {
     let arr =[];
-    resultNode.querySelectorAll(this.expansionSelector)
+    resultNode.querySelectorAll(this.stockSelector)
       .forEach(node => {
         const text = node.innerHTML === '... more info' ? "Out of Stock" : "In Stock";
         arr.push({

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import ModelTrollTrader from './ModelTrollTrader';
-import { html, expectedResults } from './test-resources/model-troll-trader-response-tarmogoyf';
+import { trollTraderResponseTarmogoyf, trollTraderExpectedResultsTarmogoyf } from './test-resources/model-troll-trader-response-tarmogoyf';
 
 jest.mock('axios');
 
@@ -8,14 +8,14 @@ jest.mock('axios');
 describe('ModelTrollTrader', () => {
 
   it('gets results', async () => {
-    axios.get.mockResolvedValueOnce({ data: html });
+    axios.get.mockResolvedValueOnce({ data: trollTraderResponseTarmogoyf });
 
     const model = new ModelTrollTrader();
     const results = await model.search('Tarmogoyf');
 
     expect(model.name).toBe('Troll Trader');
     expect(results.length).toBe(15);
-    expect(results).toStrictEqual(expectedResults);
+    expect(results).toStrictEqual(trollTraderExpectedResultsTarmogoyf);
   });
 
 });

@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import useLocalStorage from "../../../common/useLocalStorage";
 
-const SearchOptions = ({ title, options, selectOption }) => {
+const SearchOptions = ({ title, options, defaultIndex = 0, selectOption, localStorageKey }) => {
 
-  const [selectedSortOption, setSelectedSortOption] = useState(options[0]);
+  const [selectedSortOption, setSelectedSortOption] = useLocalStorage(localStorageKey, options[defaultIndex]);
 
-  const changeSort = (e) => {
-    setSelectedSortOption(e.target.value);
-    selectOption(e.target.value);
-  };
+  useEffect(() => selectOption(selectedSortOption), [selectedSortOption]);
 
   const optionsToRender = options.map(option => {
     return (
@@ -17,7 +15,7 @@ const SearchOptions = ({ title, options, selectOption }) => {
             type="radio"
             value={option}
             checked={option === selectedSortOption}
-            onChange={changeSort}/>
+            onChange={(e) => setSelectedSortOption(e.target.value)}/>
           {option}
         </label>
       </div>

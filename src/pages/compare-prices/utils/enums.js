@@ -4,7 +4,7 @@ import chaosLogo from '../resources/chaosCardsLogo 150x60.png';
 import magicCardTraderLogo from '../resources/magicCardTraderLogo-black 150x60.png';
 import magicMadhouseLogo from '../resources/magicMadhouseLogo 150x60.png';
 import manaleakLogo from '../resources/manaLeakLogo 150x60.png';
-import mountBattelnLogo from '../resources/mountbatten_raw.png';
+import mountBattenLogo from '../resources/MountBattenLogo 150x60.png';
 import pgLeedsLogo from '../resources/patriotGamesLeedsLogo 150x60.png';
 import starCityGamesLogo from '../resources/starCityGames 150x60.png';
 import trollLogo from '../resources/trollTraderLogo 150x60.png';
@@ -36,7 +36,7 @@ export const seller = {
   },
   mountBatten: {
     name: 'MountBatten',
-    logo: mountBattelnLogo,
+    logo: mountBattenLogo,
   },
   pgLeeds: {
     name: 'Patriot Games Leeds',

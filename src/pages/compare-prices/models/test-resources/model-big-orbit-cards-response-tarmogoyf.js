@@ -1,4 +1,5 @@
-export const html = `
+export const bigOrbitResponseTarmogoyf =
+  `
 <!DOCTYPE html>
 <html 
  lang="en" dir="ltr">
@@ -3447,137 +3448,138 @@ Monday - Friday</li>
 AbstractModel.js:93
 `;
 
-export const expectedResults = [
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '£50.82', value: 5082 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/29/ztempfAMCTr.jpg',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/future-sight/tarmogoyf.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tFuture Sight\n\t\t\t\t\t\t\t\t',
-    isFoil: false
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf (Foil)',
-    price: { text: '£76.23', value: 7623 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/29/ztempfAMCTr.jpg',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/future-sight/tarmogoyf-foil.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tFuture Sight\n\t\t\t\t\t\t\t\t',
-    isFoil: true
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '£33.24', value: 3324 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/506/Tarmogoyf-Modern-Masters-2017-Spoiler.png',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2017-edition/tarmogoyf.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2017 Edition\n\t\t\t\t\t\t\t\t',
-    isFoil: false
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf (Foil)',
-    price: { text: '£49.86', value: 4986 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/506/Tarmogoyf-Modern-Masters-2017-Spoiler.png',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2017-edition/tarmogoyf-foil.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2017 Edition\n\t\t\t\t\t\t\t\t',
-    isFoil: true
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '£33.24', value: 3324 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/425/tarmogoyf.jpg',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2015-edition-en/tarmogoyf.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2015 Edition\n\t\t\t\t\t\t\t\t',
-    isFoil: false
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf (Foil)',
-    price: { text: '£49.86', value: 4986 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/425/tarmogoyf.jpg',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2015-edition-en/tarmogoyf-foil.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2015 Edition\n\t\t\t\t\t\t\t\t',
-    isFoil: true
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '£33.84', value: 3384 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/74/ztemp7mRqOj.jpg',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters/tarmogoyf.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters\n\t\t\t\t\t\t\t\t',
-    isFoil: false
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf (Foil)',
-    price: { text: '£50.76', value: 5076 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/74/ztemp7mRqOj.jpg',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/foils-en-21/tarmogoyf-foil.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters\n\t\t\t\t\t\t\t\t',
-    isFoil: true
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '£50.82', value: 5082 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/831/ztempfAMCTr.jpg',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/the-list/tarmogoyf.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tThe List\n\t\t\t\t\t\t\t\t',
-    isFoil: false
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '£28.49', value: 2849 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/804/233959_200w.jpg',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/time-spiral-remastered/tarmogoyf.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tTime Spiral Remastered\n\t\t\t\t\t\t\t\t',
-    isFoil: false
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf (Foil)',
-    price: { text: '£42.73', value: 4273 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/804/233959_200w.jpg',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/time-spiral-remastered/tarmogoyf-foil.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tTime Spiral Remastered\n\t\t\t\t\t\t\t\t',
-    isFoil: true
-  },
-  {
-    name: 'Big Orbit Cards',
-    logo: 'bigOrbitCardsLogo 150x60.png',
-    title: 'Tarmogoyf (Box Topper)',
-    price: { text: '£79.99', value: 7999 },
-    stock: { value: 0, text: 'Out of Stock' },
-    imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/574/en_2G92JblwhT.png',
-    productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/ultimate-masters/tarmogoyf-box-topper.html',
-    expansion: '\n\t\t\t\t\t\t\t\t\tUltimate Masters\n\t\t\t\t\t\t\t\t',
-    isFoil: false
-  }
-];
+export const bigOrbitExpectedResultsTarmogoyf =
+  [
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '£50.82', value: 5082},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/29/ztempfAMCTr.jpg',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/future-sight/tarmogoyf.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tFuture Sight\n\t\t\t\t\t\t\t\t',
+      isFoil: false
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf (Foil)',
+      price: {text: '£76.23', value: 7623},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/29/ztempfAMCTr.jpg',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/future-sight/tarmogoyf-foil.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tFuture Sight\n\t\t\t\t\t\t\t\t',
+      isFoil: true
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '£33.24', value: 3324},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/506/Tarmogoyf-Modern-Masters-2017-Spoiler.png',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2017-edition/tarmogoyf.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2017 Edition\n\t\t\t\t\t\t\t\t',
+      isFoil: false
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf (Foil)',
+      price: {text: '£49.86', value: 4986},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/506/Tarmogoyf-Modern-Masters-2017-Spoiler.png',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2017-edition/tarmogoyf-foil.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2017 Edition\n\t\t\t\t\t\t\t\t',
+      isFoil: true
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '£33.24', value: 3324},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/425/tarmogoyf.jpg',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2015-edition-en/tarmogoyf.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2015 Edition\n\t\t\t\t\t\t\t\t',
+      isFoil: false
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf (Foil)',
+      price: {text: '£49.86', value: 4986},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/425/tarmogoyf.jpg',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2015-edition-en/tarmogoyf-foil.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2015 Edition\n\t\t\t\t\t\t\t\t',
+      isFoil: true
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '£33.84', value: 3384},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/74/ztemp7mRqOj.jpg',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters/tarmogoyf.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters\n\t\t\t\t\t\t\t\t',
+      isFoil: false
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf (Foil)',
+      price: {text: '£50.76', value: 5076},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/74/ztemp7mRqOj.jpg',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/foils-en-21/tarmogoyf-foil.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters\n\t\t\t\t\t\t\t\t',
+      isFoil: true
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '£50.82', value: 5082},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/831/ztempfAMCTr.jpg',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/the-list/tarmogoyf.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tThe List\n\t\t\t\t\t\t\t\t',
+      isFoil: false
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '£28.49', value: 2849},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/804/233959_200w.jpg',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/time-spiral-remastered/tarmogoyf.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tTime Spiral Remastered\n\t\t\t\t\t\t\t\t',
+      isFoil: false
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf (Foil)',
+      price: {text: '£42.73', value: 4273},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/804/233959_200w.jpg',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/time-spiral-remastered/tarmogoyf-foil.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tTime Spiral Remastered\n\t\t\t\t\t\t\t\t',
+      isFoil: true
+    },
+    {
+      name: 'Big Orbit Cards',
+      logo: 'bigOrbitCardsLogo 150x60.png',
+      title: 'Tarmogoyf (Box Topper)',
+      price: {text: '£79.99', value: 7999},
+      stock: {value: 0, text: 'Out of Stock'},
+      imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/574/en_2G92JblwhT.png',
+      productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/ultimate-masters/tarmogoyf-box-topper.html',
+      expansion: '\n\t\t\t\t\t\t\t\t\tUltimate Masters\n\t\t\t\t\t\t\t\t',
+      isFoil: false
+    }
+  ];

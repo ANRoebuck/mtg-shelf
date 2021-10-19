@@ -1,4 +1,5 @@
-export const html = `<!DOCTYPE html><html
+export const manaLeakResponseTarmogoyf =
+  `<!DOCTYPE html><html
 dir="ltr" lang="en" class="firefox firefox78 linux journal-desktop is-guest skin-10 responsive-layout bottom-menu-bar center-header mega-header lang-flag lang-flag-mobile collapse-footer-columns header-center sticky-full backface product-grid-second-image product-list-second-image search-page layout-14 route-product-search oc1 one-column side-blocks-active no-language" data-j2v="2.9.9"><head><meta
 charset="UTF-8" /><meta
 name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"><meta
@@ -1065,148 +1066,149 @@ href="https://twitter.com/manaleakcom" target="_blank"><i
 style="margin-right: 5px; color: rgb(255, 255, 255); font-size: 24px" data-icon="&#xe682;"></i></a></div></div><script type="text/javascript" defer src="https://www.manaleak.com/../manaleak/journal-cache/_247146d9404049bf32d32ca8b96939c4.js"></script> </body></html>
 `;
 
-export const expectedResults = [
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '\n£27.14', value: 2714 },
-    stock: { text: 'In Stock', value: 1 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/modern-masters-2017-edition/425966.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=50585&search=tarmogoyf',
-    expansion: 'Modern Masters 2017 Edition',
-    isFoil: false
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '\n£46.52', value: 4652 },
-    stock: { text: 'In Stock', value: 1 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/FUT/136142.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=6105&search=tarmogoyf',
-    expansion: 'Future Sight',
-    isFoil: false
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '\n£28.65', value: 2865 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MMA/370404.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=17679&search=tarmogoyf',
-    expansion: 'Modern Masters',
-    isFoil: false
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '\n£27.04', value: 2704 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/ultimate-masters/456783.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=61281&search=tarmogoyf',
-    expansion: 'Ultimate Masters',
-    isFoil: false
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '\n£28.34', value: 2834 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MM2/397682.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=17930&search=tarmogoyf',
-    expansion: 'Modern Masters 2015 Edition',
-    isFoil: false
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf',
-    price: { text: '\n£22.19', value: 2219 },
-    stock: { text: 'In Stock', value: 1 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/tsr/233959_200w-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=80695&search=tarmogoyf',
-    expansion: 'Time Spiral: Remastered',
-    isFoil: false
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf - Foil',
-    price: { text: '\n£33.72', value: 3372 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/tsr/233959_200w-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=80894&search=tarmogoyf',
-    expansion: 'Time Spiral: Remastered',
-    isFoil: true
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf - Foil',
-    price: { text: '\n£38.56', value: 3856 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/modern-masters-2017-edition/425966.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=50586&search=tarmogoyf',
-    expansion: 'Modern Masters 2017 Edition',
-    isFoil: true
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf - Foil',
-    price: { text: '\n£35.53', value: 3553 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/ultimate-masters/456783.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=61282&search=tarmogoyf',
-    expansion: 'Ultimate Masters',
-    isFoil: true
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf - Foil',
-    price: { text: '\n£465.51', value: 46551 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/FUT/136142.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=31952&search=tarmogoyf',
-    expansion: 'Future Sight',
-    isFoil: true
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf - Foil',
-    price: { text: '\n£61.13', value: 6113 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MMA/370404.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=38359&search=tarmogoyf',
-    expansion: 'Modern Masters',
-    isFoil: true
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf - Foil',
-    price: { text: '\n£36.85', value: 3685 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MM2/397682.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=38609&search=tarmogoyf',
-    expansion: 'Modern Masters 2015 Edition',
-    isFoil: true
-  },
-  {
-    name: 'Manaleak',
-    logo: 'manaLeakLogo 150x60.png',
-    title: 'Tarmogoyf - Foil Box Topper',
-    price: { text: '\n£78.18', value: 7818 },
-    stock: { text: 'Out of Stock', value: 0 },
-    imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/ultimate-box-toppers/457123.full-250x250.jpg',
-    productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=61452&search=tarmogoyf',
-    expansion: 'Ultimate Box Toppers',
-    isFoil: true
-  }
-];
+export const manaLeakExpectedResultsTarmogoyf =
+  [
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '\n£27.14', value: 2714},
+      stock: {text: 'In Stock', value: 1},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/modern-masters-2017-edition/425966.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=50585&search=tarmogoyf',
+      expansion: 'Modern Masters 2017 Edition',
+      isFoil: false
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '\n£46.52', value: 4652},
+      stock: {text: 'In Stock', value: 1},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/FUT/136142.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=6105&search=tarmogoyf',
+      expansion: 'Future Sight',
+      isFoil: false
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '\n£28.65', value: 2865},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MMA/370404.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=17679&search=tarmogoyf',
+      expansion: 'Modern Masters',
+      isFoil: false
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '\n£27.04', value: 2704},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/ultimate-masters/456783.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=61281&search=tarmogoyf',
+      expansion: 'Ultimate Masters',
+      isFoil: false
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '\n£28.34', value: 2834},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MM2/397682.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=17930&search=tarmogoyf',
+      expansion: 'Modern Masters 2015 Edition',
+      isFoil: false
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf',
+      price: {text: '\n£22.19', value: 2219},
+      stock: {text: 'In Stock', value: 1},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/tsr/233959_200w-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=80695&search=tarmogoyf',
+      expansion: 'Time Spiral: Remastered',
+      isFoil: false
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf - Foil',
+      price: {text: '\n£33.72', value: 3372},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/tsr/233959_200w-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=80894&search=tarmogoyf',
+      expansion: 'Time Spiral: Remastered',
+      isFoil: true
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf - Foil',
+      price: {text: '\n£38.56', value: 3856},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/modern-masters-2017-edition/425966.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=50586&search=tarmogoyf',
+      expansion: 'Modern Masters 2017 Edition',
+      isFoil: true
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf - Foil',
+      price: {text: '\n£35.53', value: 3553},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/ultimate-masters/456783.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=61282&search=tarmogoyf',
+      expansion: 'Ultimate Masters',
+      isFoil: true
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf - Foil',
+      price: {text: '\n£465.51', value: 46551},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/FUT/136142.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=31952&search=tarmogoyf',
+      expansion: 'Future Sight',
+      isFoil: true
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf - Foil',
+      price: {text: '\n£61.13', value: 6113},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MMA/370404.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=38359&search=tarmogoyf',
+      expansion: 'Modern Masters',
+      isFoil: true
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf - Foil',
+      price: {text: '\n£36.85', value: 3685},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MM2/397682.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=38609&search=tarmogoyf',
+      expansion: 'Modern Masters 2015 Edition',
+      isFoil: true
+    },
+    {
+      name: 'Manaleak',
+      logo: 'manaLeakLogo 150x60.png',
+      title: 'Tarmogoyf - Foil Box Topper',
+      price: {text: '\n£78.18', value: 7818},
+      stock: {text: 'Out of Stock', value: 0},
+      imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/ultimate-box-toppers/457123.full-250x250.jpg',
+      productRef: 'https://www.manaleak.com/https://www.manaleak.com/index.php?route=product/product&product_id=61452&search=tarmogoyf',
+      expansion: 'Ultimate Box Toppers',
+      isFoil: true
+    }
+  ];

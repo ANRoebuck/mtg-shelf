@@ -79,7 +79,7 @@ class AbstractModel {
 
     this.cacheResults(this.name, sanitisedSearchTerm, foundItems);
 
-    // console.log(foundItems);
+    console.log(foundItems);
 
     return foundItems;
   }

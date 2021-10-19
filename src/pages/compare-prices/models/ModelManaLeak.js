@@ -1,6 +1,6 @@
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
-import { identityFunction } from "../utils/utils";
+import { identityFunction, textToDigits } from "../utils/utils";
 
 class ModelManaLeak extends AbstractModel {
 
@@ -16,7 +16,7 @@ class ModelManaLeak extends AbstractModel {
       nameSelector: 'div.caption > div.name > a',
       priceSelector: 'div.caption > div.price',
       priceToDisplayFromPriceText: identityFunction,
-      priceValueFromPriceText: (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999,
+      priceValueFromPriceText: textToDigits,
       stockSelector: 'div.image > span.label-outofstock',
       stockValueFromStockText: identityFunction,
       imgSelector: 'div.image > a > img',

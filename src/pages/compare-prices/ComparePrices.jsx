@@ -199,7 +199,6 @@ const ComparePrices = () => {
     <div className="compare-prices">
 
       <div className="compare-prices-menu">
-
         <AutoSuggestSearchBar placeholderText="Type to search" onSubmit={onSubmit}
                               getUpdateSuggestions={getUpdatedSuggestions}
                               optionalExternallyManagedSearchTerm={searchTerm}
@@ -209,14 +208,15 @@ const ComparePrices = () => {
         </AutoSuggestSearchBar>
 
         <LoadingDoughnut loaded={sellers.length - numberLoading} total={sellers.length}/>
-
       </div>
+
 
       <AppBar position="static" >
         <Tabs value={tab} onChange={onChangeTab}>
           {Object.values(views).map(v => <Tab label={v}/>)}
         </Tabs>
       </AppBar>
+
 
       <TabPanel value={tab} index={0}>
         <div className="search-results">
@@ -230,9 +230,9 @@ const ComparePrices = () => {
 
         <div className="section-heading">Sort and Filter</div>
         <div className="options">
-          <SearchOptions title={"Price"} options={Object.values(sortPriceBy)} selectOption={setSortPrice}/>
-          <SearchOptions title={"Out of Stock"} options={Object.values(sortOosBy)} selectOption={setSortStock}/>
-          <SearchOptions title={"Foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils}/>
+          <SearchOptions title={"Price"} options={Object.values(sortPriceBy)} selectOption={setSortPrice} localStorageKey={"sort-option-price"}/>
+          <SearchOptions title={"Out of Stock"} options={Object.values(sortOosBy)} selectOption={setSortStock} localStorageKey={"sort-option-stock"}/>
+          <SearchOptions title={"Foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils} localStorageKey={"sort-option-foil"}/>
         </div>
 
         <div className="section-heading">Sellers</div>
@@ -242,15 +242,18 @@ const ComparePrices = () => {
 
       </TabPanel>
 
+
       <TabPanel value={tab} index={2}>
         <div className="search-results">
           {savedResults()}
         </div>
       </TabPanel>
 
+
       {/*<TabPanel value={tab} index={3}>*/}
       {/*  <FAQ/>*/}
       {/*</TabPanel>*/}
+
 
     </div>
   );

@@ -5,23 +5,22 @@
   display: grid;
   grid-template-columns: auto auto;
   margin: 5px;
+  max-width: 40%;
   padding: 10px;
 
   .logo-container {
     height: 50px;
     width: 125px;
-    background-color: white;
-    border: solid 1px black;
-    margin-bottom: 5px;
 
     .loading {
-      color: white;
+      color: black;
     }
 
     .logo {
+      border: solid 1px black;
+      border-radius: 5px;
       max-height: 100%;
       max-width: 100%;
-
     }
   }
 

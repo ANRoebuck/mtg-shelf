@@ -1,4 +1,4 @@
-import { identityFunction, regex } from '../utils/utils';
+import { identityFunction, regex, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 
@@ -16,7 +16,7 @@ class ModelMagicCardTrader extends AbstractModel {
       nameSelector: 'div.inner > div.image-meta > div.meta > a > h4.name',
       priceSelector: 'div.inner > div.variants > div.variant-row > span.variant-buttons > form > div.product-price-qty > span',
       priceToDisplayFromPriceText: identityFunction,
-      priceValueFromPriceText: (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999,
+      priceValueFromPriceText: textToDigits,
       stockSelector: 'div.inner > div.variants > div.variant-row > span.variant-main-info > span.variant-qty',
       stockValueFromStockText: (text) => text === 'Out of stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
       imgSelector: 'div.inner > div.image-meta > div.image > a > img',

@@ -1,6 +1,6 @@
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
-import { identityFunction } from "../utils/utils";
+import { identityFunction, textToDigits } from "../utils/utils";
 
 class ModelPatriotGamesLeeds extends AbstractModel {
 
@@ -16,7 +16,7 @@ class ModelPatriotGamesLeeds extends AbstractModel {
       nameSelector: 'td > h3.itemTitle > a',
       priceSelector: 'td.productListing-data > span.productBasePrice',
       priceToDisplayFromPriceText: identityFunction,
-      priceValueFromPriceText: (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999,
+      priceValueFromPriceText: textToDigits,
       stockSelector: 'td[align="right"] > a',
       stockValueFromStockText: identityFunction,
       imgSelector: 'td.productListing-data > a > img',

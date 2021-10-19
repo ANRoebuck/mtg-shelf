@@ -8,7 +8,7 @@ jest.mock('axios');
 
 describe('ModelMagicMadhouse', () => {
 
-  it('gets results for tarmagoyf', async () => {
+  it('gets results for tarmogoyf', async () => {
     axios.get.mockResolvedValueOnce({ data: madhouseResponseTarmogoyf });
 
     const model = new ModelMagicMadhouse();

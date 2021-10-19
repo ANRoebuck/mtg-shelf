@@ -1,4 +1,4 @@
-import { identityFunction } from '../utils/utils';
+import { identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import axios from "axios";
@@ -17,7 +17,7 @@ class ModelStarCityGames extends AbstractModel {
       nameSelector: 'div > div > div > h2 > a',
       priceSelector: 'div.hawk-results-item__options-table-cell.hawk-results-item__options-table-cell--price.childAttributes',
       priceToDisplayFromPriceText: identityFunction,
-      priceValueFromPriceText: (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999,
+      priceValueFromPriceText: textToDigits,
       stockSelector: 'div.hawk-results-item__options-table-cell.hawk-results-item__options-table-cell--qty.childAttributes',
       stockValueFromStockText: (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
       imgSelector: 'div > div > div > a > img',
@@ -34,8 +34,13 @@ class ModelStarCityGames extends AbstractModel {
   getHtml = (searchTerm) => axios
     .get(this.searchTermToUrl(searchTerm))
     .then(({ data }) => {
-      let str = data.replace(/.*\(({.*})\)/, `$1`);
-      let o = JSON.parse(str);
+      // console.log(data);
+      let str = data.replace(/.*\(({.*})\)/g, `$1`);
+      // console.log(typeof str);
+      // console.log(str);
+      let o = JSON.parse(`${str}`);
+      // console.log(typeof o);
+      // console.log(o);
       return { data: o.html };
     })
     .catch(() => ({data: ''}));

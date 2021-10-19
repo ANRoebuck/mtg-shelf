@@ -1,4 +1,4 @@
-import { identityFunction, nullifyingFunction, regex } from '../utils/utils';
+import { identityFunction, nullifyingFunction, regex, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 
@@ -13,7 +13,7 @@ class ModelMagicMadhouse extends AbstractModel {
       searchSuffix: '&paginationStartsFrom=0&sortPrice=false&ipAddress=undefined&analyticsApiKey=klevu-161710301480613427&showOutOfStockProducts=true&klevuFetchPopularTerms=false&klevu_priceInterval=500&fetchMinMaxPrice=true&klevu_multiSelectFilters=true&noOfResults=36&klevuSort=rel&enableFilters=true&filterResults=&visibility=search&category=KLEVU_PRODUCT&klevu_filterLimit=400&sv=121&lsqt=&responseType=json&priceFieldSuffix=GBP&klevu_loginCustomerGroup=',
       searchJoin: '%20',
       priceToDisplayFromPriceText: identityFunction,
-      priceValueFromPriceText: (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999,
+      priceValueFromPriceText: textToDigits,
     });
   }
 

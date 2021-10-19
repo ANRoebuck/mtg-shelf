@@ -1,4 +1,4 @@
-import { identityFunction } from '../utils/utils';
+import { identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 
@@ -16,7 +16,7 @@ class ModelTrollTrader extends AbstractModel {
       nameSelector: 'div.inner > div > div.meta > a > h4',
       priceSelector: 'div.inner > div > div.meta > span.offers > span.price',
       priceToDisplayFromPriceText: identityFunction,
-      priceValueFromPriceText: (text) => text ? parseInt(text.replace(/[£.]/g, ``)) : 9999,
+      priceValueFromPriceText: textToDigits,
       stockSelector: 'div.inner > div > div.meta > span.offers > span.qty',
       stockValueFromStockText: (text) => text === undefined ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
       imgSelector: 'div.inner > div > div.image > a > img',

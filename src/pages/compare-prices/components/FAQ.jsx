@@ -13,24 +13,31 @@ const FAQ = () => {
          Click here to see a demo on youtube. Or just figure it out for yourself, whatever.
        </div>
 
+       <h2>Disclaimer</h2>
+       <div className="answer">
+         The prices and stock levels shown by this app are, to the best of my knowledge and capability, correct at the
+         time of each search. However, I'm not so talented that my code will never have bugs in it, and in particular
+         changes to a given website may cause this app to fail to retrieve prices from it. I will endeavour to fix
+         issues as quickly as possible whenever they arise, but I can never 100% guarantee the accuracy of the app.
+       </div>
+
        <h2>Where do the prices come from?</h2>
        <div className="answer" >
-         When you hit enter (or GO on mobile), a search is sent in real time to each seller. The seller's website
-         receives the same HTTP request it would if you were actually on their site. The results displayed
-         are their real-time stock and prices. It's effectively the same as opening a new tab for each site, visiting
-         the site for real, and doing the search on each individual page.
+         When you hit enter (or GO on mobile), a request is sent in real time to each seller. The results displayed
+         are their real-time stock and prices.
        </div>
 
        <h2>Are you constantly scraping these sites?</h2>
        <div className="answer" >
-         NO. Absolutely not. There are too many magic cards to check prices of and that would basically be a DDoS attack.
-         Searches are done as and when app users request them - live. That's why they're kind of slow.
+         NO. Absolutely not. Each search is done live - the seller's website receives the same HTTP request it would if
+         you were actually on their site. It's effectively the same as opening a new tab for each site, visiting
+         the site for real, and doing the search on each individual page.
        </div>
 
        <h2>Why do the results load really quickly sometimes?</h2>
        <div className="answer" >
          When the results come back from a search, as well as being displayed they are also cached in your browser's
-         sessionStorage. This is a bit like a temporary cookie or login session.
+         sessionStorage. This is a bit like a temporary cookie.
          If you submit exactly the same search again in the same session, instead of visiting the sellers' websites the
          app will simply return the cached results. This both improves speed and also reduces the burden on the sellers'
          websites.
@@ -40,11 +47,8 @@ const FAQ = () => {
 
        <h2>Are you favouring any of the sellers or do you have a sponsor?</h2>
        <div className="answer" >
-         NO. Categorically and unequivocally, no part of this app is currently intended to favour any individual seller.
-         The results are retrieved from the integrated sellers in alphabetical order, and unless you use some of the
-         display options you will see the results displayed in that order too.
-
-         IF - and that's a big if - there are any changes in this regard, it will be made extremely clear.
+         No. The app does not favour any individual seller - by default it will just list results in order of price.
+         There are some options that will let you customise this, including setting your own favourite seller.
        </div>
 
        <h2>Can you filter / sort the results in such and such a way ?</h2>
@@ -59,24 +63,17 @@ const FAQ = () => {
        <div className="answer" >
          This app has no dev team and no budget. It's just some guy who writes a bit more code on a Friday evening while
          he has a beer.
-         That being said, the goal is to improve the app as much as possible as and when time allows.
-         If you know about a site you think should be added, please send an email to ANRoebuck@googlemail.com with the
-         subject "Your stupid app".
 
          <br/>
 
          Every website is built differently, which means not every website is equally easy to integrate. Additionally,
          basic vetting (ie, searching for a few popular or valuable cards) may show that a site doesn't have good stock
-         levels. For either of these reasons, a suggested site might not get the chance to be added to the app.
-       </div>
+         levels.
 
-       <h2>Can the app do [thing]?</h2>
-       <div className="answer" >
-         This app has no dev team and no budget. It's just some guy who writes a bit more code on a Friday evening while
-         he has a beer.
-         That being said, the goal is to improve the app as much as possible as and when time allows.
-         If you have an idea for a feature that could be added, please send an email to ANRoebuck@googlemail.com with
-         the subject "Your stupid app".
+         <br/>
+
+         For these and other practical reasons, a given site might not get the chance to be added to the app - but
+         this will not be because of 'playing favourites'.
        </div>
 
        <h2>When is your birthday?</h2>

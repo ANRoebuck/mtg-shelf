@@ -1,10 +1,11 @@
 import axionLogo from '../resources/axionLogo 150x60.png';
 import bigOrbitLogo from '../resources/bigOrbitCardsLogo 150x60.png';
 import chaosLogo from '../resources/chaosCardsLogo 150x60.png';
+import hareruyaLogo from '../resources/hareryuaLogo 150x60.png';
 import magicCardTraderLogo from '../resources/magicCardTraderLogo-black 150x60.png';
 import magicMadhouseLogo from '../resources/magicMadhouseLogo 150x60.png';
 import manaleakLogo from '../resources/manaLeakLogo 150x60.png';
-import mountBattenLogo from '../resources/MountBattenLogo 150x60.png';
+import mountBattenLogo from '../resources/mountBattenLogo 150x60.png';
 import pgLeedsLogo from '../resources/patriotGamesLeedsLogo 150x60.png';
 import starCityGamesLogo from '../resources/starCityGames 150x60.png';
 import trollLogo from '../resources/trollTraderLogo 150x60.png';
@@ -21,6 +22,10 @@ export const seller = {
   chaos: {
     name: 'Chaos Cards',
     logo: chaosLogo,
+  },
+  hareruya: {
+    name: 'Hareruya',
+    logo: hareruyaLogo,
   },
   magicCardTrader: {
     name: 'Magic Card Trader',

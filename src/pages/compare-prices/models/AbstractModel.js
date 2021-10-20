@@ -138,7 +138,7 @@ class AbstractModel {
 
   productRefFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.productSelector)]
-    .map(node => this.productBaseUrl + node.getAttribute(this.productRefAttribute))[0] || null;
+    .map(node => this.productBaseUrl + node.getAttribute(this.productRefAttribute).replace(regex.whiteSpaceStripper, `$2`))[0] || null;
 
 
   expansionFromResultNode = (resultNode) =>

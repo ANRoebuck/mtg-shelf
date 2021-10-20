@@ -38,8 +38,7 @@ class AbstractModel {
 
     const sanitisedSearchTerm = removeDiacritics(input);
 
-    // const cachedResults = this.readCachedResults(this.name, sanitisedSearchTerm);
-    const cachedResults = null;
+    const cachedResults = this.readCachedResults(this.name, sanitisedSearchTerm);
     if (cachedResults) return cachedResults;
 
     let foundItems = [];
@@ -79,7 +78,7 @@ class AbstractModel {
 
     this.cacheResults(this.name, sanitisedSearchTerm, foundItems);
 
-    console.log(foundItems);
+    // console.log(foundItems);
 
     return foundItems;
   }

@@ -12,14 +12,14 @@ import ModelHareruya from './ModelHareruya';
 export const configureModels = () => [
   new ModelAxion(),
   new ModelBigOrbitCards(),
+  new ModelMagicCardTrader(),
+  new ModelMagicMadhouse(),
+  new ModelManaLeak(),
+  new ModelMountBatten(),
+  new ModelPatriotGamesLeeds(),
+  new ModelTrollTrader(),
+  new ModelStarCityGames(),
   new ModelHareruya(),
-  // new ModelMagicCardTrader(),
-  // new ModelMagicMadhouse(),
-  // new ModelManaLeak(),
-  // new ModelMountBatten(),
-  // new ModelPatriotGamesLeeds(),
-  // new ModelStarCityGames(),
-  // new ModelTrollTrader(),
 ].map(model => {
     return {
       name: model.name,

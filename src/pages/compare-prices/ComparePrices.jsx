@@ -209,7 +209,7 @@ const ComparePrices = () => {
     results: 'Results',
     options: 'Options',
     bookmarks: 'Bookmarks',
-    // faq: 'FAQ',
+    faq: 'FAQ',
   };
 
 
@@ -239,7 +239,6 @@ const ComparePrices = () => {
       <TabPanel value={tab} index={0}>
         <div className="search-results">
           {searchResults()}
-          {/*<div className="void-filler" />*/}
         </div>
       </TabPanel>
 
@@ -268,9 +267,9 @@ const ComparePrices = () => {
       </TabPanel>
 
 
-      {/*<TabPanel value={tab} index={3}>*/}
-      {/*  <FAQ/>*/}
-      {/*</TabPanel>*/}
+      <TabPanel value={tab} index={3}>
+        <FAQ/>
+      </TabPanel>
 
 
     </div>

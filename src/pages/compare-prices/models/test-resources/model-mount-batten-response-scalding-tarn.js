@@ -10510,7 +10510,7 @@ export const mountBattenExpectedResultsScaldingTarn =
   [
     {
       name: 'MountBatten',
-      logo: 'mountbatten_raw.png',
+      logo: 'mountBattenLogo 150x60.png',
       title: 'Scalding Tarn',
       price: {text: '£32.50', value: 3250},
       stock: {value: 1, text: '1 in Stock'},
@@ -10521,7 +10521,7 @@ export const mountBattenExpectedResultsScaldingTarn =
     },
     {
       name: 'MountBatten',
-      logo: 'mountbatten_raw.png',
+      logo: 'mountBattenLogo 150x60.png',
       title: 'Scalding Tarn - Retro Frame',
       price: {text: '£49.75', value: 4975},
       stock: {value: 1, text: '1 in Stock'},

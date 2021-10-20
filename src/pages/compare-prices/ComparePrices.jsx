@@ -31,13 +31,15 @@ const TabPanel = ({children, value, index}) => (
 
 const ComparePrices = () => {
 
+  const [sellers, setSellers] = useState(configureModels());
   const [searchTerm, setSearchTerm] = useState('');
   const [lastSearched, setLastSearched] = useState('');
   const [clearOnSearch, setClearOnSearch] = useState(true);
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [savedPrices, setSavedPrices] = useState([]);
-  const [sellers, setSellers] = useState(configureModels());
+
   const [tab, setTab] = React.useState(0);
+  const onChangeTab = (event, newValue) => setTab(newValue);
 
   const [sortStock, setSortStock] = useState(sortOosBy.last);
   const [filterFoils, setFilterFoils] = useState(filterFoilsBy.all);
@@ -49,11 +51,15 @@ const ComparePrices = () => {
     setSavedPrices(getSavedCards());
   }, []);
 
-  const onChangeTab = (event, newValue) => setTab(newValue);
+
+
+
+  // Searching and handling results
 
   const getUpdatedSuggestions = async (term) => term.length > 1 ? autocomplete(term) : [];
 
   const onSubmit = async (searchFor) => {
+    console.log(sellers);
     if (clearOnSearch) setDiscoveredPrices([]);
     setLastSearched(searchFor);
     setSearchTerm('');
@@ -75,7 +81,7 @@ const ComparePrices = () => {
   }
 
   const catchUpSearchResultsForSeller = async (seller) => {
-    if (seller.results === '') {
+    if (lastSearched.length > 0 && seller.results === '') {
       !seller.loading && toggleSellerLoading(seller);
       await getSearchResultsForSeller(seller, lastSearched);
     }
@@ -83,8 +89,8 @@ const ComparePrices = () => {
 
   const numberLoading = sellers.filter(s => s.loading).length;
 
-  const addDiscoveredPrices = (newDiscoveredPrices) => setDiscoveredPrices((discoveredPrices) =>
-    discoveredPrices.concat(newDiscoveredPrices));
+  const addDiscoveredPrices = (newDiscoveredPrices) =>
+    setDiscoveredPrices((discoveredPrices) => discoveredPrices.concat(newDiscoveredPrices));
 
 
   const addSavedPrice = (discoveredPrice) => {
@@ -103,17 +109,21 @@ const ComparePrices = () => {
     removeSavedCard(discoveredPrice);
   };
 
-  const toggleSellerBoolean = (idKey, idValue, toggleKey) => setSellers((sellers) => sellers.map(seller =>
-    seller[idKey] === idValue ? {...seller, [toggleKey]: !seller[toggleKey]} : seller));
-  const toggleSellerLoading = (seller) => toggleSellerBoolean('name', seller.name, 'loading');
-  const toggleSellerEnabled = async (seller) => {
-    const wasEnabled = sellerIsEnabled(seller);
-    toggleSellerBoolean('name', seller.name, 'enabled');
-    !wasEnabled && await catchUpSearchResultsForSeller(seller);
-  }
 
-  const setSellerKeyValue = (idKey, idValue, updateKey, value) => setSellers((sellers) => sellers.map(seller =>
-    seller[idKey] === idValue ? {...seller, [updateKey]: value} : seller));
+
+  // Seller options: dis/enable and un/favourite
+
+  const setSellerKeyValue = (idKey, idValue, updateKey, value) => setSellers((sellers) =>
+    sellers.map(seller => seller[idKey] === idValue ? {...seller, [updateKey]: value} : seller));
+  const toggleSellerBoolean = (idKey, idValue, toggleKey) => setSellers((sellers) =>
+    sellers.map(seller => seller[idKey] === idValue ? {...seller, [toggleKey]: !seller[toggleKey]} : seller));
+
+  const toggleSellerLoading = (seller) => toggleSellerBoolean('name', seller.name, 'loading');
+
+  const setSellerEnabled = (seller, isEnabled) => {
+    setSellerKeyValue('name', seller.name, 'enabled', isEnabled);
+    isEnabled && catchUpSearchResultsForSeller(seller);
+  }
 
   const assignFavourite = (seller) => {
     if (sellerIsFavourite(seller)) setSellerKeyValue('name', seller.name, 'favourite', false);
@@ -122,6 +132,10 @@ const ComparePrices = () => {
       setSellerKeyValue('name', seller.name, 'favourite', true);
     }
   }
+
+
+
+  //  Sort and Filter methods
 
   const maybeFilterByFoil = (item) => {
     if (filterFoils === filterFoilsBy.foil) return itemIsFoil(item);
@@ -162,7 +176,11 @@ const ComparePrices = () => {
   }
   const sortNoSort = () => 0;
 
-  const sellerOptions = () => sellers.map(seller => SellerOption(seller, toggleSellerEnabled, assignFavourite));
+
+
+  // Rendering
+
+  const sellerOptions = () => sellers.map(seller => SellerOption(seller, setSellerEnabled, assignFavourite));
 
   const isSaved = (discoveredPrice) => Object.keys(savedPrices).includes(uniqueSavedResultKey(discoveredPrice));
 

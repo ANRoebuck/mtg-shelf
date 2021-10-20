@@ -7,6 +7,7 @@ import ModelMountBatten from './ModelMountBatten';
 import ModelPatriotGamesLeeds from './ModelPatriotGamesLeeds';
 import ModelStarCityGames from './ModelStarCityGames';
 import ModelTrollTrader from './ModelTrollTrader';
+import ModelHareruya from './ModelHareruya';
 
 export const configureModels = () => [
   new ModelAxion(),
@@ -16,8 +17,9 @@ export const configureModels = () => [
   new ModelManaLeak(),
   new ModelMountBatten(),
   new ModelPatriotGamesLeeds(),
-  new ModelStarCityGames(),
   new ModelTrollTrader(),
+  new ModelStarCityGames(),
+  new ModelHareruya(),
 ].map(model => {
     return {
       name: model.name,

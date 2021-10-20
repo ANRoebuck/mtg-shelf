@@ -38,8 +38,7 @@ class AbstractModel {
 
     const sanitisedSearchTerm = removeDiacritics(input);
 
-    // const cachedResults = this.readCachedResults(this.name, sanitisedSearchTerm);
-    const cachedResults = null;
+    const cachedResults = this.readCachedResults(this.name, sanitisedSearchTerm);
     if (cachedResults) return cachedResults;
 
     let foundItems = [];
@@ -79,7 +78,7 @@ class AbstractModel {
 
     this.cacheResults(this.name, sanitisedSearchTerm, foundItems);
 
-    console.log(foundItems);
+    // console.log(foundItems);
 
     return foundItems;
   }
@@ -138,7 +137,7 @@ class AbstractModel {
 
   productRefFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.productSelector)]
-    .map(node => this.productBaseUrl + node.getAttribute(this.productRefAttribute))[0] || null;
+    .map(node => this.productBaseUrl + node.getAttribute(this.productRefAttribute).replace(regex.whiteSpaceStripper, `$2`))[0] || null;
 
 
   expansionFromResultNode = (resultNode) =>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import useLocalStorage from "../../../common/useLocalStorage";
+import useLocalStorage from "../../../common/custom-hooks/useLocalStorage";
 
 const SearchOptions = ({ title, options, defaultIndex = 0, selectOption, localStorageKey }) => {
 

@@ -21,6 +21,7 @@ import { cors } from './utils/utils';
 import FAQ from "./components/FAQ";
 import AutoSuggestSearchBar from "../../common/AutoSuggestSearchBar";
 import { autocomplete } from "../../gateway/http";
+import ResultsSummary from "./components/ResultsSummary";
 
 
 const TabPanel = ({children, value, index}) => (
@@ -87,11 +88,8 @@ const ComparePrices = () => {
     }
   }
 
-  const numberLoading = sellers.filter(s => s.loading).length;
-
   const addDiscoveredPrices = (newDiscoveredPrices) =>
     setDiscoveredPrices((discoveredPrices) => discoveredPrices.concat(newDiscoveredPrices));
-
 
   const addSavedPrice = (discoveredPrice) => {
     setSavedPrices(prevState => ({
@@ -156,9 +154,11 @@ const ComparePrices = () => {
   const itemIsOos = (item) => item.stock.value > 0;
   const itemIsFoil = (item) => item.isFoil;
 
+  const sortPriceAscending = (a, b) => a.price.value - b.price.value;
+  const sortPriceDescending = (a, b) => b.price.value - a.price.value;
   const sortByPrice = (a, b) => {
-    if (sortPrice === sortPriceBy.asc) return a.price.value - b.price.value;
-    if (sortPrice === sortPriceBy.dsc) return b.price.value - a.price.value;
+    if (sortPrice === sortPriceBy.asc) return sortPriceAscending(a, b);
+    if (sortPrice === sortPriceBy.dsc) return sortPriceDescending(a, b);
     return 0;
   }
   const sortOutOfStockLast = (a, b) => {
@@ -212,6 +212,10 @@ const ComparePrices = () => {
     faq: 'FAQ',
   };
 
+  const numberEnabled = sellers.filter(s => s.enabled).length;
+  const numberLoading = sellers.filter(s => s.loading).length;
+  const finishedLoading = numberLoading === 0;
+
 
   return (
     <div className="compare-prices">
@@ -225,7 +229,9 @@ const ComparePrices = () => {
                     onChange={() => setClearOnSearch(prevState => !prevState)}/>
         </AutoSuggestSearchBar>
 
-        <LoadingDoughnut loaded={sellers.length - numberLoading} total={sellers.length}/>
+        {finishedLoading && lastSearched ?
+          <ResultsSummary sortedResults={discoveredPrices.sort(sortPriceAscending).sort(sortOutOfStockLast)} />
+        : <LoadingDoughnut loaded={numberEnabled - numberLoading} total={numberEnabled}/>}
       </div>
 
 

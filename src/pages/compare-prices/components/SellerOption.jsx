@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import './seller-option.scss';
 import CheckBox from './CheckBox';
 import StarCheckBox from './StarCheckBox';
-import useLocalStorage from "../../../common/useLocalStorage";
+import useLocalStorage from "../../../common/custom-hooks/useLocalStorage";
 
 const SellerOption = (seller, setSellerEnabled, assignFavourite) => {
 

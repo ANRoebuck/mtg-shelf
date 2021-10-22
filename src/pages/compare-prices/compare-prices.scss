@@ -42,6 +42,21 @@
       }
     }
 
+    .results-summary {
+      grid-area: doughnut;
+      color: white;
+      margin: 10px;
+      text-align: center;
+    }
+    .results-summary-section {
+      border-bottom: solid 1px grey;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+    }
+    .results-summary-light {
+      font-size: 75%;
+    }
+
     .MuiPaper-root {
       grid-area: views;
     }

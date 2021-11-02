@@ -4,14 +4,14 @@ import './auto-suggest-search-bar.scss';
 
 
 const AutoSuggestSearchBar = ({
-                                onSubmit, getUpdateSuggestions, throttleMillis = 150, maxSuggestions = 5,
+                                onSubmit, getUpdateSuggestions, throttleMillis = 9000, maxSuggestions = 5,
                                 optionalExternallyManagedSearchTerm = null,
                                 optionalSetExternallyManagedSearchTerm = null,
                                 label = null, placeholderText = null, children,
                               }) => {
 
   const [locallyManagedSearchTerm, setLocallyManagedSearchTerm] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState({ capturedAt: new Date(), values:[] });
 
 
   // a separate useState and useEffect are combined here to emulate a conditional setState callback
@@ -33,17 +33,26 @@ const AutoSuggestSearchBar = ({
   const setSearchTerm = (searchTerm) => optionalSetExternallyManagedSearchTerm ?
     optionalSetExternallyManagedSearchTerm(searchTerm) : setLocallyManagedSearchTerm(searchTerm);
 
-  const throttledUpdate = (term) => throttle(throttleMillis, getUpdateSuggestions(term).then(setSuggestions));
+
+  // this ensures only latest suggestions will be used in a case where async calls resolve out of sequence
+  const upDateWithGuaranteedLatest = (term) => {
+    const executionTime = new Date();
+    getUpdateSuggestions(term).then(suggestions => {
+      setSuggestions(prev => prev.capturedAt < executionTime ?
+          {capturedAt: executionTime, values: suggestions } : prev);
+    });
+  };
+  const throttledUpdate = (term) => throttle(throttleMillis, upDateWithGuaranteedLatest(term));
 
   const onChangeSearchTerm = async (event) => {
     const updatedSearchTerm = event.target.value;
     setSearchTerm(updatedSearchTerm);
     throttledUpdate(updatedSearchTerm);
-  }
+  };
 
   const suggestionsToDisplay = () => searchTerm ?
     <ul>
-      {suggestions.slice(0, maxSuggestions)
+      {suggestions.values.slice(0, maxSuggestions)
         .map(suggestion => <li onClick={() => execute(suggestion)}>{suggestion}</li>)}
     </ul>
     : null;

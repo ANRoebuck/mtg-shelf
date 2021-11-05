@@ -11,7 +11,9 @@ const AutoSuggestSearchBar = ({
                               }) => {
 
   const [locallyManagedSearchTerm, setLocallyManagedSearchTerm] = useState('');
-  const [suggestions, setSuggestions] = useState({ capturedAt: new Date(), values:[] });
+
+  const defaultSuggestions = () => ({ capturedAt: new Date(), values:[] });
+  const [suggestions, setSuggestions] = useState(defaultSuggestions());
 
 
   // a separate useState and useEffect are combined here to emulate a conditional setState callback
@@ -24,7 +26,7 @@ const AutoSuggestSearchBar = ({
     if (v) {
       onSubmit(v);
       setSearchTerm('');
-      setSuggestions([]);
+      setSuggestions(defaultSuggestions());
       execute('');
     }
   }, [v]);

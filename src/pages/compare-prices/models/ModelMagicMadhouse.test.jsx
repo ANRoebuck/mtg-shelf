@@ -15,7 +15,7 @@ describe('ModelMagicMadhouse', () => {
     const results = await model.search('Tarmogoyf');
 
     expect(model.name).toBe('Magic Madhouse');
-    expect(results.length).toBe(21);
+    expect(results.length).toBe(13);
     expect(results).toStrictEqual(madhouseExpextedResultsTarmogoyf);
   });
 

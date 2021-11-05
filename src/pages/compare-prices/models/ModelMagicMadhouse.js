@@ -1,4 +1,4 @@
-import { identityFunction, nullifyingFunction, regex, textToDigits } from '../utils/utils';
+import { identityFunction, regex, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 
@@ -45,11 +45,20 @@ class ModelMagicMadhouse extends AbstractModel {
       value: this.priceValueFromPriceText(price),
     };
   };
-  stockFromResultNode = ({ inventory_level }) => {
-    const value = parseInt(inventory_level);
+  stockFromResultNode = ({ inStock, additionalDataToReturn }) => {
+    let value;
+    let text;
+    if (inStock === "no") {
+      value = 0;
+      text = "Out of Stock";
+    } else {
+      const addInfo = JSON.parse(additionalDataToReturn);
+      value = parseInt(addInfo.inventory_level);
+      text = value + ' in Stock';
+    }
     return {
       value,
-      text: value + ' in Stock',
+      text,
     };
   }
   imgSrcFromResultNode = (resultNode) => resultNode.image;

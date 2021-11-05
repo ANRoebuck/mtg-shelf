@@ -60,7 +60,6 @@ const ComparePrices = () => {
   const getUpdatedSuggestions = async (term) => term.length > 2 ? autocomplete(term) : [];
 
   const onSubmit = async (searchFor) => {
-    console.log(sellers);
     if (clearOnSearch) setDiscoveredPrices([]);
     setLastSearched(searchFor);
     setSearchTerm('');

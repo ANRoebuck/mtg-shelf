@@ -21,7 +21,8 @@ import { cors } from './utils/utils';
 import FAQ from "./components/FAQ";
 import AutoSuggestSearchBar from "../../common/AutoSuggestSearchBar";
 import { autocomplete } from "../../gateway/http";
-import ResultsSummary from "./components/ResultsSummary";
+import ResultsSummary from "./components/ResultsBySeller";
+import ResultsBySeller from "./components/ResultsBySeller";
 
 
 const TabPanel = ({children, value, index}) => (
@@ -37,7 +38,7 @@ const ComparePrices = () => {
   const [lastSearched, setLastSearched] = useState('');
   const [clearOnSearch, setClearOnSearch] = useState(true);
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
-  const [savedPrices, setSavedPrices] = useState([]);
+  const [savedPrices, setSavedPrices] = useState({});
 
   const [tab, setTab] = React.useState(0);
   const onChangeTab = (event, newValue) => setTab(newValue);
@@ -145,7 +146,7 @@ const ComparePrices = () => {
   }
   const maybeSortByStock = (a, b) => {
     if (sortStock === sortOosBy.last) return sortOutOfStockLast(a, b);
-    if (sortStock === sortOosBy.none) return sortNoSort(a, b);
+    return 0;
   }
 
   const sellerIsEnabled = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name)?.enabled;
@@ -173,7 +174,7 @@ const ComparePrices = () => {
     else if (sellerIsFavourite(b)) return 1;
     return 0;
   }
-  const sortNoSort = () => 0;
+  const sortBySeller = (a, b) => a.name.localeCompare(b.name);
 
 
 
@@ -196,12 +197,8 @@ const ComparePrices = () => {
     .map(toSearchResult);
 
   const savedResults = () => Object.values(savedPrices)
-    .filter(sellerIsEnabled)
-    .filter(maybeFilterByFoil)
-    .filter(maybeFilterByStock)
     .sort(sortByPrice)
-    .sort(sortFavouriteFirst)
-    .sort(maybeSortByStock)
+    .sort(sortBySeller)
     .map(toSearchResult);
 
   const views = {
@@ -267,6 +264,7 @@ const ComparePrices = () => {
 
       <TabPanel value={tab} index={2}>
         <div className="search-results">
+          <ResultsBySeller results={Object.values(savedPrices)}/>
           {savedResults()}
         </div>
       </TabPanel>

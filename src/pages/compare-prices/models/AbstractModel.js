@@ -82,6 +82,7 @@ class AbstractModel {
     // logs found items minus their logo, as it's gibberish and unhelpful
     // console.log(foundItems.map(item => ({...item, logo: 'a logo'})));
 
+    console.log(foundItems);
     return foundItems;
   }
 

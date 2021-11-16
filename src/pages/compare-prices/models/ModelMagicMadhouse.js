@@ -45,22 +45,13 @@ class ModelMagicMadhouse extends AbstractModel {
       value: this.priceValueFromPriceText(price),
     };
   };
-  stockFromResultNode = ({ inStock, additionalDataToReturn }) => {
-    let value;
-    let text;
-    if (inStock === "no") {
-      value = 0;
-      text = "Out of Stock";
-    } else {
-      const addInfo = JSON.parse(additionalDataToReturn);
-      value = parseInt(addInfo.inventory_level);
-      text = value + ' in Stock';
-    }
+  stockFromResultNode = ({ inventory_level }) => {
+    const value = parseInt(inventory_level);
     return {
       value,
-      text,
+      text: value > 0 ? value + ' in Stock' : 'Out of Stock',
     };
-  }
+  };
   imgSrcFromResultNode = (resultNode) => resultNode.image;
   productRefFromResultNode = (resultNode) => resultNode.url;
   expansionFromResultNode = (resultNode) => resultNode.magic_set;

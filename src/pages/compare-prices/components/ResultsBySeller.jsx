@@ -12,12 +12,8 @@ const ResultRow = ({ name, data }) => {
 
 const ResultsBySeller = ({ results = []  }) => {
 
-  console.log(results.length);
-
   const summary = results.reduce((acc, ele) => {
     const { name, price } = ele;
-
-    console.log(name, price);
 
     const updatedSummary = {
       ...acc,

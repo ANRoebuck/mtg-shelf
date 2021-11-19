@@ -9,7 +9,7 @@ const SellerOption = (seller, setSellerEnabled, assignFavourite) => {
   const { loading, logo, name, enabled: defaultEnabled, favourite } = seller;
 
   const [enabled, setEnabled] = useLocalStorage('seller-enabled-' + name, defaultEnabled);
-  useEffect(() => setSellerEnabled(seller, enabled), [enabled, seller, setSellerEnabled]);
+  useEffect(() => setSellerEnabled(seller, enabled), [enabled]);
 
   return (
     <div className="seller-options" data-seller-enabled={enabled} data-seller-favourite={favourite}>

@@ -39,13 +39,13 @@ class AbstractModel {
     const sanitisedSearchTerm = removeDiacritics(input);
 
     let cachedResults = this.readCachedResults(this.name, sanitisedSearchTerm);
-    cachedResults = null;    // uncomment during development to turn off reading from localstorage
+    // cachedResults = null;    // uncomment during development to turn off reading from localstorage
     if (cachedResults) return cachedResults;
 
     let foundItems = [];
     const resultNodes = await this.allResults(sanitisedSearchTerm);
 
-    console.log(resultNodes.length);
+    // console.log(resultNodes.length);
 
     resultNodes.forEach(resultNode => {
 
@@ -82,7 +82,7 @@ class AbstractModel {
     // logs found items minus their logo, as it's gibberish and unhelpful
     // console.log(foundItems.map(item => ({...item, logo: 'a logo'})));
 
-    console.log(foundItems);
+    // console.log(foundItems);
     return foundItems;
   }
 

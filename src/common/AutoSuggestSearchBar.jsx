@@ -29,7 +29,7 @@ const AutoSuggestSearchBar = ({
       setSuggestions(defaultSuggestions());
       execute('');
     }
-  }, [v, onSubmit]);
+  }, [v]);
 
   const searchTerm = optionalExternallyManagedSearchTerm || locallyManagedSearchTerm;
   const setSearchTerm = (searchTerm) => optionalSetExternallyManagedSearchTerm ?

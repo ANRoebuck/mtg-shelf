@@ -2,7 +2,12 @@ import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import { identityFunction, textToDigits } from "../utils/utils";
 
-class ModelPatriotGamesLeeds extends AbstractModel {
+const aPatriotGamesLeedsModel = () => {
+  if (true) return new ModelPatriotGamesLeedsDesktop();
+  else return new ModelPatriotGamesLeedsMobile();
+}
+
+class ModelPatriotGamesLeedsDesktop extends AbstractModel {
 
   constructor() {
     super({
@@ -57,4 +62,8 @@ class ModelPatriotGamesLeeds extends AbstractModel {
 
 }
 
-export default ModelPatriotGamesLeeds;
+class ModelPatriotGamesLeedsMobile extends AbstractModel {
+
+}
+
+export default aPatriotGamesLeedsModel;

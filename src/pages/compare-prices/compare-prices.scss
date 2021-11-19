@@ -92,9 +92,9 @@
       border-radius: 10px;
       margin: 15px;
       padding: 25px;
+      table { table-layout: fixed; }
+      td { width: 33%; }
     }
-    table { table-layout: fixed; }
-    td { width: 33%; }
 
     .discovered-price {
       background-color: white;

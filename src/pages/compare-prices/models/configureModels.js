@@ -4,7 +4,7 @@ import ModelMagicCardTrader from './ModelMagicCardTrader';
 import ModelMagicMadhouse from './ModelMagicMadhouse';
 import ModelManaLeak from './ModelManaLeak';
 import ModelMountBatten from './ModelMountBatten';
-import ModelPatriotGamesLeeds from './ModelPatriotGamesLeeds';
+import aPatriotGamesLeedsModel from './ModelPatriotGamesLeeds';
 import ModelStarCityGames from './ModelStarCityGames';
 import ModelTrollTrader from './ModelTrollTrader';
 import ModelHareruya from './ModelHareruya';
@@ -16,7 +16,7 @@ export const configureModels = () => [
   new ModelMagicMadhouse(),
   new ModelManaLeak(),
   new ModelMountBatten(),
-  new ModelPatriotGamesLeeds(),
+  aPatriotGamesLeedsModel(),
   new ModelTrollTrader(),
   new ModelStarCityGames(),
   new ModelHareruya(),

@@ -9,7 +9,7 @@ const aPatriotGamesLeedsModel = (optionalType) => {
   if (optionalType === 'mobile') return new ModelPatriotGamesLeedsMobile();
   return checkWindowSize() ? new ModelPatriotGamesLeedsDesktop() : new ModelPatriotGamesLeedsMobile();
 }
-const checkWindowSize = () => window.innerWidth <= 425;
+const checkWindowSize = () => window.innerWidth > 425;
 
 class ModelPatriotGamesLeedsDesktop extends AbstractModel {
 

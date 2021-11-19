@@ -53,7 +53,7 @@ const coloursToColour = (colours: []) => colourIndexToColour(coloursToColourInde
 
 const colourIndexToColour = (cI: number) => coloursArray[cI];
 
-const colourIndexToColourName = (cI: number) => colourToColourName(colourIndexToColour(cI));
+// const colourIndexToColourName = (cI: number) => colourToColourName(colourIndexToColour(cI));
 
 export const coloursByColourIndex = (cA, cB) => coloursToColourIndex([cA]) - coloursToColourIndex([cB]);
 

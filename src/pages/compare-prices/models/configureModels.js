@@ -9,7 +9,15 @@ import ModelStarCityGames from './ModelStarCityGames';
 import ModelTrollTrader from './ModelTrollTrader';
 import ModelHareruya from './ModelHareruya';
 
-export const configureModels = () => [
+
+// For use during development
+// If this array is empty, all models will be used.
+// Otherwise, only the models in this array will be used.
+const modelSubset = [
+  aPatriotGamesLeedsModel()
+];
+
+const allModels = [
   new ModelAxion(),
   new ModelBigOrbitCards(),
   new ModelMagicCardTrader(),
@@ -20,7 +28,11 @@ export const configureModels = () => [
   new ModelTrollTrader(),
   new ModelStarCityGames(),
   new ModelHareruya(),
-].map(model => {
+];
+
+const getModels = () => modelSubset.length > 0 ? modelSubset : allModels;
+
+export const configureModels = () => getModels().map(model => {
     return {
       name: model.name,
       logo: model.logo,

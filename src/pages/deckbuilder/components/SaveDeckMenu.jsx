@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
-import SavedDeckMenuItem from "./SavedDeckMenuItem";
-import { addSavedDeck, getSavedDecks } from "../utils/localStorageInteractions";
-import { useSelector } from "react-redux";
-import { selectDecklist } from "../../../store/deckBuilder-selector";
+import React, { useEffect, useState } from 'react';
+// import { useSelector } from 'react-redux';
+import { getSavedDecks } from '../utils/localStorageInteractions';
+// import { selectDecklist } from '../../../store/deckBuilder-selector';
+import SavedDeckMenuItem from './SavedDeckMenuItem';
 import './saved-deck-menu.scss';
 
 const SaveDeckMenu = () => {
 
   const [savedDecks, setSavedDecks] = useState([]);
-  const [newDeckName, setNewDeckName] = useState('');
+  // const [newDeckName, setNewDeckName] = useState('');
 
-  const decklist = useSelector(selectDecklist);
+  // const decklist = useSelector(selectDecklist);
   useEffect(() => refreshSavedDecks(), []);
 
   const refreshSavedDecks = () => setSavedDecks(getSavedDecks());
 
-  const handleChange = (e) => setNewDeckName(e.target.value);
-
-  const handleSaveDeck = () => {
-    addSavedDeck(newDeckName, decklist);
-    refreshSavedDecks();
-  }
+  // const handleChange = (e) => setNewDeckName(e.target.value);
+  //
+  // const handleSaveDeck = () => {
+  //   addSavedDeck(newDeckName, decklist);
+  //   refreshSavedDecks();
+  // }
 
   const savedDecksToRender = savedDecks.map(savedDeck =>
     <SavedDeckMenuItem savedDeck={savedDeck} refresh={refreshSavedDecks} />)

@@ -1,5 +1,4 @@
 import React from 'react';
-import foilStar from '../resources/foil-star.png';
 
 
 const demoLink = 'https://www.youtube.com/watch?v=NGPw8K3Juc0';

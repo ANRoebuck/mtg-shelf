@@ -1,10 +1,11 @@
 export const cors = 'https://mtg-shelf.herokuapp.com/';
 
 export const regex = {
-    whiteSpaceStripper: /([\s]*)(\S[\s\S]*\S)([\s]*)/,
+    // eslint-disable-next-line
+    brackets: /[【】《》\[\]■ ◆]/g,
     colonSplitter: /^([\s\S]*):\s([\s\S]*)$/, // returns the groups separated by ": "
     firstMajusculeString: /^[^A-Z]*([A-Z'\s]*)\s[^A-Z]?/,
-    brackets: /[【】《》\[\]■ ◆]/g,
+    whiteSpaceStripper: /([\s]*)(\S[\s\S]*\S)([\s]*)/,
 }
 
 export const identityFunction = (x) => x;

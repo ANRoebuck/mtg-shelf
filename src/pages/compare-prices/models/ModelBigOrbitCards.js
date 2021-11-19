@@ -1,4 +1,3 @@
-import { regex } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 

@@ -1,4 +1,4 @@
-import { identityFunction, regex, textToDigits } from '../utils/utils';
+import { identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 

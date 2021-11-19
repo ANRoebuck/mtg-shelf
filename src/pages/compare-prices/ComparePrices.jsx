@@ -40,7 +40,7 @@ const ComparePrices = () => {
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [savedPrices, setSavedPrices] = useState({});
 
-  const [tab, setTab] = React.useState(0);
+  const [tab, setTab] = useState(0);
   const onChangeTab = (event, newValue) => setTab(newValue);
 
   const [sortStock, setSortStock] = useState(sortOosBy.last);

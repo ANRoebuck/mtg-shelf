@@ -34,13 +34,8 @@ class ModelStarCityGames extends AbstractModel {
   getHtml = (searchTerm) => axios
     .get(this.searchTermToUrl(searchTerm))
     .then(({ data }) => {
-      // console.log(data);
       let str = data.replace(/.*\(({.*})\)/g, `$1`);
-      // console.log(typeof str);
-      // console.log(str);
       let o = JSON.parse(`${str}`);
-      // console.log(typeof o);
-      // console.log(o);
       return { data: o.html };
     })
     .catch(() => ({data: ''}));

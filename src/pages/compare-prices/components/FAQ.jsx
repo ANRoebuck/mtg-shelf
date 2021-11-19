@@ -33,6 +33,24 @@ const FAQ = () => {
          the site for real, and doing the search on each individual page.
        </div>
 
+       <h2>Why am I seeing Tundra Wolves when I search for Tundra?</h2>
+       <div className="answer">
+         When you search for "Tundra" the app displays the results that each site gives for that term - some of those
+         might be Tundra Wolves. The app isn't smart enough to know that the extra word means this is a different card.
+         "Why not just filter out anything that isn't an exact match?", you might ask. It's a good idea, but
+         unfortunately it would exclude a lot of valid results.
+         <br/>
+         Consider these examples of item names a site might use: "Damnation", "Damnation Foil", "Damnation Judge Promo",
+         "Damnation Player Rewards", "Damnation (JPN)" and so on. In order to know that "Damnation - Secret Lair" is a
+         valid result but that "Choice of Damnations" isn't, the app would need to have an exhaustive "allow list"
+         of terms to ignore when trying to filter results. Inevitably something would get missed off the list, and valid
+         results would not be shown. On balance I think it's better to include a few irrelevant results than to exclude
+         relevant ones.
+         <br />
+         I would like to try and fix this - it's the most common piece of feedback I get from people who've used the
+         app - but finding an effective solution is proving very difficult, so we're stuck seeing Tundra Wolves for now.
+       </div>
+
        <h2>Why do the results load really quickly sometimes?</h2>
        <div className="answer" >
          When the results come back from a search, as well as being displayed they are also cached in your browser's
@@ -62,15 +80,11 @@ const FAQ = () => {
        <div className="answer" >
          This app has no dev team and no budget. It's just some guy who writes a bit more code on a Friday evening while
          he has a beer.
-
          <br/>
-
          Every website is built differently, which means not every website is equally easy to integrate. Additionally,
          basic vetting (ie, searching for a few popular or valuable cards) may show that a site doesn't have good stock
          levels.
-
          <br/>
-
          For these and other practical reasons, a given site might not get the chance to be added to the app - but
          this will not be because of 'playing favourites'.
        </div>

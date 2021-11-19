@@ -28,7 +28,7 @@ const ResultsBySeller = ({ results = []  }) => {
       updatedEntry.cards += 1;
       updatedEntry.totalPrice += price.value;
       updatedSummary[name] = updatedEntry;
-    };
+    }
 
     return updatedSummary;
 
@@ -36,7 +36,7 @@ const ResultsBySeller = ({ results = []  }) => {
 
   const toResultRow = ([k, v], i) => <ResultRow key={"result-" + i} name={k} data={v} />;
 
-  const tableRows = () => Object.entries(summary).map((entry, i) => toResultRow);
+  const tableRows = () => Object.entries(summary).map((entry, i) => toResultRow(entry, i));
 
   return (
     <div className="table-container">

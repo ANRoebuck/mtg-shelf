@@ -1,21 +1,21 @@
 import axios from 'axios';
-import ModelPatriotGamesLeeds from './ModelPatriotGamesLeeds';
-import { patriotLeedsResponseTarmogoyf, patriotLeedsExpectedResultsTarmogoyf } from './test-resources/model-patriot-games-leeds-response-tarmogoyf';
+import aPatriotGamesLeedsModel from './ModelPatriotGamesLeeds';
+import { patriotLeedsDesktopResponseTarmogoyf, patriotLeedsDesktopExpectedResultsTarmogoyf } from './test-resources/model-patriot-games-leeds-response-tarmogoyf';
 
 jest.mock('axios');
 
 
-describe('ModelAxion', () => {
+describe('ModelPatriotGamesLeedsDesktop', () => {
 
   it('gets results for Tarmogoyf', async () => {
-    axios.get.mockResolvedValueOnce({ data: patriotLeedsResponseTarmogoyf });
+    axios.get.mockResolvedValueOnce({ data: patriotLeedsDesktopResponseTarmogoyf });
 
-    const model = new ModelPatriotGamesLeeds();
+    const model = aPatriotGamesLeedsModel('desktop');
     const results = await model.search('Tarmogoyf');
 
     expect(model.name).toBe('Patriot Games Leeds');
     expect(results.length).toBe(12);
-    expect(results).toStrictEqual(patriotLeedsExpectedResultsTarmogoyf);
+    expect(results).toStrictEqual(patriotLeedsDesktopExpectedResultsTarmogoyf);
   });
 
 });

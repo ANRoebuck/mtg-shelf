@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import './compare-prices.scss';
-import { configureModels } from './models/configureModels';
-import SearchResult from './components/SearchResult';
-import SellerOption from './components/SellerOption';
+import axios from 'axios';
+import { cors } from './utils/utils';
 import { filterFoilsBy, sortOosBy, sortPriceBy } from './utils/enums';
-import SearchOptions from './components/SearchOptions';
-import LoadingDoughnut from './components/LoadingDoughnut';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import CheckBox from './components/CheckBox';
+import { autocomplete } from '../../gateway/http';
+import { configureModels } from './models/configureModels';
 import {
   addSavedCard,
   getSavedCards,
   removeSavedCard,
   uniqueSavedResultKey
 } from './components/localStorageInteractions';
-import axios from 'axios';
-import { cors } from './utils/utils';
-import FAQ from "./components/FAQ";
-import AutoSuggestSearchBar from "../../common/AutoSuggestSearchBar";
-import { autocomplete } from "../../gateway/http";
-import ResultsSummary from "./components/ResultsBySeller";
-import ResultsBySeller from "./components/ResultsBySeller";
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AutoSuggestSearchBar from '../../common/AutoSuggestSearchBar';
+import CheckBox from './components/CheckBox';
+import FAQ from './components/FAQ';
+import LoadingDoughnut from './components/LoadingDoughnut';
+import ResultsBySeller from './components/ResultsBySeller';
+import ResultsSummary from './components/ResultsSummary';
+import SearchResult from './components/SearchResult';
+import SellerOption from './components/SellerOption';
+import SearchOptions from './components/SearchOptions';
+import './compare-prices.scss';
 
 
 const TabPanel = ({children, value, index}) => (

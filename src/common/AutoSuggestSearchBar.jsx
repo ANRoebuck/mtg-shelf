@@ -29,7 +29,7 @@ const AutoSuggestSearchBar = ({
       setSuggestions(defaultSuggestions());
       execute('');
     }
-  }, [v]);
+  }, [v, onSubmit]);
 
   const searchTerm = optionalExternallyManagedSearchTerm || locallyManagedSearchTerm;
   const setSearchTerm = (searchTerm) => optionalSetExternallyManagedSearchTerm ?
@@ -54,8 +54,8 @@ const AutoSuggestSearchBar = ({
 
   const suggestionsToDisplay = () => searchTerm ?
     <ul>
-      {suggestions.values.slice(0, maxSuggestions)
-        .map(suggestion => <li onClick={() => execute(suggestion)}>{suggestion}</li>)}
+      {suggestions.values.slice(0, maxSuggestions).map((suggestion, i) =>
+        <li key={"suggestion-" + i} onClick={() => execute(suggestion)}>{suggestion}</li>)}
     </ul>
     : null;
 

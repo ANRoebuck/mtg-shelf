@@ -1,4 +1,4 @@
-export const patriotLeedsResponseTarmogoyf =
+export const patriotLeedsDesktopResponseTarmogoyf =
   `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
@@ -650,7 +650,7 @@ tarmogoyf
 
 `;
 
-export const patriotLeedsExpectedResultsTarmogoyf =
+export const patriotLeedsDesktopExpectedResultsTarmogoyf =
   [
     {
       name: 'Patriot Games Leeds',

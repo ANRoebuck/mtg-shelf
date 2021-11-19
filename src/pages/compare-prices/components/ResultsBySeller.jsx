@@ -34,9 +34,9 @@ const ResultsBySeller = ({ results = []  }) => {
 
   }, {});
 
-  const toResultRow = ([k, v]) => <ResultRow name={k} data={v} />;
+  const toResultRow = ([k, v], i) => <ResultRow key={"result-" + i} name={k} data={v} />;
 
-  const tableRows = () => Object.entries(summary).map(toResultRow);
+  const tableRows = () => Object.entries(summary).map((entry, i) => toResultRow);
 
   return (
     <div className="table-container">

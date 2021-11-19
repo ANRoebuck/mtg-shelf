@@ -4,7 +4,7 @@ import useLocalStorage from "../../../common/custom-hooks/useLocalStorage";
 const SearchOptions = ({ title, options, defaultIndex = 0, selectOption, localStorageKey }) => {
 
   const [selectedSortOption, setSelectedSortOption] = useLocalStorage(localStorageKey, options[defaultIndex]);
-  useEffect(() => selectOption(selectedSortOption), [selectedSortOption]);
+  useEffect(() => selectOption(selectedSortOption), [selectedSortOption, selectOption]);
 
   const optionsToRender = options.map(option => {
     return (

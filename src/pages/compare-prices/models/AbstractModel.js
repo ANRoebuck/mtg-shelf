@@ -39,13 +39,13 @@ class AbstractModel {
     const sanitisedSearchTerm = removeDiacritics(input);
 
     let cachedResults = this.readCachedResults(this.name, sanitisedSearchTerm);
-    // cachedResults = null;    // uncomment during testing to turn off reading from localstorage
+    cachedResults = null;    // uncomment during development to turn off reading from localstorage
     if (cachedResults) return cachedResults;
 
     let foundItems = [];
     const resultNodes = await this.allResults(sanitisedSearchTerm);
 
-    // console.log(resultNodes.length);
+    console.log(resultNodes.length);
 
     resultNodes.forEach(resultNode => {
 

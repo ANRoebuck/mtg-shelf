@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import './seller-option.scss';
 import CheckBox from './CheckBox';
 import StarCheckBox from './StarCheckBox';
-import useLocalStorage from "../../../common/custom-hooks/useLocalStorage";
+import useLocalStorage from '../../../common/custom-hooks/useLocalStorage';
 
 const SellerOption = (seller, setSellerEnabled, assignFavourite) => {
 
   const { loading, logo, name, enabled: defaultEnabled, favourite } = seller;
 
   const [enabled, setEnabled] = useLocalStorage('seller-enabled-' + name, defaultEnabled);
-  useEffect(() => setSellerEnabled(seller, enabled), [enabled]);
+  useEffect(() => setSellerEnabled(seller, enabled), [enabled, seller, setSellerEnabled]);
 
   return (
     <div className="seller-options" data-seller-enabled={enabled} data-seller-favourite={favourite}>

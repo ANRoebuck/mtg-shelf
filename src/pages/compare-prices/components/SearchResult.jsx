@@ -32,7 +32,7 @@ const SearchResult = (discoveredPrice, isSaved, addSavedPrice, removeSavedPrice)
 
       <div className="stock-count">{stock.text}</div>
 
-      <div className="price">{!isNaN(price.value) ? price.text + " : " + price.value : null}</div>
+      <div className="price">{!isNaN(price.value) ? price.text : null}</div>
 
       <div className="widgets">
         <div className="bookmark">

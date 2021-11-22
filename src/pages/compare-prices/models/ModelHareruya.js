@@ -19,6 +19,7 @@ class ModelHareruya extends AbstractModel {
       priceValueFromPriceText: textToDigits,
       stockSelector: 'div.itemData > div.itemDetail > p.itemDetail__stock',
       stockValueFromStockText: textToDigits,
+      isFoilSelector: 'div.itemData > a',
       imgSelector: 'a> div.itemImg > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'data-original',
@@ -30,7 +31,7 @@ class ModelHareruya extends AbstractModel {
   }
 
   // @Override
-  nameFromResultNode = (resultNode) =>
+  titleFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.nameSelector)]
       .map(node => node.innerHTML
         .replace(/(.*)\[.*/g, `$1`)                 // take first segment before opening [

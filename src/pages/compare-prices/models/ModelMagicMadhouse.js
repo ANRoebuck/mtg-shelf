@@ -25,20 +25,8 @@ class ModelMagicMadhouse extends AbstractModel {
       });
 
   // @Override
-  nameFromResultNode = (resultNode) => {
-    let arr = [];
-    resultNode.querySelectorAll('div > div > div.product__details > div.product__details__title > a')
-      .forEach(node => {
-        node.firstChild.remove();
-        node.firstChild.remove();
-        let str = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
-        arr.push(str);
-      });
-    return arr[0];
-  }
-
-  // @Override
-  nameFromResultNode = (resultNode) => resultNode.name.split('|')[0];
+  titleFromResultNode = (resultNode) => resultNode.name.split('|')[0];
+  isFoilFromResultNode = (resultNode) => this.isFoilFromTitle(this.titleFromResultNode(resultNode));
   priceFromResultNode = ({ price }) => {
     return {
       text: "£ " + this.priceToDisplayFromPriceText(price),
@@ -56,6 +44,6 @@ class ModelMagicMadhouse extends AbstractModel {
   productRefFromResultNode = (resultNode) => resultNode.url;
   expansionFromResultNode = (resultNode) => resultNode.magic_set;
 
-  }
+}
 
 export default ModelMagicMadhouse;

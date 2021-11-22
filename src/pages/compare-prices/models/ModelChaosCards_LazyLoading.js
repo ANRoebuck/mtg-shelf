@@ -31,7 +31,7 @@ class ModelChaosCards_LazyLoading extends AbstractModel {
 
       let name = this.name;
       let logo = this.logo;
-      let title = this.nameFromResultNode(resultNode);
+      let title = this.titleFromResultNode(resultNode);
       let price = this.priceFromResultNode(resultNode);
       let stock = this.stockFromResultNode(resultNode);
       let imgSrc = this.imgSrcFromResultNode(resultNode);
@@ -70,7 +70,7 @@ class ModelChaosCards_LazyLoading extends AbstractModel {
       });
   }
 
-  nameFromResultNode = (resultNode) => {
+  titleFromResultNode = (resultNode) => {
     return resultNode.title.replace(regex.colonSplitter, `$1`).replace(regex.whiteSpaceStripper, `$2`);
   }
 

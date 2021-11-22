@@ -20,6 +20,7 @@ class ModelStarCityGames extends AbstractModel {
       priceValueFromPriceText: textToDigits,
       stockSelector: 'div.hawk-results-item__options-table-cell.hawk-results-item__options-table-cell--qty.childAttributes',
       stockValueFromStockText: (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
+      isFoilSelector: 'div > div > div > h2 > a',
       imgSelector: 'div > div > div > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',

@@ -19,6 +19,7 @@ class ModelManaLeak extends AbstractModel {
       priceValueFromPriceText: textToDigits,
       stockSelector: 'div.image > span.label-outofstock',
       stockValueFromStockText: identityFunction,
+      isFoilSelector: 'div.caption > div.name > a',
       imgSelector: 'div.image > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'data-src',

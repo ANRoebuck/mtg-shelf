@@ -51,16 +51,16 @@ const FAQ = () => {
          app - but finding an effective solution is proving very difficult, so we're stuck seeing Tundra Wolves for now.
        </div>
 
-       <h2>Why do the results load really quickly sometimes?</h2>
-       <div className="answer" >
-         When the results come back from a search, as well as being displayed they are also cached in your browser's
-         sessionStorage. This is a bit like a temporary cookie.
-         If you submit exactly the same search again in the same session, instead of visiting the sellers' websites the
-         app will simply return the cached results. This both improves speed and also reduces the burden on the sellers'
-         websites.
-         If you close the browser/tab/app, the cached results will be lost. So if you search again tomorrow, you'll get
-         fresh prices again.
-       </div>
+       {/*<h2>Why do the results load really quickly sometimes?</h2>*/}
+       {/*<div className="answer" >*/}
+       {/*  When the results come back from a search, as well as being displayed they are also cached in your browser's*/}
+       {/*  sessionStorage. This is a bit like a temporary cookie.*/}
+       {/*  If you submit exactly the same search again in the same session, instead of visiting the sellers' websites the*/}
+       {/*  app will simply return the cached results. This both improves speed and also reduces the burden on the sellers'*/}
+       {/*  websites.*/}
+       {/*  If you close the browser/tab/app, the cached results will be lost. So if you search again tomorrow, you'll get*/}
+       {/*  fresh prices again.*/}
+       {/*</div>*/}
 
        <h2>Are you favouring any of the sellers or do you have a sponsor?</h2>
        <div className="answer" >

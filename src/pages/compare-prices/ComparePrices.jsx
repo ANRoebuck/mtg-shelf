@@ -221,8 +221,8 @@ const ComparePrices = () => {
                               getUpdateSuggestions={getUpdatedSuggestions}
                               optionalExternallyManagedSearchTerm={searchTerm}
                               optionalSetExternallyManagedSearchTerm={setSearchTerm}>
-          <CheckBox option="Clear previous results" checked={clearOnSearch}
-                    onChange={() => setClearOnSearch(prevState => !prevState)}/>
+          {/*<CheckBox option="Clear previous results" checked={clearOnSearch}*/}
+          {/*          onChange={() => setClearOnSearch(prevState => !prevState)}/>*/}
         </AutoSuggestSearchBar>
 
         {finishedLoading && lastSearched ?

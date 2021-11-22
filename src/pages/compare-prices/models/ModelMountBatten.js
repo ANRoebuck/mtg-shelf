@@ -19,6 +19,7 @@ class ModelAxion extends AbstractModel {
       priceValueFromPriceText: textToDigits,
       stockSelector: 'div.inner > div > div.meta > div > div > span.variant-main-info > span.variant-qty',
       stockValueFromStockText: (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
+      isFoilSelector: 'div.inner > div > div.meta > a > h4',
       imgSelector: 'div.inner > div > div.image > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',

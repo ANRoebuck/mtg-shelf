@@ -19,6 +19,7 @@ class ModelTrollTrader extends AbstractModel {
       priceValueFromPriceText: textToDigits,
       stockSelector: 'div.inner > div > div.meta > span.offers > span.qty',
       stockValueFromStockText: (text) => text === undefined ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
+      isFoilSelector: 'div.inner > div > div.meta > a > h4',
       imgSelector: 'div.inner > div > div.image > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',

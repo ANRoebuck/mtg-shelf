@@ -11,7 +11,6 @@ const NavBar = ({ pages, selected, setSelected }) => {
   // const mouseOver = () => setDisplayMenu(true);
   // const mouseOut = () => setDisplayMenu(false);
 
-
   return (
 
     <div className="nav-bar">

@@ -1,5 +1,8 @@
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
+import { textToDigits } from '../utils/utils';
+
+const textStringFromInnerHtml = /(.|\n)*£([0-9]+).([0-9]{2})[\D]*/;
 
 class ModelBigOrbitCards extends AbstractModel{
 
@@ -14,10 +17,14 @@ class ModelBigOrbitCards extends AbstractModel{
       resultSelector: 'div > div.ty-pagination-container > div.ty-compact-list > div.ty-compact-list__item',
       nameSelector: 'form > div.compact_title_add_to_cart_header > bdi > a',
       priceSelector: 'form > div.ty-compact-list__content > div.ty-compact-list__controls.compact_list_add_to_cart > div > div > span > span:nth-child(2)',
-      priceToDisplayFromPriceText: (text) => text ? text.replace(/[\D]*([0-9]+)[\D]*£([0-9]+).([0-9]{2})[\D]*/, `£$2.$3`) : null,
-      priceValueFromPriceText: (text) => text ? parseInt(text.replace(/[\D]*([0-9]+)[\D]*£([0-9]+).([0-9]{2})[\D]*/, `$2$3`)) : 9999,
+      priceToDisplayFromPriceText: (text) => {
+        const transformedText = text ? text.replace(textStringFromInnerHtml, `£$2.$3`) : null;
+        return isNaN(textToDigits(transformedText)) ? null : transformedText;
+      },
+      priceValueFromPriceText: (text) => text ? parseInt(text.replace(textStringFromInnerHtml, `$2$3`)) : 9999,
       stockSelector: 'form > div.ty-compact-list__content > div.ty-compact-list__controls.compact_list_add_to_cart > div > div > span > span:nth-child(2)',
       stockValueFromStockText: (text) => text === '[no such message]' ? 0 : parseInt(text.replace(/[\D]*([0-9]+)[\D]*£([0-9]+).([0-9]{2})[\D]*/, `$1`)),
+      isFoilSelector: 'form > div.compact_title_add_to_cart_header > bdi > a',
       imgSelector: 'form > div.ty-compact-list__content > div.ty-compact-list__image > label > a > picture > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',

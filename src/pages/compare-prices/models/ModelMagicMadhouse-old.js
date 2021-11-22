@@ -30,7 +30,7 @@ class ModelMagicMadhouse extends AbstractModel {
   }
 
   // @Override
-  nameFromResultNode = (resultNode) => {
+  titleFromResultNode = (resultNode) => {
     let arr = [];
     resultNode.querySelectorAll('div > div > div.product__details > div.product__details__title > a')
       .forEach(node => {

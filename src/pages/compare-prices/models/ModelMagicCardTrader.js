@@ -19,6 +19,7 @@ class ModelMagicCardTrader extends AbstractModel {
       priceValueFromPriceText: textToDigits,
       stockSelector: 'div.inner > div.variants > div.variant-row > span.variant-main-info > span.variant-qty',
       stockValueFromStockText: (text) => text === 'Out of stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
+      isFoilSelector: 'div.inner > div.variants > div.variant-row > span.variant-main-info > span.variant-description',
       imgSelector: 'div.inner > div.image-meta > div.image > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
@@ -28,6 +29,14 @@ class ModelMagicCardTrader extends AbstractModel {
       expansionSelector: 'div.inner > div.image-meta > div.meta > a > span.category',
     });
   }
+
+
+  // @Override
+  isFoilFromResultNode = (resultNode) =>
+    [...resultNode.querySelectorAll(this.isFoilSelector)]
+      .map(node => node.innerHTML)
+      .map(text => this.isFoilFromTitle(text.toLowerCase()))[0]
+    || this.isFoilFromTitle(this.titleFromResultNode(resultNode));
 
 }
 

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './app.scss';
 import NavBar from './navigation-bar/NavBar';
-import DeckBuilder from "./pages/deckbuilder/DeckBuilder";
-import Home from "./pages/home/Home";
-import ComparePrices from "./pages/compare-prices/ComparePrices";
-import Draft from "./pages/draft/Draft";
-import Game from "./pages/game/Game";
+import DeckBuilder from './pages/deckbuilder/DeckBuilder';
+import Home from './pages/home/Home';
+import ComparePrices from './pages/compare-prices/ComparePrices';
+import Draft from './pages/draft/Draft';
+import Game from './pages/game/Game';
 
 const App = () => {
 

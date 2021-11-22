@@ -27,7 +27,7 @@ class ModelChaosCards extends AbstractModel {
 
       let name = this.name;
       let logo = this.logo;
-      let title = this.nameFromResultNode(resultNode);
+      let title = this.titleFromResultNode(resultNode);
       let price = this.priceFromResultNode(resultNode);
       let stock = this.stockFromResultNode(resultNode);
       let imgSrc = this.imgSrcFromResultNode(resultNode);
@@ -62,7 +62,7 @@ class ModelChaosCards extends AbstractModel {
       });
   }
 
-  nameFromResultNode = (resultNode) => {
+  titleFromResultNode = (resultNode) => {
     let arr = [];
     resultNode.querySelectorAll('a > div.df-card__content > div.df-card__title')
       .forEach(node => {

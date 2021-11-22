@@ -7,7 +7,7 @@ class AbstractModel {
 
   constructor({ name, logo, baseUrl, searchPath, searchSuffix, searchJoin, resultSelector, nameSelector,
                 priceSelector, priceToDisplayFromPriceText, priceValueFromPriceText,
-                stockSelector, stockValueFromStockText,
+                stockSelector, stockValueFromStockText, isFoilSelector,
                 imgSelector, imgBaseUrl, imgSrcAttribute,
                 productSelector, productBaseUrl, productRefAttribute,
                 expansionSelector,}) {
@@ -25,6 +25,7 @@ class AbstractModel {
     this.priceValueFromPriceText = priceValueFromPriceText;
     this.stockSelector = stockSelector;
     this.stockValueFromStockText = stockValueFromStockText;
+    this.isFoilSelector = isFoilSelector;
     this.imgSelector = imgSelector;
     this.imgBaseUrl = imgBaseUrl;
     this.imgSrcAttribute = imgSrcAttribute;
@@ -39,7 +40,7 @@ class AbstractModel {
     const sanitisedSearchTerm = removeDiacritics(input);
 
     let cachedResults = this.readCachedResults(this.name, sanitisedSearchTerm);
-    // cachedResults = null;    // uncomment during development to turn off reading from localstorage
+    cachedResults = null;    // uncomment during development to turn off reading from localstorage
     if (cachedResults) return cachedResults;
 
     let foundItems = [];
@@ -48,29 +49,17 @@ class AbstractModel {
     // console.log(resultNodes.length);
 
     resultNodes.forEach(resultNode => {
-
-      let name = this.name;
-      let logo = this.logo;
-      let title = this.nameFromResultNode(resultNode);
-      let price = this.priceFromResultNode(resultNode);
-      let stock = this.stockFromResultNode(resultNode);
-      let imgSrc = this.imgSrcFromResultNode(resultNode);
-      let productRef = this.productRefFromResultNode(resultNode);
-      let expansion = this.expansionFromResultNode(resultNode);
-      let isFoil = this.isFoilFromTitle(title);
-
       foundItems.push({
-        name,
-        logo,
-        title,
-        price,
-        stock,
-        imgSrc,
-        productRef,
-        expansion,
-        isFoil,
+        name: this.name,
+        logo: this.logo,
+        title: this.titleFromResultNode(resultNode),
+        price: this.priceFromResultNode(resultNode),
+        stock: this.stockFromResultNode(resultNode),
+        imgSrc: this.imgSrcFromResultNode(resultNode),
+        productRef: this.productRefFromResultNode(resultNode),
+        expansion: this.expansionFromResultNode(resultNode),
+        isFoil: this.isFoilFromResultNode(resultNode),
       });
-
     });
 
     foundItems = foundItems
@@ -105,50 +94,54 @@ class AbstractModel {
       });
 
 
-  nameFromResultNode = (resultNode) =>
+  titleFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.nameSelector)]
-    .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
+      .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
 
 
   priceFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.priceSelector)]
-    .map(node => {
+      .map(node => {
       const nodeText = node.innerHTML;
       return {
         text: this.priceToDisplayFromPriceText(nodeText),
         value: this.priceValueFromPriceText(nodeText),
       };
-    })[0] || {text: '', value: 9999};
+      })[0] || {text: '', value: 9999};
 
 
   stockFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.stockSelector)]
-    .map(node => {
+      .map(node => {
       const nodeText = node.innerHTML.replace(regex.whiteSpaceStripper, `$2`);
       const value = this.stockValueFromStockText(nodeText);
       return {
         value,
         text: value > 0 ? value + ' in Stock' : 'Out of Stock',
       };
-    })[0] || {text: 'Out of Stock', value: 0};
+      })[0] || {text: 'Out of Stock', value: 0};
 
 
   imgSrcFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.imgSelector)]
-    .map(node => this.imgBaseUrl + node.getAttribute(this.imgSrcAttribute))[0] || null;
+      .map(node => this.imgBaseUrl + node.getAttribute(this.imgSrcAttribute))[0] || null;
 
 
   productRefFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.productSelector)]
-    .map(node => this.productBaseUrl + node.getAttribute(this.productRefAttribute).replace(regex.whiteSpaceStripper, `$2`))[0] || null;
+      .map(node => this.productBaseUrl + node.getAttribute(this.productRefAttribute).replace(regex.whiteSpaceStripper, `$2`))[0] || null;
 
 
   expansionFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.expansionSelector)]
-    .map(node => node.innerHTML)[0] || null;
+      .map(node => node.innerHTML)[0] || null;
 
 
   isFoilFromTitle = (title) => title.toLowerCase().includes('foil');
+  isFoilFromResultNode = (resultNode) =>
+    [...resultNode.querySelectorAll(this.isFoilSelector)]
+      .map(node => node.innerHTML)
+      .map(text => this.isFoilFromTitle(text.toLowerCase()))[0] || false;
 
 
   readCachedResults = (sellerName, searchTerm) => getCachedResultsForSearch(sellerName, searchTerm);

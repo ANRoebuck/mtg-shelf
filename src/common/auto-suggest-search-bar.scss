@@ -1,6 +1,7 @@
 .input-container {
 
-  //position: absolute;
+  position: absolute;
+  width: 400px;
 
   label {
     color: white;
@@ -46,4 +47,11 @@
 
 }
 
-.children {}
+@media only screen and (max-width: 425px) {
+
+  .input-container {
+    width: 50%;
+  }
+
+
+}

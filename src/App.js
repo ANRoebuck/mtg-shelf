@@ -39,10 +39,8 @@ const App = () => {
   return (
     <div className="App">
 
-      <NavBar pages={pages} selected={selected} setSelected={setSelected}/>
-
       <div className="page">
-        {pageToDisplay}
+        <ComparePrices/>
       </div>
 
     </div>

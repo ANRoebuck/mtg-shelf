@@ -16,18 +16,15 @@ class ModelChaosCards_3 extends AbstractModel {
       priceValueFromPriceText: textToDigits,
     });
     this.isMagicCard = ' - Magic the Gathering Single Card';
-    this.fetchConfig = { headers: { "Referrer-Policy" : "no-referrer-when-downgrade" } };
-
   }
-
-  // Override
-  getHtml = (searchTerm) => fetch(this.searchTermToUrl(searchTerm), this.fetchConfig)
 
   // @Override
   allResults = async (searchTerm) =>
     this.getHtml(searchTerm)
-      .then(response => response.json())
-      .then((data) => data.results || []);
+      .then(({ data }) => {
+        console.log(data);
+        return data.results || [];
+      });
 
   // @Override
   titleFromResultNode = ({ title }) => title.replace(regex.colonSplitter, `$1`).replace(regex.whiteSpaceStripper, `$2`);

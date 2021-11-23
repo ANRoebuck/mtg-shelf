@@ -1,5 +1,6 @@
 import ModelAxion from './ModelAxion';
 import ModelBigOrbitCards from './ModelBigOrbitCards';
+import ModelChaosCards_3 from "./ModelChaosCards_3";
 import ModelMagicCardTrader from './ModelMagicCardTrader';
 import ModelMagicMadhouse from './ModelMagicMadhouse';
 import ModelManaLeak from './ModelManaLeak';
@@ -14,7 +15,7 @@ import ModelHareruya from './ModelHareruya';
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  // new ModelMagicCardTrader(),
+  // new ModelChaosCards_3()
 ];
 
 const allModels = [

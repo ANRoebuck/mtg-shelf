@@ -21,6 +21,7 @@ const modelSubset = [
 const allModels = [
   new ModelAxion(),
   new ModelBigOrbitCards(),
+  new ModelChaosCards_3(),
   new ModelMagicCardTrader(),
   new ModelMagicMadhouse(),
   new ModelManaLeak(),

@@ -15,7 +15,7 @@ import ModelHareruya from './ModelHareruya';
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  // new ModelChaosCards_3()
+  new ModelChaosCards_3()
 ];
 
 const allModels = [

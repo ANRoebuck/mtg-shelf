@@ -3,8 +3,6 @@ import { cors, regex, removeDiacritics } from '../utils/utils';
 import { getCachedResultsForSearch, setCachedResultsForSearch } from '../components/localStorageInteractions';
 
 
-const axiosConfig = { headers: { "Referrer-Policy" : "no-referrer-when-downgrade" } };
-
 class AbstractModel {
 
   constructor({ name, logo, baseUrl, searchPath, searchSuffix, searchJoin, resultSelector, nameSelector,
@@ -78,7 +76,7 @@ class AbstractModel {
   }
 
 
-  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm), axiosConfig).catch(() => ({data: ''}));
+  getHtml = (searchTerm) => axios.get(this.searchTermToUrl(searchTerm)).catch(() => ({data: ''}));
 
 
   searchTermToUrl = (searchTerm) => cors
@@ -156,6 +154,7 @@ class AbstractModel {
     const strippedTitle = this.stripWord(title);
     return !(strippedTitle.includes('artcard') || strippedTitle.includes('artseries') || title.includes('(Art)'));
   }
+
 
 }
 

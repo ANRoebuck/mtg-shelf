@@ -28,6 +28,7 @@ const allModels = [
   new ModelMagicMadhouse(),
   new ModelManaLeak(),
   new ModelMountBatten(),
+  new ModelNerdShak(),
   aPatriotGamesLeedsModel(),
   new ModelTrollTrader(),
 

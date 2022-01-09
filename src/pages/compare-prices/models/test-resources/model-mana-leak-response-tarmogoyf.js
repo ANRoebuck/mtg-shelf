@@ -1070,7 +1070,7 @@ export const manaLeakExpectedResultsTarmogoyf =
   [
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '\n£27.14', value: 2714},
       stock: {text: 'In Stock', value: 1},
@@ -1081,7 +1081,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '\n£46.52', value: 4652},
       stock: {text: 'In Stock', value: 1},
@@ -1092,7 +1092,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '\n£28.65', value: 2865},
       stock: {text: 'Out of Stock', value: 0},
@@ -1103,7 +1103,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '\n£27.04', value: 2704},
       stock: {text: 'Out of Stock', value: 0},
@@ -1114,7 +1114,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '\n£28.34', value: 2834},
       stock: {text: 'Out of Stock', value: 0},
@@ -1125,7 +1125,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '\n£22.19', value: 2219},
       stock: {text: 'In Stock', value: 1},
@@ -1136,7 +1136,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '\n£33.72', value: 3372},
       stock: {text: 'Out of Stock', value: 0},
@@ -1147,7 +1147,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '\n£38.56', value: 3856},
       stock: {text: 'Out of Stock', value: 0},
@@ -1158,7 +1158,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '\n£35.53', value: 3553},
       stock: {text: 'Out of Stock', value: 0},
@@ -1169,7 +1169,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '\n£465.51', value: 46551},
       stock: {text: 'Out of Stock', value: 0},
@@ -1180,7 +1180,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '\n£61.13', value: 6113},
       stock: {text: 'Out of Stock', value: 0},
@@ -1191,7 +1191,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '\n£36.85', value: 3685},
       stock: {text: 'Out of Stock', value: 0},
@@ -1202,7 +1202,7 @@ export const manaLeakExpectedResultsTarmogoyf =
     },
     {
       name: 'Manaleak',
-      logo: 'manaLeakLogo 150x60.png',
+      logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil Box Topper',
       price: {text: '\n£78.18', value: 7818},
       stock: {text: 'Out of Stock', value: 0},

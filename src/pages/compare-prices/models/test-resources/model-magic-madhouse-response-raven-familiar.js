@@ -426,7 +426,7 @@ export const madhouseExpextedResultsRavenFamiliar =
   [
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Raven Familiar ',
       price: { text: '£ 0.20', value: 20 },
       stock: { value: 92, text: '92 in Stock' },
@@ -437,7 +437,7 @@ export const madhouseExpextedResultsRavenFamiliar =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Raven Familiar ',
       price: { text: '£ 0.20', value: 20 },
       stock: { value: 1, text: '1 in Stock' },
@@ -448,7 +448,7 @@ export const madhouseExpextedResultsRavenFamiliar =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Raven Familiar (foil) ',
       price: { text: '£ 2.49', value: 249 },
       stock: { value: 0, text: 'Out of Stock' },

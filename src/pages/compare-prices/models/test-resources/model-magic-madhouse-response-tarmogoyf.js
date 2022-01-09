@@ -1112,7 +1112,7 @@ export const madhouseExpextedResultsTarmogoyf =
   [
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf ',
       price: { text: '£ 24.99', value: 2499 },
       stock: { value: 6, text: '6 in Stock' },
@@ -1123,7 +1123,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf (Box Topper Promo) ',
       price: { text: '£ 74.99', value: 7499 },
       stock: { value: 4, text: '4 in Stock' },
@@ -1134,7 +1134,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf ',
       price: { text: '£ 34.99', value: 3499 },
       stock: { value: 3, text: '3 in Stock' },
@@ -1145,7 +1145,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf ',
       price: { text: '£ 34.99', value: 3499 },
       stock: { value: 8, text: '8 in Stock' },
@@ -1156,7 +1156,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf ',
       price: { text: '£ 44.99', value: 4499 },
       stock: { value: 13, text: '13 in Stock' },
@@ -1167,7 +1167,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf ',
       price: { text: '£ 34.99', value: 3499 },
       stock: { value: 5, text: '5 in Stock' },
@@ -1178,7 +1178,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf (foil) ',
       price: { text: '£ 44.99', value: 4499 },
       stock: { value: 1, text: '1 in Stock' },
@@ -1189,7 +1189,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf (foil) ',
       price: { text: '£ 39.99', value: 3999 },
       stock: { value: 2, text: '2 in Stock' },
@@ -1200,7 +1200,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf (foil) ',
       price: { text: '£ 49.99', value: 4999 },
       stock: { value: 16, text: '16 in Stock' },
@@ -1211,7 +1211,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf ',
       price: { text: '£ 29.99', value: 2999 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -1222,7 +1222,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf (foil) ',
       price: { text: '£ 499.99', value: 49999 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -1233,7 +1233,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf (foil) ',
       price: { text: '£ 79.99', value: 7999 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -1244,7 +1244,7 @@ export const madhouseExpextedResultsTarmogoyf =
     },
     {
       name: 'Magic Madhouse',
-      logo: 'magicMadhouseLogo 150x60.png',
+      logo: 'magicMadhouse 150x60.png',
       title: 'Tarmogoyf (foil) ',
       price: { text: '£ 49.99', value: 4999 },
       stock: { value: 0, text: 'Out of Stock' },

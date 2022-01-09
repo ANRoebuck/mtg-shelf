@@ -8861,7 +8861,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
   [
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£30.00', value: 3000},
       stock: {value: 1, text: '1 in Stock'},
@@ -8872,7 +8872,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£28.00', value: 2800},
       stock: {value: 2, text: '2 in Stock'},
@@ -8883,7 +8883,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -8894,7 +8894,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -8905,7 +8905,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -8916,7 +8916,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -8927,7 +8927,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -8938,7 +8938,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -8949,7 +8949,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -8960,7 +8960,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Magic Card Trader',
-      logo: 'magicCardTraderLogo-black 150x60.png',
+      logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},

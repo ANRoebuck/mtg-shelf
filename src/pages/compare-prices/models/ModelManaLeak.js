@@ -33,7 +33,7 @@ class ModelManaLeak extends AbstractModel {
   // @Override
   stockFromResultNode = (resultNode) => {
     // Stock count is not displayed. An out of stock banner either is or is not present.
-    let isInStock = resultNode.querySelectorAll('div.image > span.label-outofstock').length === 0;
+    let isInStock = resultNode.querySelectorAll(this.stockSelector).length === 0;
     let text = isInStock ? 'In Stock' : 'Out of Stock';
     let value = isInStock ? 1 : 0;
     return { text, value };

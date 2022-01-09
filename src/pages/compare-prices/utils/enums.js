@@ -1,16 +1,16 @@
-import axionLogo from '../resources/axion 150x60.png';
-import bigOrbitLogo from '../resources/bigOrbitCards 150x60.png';
-import chaosLogo from '../resources/chaosCards 150x60.png';
-import harlequinsLogo from '../resources/harlequins 150x60.png';
-import hareruyaLogo from '../resources/hareryua 150x60.png';
-import magicCardTraderLogo from '../resources/magicCardTrader-black 150x60.png';
-import magicMadhouseLogo from '../resources/magicMadhouse 150x60.png';
-import manaleakLogo from '../resources/manaLeak 150x60.png';
-import mountBattenLogo from '../resources/mountBatten 150x60.png';
-import nerdShakLogo from '../resources/nerdShak 150x60.jpg';
-import pgLeedsLogo from '../resources/patriotGamesLeeds 150x60.png';
-import starCityGamesLogo from '../resources/starCityGames 150x60.png';
-import trollLogo from '../resources/trollTrader 150x60.png';
+import axionLogo from '../models/resources/axion 150x60.png';
+import bigOrbitLogo from '../models/resources/bigOrbitCards 150x60.png';
+import chaosLogo from '../models/resources/chaosCards 150x60.png';
+import harlequinsLogo from '../models/resources/harlequins 150x60.png';
+import hareruyaLogo from '../models/resources/hareryua 150x60.png';
+import magicCardTraderLogo from '../models/resources/magicCardTrader-black 150x60.png';
+import magicMadhouseLogo from '../models/resources/magicMadhouse 150x60.png';
+import manaleakLogo from '../models/resources/manaLeak 150x60.png';
+import mountBattenLogo from '../models/resources/mountBatten 150x60.png';
+import nerdShakLogo from '../models/resources/nerdShak 150x60.jpg';
+import pgLeedsLogo from '../models/resources/patriotGamesLeeds 150x60.png';
+import starCityGamesLogo from '../models/resources/starCityGames 150x60.png';
+import trollLogo from '../models/resources/trollTrader 150x60.png';
 
 export const seller = {
   axion: {

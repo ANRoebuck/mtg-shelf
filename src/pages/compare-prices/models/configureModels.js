@@ -7,6 +7,7 @@ import ModelMagicCardTrader from './ModelMagicCardTrader';
 import ModelMagicMadhouse from './ModelMagicMadhouse';
 import ModelManaLeak from './ModelManaLeak';
 import ModelMountBatten from './ModelMountBatten';
+import ModelNerdShak from './ModelNerdShak';
 import aPatriotGamesLeedsModel from './ModelPatriotGamesLeeds';
 import ModelStarCityGames from './ModelStarCityGames';
 import ModelTrollTrader from './ModelTrollTrader';
@@ -16,7 +17,7 @@ import ModelTrollTrader from './ModelTrollTrader';
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  new ModelHarlequins(),
+  new ModelNerdShak(),
 ];
 
 const allModels = [

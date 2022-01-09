@@ -132,7 +132,7 @@ class AbstractModel {
 
   expansionFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.expansionSelector)]
-      .map(node => node.innerHTML)[0] || null;
+      .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
 
 
   isFoilFromTitle = (title) => title.toLowerCase().includes('foil');

@@ -19,12 +19,8 @@ class ModelChaosCards_3 extends AbstractModel {
   }
 
   // @Override
-  allResults = async (searchTerm) =>
-    this.getHtml(searchTerm)
-      .then(({ data }) => {
-        console.log(data);
-        return data.results || [];
-      });
+  allResults = async (searchTerm) => this.getHtml(searchTerm)
+      .then(({ data }) => data.results || []);
 
   // @Override
   titleFromResultNode = ({ title }) => title.replace(regex.colonSplitter, `$1`).replace(regex.whiteSpaceStripper, `$2`);

@@ -1,14 +1,16 @@
-import axionLogo from '../resources/axionLogo 150x60.png';
-import bigOrbitLogo from '../resources/bigOrbitCardsLogo 150x60.png';
-import chaosLogo from '../resources/chaosCardsLogo 150x60.png';
-import hareruyaLogo from '../resources/hareryuaLogo 150x60.png';
-import magicCardTraderLogo from '../resources/magicCardTraderLogo-black 150x60.png';
-import magicMadhouseLogo from '../resources/magicMadhouseLogo 150x60.png';
-import manaleakLogo from '../resources/manaLeakLogo 150x60.png';
-import mountBattenLogo from '../resources/mountBattenLogo 150x60.png';
-import pgLeedsLogo from '../resources/patriotGamesLeedsLogo 150x60.png';
+import axionLogo from '../resources/axion 150x60.png';
+import bigOrbitLogo from '../resources/bigOrbitCards 150x60.png';
+import chaosLogo from '../resources/chaosCards 150x60.png';
+import harlequinsLogo from '../resources/harlequins 150x60.png';
+import hareruyaLogo from '../resources/hareryua 150x60.png';
+import magicCardTraderLogo from '../resources/magicCardTrader-black 150x60.png';
+import magicMadhouseLogo from '../resources/magicMadhouse 150x60.png';
+import manaleakLogo from '../resources/manaLeak 150x60.png';
+import mountBattenLogo from '../resources/mountBatten 150x60.png';
+import nerdShakLogo from '../resources/nerdShak 150x60.jpg';
+import pgLeedsLogo from '../resources/patriotGamesLeeds 150x60.png';
 import starCityGamesLogo from '../resources/starCityGames 150x60.png';
-import trollLogo from '../resources/trollTraderLogo 150x60.png';
+import trollLogo from '../resources/trollTrader 150x60.png';
 
 export const seller = {
   axion: {
@@ -27,6 +29,10 @@ export const seller = {
     name: 'Hareruya',
     logo: hareruyaLogo,
   },
+  harlequins: {
+    name: 'Harlequins',
+    logo: harlequinsLogo,
+  },
   magicCardTrader: {
     name: 'Magic Card Trader',
     logo: magicCardTraderLogo,
@@ -40,8 +46,12 @@ export const seller = {
     logo: manaleakLogo,
   },
   mountBatten: {
-    name: 'MountBatten',
+    name: 'Mountbatten Collectables',
     logo: mountBattenLogo,
+  },
+  nerdShak: {
+    name: 'Nerd Shak',
+    logo: nerdShakLogo,
   },
   pgLeeds: {
     name: 'Patriot Games Leeds',

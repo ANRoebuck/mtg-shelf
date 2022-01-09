@@ -654,7 +654,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
   [
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£25.00', value: 2500},
       stock: {text: 'Out of Stock', value: 0},
@@ -665,7 +665,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£45.00', value: 4500},
       stock: {text: 'In Stock', value: 1},
@@ -676,7 +676,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£25.00', value: 2500},
       stock: {text: 'Out of Stock', value: 0},
@@ -687,7 +687,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£25.00', value: 2500},
       stock: {text: 'In Stock', value: 1},
@@ -698,7 +698,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£30.00', value: 3000},
       stock: {text: 'Out of Stock', value: 0},
@@ -709,7 +709,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£30.00', value: 3000},
       stock: {text: 'In Stock', value: 1},
@@ -720,7 +720,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
       price: {text: '£435.00', value: 43500},
       stock: {text: 'Out of Stock', value: 0},
@@ -731,7 +731,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
       price: {text: '£40.00', value: 4000},
       stock: {text: 'Out of Stock', value: 0},
@@ -742,7 +742,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
       price: {text: '£60.00', value: 6000},
       stock: {text: 'Out of Stock', value: 0},
@@ -753,7 +753,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
       price: {text: '£35.00', value: 3500},
       stock: {text: 'Out of Stock', value: 0},
@@ -764,7 +764,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
       price: {text: '£35.00', value: 3500},
       stock: {text: 'Out of Stock', value: 0},
@@ -775,7 +775,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     },
     {
       name: 'Patriot Games Leeds',
-      logo: 'patriotGamesLeedsLogo 150x60.png',
+      logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf - Ultimate Box Topper',
       price: {text: '£85.00', value: 8500},
       stock: {text: 'Out of Stock', value: 0},

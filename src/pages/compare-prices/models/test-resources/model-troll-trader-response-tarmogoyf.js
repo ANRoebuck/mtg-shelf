@@ -13911,7 +13911,7 @@ export const trollTraderExpectedResultsTarmogoyf =
   [
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
       price: {
         text: '\n' +
@@ -13933,7 +13933,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
       price: {
         text: '\n' +
@@ -13955,7 +13955,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
       price: {
         text: '\n' +
@@ -13977,7 +13977,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
       price: {
         text: '\n' +
@@ -13999,7 +13999,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
       price: {
         text: '\n' +
@@ -14021,7 +14021,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£30.70', value: 3070},
       stock: {text: 'Out of Stock', value: 0},
@@ -14032,7 +14032,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {
         text: '\n' +
@@ -14054,7 +14054,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '£559.99', value: 55999},
       stock: {text: 'Out of Stock', value: 0},
@@ -14065,7 +14065,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '£80.06', value: 8006},
       stock: {text: 'Out of Stock', value: 0},
@@ -14076,7 +14076,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '£55.45', value: 5545},
       stock: {text: 'Out of Stock', value: 0},
@@ -14087,7 +14087,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '£45.81', value: 4581},
       stock: {text: 'Out of Stock', value: 0},
@@ -14098,7 +14098,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '£41.46', value: 4146},
       stock: {text: 'Out of Stock', value: 0},
@@ -14109,7 +14109,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '£40.94', value: 4094},
       stock: {text: 'Out of Stock', value: 0},
@@ -14120,7 +14120,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - The List',
       price: {
         text: '\n' +
@@ -14142,7 +14142,7 @@ export const trollTraderExpectedResultsTarmogoyf =
     },
     {
       name: 'Troll Trader',
-      logo: 'trollTraderLogo 150x60.png',
+      logo: 'trollTrader 150x60.png',
       title: 'Ultra Pro - Relic Tokens: Eternal Collection - Tarmogoyf',
       price: {text: '£9.95', value: 995},
       stock: {text: 'Out of Stock', value: 0},

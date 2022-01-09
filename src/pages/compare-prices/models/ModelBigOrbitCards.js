@@ -25,7 +25,7 @@ class ModelBigOrbitCards extends AbstractModel{
       stockSelector: 'form > div.ty-compact-list__content > div.ty-compact-list__controls.compact_list_add_to_cart > div > div > span > span:nth-child(2)',
       stockValueFromStockText: (text) => text === '[no such message]' ? 0 : parseInt(text.replace(/[\D]*([0-9]+)[\D]*£([0-9]+).([0-9]{2})[\D]*/, `$1`)),
       isFoilSelector: 'form > div.compact_title_add_to_cart_header > bdi > a',
-      imgSelector: 'form > div.ty-compact-list__content > div.ty-compact-list__image > label > a > picture > img',
+      imgSelector: 'form > div.ty-compact-list__content > div.ty-compact-list__image > label > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
       productSelector: 'form > div.ty-compact-list__content > div.ty-compact-list__image > label > a',

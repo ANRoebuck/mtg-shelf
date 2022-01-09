@@ -9720,7 +9720,7 @@ export const hareruyaExpectedResultsTarmogoyf =
   [
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Tarmogoyf ',
       price: { text: '¥ 8,500', value: 8500 },
       stock: { value: 1, text: '1 in Stock' },
@@ -9731,7 +9731,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Foil  Tarmogoyf ',
       price: { text: '¥ 6,000', value: 6000 },
       stock: { value: 1, text: '1 in Stock' },
@@ -9742,7 +9742,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Tarmogoyf ',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 1, text: '1 in Stock' },
@@ -9753,7 +9753,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Tarmogoyf ',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 3, text: '3 in Stock' },
@@ -9764,7 +9764,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Foil  Tarmogoyf ',
       price: { text: '¥ 8,500', value: 8500 },
       stock: { value: 2, text: '2 in Stock' },
@@ -9775,7 +9775,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Foil  Tarmogoyf ',
       price: { text: '¥ 8,500', value: 8500 },
       stock: { value: 3, text: '3 in Stock' },
@@ -9786,7 +9786,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Foil  Tarmogoyf ',
       price: { text: '¥ 200,000', value: 200000 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -9797,7 +9797,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Tarmogoyf ',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 1, text: '1 in Stock' },
@@ -9808,7 +9808,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Tarmogoyf ',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 11, text: '11 in Stock' },
@@ -9819,7 +9819,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' JP  Foil  Tarmogoyf ',
       price: { text: '¥ 6,000', value: 6000 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -9830,7 +9830,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Tarmogoyf ',
       price: { text: '¥ 7,500', value: 7500 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -9841,7 +9841,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Foil  Tarmogoyf ',
       price: { text: '¥ 5,000', value: 5000 },
       stock: { value: 1, text: '1 in Stock' },
@@ -9852,7 +9852,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Tarmogoyf ',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 2, text: '2 in Stock' },
@@ -9863,7 +9863,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Tarmogoyf ',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 1, text: '1 in Stock' },
@@ -9874,7 +9874,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Tarmogoyf ',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 3, text: '3 in Stock' },
@@ -9885,7 +9885,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Foil  Tarmogoyf ',
       price: { text: '¥ 8,000', value: 8000 },
       stock: { value: 1, text: '1 in Stock' },
@@ -9896,7 +9896,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Foil  Tarmogoyf ',
       price: { text: '¥ 8,000', value: 8000 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -9907,7 +9907,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Foil  Tarmogoyf ',
       price: { text: '¥ 8,000', value: 8000 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -9918,7 +9918,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Foil  Tarmogoyf ',
       price: { text: '¥ 100,000', value: 100000 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -9929,7 +9929,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Tarmogoyf ',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 1, text: '1 in Stock' },
@@ -9940,7 +9940,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Foil   Tarmogoyf ',
       price: { text: '¥ 12,980', value: 12980 },
       stock: { value: 4, text: '4 in Stock' },
@@ -9951,7 +9951,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Tarmogoyf ',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -9962,7 +9962,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Foil  Tarmogoyf ',
       price: { text: '¥ 6,000', value: 6000 },
       stock: { value: 0, text: 'Out of Stock' },
@@ -9973,7 +9973,7 @@ export const hareruyaExpectedResultsTarmogoyf =
     },
     {
       name: 'Hareruya',
-      logo: 'hareryuaLogo 150x60.png',
+      logo: 'hareryua 150x60.png',
       title: ' EN  Tarmogoyf ',
       price: { text: '¥ 4,800', value: 4800 },
       stock: { value: 3, text: '3 in Stock' },

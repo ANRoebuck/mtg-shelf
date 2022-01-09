@@ -18059,7 +18059,7 @@ export const axionExpectedResultsTarmogoyf =
   [
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£42.99', value: 4299},
       stock: {value: 1, text: '1 in Stock'},
@@ -18070,7 +18070,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '£32.00', value: 3200},
       stock: {value: 1, text: '1 in Stock'},
@@ -18081,7 +18081,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -18092,7 +18092,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -18103,7 +18103,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -18114,7 +18114,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -18125,7 +18125,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -18136,7 +18136,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -18147,7 +18147,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -18158,7 +18158,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -18169,7 +18169,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
@@ -18180,7 +18180,7 @@ export const axionExpectedResultsTarmogoyf =
     },
     {
       name: 'Axion Now',
-      logo: 'axionLogo 150x60.png',
+      logo: 'axion 150x60.png',
       title: 'Tarmogoyf - Foil',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},

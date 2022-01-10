@@ -13,7 +13,7 @@ describe('ModelAxion', () => {
     const model = new ModelMountBatten();
     const results = await model.search('Scalding Tarn');
 
-    expect(model.name).toBe('MountBatten');
+    expect(model.name).toBe('Mountbatten Collectables');
     expect(results.length).toBe(2);
     expect(results).toStrictEqual(mountBattenExpectedResultsScaldingTarn);
   });

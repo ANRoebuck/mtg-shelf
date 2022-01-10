@@ -3490,7 +3490,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/29/ztempfAMCTr.jpg',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/future-sight/tarmogoyf.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tFuture Sight\n\t\t\t\t\t\t\t\t',
+      expansion: 'Future Sight',
       isFoil: false
     },
     {
@@ -3501,7 +3501,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/29/ztempfAMCTr.jpg',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/future-sight/tarmogoyf-foil.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tFuture Sight\n\t\t\t\t\t\t\t\t',
+      expansion: 'Future Sight',
       isFoil: true
     },
     {
@@ -3512,7 +3512,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/506/Tarmogoyf-Modern-Masters-2017-Spoiler.png',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2017-edition/tarmogoyf.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2017 Edition\n\t\t\t\t\t\t\t\t',
+      expansion: 'Modern Masters 2017 Edition',
       isFoil: false
     },
     {
@@ -3523,7 +3523,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/506/Tarmogoyf-Modern-Masters-2017-Spoiler.png',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2017-edition/tarmogoyf-foil.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2017 Edition\n\t\t\t\t\t\t\t\t',
+      expansion: 'Modern Masters 2017 Edition',
       isFoil: true
     },
     {
@@ -3534,7 +3534,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/425/tarmogoyf.jpg',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2015-edition-en/tarmogoyf.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2015 Edition\n\t\t\t\t\t\t\t\t',
+      expansion: 'Modern Masters 2015 Edition',
       isFoil: false
     },
     {
@@ -3545,7 +3545,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/425/tarmogoyf.jpg',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters-2015-edition-en/tarmogoyf-foil.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters 2015 Edition\n\t\t\t\t\t\t\t\t',
+      expansion: 'Modern Masters 2015 Edition',
       isFoil: true
     },
     {
@@ -3556,7 +3556,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/74/ztemp7mRqOj.jpg',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters/tarmogoyf.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters\n\t\t\t\t\t\t\t\t',
+      expansion: 'Modern Masters',
       isFoil: false
     },
     {
@@ -3567,7 +3567,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/74/ztemp7mRqOj.jpg',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/modern-masters/tarmogoyf-foil.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tModern Masters\n\t\t\t\t\t\t\t\t',
+      expansion: 'Modern Masters',
       isFoil: true
     },
     {
@@ -3578,7 +3578,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/831/ztempfAMCTr.jpg',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/the-list/tarmogoyf.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tThe List\n\t\t\t\t\t\t\t\t',
+      expansion: 'The List',
       isFoil: false
     },
     {
@@ -3589,7 +3589,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/804/233959_200w.jpg',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/time-spiral-remastered/tarmogoyf.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tTime Spiral Remastered\n\t\t\t\t\t\t\t\t',
+      expansion: 'Time Spiral Remastered',
       isFoil: false
     },
     {
@@ -3600,7 +3600,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/804/233959_200w_1u0y-2d.jpg',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/time-spiral-remastered/tarmogoyf-foil.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tTime Spiral Remastered\n\t\t\t\t\t\t\t\t',
+      expansion: 'Time Spiral Remastered',
       isFoil: true
     },
     {
@@ -3611,7 +3611,7 @@ export const bigOrbitExpectedResultsTarmogoyf =
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://www.bigorbitcards.co.uk/images/thumbnails/120/120/detailed/574/en_2G92JblwhT.png',
       productRef: 'https://www.bigorbitcards.co.uk/magic-the-gathering/ultimate-masters/tarmogoyf-box-topper.html',
-      expansion: '\n\t\t\t\t\t\t\t\t\tUltimate Masters\n\t\t\t\t\t\t\t\t',
+      expansion: 'Ultimate Masters',
       isFoil: false
     }
   ];

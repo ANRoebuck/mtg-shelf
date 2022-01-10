@@ -3,12 +3,13 @@ import ModelBigOrbitCards from './ModelBigOrbitCards';
 import ModelChaosCards_3 from './ModelChaosCards_3';
 import ModelHareruya from './ModelHareruya';
 import ModelHarlequins from './ModelHarlequins';
+import ModelLvlUp from './ModelLvlUp';
 import ModelMagicCardTrader from './ModelMagicCardTrader';
 import ModelMagicMadhouse from './ModelMagicMadhouse';
 import ModelManaLeak from './ModelManaLeak';
 import ModelMountBatten from './ModelMountBatten';
 import ModelNerdShak from './ModelNerdShak';
-import aPatriotGamesLeedsModel from './ModelPatriotGamesLeeds';
+import ModelPatriotGamesLeeds from './ModelPatriotGamesLeeds';
 import ModelStarCityGames from './ModelStarCityGames';
 import ModelTrollTrader from './ModelTrollTrader';
 
@@ -17,7 +18,7 @@ import ModelTrollTrader from './ModelTrollTrader';
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  // new ModelHarlequins(),
+  // new ModelLvlUp(),
 ];
 
 const allModels = [
@@ -25,11 +26,12 @@ const allModels = [
   new ModelBigOrbitCards(),
   new ModelMagicCardTrader(),
   new ModelHarlequins(),
+  new ModelLvlUp(),
   new ModelMagicMadhouse(),
   new ModelManaLeak(),
   new ModelMountBatten(),
   new ModelNerdShak(),
-  aPatriotGamesLeedsModel(),
+  new ModelPatriotGamesLeeds(),
   new ModelTrollTrader(),
 
   // non-UK

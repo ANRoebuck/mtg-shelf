@@ -5268,55 +5268,7 @@ export const nerdShakExpectedResultsTarmogoyf =
       logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
       price: {
-        text: '\n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        £18.20\n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '        \n' +
-          '\n' +
-          '    ',
+        text: '£18.20',
         value: 1820
       },
       stock: { text: 'In Stock', value: 1 },
@@ -5330,8 +5282,8 @@ export const nerdShakExpectedResultsTarmogoyf =
       logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
       price: {
-        text: '\n\n        \n\n        Sold Out\n\n        \n\n    ',
-        value: 9999
+        text: 'Sold Out',
+        value: NaN
       },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/6cc6c2dd-9e38-5937-ad72-fc85436ae532_02ecdd6d-d6e5-4474-8a94-b0eeef0bb2f4_large.jpg?v=1640121686',
@@ -5344,8 +5296,8 @@ export const nerdShakExpectedResultsTarmogoyf =
       logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
       price: {
-        text: '\n\n        \n\n        Sold Out\n\n        \n\n    ',
-        value: 9999
+        text: 'Sold Out',
+        value: NaN
       },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/42e56220-81c3-4440-9f97-8616d630a8ee_large.jpg?v=1620788228',
@@ -5358,8 +5310,8 @@ export const nerdShakExpectedResultsTarmogoyf =
       logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
       price: {
-        text: '\n\n        \n\n        Sold Out\n\n        \n\n    ',
-        value: 9999
+        text: 'Sold Out',
+        value: NaN
       },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/5ea82414-3f16-4c8c-8668-1f1ee7566c7b_large.jpg?v=1620774823',
@@ -5372,8 +5324,8 @@ export const nerdShakExpectedResultsTarmogoyf =
       logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
       price: {
-        text: '\n\n        \n\n        Sold Out\n\n        \n\n    ',
-        value: 9999
+        text: 'Sold Out',
+        value: NaN
       },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/b6876d9e-0908-43ac-8542-09c7aa02b5ba_large.jpg?v=1620782111',
@@ -5386,8 +5338,8 @@ export const nerdShakExpectedResultsTarmogoyf =
       logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
       price: {
-        text: '\n\n        \n\n        Sold Out\n\n        \n\n    ',
-        value: 9999
+        text: 'Sold Out',
+        value: NaN
       },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/1cfdd410-391b-4b71-8139-f5a30653097a_large.jpg?v=1620769572',
@@ -5400,8 +5352,8 @@ export const nerdShakExpectedResultsTarmogoyf =
       logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
       price: {
-        text: '\n\n        \n\n        Sold Out\n\n        \n\n    ',
-        value: 9999
+        text: 'Sold Out',
+        value: NaN
       },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/f9d42f43-b7a4-51bf-9b5c-79098833394f_large.jpg?v=1629924632',
@@ -5414,8 +5366,8 @@ export const nerdShakExpectedResultsTarmogoyf =
       logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
       price: {
-        text: '\n\n        \n\n        Sold Out\n\n        \n\n    ',
-        value: 9999
+        text: 'Sold Out',
+        value: NaN
       },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/8a34e2df-a9ee-4c61-bc4c-518475a39925_large.jpg?v=1620788274',

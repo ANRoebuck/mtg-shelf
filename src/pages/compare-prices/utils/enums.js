@@ -3,6 +3,7 @@ import bigOrbitLogo from '../models/resources/bigOrbitCards 150x60.png';
 import chaosLogo from '../models/resources/chaosCards 150x60.png';
 import harlequinsLogo from '../models/resources/harlequins 150x60.png';
 import hareruyaLogo from '../models/resources/hareryua 150x60.png';
+import lvlUpLogo from '../models/resources/lvlUp 150x60.png';
 import magicCardTraderLogo from '../models/resources/magicCardTrader-black 150x60.png';
 import magicMadhouseLogo from '../models/resources/magicMadhouse 150x60.png';
 import manaleakLogo from '../models/resources/manaLeak 150x60.png';
@@ -32,6 +33,10 @@ export const seller = {
   harlequins: {
     name: 'Harlequins',
     logo: harlequinsLogo,
+  },
+  lvlUp: {
+    name: 'Lvl Up Gaming',
+    logo: lvlUpLogo,
   },
   magicCardTrader: {
     name: 'Magic Card Trader',

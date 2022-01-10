@@ -12,9 +12,10 @@ class ModelPatriotGamesLeeds {
   }
 
   search = async (input) => {
-    const desktopResults = await this.desktopModel.search(input);
     const mobileResults = await this.mobileModel.search(input);
-    return desktopResults.length > 0 ? desktopResults : mobileResults;
+    const desktopResults = await this.desktopModel.search(input);
+    if (mobileResults.length > 0) return mobileResults;
+    return desktopResults;
   }
 
 }

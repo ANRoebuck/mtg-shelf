@@ -10,7 +10,7 @@ class ModelHarlequins extends AbstractModel {
       logo: seller.harlequins.logo,
       baseUrl: 'https://www.harlequins-games.com/',
       searchPath: 'products/search?q=',
-      searchSuffix: '&c=8',
+      searchSuffix: '&c=8&disable_mobile=1',
       searchJoin: '+',
       resultSelector: 'ul.products > li.product',
       nameSelector: 'div.inner > div > div.meta > a > h4',

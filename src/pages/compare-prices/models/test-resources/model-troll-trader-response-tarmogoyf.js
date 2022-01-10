@@ -13913,18 +13913,7 @@ export const trollTraderExpectedResultsTarmogoyf =
       name: 'Troll Trader',
       logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
-      price: {
-        text: '\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                                £56.71\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                        ',
-        value: 5671
-      },
+      price: {text: '£56.71', value: 5671},
       stock: {value: 5, text: '5 in Stock'},
       imgSrc: 'https://crystal-cdn2.crystalcommerce.com/photos/29933/medium/OMPYGJS6ajapjMAv.jpg',
       productRef: 'https://www.trolltradercards.com//catalog/magic_singles-time_spiral_block-future_sight/tarmogoyf/1357',
@@ -13935,18 +13924,7 @@ export const trollTraderExpectedResultsTarmogoyf =
       name: 'Troll Trader',
       logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
-      price: {
-        text: '\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                                £36.67\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                        ',
-        value: 3667
-      },
+      price: {text: '£36.67', value: 3667},
       stock: {value: 4, text: '4 in Stock'},
       imgSrc: 'https://crystal-cdn1.crystalcommerce.com/photos/905658/medium/TG.jpg',
       productRef: 'https://www.trolltradercards.com//catalog/magic_singles-special_editions-modern_masters/tarmogoyf/65597',
@@ -13957,18 +13935,7 @@ export const trollTraderExpectedResultsTarmogoyf =
       name: 'Troll Trader',
       logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
-      price: {
-        text: '\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                                £35.78\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                        ',
-        value: 3578
-      },
+      price: {text: '£35.78', value: 3578},
       stock: {value: 5, text: '5 in Stock'},
       imgSrc: 'https://crystal-cdn1.crystalcommerce.com/photos/3643243/medium/tarmogoyf.jpg',
       productRef: 'https://www.trolltradercards.com//catalog/magic_singles-special_editions-modern_masters_2015_edition/tarmogoyf/117913',
@@ -13979,18 +13946,7 @@ export const trollTraderExpectedResultsTarmogoyf =
       name: 'Troll Trader',
       logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
-      price: {
-        text: '\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                                £31.57\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                        ',
-        value: 3157
-      },
+      price: {text: '£31.57', value: 3157},
       stock: {value: 3, text: '3 in Stock'},
       imgSrc: 'https://crystal-cdn4.crystalcommerce.com/photos/6344442/medium/en_oYewlmYojE.png',
       productRef: 'https://www.trolltradercards.com//catalog/magic_singles-special_editions-modern_masters_2017_edition/tarmogoyf/220083',
@@ -14001,18 +13957,7 @@ export const trollTraderExpectedResultsTarmogoyf =
       name: 'Troll Trader',
       logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf',
-      price: {
-        text: '\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                                £24.80\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                        ',
-        value: 2480
-      },
+      price: {text: '£24.80', value: 2480},
       stock: {value: 4, text: '4 in Stock'},
       imgSrc: 'https://crystal-cdn2.crystalcommerce.com/photos/6628687/medium/en_FtCnjfomHm.png',
       productRef: 'https://www.trolltradercards.com//catalog/magic_singles-time_spiral_block-time_spiral_remastered/tarmogoyf/321801',
@@ -14034,18 +13979,7 @@ export const trollTraderExpectedResultsTarmogoyf =
       name: 'Troll Trader',
       logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - Foil',
-      price: {
-        text: '\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                                £82.83\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                        ',
-        value: 8283
-      },
+      price: {text: '£82.83', value: 8283},
       stock: {value: 5, text: '5 in Stock'},
       imgSrc: 'https://crystal-cdn1.crystalcommerce.com/photos/6480115/medium/en_2G92JblwhT.png',
       productRef: 'https://www.trolltradercards.com//catalog/magic_singles-masterpiece_series-ultimate_masters_box_toppers/tarmogoyf__foil/301994',
@@ -14122,18 +14056,7 @@ export const trollTraderExpectedResultsTarmogoyf =
       name: 'Troll Trader',
       logo: 'trollTrader 150x60.png',
       title: 'Tarmogoyf - The List',
-      price: {
-        text: '\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                                £35.68\n' +
-          '\n' +
-          '                            \n' +
-          '\n' +
-          '                        ',
-        value: 3568
-      },
+      price: {text: '£35.68', value: 3568},
       stock: {value: 2, text: '2 in Stock'},
       imgSrc: 'https://crystal-cdn4.crystalcommerce.com/photos/6646224/medium/Tarmogoyf.jpg',
       productRef: 'https://www.trolltradercards.com//catalog/magic_singles-mystery_singles-the_list__zendikar_rising/tarmogoyf__the_list/326856',

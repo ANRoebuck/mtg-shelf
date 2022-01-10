@@ -102,7 +102,7 @@ class AbstractModel {
       .map(node => {
         const nodeText = node.innerHTML;
         return {
-          text: this.priceToDisplayFromPriceText(nodeText),
+          text: this.priceToDisplayFromPriceText(nodeText).replace(regex.whiteSpaceStripper, `$2`),
           value: this.priceValueFromPriceText(nodeText),
         };
       })[0] || {text: '', value: 9999};

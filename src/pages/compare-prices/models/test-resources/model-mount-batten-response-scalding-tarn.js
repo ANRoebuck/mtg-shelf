@@ -10509,7 +10509,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 export const mountBattenExpectedResultsScaldingTarn =
   [
     {
-      name: 'MountBatten',
+      name: 'Mountbatten Collectables',
       logo: 'mountBatten 150x60.png',
       title: 'Scalding Tarn',
       price: {text: '£32.50', value: 3250},
@@ -10520,7 +10520,7 @@ export const mountBattenExpectedResultsScaldingTarn =
       isFoil: false
     },
     {
-      name: 'MountBatten',
+      name: 'Mountbatten Collectables',
       logo: 'mountBatten 150x60.png',
       title: 'Scalding Tarn - Retro Frame',
       price: {text: '£49.75', value: 4975},

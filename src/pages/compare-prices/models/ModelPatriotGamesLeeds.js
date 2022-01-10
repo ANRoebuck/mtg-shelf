@@ -2,14 +2,22 @@ import { seller } from '../utils/enums';
 import { identityFunction, textToDigits } from '../utils/utils';
 import AbstractModel from './AbstractModel';
 
-// For testing purposes an optional type can be provided to force the use of mobile/desktop view
-// If not provided, a window size check will be performed to determine which model to return
-const aPatriotGamesLeedsModel = (optionalType) => {
-  if (optionalType === 'desktop') return new ModelPatriotGamesLeedsDesktop();
-  if (optionalType === 'mobile') return new ModelPatriotGamesLeedsMobile();
-  return checkWindowSize() ? new ModelPatriotGamesLeedsDesktop() : new ModelPatriotGamesLeedsMobile();
+class ModelPatriotGamesLeeds {
+
+  constructor() {
+    this.name =  seller.pgLeeds.name;
+    this.logo = seller.pgLeeds.logo;
+    this.desktopModel = new ModelPatriotGamesLeedsDesktop();
+    this.mobileModel = new ModelPatriotGamesLeedsMobile();
+  }
+
+  search = async (input) => {
+    const desktopResults = await this.desktopModel.search(input);
+    const mobileResults = await this.mobileModel.search(input);
+    return desktopResults.length > 0 ? desktopResults : mobileResults;
+  }
+
 }
-const checkWindowSize = () => window.innerWidth > 425;
 
 class ModelPatriotGamesLeedsDesktop extends AbstractModel {
 
@@ -44,7 +52,7 @@ class ModelPatriotGamesLeedsDesktop extends AbstractModel {
     let arr =[];
     resultNode.querySelectorAll(this.stockSelector)
       .forEach(node => {
-        const text = node.innerHTML === '... more info' ? "Out of Stock" : "In Stock";
+        const text = node.innerHTML === '... more info' ? 'Out of Stock' : 'In Stock';
         arr.push({
           text,
           value: text === 'Out of Stock' ? 0 : 1,
@@ -77,38 +85,31 @@ class ModelPatriotGamesLeedsMobile extends AbstractModel {
       searchPath: 'index.php?main_page=advanced_search_result&search_in_description=1&keyword=',
       searchSuffix: '',
       searchJoin: '+',
-      resultSelector: 'table > tbody> tr',
-      nameSelector: 'td > h3.itemTitle > a',
-      priceSelector: 'td.ui-table-priority-3 > span.productBasePrice',
+      resultSelector: 'div.listing > div',
+      nameSelector: 'div > h3 > a',
+      priceSelector: 'div > div.list-price > span',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
-      stockSelector: 'td.ui-table-priority-3 > a',
+      stockSelector: 'div > div.multiple-add-to-cart > div',
       stockValueFromStockText: identityFunction,
-      isFoilSelector: 'td > h3.itemTitle > a',
-      imgSelector: 'td > a > img',
+      isFoilSelector: 'div > h3 > a',
+      imgSelector: 'div > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
-      productSelector: 'td > h3.itemTitle > a',
+      productSelector: 'div > h3 > a',
       productBaseUrl: '',
       productRefAttribute: 'href',
-      expansionSelector: 'td > div.listingDescription',
+      expansionSelector: 'div > div.listingDescription',
     });
-    console.log("using mobile model")
   }
 
   // @Override
   stockFromResultNode = (resultNode) => {
-    let arr =[];
-    resultNode.querySelectorAll(this.stockSelector)
-      .forEach(node => {
-        const text = node.innerHTML === '... more info' ? "Out of Stock" : "In Stock";
-        arr.push({
-          text,
-          value: text === 'Out of Stock' ? 0 : 1,
-        });
-      });
-    arr.push({text: 'In Stock', value: 1});
-    return arr[0];
+    // Stock count is not displayed. Add to basket either is or is not displayed
+    let isInStock = resultNode.querySelectorAll(this.stockSelector).length > 0;
+    let text = isInStock ? 'In Stock' : 'Out of Stock';
+    let value = isInStock ? 1 : 0;
+    return { text, value };
   }
 
   // @Override
@@ -123,4 +124,4 @@ class ModelPatriotGamesLeedsMobile extends AbstractModel {
   }
 }
 
-export default aPatriotGamesLeedsModel;
+export default ModelPatriotGamesLeeds;

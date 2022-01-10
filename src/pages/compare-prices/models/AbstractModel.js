@@ -5,6 +5,7 @@ import { getCachedResultsForSearch, setCachedResultsForSearch } from '../compone
 // for use during local testing/development
 const logHtml = false;
 const logResults = false;
+const logResults_withoutLogo = false;
 const useCachedResults = false;
 
 class AbstractModel {
@@ -66,10 +67,10 @@ class AbstractModel {
       .filter(result => this.excludeArtCard(result.title));
 
     if (useCachedResults) this.cacheResults(this.name, sanitisedSearchTerm, foundItems);
-    if (logResults) console.log(foundItems);
 
+    if (logResults) console.log(foundItems);
     // logs found items minus their logo, as it's gibberish and unhelpful
-    // console.log(foundItems.map(item => ({...item, logo: 'a logo'})));
+    if (logResults_withoutLogo) console.log(foundItems.map(item => ({...item, logo: 'a logo'})));
 
     return foundItems;
   }

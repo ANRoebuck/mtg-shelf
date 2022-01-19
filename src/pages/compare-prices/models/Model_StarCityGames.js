@@ -1,18 +1,52 @@
-import { identityFunction, textToDigits } from '../utils/utils';
+import { cors, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
-import axios from "axios";
+import AbstractDataGetter from './AbstractDataGetter';
+import AbstractDataProcessor from './AbstractDataProcessor';
+import AbstractProcessorSelector from './AbstractProcessorSelector';
 
-class ModelStarCityGames extends AbstractModel {
 
+class Model_StarCityGames extends AbstractModel {
   constructor() {
     super({
       name: seller.starCityGames.name,
       logo: seller.starCityGames.logo,
+      dataGetter: new DataGetter_StarCityGames(),
+      processorSelector: new ProcessorSelector_StarCityGames(),
+    });
+  }
+}
+
+class DataGetter_StarCityGames extends AbstractDataGetter {
+  constructor() {
+    super({
+      cors: cors,
       baseUrl: 'https://starcitygames.hawksearch.com/',
       searchPath: 'sites/starcitygames/?search_query=',
       searchSuffix: '&ajax=1&json=1&hawkcustom=undefined&hawkvisitorid=foo&callback=jQuery3410974876865918253_1633569817522&_=1633569817523',
       searchJoin: '%20',
+    });
+  }
+
+  // @Override
+  extractData = (data) => {
+    let str = data.replace(/.*\(({.*})\)/g, `$1`);
+    let o = JSON.parse(`${str}`);
+    return { data: o.html };
+  };
+}
+
+class ProcessorSelector_StarCityGames extends AbstractProcessorSelector {
+  constructor() {
+    super({
+      dataProcessor: new DataProcessor_StarCityGames(),
+    });
+  }
+}
+
+class DataProcessor_StarCityGames extends AbstractDataProcessor {
+  constructor() {
+    super({
       resultSelector: 'div > .hawk-results-item',
       nameSelector: 'div > div > div > h2 > a',
       priceSelector: 'div.hawk-results-item__options-table-cell.hawk-results-item__options-table-cell--price.childAttributes',
@@ -30,17 +64,6 @@ class ModelStarCityGames extends AbstractModel {
       expansionSelector: 'div > div > p > a',
     });
   }
-
-  // @Override
-  getHtml = (searchTerm) => axios
-    .get(this.searchTermToUrl(searchTerm))
-    .then(({ data }) => {
-      let str = data.replace(/.*\(({.*})\)/g, `$1`);
-      let o = JSON.parse(`${str}`);
-      return { data: o.html };
-    })
-    .catch(() => ({data: ''}));
-
 }
 
-export default ModelStarCityGames;
+export default Model_StarCityGames;

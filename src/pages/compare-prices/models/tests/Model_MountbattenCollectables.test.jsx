@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ModelMountBatten from './ModelMountBatten';
+import ModelMountBatten from '../Model_MountbattenCollectables';
 import { mountBattenResponseScaldingTarn, mountBattenExpectedResultsScaldingTarn } from './test-resources/model-mount-batten-response-scalding-tarn';
 
 jest.mock('axios');

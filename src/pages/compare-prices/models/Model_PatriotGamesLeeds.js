@@ -1,35 +1,54 @@
+import { cors, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
-import { identityFunction, textToDigits } from '../utils/utils';
 import AbstractModel from './AbstractModel';
+import AbstractDataGetter from './AbstractDataGetter';
+import AbstractDataProcessor from './AbstractDataProcessor';
+import AbstractProcessorSelector from './AbstractProcessorSelector';
 
-class ModelPatriotGamesLeeds {
 
-  constructor() {
-    this.name =  seller.pgLeeds.name;
-    this.logo = seller.pgLeeds.logo;
-    this.desktopModel = new ModelPatriotGamesLeedsDesktop();
-    this.mobileModel = new ModelPatriotGamesLeedsMobile();
-  }
-
-  search = async (input) => {
-    const mobileResults = await this.mobileModel.search(input);
-    const desktopResults = await this.desktopModel.search(input);
-    if (mobileResults.length > 0) return mobileResults;
-    return desktopResults;
-  }
-
-}
-
-class ModelPatriotGamesLeedsDesktop extends AbstractModel {
-
+class Model_PatriotGamesLeeds extends AbstractModel {
   constructor() {
     super({
-      name: seller.pgLeeds.name,
+      name:  seller.pgLeeds.name,
       logo: seller.pgLeeds.logo,
+      dataGetter: new DataGetter_PatriotGamesLeeds(),
+      processorSelector: new ProcessorSelector_PatriotGamesLeeds(),
+    });
+  }
+}
+
+class DataGetter_PatriotGamesLeeds extends AbstractDataGetter {
+  constructor() {
+    super({
+      cors: cors,
       baseUrl: 'http://www.patriotgamesleeds.com/',
       searchPath: 'index.php?main_page=advanced_search_result&search_in_description=1&keyword=',
       searchSuffix: '',
       searchJoin: '+',
+    });
+  }
+}
+
+class ProcessorSelector_PatriotGamesLeeds extends AbstractProcessorSelector {
+  constructor() {
+    super({
+      dataProcessor: null,
+    });
+    this.desktop = new DataProceesor_PatriotGamesLeeds_Desktop();
+    this.mobile = new DataProceesor_PatriotGamesLeeds_Mobile();
+  }
+
+  getProcessor = (rawData) => {
+    const parser = new DOMParser();
+    const document = parser.parseFromString(rawData, "text/html");
+    const desktopElements = document.querySelectorAll('#productListing > table > tbody> tr'); // resultsSelector
+    return desktopElements.length > 0 ? this.desktop : this.mobile;
+  };
+}
+
+class DataProceesor_PatriotGamesLeeds_Desktop extends AbstractDataProcessor {
+  constructor() {
+    super({
       resultSelector: '#productListing > table > tbody> tr',
       nameSelector: 'td > h3.itemTitle > a',
       priceSelector: 'td.productListing-data > span.productBasePrice',
@@ -76,16 +95,9 @@ class ModelPatriotGamesLeedsDesktop extends AbstractModel {
 
 }
 
-class ModelPatriotGamesLeedsMobile extends AbstractModel {
-
+class DataProceesor_PatriotGamesLeeds_Mobile extends AbstractDataProcessor {
   constructor() {
     super({
-      name: seller.pgLeeds.name,
-      logo: seller.pgLeeds.logo,
-      baseUrl: 'http://www.patriotgamesleeds.com/',
-      searchPath: 'index.php?main_page=advanced_search_result&search_in_description=1&keyword=',
-      searchSuffix: '',
-      searchJoin: '+',
       resultSelector: 'div.listing > div',
       nameSelector: 'div > h3 > a',
       priceSelector: 'div > div.list-price > span',
@@ -123,6 +135,7 @@ class ModelPatriotGamesLeedsMobile extends AbstractModel {
       });
     return arr[0];
   }
+
 }
 
-export default ModelPatriotGamesLeeds;
+export default Model_PatriotGamesLeeds;

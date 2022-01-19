@@ -1,17 +1,45 @@
-import { identityFunction, regex, textToDigits } from '../utils/utils';
+import { cors, identityFunction, regex, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
+import AbstractDataGetter from './AbstractDataGetter';
+import AbstractDataProcessor from './AbstractDataProcessor';
+import AbstractProcessorSelector from './AbstractProcessorSelector';
 
-class ModelLvlUp extends AbstractModel {
 
+class Model_NerdShak extends AbstractModel {
   constructor() {
     super({
-      name: seller.lvlUp.name,
-      logo: seller.lvlUp.logo,
-      baseUrl: 'https://lvlupgaming.co.uk/',
+      name: seller.nerdShak.name,
+      logo: seller.nerdShak.logo,
+      dataGetter: new DataGetter_NerdShak(),
+      processorSelector: new ProcessorSelector_NerdShak(),
+    });
+  }
+}
+
+class DataGetter_NerdShak extends AbstractDataGetter {
+  constructor() {
+    super({
+      cors: cors,
+      baseUrl: 'https://nerdshak.com/',
       searchPath: 'search?q=*',
       searchSuffix: '*',
       searchJoin: '+',
+    });
+  }
+}
+
+class ProcessorSelector_NerdShak extends AbstractProcessorSelector {
+  constructor() {
+    super({
+      dataProcessor: new DataProcessor_NerdShak(),
+    });
+  }
+}
+
+class DataProcessor_NerdShak extends AbstractDataProcessor {
+  constructor() {
+    super({
       resultSelector: 'div > div.row > div.col-md-4',
       nameSelector: 'div > p.productTitle',
       priceSelector: 'div > p.productPrice',
@@ -24,7 +52,7 @@ class ModelLvlUp extends AbstractModel {
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
       productSelector: 'div > div > div.view > a',
-      productBaseUrl: 'https://lvlupgaming.co.uk',
+      productBaseUrl: 'https://nerdshak.com',
       productRefAttribute: 'href',
       expansionSelector: 'div > p.productTitle',
     });
@@ -56,4 +84,4 @@ class ModelLvlUp extends AbstractModel {
 
 }
 
-export default ModelLvlUp;
+export default Model_NerdShak;

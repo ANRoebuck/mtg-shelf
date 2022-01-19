@@ -1,17 +1,45 @@
-import { identityFunction, regex, textToDigits } from '../utils/utils';
+import { cors, identityFunction, regex, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
+import AbstractDataGetter from './AbstractDataGetter';
+import AbstractDataProcessor from './AbstractDataProcessor';
+import AbstractProcessorSelector from './AbstractProcessorSelector';
 
-class ModelNerdShak extends AbstractModel {
+class Model_LvlUp extends AbstractModel {
 
   constructor() {
     super({
-      name: seller.nerdShak.name,
-      logo: seller.nerdShak.logo,
-      baseUrl: 'https://nerdshak.com/',
+      name: seller.lvlUp.name,
+      logo: seller.lvlUp.logo,
+      dataGetter: new DataGetter_LvlUp(),
+      processorSelector: new ProcessorSelector_LvlUp(),
+    });
+  }
+}
+
+class DataGetter_LvlUp extends AbstractDataGetter {
+  constructor() {
+    super({
+      cors: cors,
+      baseUrl: 'https://lvlupgaming.co.uk/',
       searchPath: 'search?q=*',
       searchSuffix: '*',
       searchJoin: '+',
+    });
+  }
+}
+
+class ProcessorSelector_LvlUp extends AbstractProcessorSelector {
+  constructor() {
+    super({
+      dataProcessor: new DataProcessor_LvlUp(),
+    });
+  }
+}
+
+class DataProcessor_LvlUp extends AbstractDataProcessor {
+  constructor() {
+    super({
       resultSelector: 'div > div.row > div.col-md-4',
       nameSelector: 'div > p.productTitle',
       priceSelector: 'div > p.productPrice',
@@ -24,7 +52,7 @@ class ModelNerdShak extends AbstractModel {
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
       productSelector: 'div > div > div.view > a',
-      productBaseUrl: 'https://nerdshak.com',
+      productBaseUrl: 'https://lvlupgaming.co.uk',
       productRefAttribute: 'href',
       expansionSelector: 'div > p.productTitle',
     });
@@ -53,7 +81,6 @@ class ModelNerdShak extends AbstractModel {
     let value = isInStock ? 1 : 0;
     return { text, value };
   }
-
 }
 
-export default ModelNerdShak;
+export default Model_LvlUp;

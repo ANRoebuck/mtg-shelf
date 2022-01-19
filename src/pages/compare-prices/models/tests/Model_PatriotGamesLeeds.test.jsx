@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ModelPatriotGamesLeeds from './ModelPatriotGamesLeeds';
+import Model_PatriotGamesLeeds from '../Model_PatriotGamesLeeds';
 import {
   patriotLeedsDesktopResponseTarmogoyf, patriotLeedsDesktopExpectedResultsTarmogoyf,
   patriotLeedsMobileResponseTarmogoyf, patriotLeedsMobileExpectedResultsTarmogoyf
@@ -18,7 +18,7 @@ describe('ModelPatriotGamesLeeds', () => {
     it('gets results for Tarmogoyf', async () => {
       axios.get.mockResolvedValue({ data: patriotLeedsDesktopResponseTarmogoyf });
 
-      const model = new ModelPatriotGamesLeeds();
+      const model = new Model_PatriotGamesLeeds();
       const results = await model.search('Tarmogoyf');
 
       expect(model.name).toBe('Patriot Games Leeds');
@@ -33,7 +33,7 @@ describe('ModelPatriotGamesLeeds', () => {
     it('gets results for Tarmogoyf', async () => {
       axios.get.mockResolvedValue({ data: patriotLeedsMobileResponseTarmogoyf });
 
-      const model = new ModelPatriotGamesLeeds();
+      const model = new Model_PatriotGamesLeeds();
       const results = await model.search('Tarmogoyf');
 
       expect(model.name).toBe('Patriot Games Leeds');

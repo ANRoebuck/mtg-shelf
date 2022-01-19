@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ModelManaLeak from './ModelManaLeak';
+import Model_ManaLeak from '../Model_ManaLeak';
 import { manaLeakResponseTarmogoyf, manaLeakExpectedResultsTarmogoyf } from './test-resources/model-mana-leak-response-tarmogoyf';
 
 jest.mock('axios');
@@ -10,7 +10,7 @@ describe('ModelManaLeak', () => {
   it('gets results', async () => {
     axios.get.mockResolvedValueOnce({ data: manaLeakResponseTarmogoyf });
 
-    const model = new ModelManaLeak();
+    const model = new Model_ManaLeak();
     const results = await model.search('Tarmogoyf');
 
     expect(model.name).toBe('Manaleak');

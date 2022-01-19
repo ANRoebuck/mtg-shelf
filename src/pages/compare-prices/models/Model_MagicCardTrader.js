@@ -1,17 +1,45 @@
-import { identityFunction, textToDigits } from '../utils/utils';
+import { cors, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
+import AbstractDataGetter from './AbstractDataGetter';
+import AbstractDataProcessor from './AbstractDataProcessor';
+import AbstractProcessorSelector from './AbstractProcessorSelector';
 
-class ModelMagicCardTrader extends AbstractModel {
 
+class Model_MagicCardTrader extends AbstractModel {
   constructor() {
     super({
       name: seller.magicCardTrader.name,
       logo: seller.magicCardTrader.logo,
+      dataGetter: new DataGetter_MagicCardTrader(),
+      processorSelector: new ProcessorSelector_MagicCardTrader(),
+    });
+  }
+}
+
+class DataGetter_MagicCardTrader extends AbstractDataGetter {
+  constructor() {
+    super({
+      cors: cors,
       baseUrl: 'https://www.themagiccardtrader.com/',
       searchPath: 'products/search?q=',
       searchSuffix: '',
       searchJoin: '+',
+    });
+  }
+}
+
+class ProcessorSelector_MagicCardTrader extends AbstractProcessorSelector {
+  constructor() {
+    super({
+      dataProcessor: new DataProcessor_MagicCardTrader(),
+    });
+  }
+}
+
+class DataProcessor_MagicCardTrader extends AbstractDataProcessor {
+  constructor() {
+    super({
       resultSelector: 'div.products-container > ul > li',
       nameSelector: 'div.inner > div.image-meta > div.meta > a > h4.name',
       priceSelector: 'div.inner > div.variants > div.variant-row > span.variant-buttons > form > div.product-price-qty > span',
@@ -30,7 +58,6 @@ class ModelMagicCardTrader extends AbstractModel {
     });
   }
 
-
   // @Override
   isFoilFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.isFoilSelector)]
@@ -40,4 +67,4 @@ class ModelMagicCardTrader extends AbstractModel {
 
 }
 
-export default ModelMagicCardTrader;
+export default Model_MagicCardTrader;

@@ -1,17 +1,46 @@
-import { identityFunction, textToDigits } from '../utils/utils';
+import { cors, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
+import AbstractDataGetter from './AbstractDataGetter';
+import AbstractDataProcessor from './AbstractDataProcessor';
+import AbstractProcessorSelector from './AbstractProcessorSelector';
 
-class ModelAxion extends AbstractModel {
+class Model_Harlequins extends AbstractModel {
 
   constructor() {
     super({
-      name: seller.axion.name,
-      logo: seller.axion.logo,
-      baseUrl: 'https://www.axionnow.com/',
+      name: seller.harlequins.name,
+      logo: seller.harlequins.logo,
+      dataGetter: new DataGetter_Harlequins(),
+      processorSelector: new ProcessorSelector_Harlequins(),
+    });
+  }
+
+}
+
+class DataGetter_Harlequins extends AbstractDataGetter {
+  constructor() {
+    super({
+      cors: cors,
+      baseUrl: 'https://www.harlequins-games.com/',
       searchPath: 'products/search?q=',
-      searchSuffix: '',
+      searchSuffix: '&c=8&disable_mobile=1',
       searchJoin: '+',
+    });
+  }
+}
+
+class ProcessorSelector_Harlequins extends AbstractProcessorSelector {
+  constructor() {
+    super({
+      dataProcessor: new DataProcessor_Harlequins(),
+    });
+  }
+}
+
+class DataProcessor_Harlequins extends AbstractDataProcessor {
+  constructor() {
+    super({
       resultSelector: 'ul.products > li.product',
       nameSelector: 'div.inner > div > div.meta > a > h4',
       priceSelector: 'div.inner > div > div.meta > div > div > span.variant-buttons > form > div > span.regular',
@@ -24,12 +53,11 @@ class ModelAxion extends AbstractModel {
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
       productSelector: 'div.inner > div > div.image > a',
-      productBaseUrl: 'https://www.axionnow.com/',
+      productBaseUrl: 'https://www.harlequins-games.com',
       productRefAttribute: 'href',
       expansionSelector: 'div.inner > div > div.meta > a > span.category',
     });
   }
-
 }
 
-export default ModelAxion;
+export default Model_Harlequins;

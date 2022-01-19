@@ -13,6 +13,13 @@ import pgLeedsLogo from '../models/resources/patriotGamesLeeds 150x60.png';
 import starCityGamesLogo from '../models/resources/starCityGames 150x60.png';
 import trollLogo from '../models/resources/trollTrader 150x60.png';
 
+export const currency = {
+  EUR: '€',
+  GBP: '£',
+  JPY: '¥',
+  USD: '$',
+}
+
 export const seller = {
   axion: {
     name: 'Axion Now',

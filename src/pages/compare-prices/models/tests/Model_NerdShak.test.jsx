@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ModelNerdShak from './ModelNerdShak';
+import Model_NerdShak from '../Model_NerdShak';
 import {
   nerdShakExpectedResultsTarmogoyf,
   nerdShakResponseTarmogoyf
@@ -13,7 +13,7 @@ describe('ModelNerdShak', () => {
   it('gets results', async () => {
     axios.get.mockResolvedValueOnce({ data: nerdShakResponseTarmogoyf });
 
-    const model = new ModelNerdShak();
+    const model = new Model_NerdShak();
     const results = await model.search('Tarmogoyf');
 
     expect(model.name).toBe('Nerd Shak');

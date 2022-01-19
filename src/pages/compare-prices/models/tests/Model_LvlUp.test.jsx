@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ModelLvlUp from "./ModelLvlUp";
+import Model_LvlUp from "../Model_LvlUp";
 import {
   lvlUpExpectedResultsScaldingTarn,
   lvlUpResponseScaldingTarn
@@ -13,7 +13,7 @@ describe('ModelLvlUp', () => {
   it('gets results', async () => {
     axios.get.mockResolvedValueOnce({ data: lvlUpResponseScaldingTarn });
 
-    const model = new ModelLvlUp();
+    const model = new Model_LvlUp();
     const results = await model.search('Scalding Tarn');
 
     expect(model.name).toBe('Lvl Up Gaming');

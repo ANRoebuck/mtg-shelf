@@ -1,17 +1,45 @@
 import { seller } from '../utils/enums';
+import { cors, identityFunction, textToDigits } from "../utils/utils";
 import AbstractModel from './AbstractModel';
-import { identityFunction, textToDigits } from "../utils/utils";
+import AbstractDataGetter from './AbstractDataGetter';
+import AbstractDataProcessor from './AbstractDataProcessor';
+import AbstractProcessorSelector from './AbstractProcessorSelector';
 
-class ModelAxion extends AbstractModel {
-
+class Model_MountbattenCollectables extends AbstractModel {
   constructor() {
     super({
       name: seller.mountBatten.name,
       logo: seller.mountBatten.logo,
+      dataGetter: new DataGetter_MountbattenCollectables(),
+      processorSelector: new ProcessorSelector_MountbattenCollectables(),
+    });
+  }
+
+}
+
+class DataGetter_MountbattenCollectables extends AbstractDataGetter {
+  constructor() {
+    super({
+      cors: cors,
       baseUrl: 'https://www.mountbattencollectables.com/',
       searchPath: 'products/search?q=',
       searchSuffix: '',
       searchJoin: '+',
+    });
+  }
+}
+
+class ProcessorSelector_MountbattenCollectables extends AbstractProcessorSelector {
+  constructor() {
+    super({
+      dataProcessor: new DataProcessor_MountbattenCollectables(),
+    });
+  }
+}
+
+class DataProcessor_MountbattenCollectables extends AbstractDataProcessor {
+  constructor() {
+    super({
       resultSelector: 'ul.products > li.product',
       nameSelector: 'div.inner > div > div.meta > a > h4',
       priceSelector: 'div.inner > div > div.meta > div > div > span.variant-buttons > form > div > span.regular',
@@ -29,7 +57,7 @@ class ModelAxion extends AbstractModel {
       expansionSelector: 'div.inner > div > div.meta > a > span.category',
     });
   }
-
 }
 
-export default ModelAxion;
+
+export default Model_MountbattenCollectables;

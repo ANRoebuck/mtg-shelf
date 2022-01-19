@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ModelHarlequins from './ModelHarlequins';
+import Model_Harlequins from '../Model_Harlequins';
 import {
   harlequinsExpectedResultsScaldingTarn,
   harlequinsResponseScaldingTarn
@@ -13,7 +13,7 @@ describe('ModelHarlequins', () => {
   it('gets results', async () => {
     axios.get.mockResolvedValueOnce({ data: harlequinsResponseScaldingTarn });
 
-    const model = new ModelHarlequins();
+    const model = new Model_Harlequins();
     const results = await model.search('Scalding Tarn');
 
     expect(model.name).toBe('Harlequins');

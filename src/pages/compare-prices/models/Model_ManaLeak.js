@@ -1,17 +1,48 @@
 import { seller } from '../utils/enums';
+import { cors, identityFunction, textToDigits } from "../utils/utils";
 import AbstractModel from './AbstractModel';
-import { identityFunction, textToDigits } from "../utils/utils";
+import AbstractDataGetter from "./AbstractDataGetter";
+import AbstractProcessorSelector from "./AbstractProcessorSelector";
+import AbstractDataProcessor from "./AbstractDataProcessor";
 
-class ModelManaLeak extends AbstractModel {
+
+class Model_ManaLeak extends AbstractModel {
 
   constructor() {
     super({
       name: seller.manaLeak.name,
       logo: seller.manaLeak.logo,
+      dataGetter: new DataGetter_ManaLeak(),
+      processorSelector: new ProcessorSelector_ManaLeak(),
+    });
+  }
+
+
+}
+
+class DataGetter_ManaLeak extends AbstractDataGetter {
+  constructor() {
+    super({
+      cors: cors,
       baseUrl: 'https://www.manaleak.com/',
       searchPath: '/index.php?route=product/search&search=',
       searchSuffix: '',
       searchJoin: '+',
+    });
+  }
+}
+
+class ProcessorSelector_ManaLeak extends AbstractProcessorSelector {
+  constructor() {
+    super({
+      dataProcessor: new DataProcessor_ManaLeak(),
+    });
+  }
+}
+
+class DataProcessor_ManaLeak extends AbstractDataProcessor {
+  constructor() {
+    super({
       resultSelector: 'div.main-products > div.product-list-item',
       nameSelector: 'div.caption > div.name > a',
       priceSelector: 'div.caption > div.price',
@@ -38,7 +69,6 @@ class ModelManaLeak extends AbstractModel {
     let value = isInStock ? 1 : 0;
     return { text, value };
   }
-
 }
 
-export default ModelManaLeak;
+export default Model_ManaLeak;

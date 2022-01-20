@@ -16,6 +16,7 @@ export const textToDigits = (text) => text ? parseInt(text.replace(/\D/g,'')) : 
 
 export const preDashText = (text) => text.replace(/(.*)\s-.*/, `$1`);
 export const postCurrencyText = (text) => text.replace(/.*([£$€¥].*)/, `$1`);
+export const removeTags = (text) => text.replace(/<.*?>/g, '');
 
 // export const removeDiacritics = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
 export const removeDiacritics = (str) => str.normalize("NFD").replace(/\p{Diacritic}/gu, '');

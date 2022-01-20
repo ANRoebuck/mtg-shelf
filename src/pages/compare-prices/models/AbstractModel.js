@@ -20,7 +20,7 @@ class AbstractModel {
 
     const sanitisedSearchTerm = removeDiacritics(input);
 
-    let cachedResults = useCachedResults ? this.readCachedResults(this.name, sanitisedSearchTerm) : null;
+    const cachedResults = useCachedResults ? this.readCachedResults(this.name, sanitisedSearchTerm) : null;
     if (cachedResults) return cachedResults;
 
     const rawData = await this.dataGetter.getData(sanitisedSearchTerm);

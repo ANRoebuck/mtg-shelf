@@ -17,7 +17,7 @@ import Model_TrollTrader from './Model_TrollTrader';
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  new Model_LvlUp(),
+  // new Model_StarCityGames(),
 ];
 
 const allModels = [

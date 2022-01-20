@@ -1,4 +1,4 @@
-export const manaLeakResponseTarmogoyf =
+export const response_manaLeak_Tarmogoyf =
   `<!DOCTYPE html><html
 dir="ltr" lang="en" class="firefox firefox78 linux journal-desktop is-guest skin-10 responsive-layout bottom-menu-bar center-header mega-header lang-flag lang-flag-mobile collapse-footer-columns header-center sticky-full backface product-grid-second-image product-list-second-image search-page layout-14 route-product-search oc1 one-column side-blocks-active no-language" data-j2v="2.9.9"><head><meta
 charset="UTF-8" /><meta
@@ -1066,12 +1066,13 @@ href="https://twitter.com/manaleakcom" target="_blank"><i
 style="margin-right: 5px; color: rgb(255, 255, 255); font-size: 24px" data-icon="&#xe682;"></i></a></div></div><script type="text/javascript" defer src="https://www.manaleak.com/../manaleak/journal-cache/_247146d9404049bf32d32ca8b96939c4.js"></script> </body></html>
 `;
 
-export const manaLeakExpectedResultsTarmogoyf =
+export const expectedResults_manaLeak_Tarmogoyf =
   [
     {
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£27.14', value: 2714},
       stock: {text: 'In Stock', value: 1},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/modern-masters-2017-edition/425966.full-250x250.jpg',
@@ -1083,6 +1084,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£46.52', value: 4652},
       stock: {text: 'In Stock', value: 1},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/FUT/136142.full-250x250.jpg',
@@ -1094,6 +1096,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£28.65', value: 2865},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MMA/370404.full-250x250.jpg',
@@ -1105,6 +1108,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£27.04', value: 2704},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/ultimate-masters/456783.full-250x250.jpg',
@@ -1116,6 +1120,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£28.34', value: 2834},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MM2/397682.full-250x250.jpg',
@@ -1127,6 +1132,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£22.19', value: 2219},
       stock: {text: 'In Stock', value: 1},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/tsr/233959_200w-250x250.jpg',
@@ -1138,6 +1144,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '£33.72', value: 3372},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/tsr/233959_200w-250x250.jpg',
@@ -1149,6 +1156,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '£38.56', value: 3856},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/modern-masters-2017-edition/425966.full-250x250.jpg',
@@ -1160,6 +1168,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '£35.53', value: 3553},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/ultimate-masters/456783.full-250x250.jpg',
@@ -1171,6 +1180,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '£465.51', value: 46551},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/FUT/136142.full-250x250.jpg',
@@ -1182,6 +1192,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '£61.13', value: 6113},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MMA/370404.full-250x250.jpg',
@@ -1193,6 +1204,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '£36.85', value: 3685},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/MM2/397682.full-250x250.jpg',
@@ -1204,6 +1216,7 @@ export const manaLeakExpectedResultsTarmogoyf =
       name: 'Manaleak',
       logo: 'manaLeak 150x60.png',
       title: 'Tarmogoyf - Foil Box Topper',
+      subtitle: '',
       price: {text: '£78.18', value: 7818},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'https://cdn.ionsuite.com/image/ion-prime/data/mtg/ultimate-box-toppers/457123.full-250x250.jpg',

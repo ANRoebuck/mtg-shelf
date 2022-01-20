@@ -1,4 +1,4 @@
-import { cors, emptyString, identityFunction, textToDigits } from '../utils/utils';
+import { cors, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -50,21 +50,24 @@ class DataProceesor_PatriotGamesLeeds_Desktop extends AbstractDataProcessor {
   constructor() {
     super({
       resultSelector: '#productListing > table > tbody> tr',
-      nameSelector: 'td > h3.itemTitle > a',
+      titleSelector: 'td > h3.itemTitle > a',
+
       priceSelector: 'td.productListing-data > span.productBasePrice',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
+
       stockSelector: 'td[align="right"] > a',
       stockValueFromStockText: identityFunction,
       isFoilSelector: 'td > h3.itemTitle > a',
+      expansionSelector: 'td.productListing-data > div.listingDescription',
+
       imgSelector: 'td.productListing-data > a > img',
       imgBaseUrl: 'http://www.patriotgamesleeds.com/',
       imgSrcAttribute: 'src',
+
       productSelector: 'td.productListing-data > a',
       productBaseUrl: '',
       productRefAttribute: 'href',
-      expansionSelector: 'td.productListing-data > div.listingDescription',
-      conditionToDisplayFromPriceText: emptyString,
     });
   }
 
@@ -100,21 +103,24 @@ class DataProceesor_PatriotGamesLeeds_Mobile extends AbstractDataProcessor {
   constructor() {
     super({
       resultSelector: 'div.listing > div',
-      nameSelector: 'div > h3 > a',
+      titleSelector: 'div > h3 > a',
+
       priceSelector: 'div > div.list-price > span',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
+
       stockSelector: 'div > div.multiple-add-to-cart > div',
       stockValueFromStockText: identityFunction,
       isFoilSelector: 'div > h3 > a',
+      expansionSelector: 'div > div.listingDescription',
+
       imgSelector: 'div > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
+
       productSelector: 'div > h3 > a',
       productBaseUrl: '',
       productRefAttribute: 'href',
-      expansionSelector: 'div > div.listingDescription',
-      conditionToDisplayFromPriceText: emptyString,
     });
   }
 

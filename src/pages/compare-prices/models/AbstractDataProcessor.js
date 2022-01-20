@@ -1,33 +1,41 @@
-import { regex, removeDiacritics } from '../utils/utils';
+import { emptyString, regex, removeDiacritics } from '../utils/utils';
 
 
 class AbstractDataProcessor {
 
   constructor({
-                resultSelector, nameSelector, priceSelector, priceToDisplayFromPriceText, priceValueFromPriceText,
-                stockSelector, stockValueFromStockText, isFoilSelector, imgSelector, imgBaseUrl, imgSrcAttribute,
-                productSelector, productBaseUrl, productRefAttribute, expansionSelector, conditionToDisplayFromPriceText
+                resultSelector, titleSelector, subresultSelector, subtitleSelector, subtitleFromText,
+                priceSelector, priceToDisplayFromPriceText, priceValueFromPriceText,
+                stockSelector, stockValueFromStockText, expansionSelector, isFoilSelector,
+                imgSelector, imgBaseUrl, imgSrcAttribute,
+                productSelector, productBaseUrl, productRefAttribute,
               }) {
 
-    this.parser = new DOMParser();
-
     this.resultSelector = resultSelector;
-    this.nameSelector = nameSelector;
+    this.titleSelector = titleSelector;
+
+    this.subresultSelector = subresultSelector;
+    this.subtitleSelector = subtitleSelector;
+    this.subtitleFromText = subtitleFromText || emptyString;
+
     this.priceSelector = priceSelector;
     this.priceToDisplayFromPriceText = priceToDisplayFromPriceText;
     this.priceValueFromPriceText = priceValueFromPriceText;
+
     this.stockSelector = stockSelector;
     this.stockValueFromStockText = stockValueFromStockText;
+    this.expansionSelector = expansionSelector;
     this.isFoilSelector = isFoilSelector;
+
     this.imgSelector = imgSelector;
     this.imgBaseUrl = imgBaseUrl;
     this.imgSrcAttribute = imgSrcAttribute;
+
     this.productSelector = productSelector;
     this.productBaseUrl = productBaseUrl;
     this.productRefAttribute = productRefAttribute;
-    this.expansionSelector = expansionSelector;
-    this.conditionToDisplayFromPriceText = conditionToDisplayFromPriceText;
 
+    this.parser = new DOMParser();
   }
 
   processData = (data) => {
@@ -38,31 +46,32 @@ class AbstractDataProcessor {
 
     resultNodes.forEach(resultNode => {
 
-      let prices = this.pricesFromResultNode(resultNode);
-      prices = prices.length > 0 ? prices : [{ text: '', value: 9999 }];
-      // console.log(prices)
+      let subresultNodes = this.subresultSelector ? this.subresultsFromResultNode(resultNode) : [resultNode];
 
-      const title = this.titleFromResultNode(resultNode) + this.conditionFromResultNode(resultNode);
-      const stock = this.stockFromResultNode(resultNode);
+      const title = this.titleFromResultNode(resultNode);
       const imgSrc = this.imgSrcFromResultNode(resultNode);
       const productRef = this.productRefFromResultNode(resultNode);
       const expansion = this.expansionFromResultNode(resultNode);
-      const isFoil = this.isFoilFromTitle(title) || this.isFoilFromResultNode(resultNode);
 
-      const otherData = {
-        title,
-        stock,
-        imgSrc,
-        productRef,
-        expansion,
-        isFoil,
-      }
+      subresultNodes.forEach(subresult => {
 
-      prices.forEach(price => {
+        const price = this.priceFromResultNode(subresult);
+        const stock = this.stockFromResultNode(subresult);
+        const subtitle = this.subtitleFromResultNode(subresult);
+        const isFoil =
+          this.isFoilFromTitle(title) || this.isFoilFromTitle(subtitle) || this.isFoilFromResultNode(resultNode);
+
         processedResults.push({
-          ...otherData,
+          title,
+          imgSrc,
+          productRef,
+          expansion,
           price,
+          stock,
+          subtitle,
+          isFoil,
         });
+
       });
 
     });
@@ -78,7 +87,10 @@ class AbstractDataProcessor {
   }
 
 
-  pricesFromResultNode = (resultNode) =>
+  subresultsFromResultNode = (resultNode) => [...resultNode.querySelectorAll(this.subresultSelector)];
+
+
+  priceFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.priceSelector)]
       .map(node => {
         const nodeText = node.innerHTML;
@@ -86,12 +98,17 @@ class AbstractDataProcessor {
           text: this.priceToDisplayFromPriceText(nodeText).replace(regex.whiteSpaceStripper, `$2`),
           value: this.priceValueFromPriceText(nodeText),
         };
-      }) || [{text: '', value: 9999}];
+      })[0] || {text: '', value: 9999};
 
 
   titleFromResultNode = (resultNode) =>
-    [...resultNode.querySelectorAll(this.nameSelector)]
+    [...resultNode.querySelectorAll(this.titleSelector)]
       .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
+
+
+  subtitleFromResultNode = (resultNode) =>
+    [...resultNode.querySelectorAll(this.subtitleSelector)]
+      .map(node => this.subtitleFromText(node.innerHTML).replace(regex.whiteSpaceStripper, `$2`))[0] || '';
 
 
   stockFromResultNode = (resultNode) =>
@@ -119,14 +136,6 @@ class AbstractDataProcessor {
   expansionFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.expansionSelector)]
       .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
-
-
-  conditionFromResultNode = (resultNode) =>
-    [...resultNode.querySelectorAll(this.priceSelector)]
-      .map(node => {
-        const condition = this.conditionToDisplayFromPriceText(node.innerHTML);
-        return condition ? ' - ' + condition.replace(regex.whiteSpaceStripper, `$2`) : ''
-      })[0] || '';
 
 
   isFoilFromTitle = (title) => title.toLowerCase().includes('foil');

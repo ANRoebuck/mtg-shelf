@@ -1,4 +1,4 @@
-import { cors, emptyString, identityFunction, textToDigits } from '../utils/utils';
+import { cors, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -41,21 +41,24 @@ class DataProcessor_MagicCardTrader extends AbstractDataProcessor {
   constructor() {
     super({
       resultSelector: 'div.products-container > ul > li',
-      nameSelector: 'div.inner > div.image-meta > div.meta > a > h4.name',
+      titleSelector: 'div.inner > div.image-meta > div.meta > a > h4.name',
+
       priceSelector: 'div.inner > div.variants > div.variant-row > span.variant-buttons > form > div.product-price-qty > span',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
+
       stockSelector: 'div.inner > div.variants > div.variant-row > span.variant-main-info > span.variant-qty',
       stockValueFromStockText: (text) => text === 'Out of stock' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
       isFoilSelector: 'div.inner > div.variants > div.variant-row > span.variant-main-info > span.variant-description',
+      expansionSelector: 'div.inner > div.image-meta > div.meta > a > span.category',
+
       imgSelector: 'div.inner > div.image-meta > div.image > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
+
       productSelector: 'div.inner > div.image-meta > div.image > a',
       productBaseUrl: 'https://www.themagiccardtrader.com/',
       productRefAttribute: 'href',
-      expansionSelector: 'div.inner > div.image-meta > div.meta > a > span.category',
-      conditionToDisplayFromPriceText: emptyString,
     });
   }
 

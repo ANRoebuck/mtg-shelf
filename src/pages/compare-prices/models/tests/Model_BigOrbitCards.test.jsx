@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Model_BigOrbitCards from '../Model_BigOrbitCards';
-import { bigOrbitResponseTarmogoyf, bigOrbitExpectedResultsTarmogoyf } from './test-resources/model-big-orbit-cards-response-tarmogoyf';
+import { response_bigOrbit_Tarmogoyf, expectedResults_bigOrbit_Tarmogoyf } from './test-resources/model-big-orbit-cards-response-tarmogoyf';
 
 jest.mock('axios');
 
@@ -8,14 +8,14 @@ jest.mock('axios');
 describe('ModelBigOrbitCards', () => {
 
   it('gets results', async () => {
-    axios.get.mockResolvedValueOnce({ data: bigOrbitResponseTarmogoyf });
+    axios.get.mockResolvedValueOnce({ data: response_bigOrbit_Tarmogoyf });
 
     const model = new Model_BigOrbitCards();
     const results = await model.search('Tarmogoyf');
 
     expect(model.name).toBe('Big Orbit Cards');
     expect(results.length).toBe(12);
-    expect(results).toStrictEqual(bigOrbitExpectedResultsTarmogoyf);
+    expect(results).toStrictEqual(expectedResults_bigOrbit_Tarmogoyf);
   });
 
 });

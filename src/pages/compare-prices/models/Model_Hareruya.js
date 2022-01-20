@@ -40,31 +40,34 @@ class DataProcessor_Hareruya extends AbstractDataProcessor {
   constructor() {
     super({
       resultSelector: 'ul.itemListLine > li.itemList',
-      nameSelector: 'div.itemData > a',
+      titleSelector: 'div.itemData > a',
+
       priceSelector: 'div.itemData > div.itemDetail > p.itemDetail__price',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
+
       stockSelector: 'div.itemData > div.itemDetail > p.itemDetail__stock',
       stockValueFromStockText: textToDigits,
       isFoilSelector: 'div.itemData > a',
+      expansionSelector: 'div.itemData > a',
+
       imgSelector: 'a> div.itemImg > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'data-original',
+
       productSelector: 'div.itemData > a',
       productBaseUrl: 'https://www.hareruyamtg.com',
       productRefAttribute: 'href',
-      expansionSelector: 'div.itemData > a',
-      conditionToDisplayFromPriceText: emptyString,
     });
   }
 
   // @Override
   titleFromResultNode = (resultNode) =>
-    [...resultNode.querySelectorAll(this.nameSelector)]
+    [...resultNode.querySelectorAll(this.titleSelector)]
       .map(node => node.innerHTML
         .replace(/(.*)\[.*/g, `$1`)                 // take first segment before opening [
-        .replace(regex.whiteSpaceStripper, `$2`)    // remove leading+trailing whitespace
         .replace(regex.brackets, ' ')               // remove weird brackets
+        .replace(regex.whiteSpaceStripper, `$2`)    // remove leading+trailing whitespace
       )[0] || '';
 
   // @Override

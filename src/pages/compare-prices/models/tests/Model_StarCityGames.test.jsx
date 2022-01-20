@@ -24,7 +24,7 @@ describe('ModelMagicMadhouse', () => {
     const model = new Model_StarCityGames();
     const results = await model.search('Raven Familiar');
 
-    // expect(model.name).toBe('Star City Games');
+    expect(model.name).toBe('Star City Games');
     // expect(results.length).toBe(3);
     // expect(results).toStrictEqual(starCityExpectedResultsTarmogoyf);
   });

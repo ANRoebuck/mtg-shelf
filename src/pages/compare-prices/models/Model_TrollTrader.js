@@ -1,4 +1,4 @@
-import { cors, emptyString, identityFunction, textToDigits } from '../utils/utils';
+import { cors, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -41,21 +41,24 @@ class DataProcessor_TrollTrader extends AbstractDataProcessor {
   constructor() {
     super({
       resultSelector: 'div.products-container > ul > li.product',
-      nameSelector: 'div.inner > div > div.meta > a > h4',
+      titleSelector: 'div.inner > div > div.meta > a > h4',
+
       priceSelector: 'div.inner > div > div.meta > span.offers > span.price',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
+
       stockSelector: 'div.inner > div > div.meta > span.offers > span.qty',
       stockValueFromStockText: (text) => text === undefined ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
       isFoilSelector: 'div.inner > div > div.meta > a > h4',
+      expansionSelector: 'div.inner > div > div.meta > span.category',
+
       imgSelector: 'div.inner > div > div.image > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
+
       productSelector: 'div.inner > div > div.image > a',
       productBaseUrl: 'https://www.trolltradercards.com/',
       productRefAttribute: 'href',
-      expansionSelector: 'div.inner > div > div.meta > span.category',
-      conditionToDisplayFromPriceText: emptyString,
     });
   }
 }

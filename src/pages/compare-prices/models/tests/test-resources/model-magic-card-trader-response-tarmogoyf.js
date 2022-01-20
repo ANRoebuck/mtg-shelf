@@ -1,4 +1,4 @@
-export const magicCardTraderResponseTarmogoyf =
+export const response_magicCardTrader_Tarmogoyf =
   `<!DOCTYPE html>
 
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -8857,12 +8857,13 @@ _gaq.push(['b._trackPageLoadTime']);
 AbstractModel.js:93
 `;
 
-export const magicCardTraderExpectedResultsTarmogoyf =
+export const expectedResults_magicCardTrader_Tarmogoyf =
   [
     {
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£30.00', value: 3000},
       stock: {value: 1, text: '1 in Stock'},
       imgSrc: 'https://crystal-cdn1.crystalcommerce.com/photos/905658/medium/TG.jpg',
@@ -8874,6 +8875,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£28.00', value: 2800},
       stock: {value: 2, text: '2 in Stock'},
       imgSrc: 'https://crystal-cdn4.crystalcommerce.com/photos/6480155/medium/en_HUH57diUq4.png',
@@ -8885,6 +8887,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
       imgSrc: 'https://crystal-cdn4.crystalcommerce.com/photos/6344442/medium/en_oYewlmYojE.png',
@@ -8896,6 +8899,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
       imgSrc: 'https://crystal-cdn1.crystalcommerce.com/photos/3643243/medium/tarmogoyf.jpg',
@@ -8907,6 +8911,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
       imgSrc: 'https://crystal-cdn2.crystalcommerce.com/photos/29933/medium/OMPYGJS6ajapjMAv.jpg',
@@ -8918,6 +8923,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
       imgSrc: 'https://crystal-cdn2.crystalcommerce.com/photos/6628687/medium/en_FtCnjfomHm.png',
@@ -8929,6 +8935,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
       imgSrc: 'https://crystal-cdn1.crystalcommerce.com/photos/3643253/medium/tarmogoyf.jpg',
@@ -8940,6 +8947,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
       imgSrc: 'https://crystal-cdn3.crystalcommerce.com/photos/905723/medium/tarmogoyf.jpg',
@@ -8951,6 +8959,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
       imgSrc: 'https://crystal-cdn1.crystalcommerce.com/photos/6480115/medium/en_2G92JblwhT.png',
@@ -8962,6 +8971,7 @@ export const magicCardTraderExpectedResultsTarmogoyf =
       name: 'Magic Card Trader',
       logo: 'magicCardTrader-black 150x60.png',
       title: 'Tarmogoyf - Foil',
+      subtitle: '',
       price: {text: '', value: 9999},
       stock: {value: 0, text: 'Out of Stock'},
       imgSrc: 'https://crystal-cdn3.crystalcommerce.com/photos/6344475/medium/en_oYewlmYojE.png',

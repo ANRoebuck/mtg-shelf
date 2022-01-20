@@ -1,4 +1,4 @@
-export const hareruyaResponseTarmogoyf =
+export const response_hareruya_Tarmogoyf =
   `<!doctype html>
 <html lang="en">
     <head>
@@ -9716,12 +9716,13 @@ function showAddCartMessage(message, wrapper) {
 `;
 
 
-export const hareruyaExpectedResultsTarmogoyf =
+export const expectedResults_hareruya_Tarmogoyf =
   [
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Tarmogoyf ',
+      title: 'JP  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 8,500', value: 8500 },
       stock: { value: 1, text: '1 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/136142_jp.jpg?d=165x231',
@@ -9732,7 +9733,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Foil  Tarmogoyf ',
+      title: 'JP  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 6,000', value: 6000 },
       stock: { value: 1, text: '1 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/UMA/ja/tarmogoyf.jpg?d=165x231',
@@ -9743,7 +9745,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Tarmogoyf ',
+      title: 'JP  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 1, text: '1 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/MM2015/MM2015_JPN_165.jpg?d=165x231',
@@ -9754,7 +9757,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Tarmogoyf ',
+      title: 'JP  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 3, text: '3 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/MM3/ja/tarmogoyf.jpg?d=165x231',
@@ -9765,7 +9769,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Foil  Tarmogoyf ',
+      title: 'JP  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 8,500', value: 8500 },
       stock: { value: 2, text: '2 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/MM2015/MM2015_JPN_165.jpg?d=165x231',
@@ -9776,7 +9781,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Foil  Tarmogoyf ',
+      title: 'JP  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 8,500', value: 8500 },
       stock: { value: 3, text: '3 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/MM3/ja/tarmogoyf.jpg?d=165x231',
@@ -9787,7 +9793,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Foil  Tarmogoyf ',
+      title: 'JP  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 200,000', value: 200000 },
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/136142_jp.jpg?d=165x231',
@@ -9798,7 +9805,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Tarmogoyf ',
+      title: 'JP  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 1, text: '1 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/UMA/ja/tarmogoyf.jpg?d=165x231',
@@ -9809,7 +9817,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Tarmogoyf ',
+      title: 'JP  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 11, text: '11 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/TSR/JP/0235.jpg?d=165x231',
@@ -9820,7 +9829,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' JP  Foil  Tarmogoyf ',
+      title: 'JP  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 6,000', value: 6000 },
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/TSR/JP/0235.jpg?d=165x231',
@@ -9831,7 +9841,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Tarmogoyf ',
+      title: 'EN  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 7,500', value: 7500 },
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/136142.jpg?d=165x231',
@@ -9842,7 +9853,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Foil  Tarmogoyf ',
+      title: 'EN  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 5,000', value: 5000 },
       stock: { value: 1, text: '1 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/UMA/en/tarmogoyf.jpg?d=165x231',
@@ -9853,7 +9865,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Tarmogoyf ',
+      title: 'EN  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 2, text: '2 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/370404.jpg?d=165x231',
@@ -9864,7 +9877,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Tarmogoyf ',
+      title: 'EN  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 1, text: '1 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/MM2015/MM2015_ENG_165.jpg?d=165x231',
@@ -9875,7 +9889,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Tarmogoyf ',
+      title: 'EN  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 3, text: '3 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/MM3/en/tarmogoyf.jpg?d=165x231',
@@ -9886,7 +9901,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Foil  Tarmogoyf ',
+      title: 'EN  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 8,000', value: 8000 },
       stock: { value: 1, text: '1 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/MM2015/MM2015_ENG_165.jpg?d=165x231',
@@ -9897,7 +9913,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Foil  Tarmogoyf ',
+      title: 'EN  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 8,000', value: 8000 },
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/MM3/en/tarmogoyf.jpg?d=165x231',
@@ -9908,7 +9925,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Foil  Tarmogoyf ',
+      title: 'EN  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 8,000', value: 8000 },
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/370404.jpg?d=165x231',
@@ -9919,7 +9937,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Foil  Tarmogoyf ',
+      title: 'EN  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 100,000', value: 100000 },
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/136142.jpg?d=165x231',
@@ -9930,7 +9949,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Tarmogoyf ',
+      title: 'EN  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 1, text: '1 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/UMA/en/tarmogoyf.jpg?d=165x231',
@@ -9941,7 +9961,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Foil   Tarmogoyf ',
+      title: 'EN  Foil   Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 12,980', value: 12980 },
       stock: { value: 4, text: '4 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/UBT/U19.jpg?d=165x231',
@@ -9952,7 +9973,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Tarmogoyf ',
+      title: 'EN  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 3,600', value: 3600 },
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/TSR/EN/0235.jpg?d=165x231',
@@ -9963,7 +9985,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Foil  Tarmogoyf ',
+      title: 'EN  Foil  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 6,000', value: 6000 },
       stock: { value: 0, text: 'Out of Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/TSR/EN/0235.jpg?d=165x231',
@@ -9974,7 +9997,8 @@ export const hareruyaExpectedResultsTarmogoyf =
     {
       name: 'Hareruya',
       logo: 'hareryua 150x60.png',
-      title: ' EN  Tarmogoyf ',
+      title: 'EN  Tarmogoyf',
+      subtitle: '',
       price: { text: '¥ 4,800', value: 4800 },
       stock: { value: 3, text: '3 in Stock' },
       imgSrc: 'https://files.hareruyamtg.com/img/goods/L/The_List/0434.jpg?d=165x231',

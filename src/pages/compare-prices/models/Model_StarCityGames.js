@@ -1,4 +1,4 @@
-import { cors, emptyString, identityFunction, textToDigits } from '../utils/utils';
+import { cors, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -48,21 +48,24 @@ class DataProcessor_StarCityGames extends AbstractDataProcessor {
   constructor() {
     super({
       resultSelector: 'div > .hawk-results-item',
-      nameSelector: 'div > div > div > h2 > a',
+      titleSelector: 'div > div > div > h2 > a',
+
       priceSelector: 'div.hawk-results-item__options-table-cell.hawk-results-item__options-table-cell--price.childAttributes',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
+
       stockSelector: 'div.hawk-results-item__options-table-cell.hawk-results-item__options-table-cell--qty.childAttributes',
       stockValueFromStockText: (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
       isFoilSelector: 'div > div > div > h2 > a',
+      expansionSelector: 'div > div > p > a',
+
       imgSelector: 'div > div > div > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
+
       productSelector: 'div > div > div > h2 > a',
       productBaseUrl: 'https://starcitygames.com',
       productRefAttribute: 'href',
-      expansionSelector: 'div > div > p > a',
-      conditionToDisplayFromPriceText: emptyString,
     });
   }
 }

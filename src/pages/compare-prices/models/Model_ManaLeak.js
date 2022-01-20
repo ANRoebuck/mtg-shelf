@@ -1,5 +1,5 @@
 import { seller } from '../utils/enums';
-import { cors, emptyString, identityFunction, textToDigits } from "../utils/utils";
+import { cors, identityFunction, textToDigits } from "../utils/utils";
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from "./AbstractDataGetter";
 import AbstractProcessorSelector from "./AbstractProcessorSelector";
@@ -41,21 +41,24 @@ class DataProcessor_ManaLeak extends AbstractDataProcessor {
   constructor() {
     super({
       resultSelector: 'div.main-products > div.product-list-item',
-      nameSelector: 'div.caption > div.name > a',
+      titleSelector: 'div.caption > div.name > a',
+
       priceSelector: 'div.caption > div.price',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
+
       stockSelector: 'div.image > span.label-outofstock',
       stockValueFromStockText: identityFunction,
       isFoilSelector: 'div.caption > div.name > a',
+      expansionSelector: 'div.caption > div.description > p > a',
+
       imgSelector: 'div.image > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'data-src',
+
       productSelector: 'div.image > a',
       productBaseUrl: 'https://www.manaleak.com/',
       productRefAttribute: 'href',
-      expansionSelector: 'div.caption > div.description > p > a',
-      conditionToDisplayFromPriceText: emptyString,
     });
   }
 

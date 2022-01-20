@@ -1,4 +1,4 @@
-export const mountBattenResponseScaldingTarn =
+export const response_mountbattenCollectables_ScaldingTarn =
   `<!DOCTYPE html>
 
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -10506,12 +10506,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </html>
 `;
 
-export const mountBattenExpectedResultsScaldingTarn =
+export const expectedResults_mountbattenCollectables_ScaldingTarn =
   [
     {
       name: 'Mountbatten Collectables',
       logo: 'mountBatten 150x60.png',
       title: 'Scalding Tarn',
+      subtitle: '',
       price: {text: '£32.50', value: 3250},
       stock: {value: 1, text: '1 in Stock'},
       imgSrc: 'https://crystal-cdn2.crystalcommerce.com/photos/6639661/medium/en_9PIt9qxzRQ20210623-4014-h50zvp.png',
@@ -10523,6 +10524,7 @@ export const mountBattenExpectedResultsScaldingTarn =
       name: 'Mountbatten Collectables',
       logo: 'mountBatten 150x60.png',
       title: 'Scalding Tarn - Retro Frame',
+      subtitle: '',
       price: {text: '£49.75', value: 4975},
       stock: {value: 1, text: '1 in Stock'},
       imgSrc: 'https://crystal-cdn2.crystalcommerce.com/photos/6639662/medium/en_hRDrfTJnhw20210623-4014-34maj1.png',

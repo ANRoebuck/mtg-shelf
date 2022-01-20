@@ -1,4 +1,4 @@
-import { cors, identityFunction, textToDigits } from '../utils/utils';
+import { cors, identityFunction, regex, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -49,17 +49,17 @@ class DataProcessor_Madhouse extends AbstractDataProcessor {
   dataToResultsArray = (data) => data.result || [];
 
   // @Override
-  titleFromResultNode = (resultNode) => resultNode.name.split('|')[0];
+  titleFromResultNode = (resultNode) => resultNode.name.split('|')[0].replace(regex.whiteSpaceStripper, '$2');
 
   // @Override
   isFoilFromResultNode = (resultNode) => this.isFoilFromTitle(this.titleFromResultNode(resultNode));
 
   // @Override
-  pricesFromResultNode = ({ price }) => {
-    return [{
+  priceFromResultNode = ({ price }) => {
+    return {
       text: "£ " + this.priceToDisplayFromPriceText(price),
       value: this.priceValueFromPriceText(price),
-    }];
+    };
   };
 
   // @Override
@@ -81,7 +81,7 @@ class DataProcessor_Madhouse extends AbstractDataProcessor {
   expansionFromResultNode = (resultNode) => resultNode.magic_set;
 
   // Override
-  conditionFromResultNode = (resultNode) => '';
+  subtitleFromResultNode = (resultNode) => '';
 }
 
 export default Model_MagicMadhouse;

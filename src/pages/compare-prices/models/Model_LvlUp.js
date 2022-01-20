@@ -5,6 +5,7 @@ import AbstractDataGetter from './AbstractDataGetter';
 import AbstractDataProcessor from './AbstractDataProcessor';
 import AbstractProcessorSelector from './AbstractProcessorSelector';
 
+
 class Model_LvlUp extends AbstractModel {
   constructor() {
     super({
@@ -40,27 +41,34 @@ class DataProcessor_LvlUp extends AbstractDataProcessor {
   constructor() {
     super({
       resultSelector: 'div > div.row > div.col-md-4',
-      nameSelector: 'div > p.productTitle',
-      priceSelector: 'div > div.hoverMask > div > div.addNow > p',
+      titleSelector: 'div > p.productTitle',
+
+      subresultSelector: 'div > div.hoverMask > div > div.addNow ',
+      subtitleSelector: 'p',
+      subtitleFromText: preDashText,
+
+      priceSelector: 'p',
       priceToDisplayFromPriceText: postCurrencyText,
       priceValueFromPriceText: textToDigits,
-      stockSelector: 'div > div > img.soldout',
+
+      stockSelector: 'p',
       stockValueFromStockText: identityFunction,
       isFoilSelector: 'div > p.productTitle',
+      expansionSelector: 'div > p.productTitle',
+
       imgSelector: 'div > div.imgWrapper > img.items-even',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
+
       productSelector: 'div > div > div.view > a',
       productBaseUrl: 'https://lvlupgaming.co.uk',
       productRefAttribute: 'href',
-      expansionSelector: 'div > p.productTitle',
-      conditionToDisplayFromPriceText: preDashText,
     });
   }
 
   // @Override
   titleFromResultNode = (resultNode) =>
-    [...resultNode.querySelectorAll(this.nameSelector)]
+    [...resultNode.querySelectorAll(this.titleSelector)]
       .map(node => node.innerHTML
         .replace(/(.*)\[.*/g, `$1`)                 // take first segment before opening [
         .replace(/<br>/, '')                        // remove linebreak html
@@ -75,11 +83,8 @@ class DataProcessor_LvlUp extends AbstractDataProcessor {
 
   // @Override
   stockFromResultNode = (resultNode) => {
-    // Stock count is not displayed. An out of stock banner either is or is not present.
-    let isInStock = resultNode.querySelectorAll(this.stockSelector).length === 0;
-    let text = isInStock ? 'In Stock' : 'Out of Stock';
-    let value = isInStock ? 1 : 0;
-    return { text, value };
+    // Only in stock results are shown
+    return { text: 'In Stock', value: 1 };
   }
 }
 

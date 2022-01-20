@@ -1,4 +1,4 @@
-export const patriotLeedsDesktopResponseTarmogoyf =
+export const response_patriotGamesLeeds_desktop_Tarmogoyf =
   `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
@@ -650,12 +650,13 @@ tarmogoyf
 
 `;
 
-export const patriotLeedsDesktopExpectedResultsTarmogoyf =
+export const expectedResults_patriotGamesLeeds_desktop_Tarmogoyf =
   [
     {
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£25.00', value: 2500},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/time_spiral_remastered/tarmogoyf.jpg',
@@ -667,6 +668,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£45.00', value: 4500},
       stock: {text: 'In Stock', value: 1},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/future_sight/tarmogoyf.jpg',
@@ -678,6 +680,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£25.00', value: 2500},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/ultimate_masters/tarmogoyf.jpg',
@@ -689,6 +692,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£25.00', value: 2500},
       stock: {text: 'In Stock', value: 1},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_2017_edition/tarmogoyf.jpg',
@@ -700,6 +704,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£30.00', value: 3000},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_2015_edition/tarmogoyf.jpg',
@@ -711,6 +716,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: {text: '£30.00', value: 3000},
       stock: {text: 'In Stock', value: 1},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters/tarmogoyf.jpg',
@@ -722,6 +728,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: {text: '£435.00', value: 43500},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/future_sight_foil/tarmogoyf.jpg',
@@ -733,6 +740,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: {text: '£40.00', value: 4000},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_2017_edition_foil/tarmogoyf.jpg',
@@ -744,6 +752,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: {text: '£60.00', value: 6000},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_foil/tarmogoyf.jpg',
@@ -755,6 +764,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: {text: '£35.00', value: 3500},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_2015_edition_foil/tarmogoyf.jpg',
@@ -766,6 +776,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: {text: '£35.00', value: 3500},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/ultimate_masters_foil/tarmogoyf.jpg',
@@ -777,6 +788,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf - Ultimate Box Topper',
+      subtitle: '',
       price: {text: '£85.00', value: 8500},
       stock: {text: 'Out of Stock', value: 0},
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/ultimate_box_toppers/tarmogoyf.jpg',
@@ -786,7 +798,7 @@ export const patriotLeedsDesktopExpectedResultsTarmogoyf =
     }
   ];
 
-export const patriotLeedsMobileResponseTarmogoyf =
+export const response_patriotGamesLeeds_mobile_Tarmogoyf =
   `<!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -1085,12 +1097,13 @@ function onloadFocus() {
 </body></html>
 `;
 
-export const patriotLeedsMobileExpectedResultsTarmogoyf =
+export const expectedResults_patriotGamesLeeds_mobile_Tarmogoyf =
   [
     {
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: { text: '£20.00', value: 2000 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_2015_edition/tarmogoyf.jpg',
@@ -1102,6 +1115,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: { text: '£25.00', value: 2500 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters/tarmogoyf.jpg',
@@ -1113,6 +1127,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: { text: '£18.00', value: 1800 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/time_spiral_remastered/tarmogoyf.jpg',
@@ -1124,6 +1139,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: { text: '£40.00', value: 4000 },
       stock: { text: 'In Stock', value: 1 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/future_sight/tarmogoyf.jpg',
@@ -1135,6 +1151,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: { text: '£20.00', value: 2000 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/ultimate_masters/tarmogoyf.jpg',
@@ -1146,6 +1163,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf',
+      subtitle: '',
       price: { text: '£20.00', value: 2000 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_2017_edition/tarmogoyf.jpg',
@@ -1157,6 +1175,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: { text: '£30.00', value: 3000 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_2015_edition_foil/tarmogoyf.jpg',
@@ -1168,6 +1187,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: { text: '£35.00', value: 3500 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/ultimate_masters_foil/tarmogoyf.jpg',
@@ -1179,6 +1199,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: { text: '£410.00', value: 41000 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/future_sight_foil/tarmogoyf.jpg',
@@ -1190,6 +1211,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: { text: '£35.00', value: 3500 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_2017_edition_foil/tarmogoyf.jpg',
@@ -1201,6 +1223,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf (Foil)',
+      subtitle: '',
       price: { text: '£55.00', value: 5500 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/modern_masters_foil/tarmogoyf.jpg',
@@ -1212,6 +1235,7 @@ export const patriotLeedsMobileExpectedResultsTarmogoyf =
       name: 'Patriot Games Leeds',
       logo: 'patriotGamesLeeds 150x60.png',
       title: 'Tarmogoyf - Ultimate Box Topper',
+      subtitle: '',
       price: { text: '£75.00', value: 7500 },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: 'http://www.patriotgamesleeds.com/images/magic/ultimate_box_toppers/tarmogoyf.jpg',

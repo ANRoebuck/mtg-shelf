@@ -1,9 +1,9 @@
 import axios from 'axios';
 import Model_LvlUp from "../Model_LvlUp";
 import {
-  lvlUpExpectedResultsScaldingTarn,
-  lvlUpResponseScaldingTarn
-} from './test-resources/model-lvl-up-search-response-scalding-tarn';
+  expectedResults_lvlUp_MistyRainforest,
+  response_lvlUp_MistyRainforest
+} from './test-resources/model-lvl-up-search-response-misty-rainforest';
 
 jest.mock('axios');
 
@@ -11,14 +11,14 @@ jest.mock('axios');
 describe('ModelLvlUp', () => {
 
   it('gets results', async () => {
-    axios.get.mockResolvedValueOnce({ data: lvlUpResponseScaldingTarn });
+    axios.get.mockResolvedValueOnce({ data: response_lvlUp_MistyRainforest });
 
     const model = new Model_LvlUp();
-    const results = await model.search('Scalding Tarn');
+    const results = await model.search('Misty Rainforest');
 
     expect(model.name).toBe('Lvl Up Gaming');
-    expect(results.length).toBe(10);
-    expect(results).toStrictEqual(lvlUpExpectedResultsScaldingTarn);
+    expect(results.length).toBe(3);
+    expect(results).toStrictEqual(expectedResults_lvlUp_MistyRainforest);
   });
 
 });

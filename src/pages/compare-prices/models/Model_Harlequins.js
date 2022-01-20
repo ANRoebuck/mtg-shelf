@@ -1,4 +1,4 @@
-import { cors, emptyString, identityFunction, preDashText, textToDigits } from '../utils/utils';
+import { cors, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -40,21 +40,28 @@ class DataProcessor_Harlequins extends AbstractDataProcessor {
   constructor() {
     super({
       resultSelector: 'ul.products > li.product',
-      nameSelector: 'div.inner > div > div.meta > a > h4',
+      titleSelector: 'div.inner > div > div.meta > a > h4',
+
+      subresultSelector: 'div.inner > div.variants > div.variant-row',
+      subtitleSelector: 'span > span.variant-short-info.variant-description',
+      subtitleFromText: identityFunction,
+
       priceSelector: 'div.inner > div.variants > div.variant-row > span > form > div > span.regular',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
-      stockSelector: 'div.inner > div > div.meta > div > div > span.variant-main-info > span.variant-qty',
+
+      stockSelector: 'span > span.variant-short-info.variant-qty',
       stockValueFromStockText: (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
       isFoilSelector: 'div.inner > div > div.meta > a > h4',
+      expansionSelector: 'div.inner > div > div.meta > a > span.category',
+
       imgSelector: 'div.inner > div > div.image > a > img',
       imgBaseUrl: '',
       imgSrcAttribute: 'src',
+
       productSelector: 'div.inner > div > div.image > a',
       productBaseUrl: 'https://www.harlequins-games.com',
       productRefAttribute: 'href',
-      expansionSelector: 'div.inner > div > div.meta > a > span.category',
-      conditionToDisplayFromPriceText: emptyString,
     });
   }
 }

@@ -1,4 +1,4 @@
-import { cors, identityFunction, regex, textToDigits } from '../utils/utils';
+import { cors, emptyString, identityFunction, regex, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -54,6 +54,7 @@ class DataProcessor_Hareruya extends AbstractDataProcessor {
       productBaseUrl: 'https://www.hareruyamtg.com',
       productRefAttribute: 'href',
       expansionSelector: 'div.itemData > a',
+      conditionToDisplayFromPriceText: emptyString,
     });
   }
 

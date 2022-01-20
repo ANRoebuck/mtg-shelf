@@ -5264,115 +5264,91 @@ for (var attr in meta) {
 export const nerdShakExpectedResultsTarmogoyf =
   [
     {
-      name: 'Nerd Shak',
-      logo: 'nerdShak 150x60.jpg',
-      title: 'Tarmogoyf',
-      price: {
-        text: '£18.20',
-        value: 1820
-      },
+      title: 'Tarmogoyf - Near Mint',
       stock: { text: 'In Stock', value: 1 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/2b49dfb7-dbe7-4a2b-b9de-c620a0db2e47_large.jpg?v=1620770681',
       productRef: 'https://nerdshak.com/products/tarmogoyf-modern-masters-2017?_pos=1&_sid=5da724a56&_ss=r',
       expansion: '\n\nModern Masters 2017',
-      isFoil: false
+      isFoil: false,
+      price: { text: '£18.20', value: 1820 },
+      name: 'Nerd Shak',
+      logo: 'nerdShak 150x60.jpg'
     },
     {
-      name: 'Nerd Shak',
-      logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
-      price: {
-        text: 'Sold Out',
-        value: NaN
-      },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/6cc6c2dd-9e38-5937-ad72-fc85436ae532_02ecdd6d-d6e5-4474-8a94-b0eeef0bb2f4_large.jpg?v=1640121686',
       productRef: 'https://nerdshak.com/products/tarmogoyf-the-list?_pos=2&_sid=5da724a56&_ss=r',
       expansion: '\n\nThe List',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Nerd Shak',
+      logo: 'nerdShak 150x60.jpg'
     },
     {
-      name: 'Nerd Shak',
-      logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
-      price: {
-        text: 'Sold Out',
-        value: NaN
-      },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/42e56220-81c3-4440-9f97-8616d630a8ee_large.jpg?v=1620788228',
       productRef: 'https://nerdshak.com/products/tarmogoyf-ultimate-masters?_pos=3&_sid=5da724a56&_ss=r',
       expansion: '\n\nUltimate Masters',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Nerd Shak',
+      logo: 'nerdShak 150x60.jpg'
     },
     {
-      name: 'Nerd Shak',
-      logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
-      price: {
-        text: 'Sold Out',
-        value: NaN
-      },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/5ea82414-3f16-4c8c-8668-1f1ee7566c7b_large.jpg?v=1620774823',
       productRef: 'https://nerdshak.com/products/tarmogoyf-modern-masters?_pos=4&_sid=5da724a56&_ss=r',
       expansion: '\n\nModern Masters',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Nerd Shak',
+      logo: 'nerdShak 150x60.jpg'
     },
     {
-      name: 'Nerd Shak',
-      logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
-      price: {
-        text: 'Sold Out',
-        value: NaN
-      },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/b6876d9e-0908-43ac-8542-09c7aa02b5ba_large.jpg?v=1620782111',
       productRef: 'https://nerdshak.com/products/tarmogoyf-future-sight?_pos=5&_sid=5da724a56&_ss=r',
       expansion: '\n\nFuture Sight',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Nerd Shak',
+      logo: 'nerdShak 150x60.jpg'
     },
     {
-      name: 'Nerd Shak',
-      logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
-      price: {
-        text: 'Sold Out',
-        value: NaN
-      },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/1cfdd410-391b-4b71-8139-f5a30653097a_large.jpg?v=1620769572',
       productRef: 'https://nerdshak.com/products/tarmogoyf-modern-masters-2015?_pos=6&_sid=5da724a56&_ss=r',
       expansion: '\n\nModern Masters 2015',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Nerd Shak',
+      logo: 'nerdShak 150x60.jpg'
     },
     {
-      name: 'Nerd Shak',
-      logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
-      price: {
-        text: 'Sold Out',
-        value: NaN
-      },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/f9d42f43-b7a4-51bf-9b5c-79098833394f_large.jpg?v=1629924632',
       productRef: 'https://nerdshak.com/products/tarmogoyf-time-spiral-remastered?_pos=7&_sid=5da724a56&_ss=r',
       expansion: '\n\nTime Spiral Remastered',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Nerd Shak',
+      logo: 'nerdShak 150x60.jpg'
     },
     {
-      name: 'Nerd Shak',
-      logo: 'nerdShak 150x60.jpg',
       title: 'Tarmogoyf',
-      price: {
-        text: 'Sold Out',
-        value: NaN
-      },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0375/7726/1115/products/8a34e2df-a9ee-4c61-bc4c-518475a39925_large.jpg?v=1620788274',
       productRef: 'https://nerdshak.com/products/tarmogoyf-ultimate-box-topper?_pos=8&_sid=5da724a56&_ss=r',
       expansion: '\n\nUltimate Box Topper',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Nerd Shak',
+      logo: 'nerdShak 150x60.jpg'
     }
   ];

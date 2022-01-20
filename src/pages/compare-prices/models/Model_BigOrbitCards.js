@@ -1,5 +1,5 @@
 import { seller } from '../utils/enums';
-import { cors, textToDigits } from '../utils/utils';
+import { cors, emptyString, textToDigits } from '../utils/utils';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
 import AbstractDataProcessor from './AbstractDataProcessor';
@@ -63,6 +63,7 @@ class DataProcesor_BigOrbit extends AbstractDataProcessor {
       productBaseUrl: '',
       productRefAttribute: 'href',
       expansionSelector: 'form > div.compact_title_add_to_cart_header > span > span.ty-control-group__item',
+      conditionToDisplayFromPriceText: emptyString,
     });
   }
 }

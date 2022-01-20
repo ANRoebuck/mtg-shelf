@@ -1,4 +1,4 @@
-import { cors, identityFunction, textToDigits } from '../utils/utils';
+import { cors, emptyString, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -62,6 +62,7 @@ class DataProcessor_StarCityGames extends AbstractDataProcessor {
       productBaseUrl: 'https://starcitygames.com',
       productRefAttribute: 'href',
       expansionSelector: 'div > div > p > a',
+      conditionToDisplayFromPriceText: emptyString,
     });
   }
 }

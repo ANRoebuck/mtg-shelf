@@ -55,11 +55,11 @@ class DataProcessor_Madhouse extends AbstractDataProcessor {
   isFoilFromResultNode = (resultNode) => this.isFoilFromTitle(this.titleFromResultNode(resultNode));
 
   // @Override
-  priceFromResultNode = ({ price }) => {
-    return {
+  pricesFromResultNode = ({ price }) => {
+    return [{
       text: "£ " + this.priceToDisplayFromPriceText(price),
       value: this.priceValueFromPriceText(price),
-    };
+    }];
   };
 
   // @Override
@@ -79,6 +79,9 @@ class DataProcessor_Madhouse extends AbstractDataProcessor {
 
   // @Override
   expansionFromResultNode = (resultNode) => resultNode.magic_set;
+
+  // Override
+  conditionFromResultNode = (resultNode) => '';
 }
 
 export default Model_MagicMadhouse;

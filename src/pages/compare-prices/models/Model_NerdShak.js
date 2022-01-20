@@ -1,4 +1,4 @@
-import { cors, identityFunction, regex, textToDigits } from '../utils/utils';
+import { cors, identityFunction, postCurrencyText, preDashText, regex, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -42,8 +42,8 @@ class DataProcessor_NerdShak extends AbstractDataProcessor {
     super({
       resultSelector: 'div > div.row > div.col-md-4',
       nameSelector: 'div > p.productTitle',
-      priceSelector: 'div > p.productPrice',
-      priceToDisplayFromPriceText: identityFunction,
+      priceSelector: 'div > div.hoverMask > div > div.addNow > p',
+      priceToDisplayFromPriceText: postCurrencyText,
       priceValueFromPriceText: textToDigits,
       stockSelector: 'div > div > img.soldout',
       stockValueFromStockText: identityFunction,
@@ -55,6 +55,7 @@ class DataProcessor_NerdShak extends AbstractDataProcessor {
       productBaseUrl: 'https://nerdshak.com',
       productRefAttribute: 'href',
       expansionSelector: 'div > p.productTitle',
+      conditionToDisplayFromPriceText: preDashText,
     });
   }
 

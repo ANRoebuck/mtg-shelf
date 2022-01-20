@@ -1,5 +1,5 @@
 import { seller } from '../utils/enums';
-import { cors, identityFunction, textToDigits } from "../utils/utils";
+import { cors, emptyString, identityFunction, textToDigits } from "../utils/utils";
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from "./AbstractDataGetter";
 import AbstractProcessorSelector from "./AbstractProcessorSelector";
@@ -7,7 +7,6 @@ import AbstractDataProcessor from "./AbstractDataProcessor";
 
 
 class Model_ManaLeak extends AbstractModel {
-
   constructor() {
     super({
       name: seller.manaLeak.name,
@@ -16,8 +15,6 @@ class Model_ManaLeak extends AbstractModel {
       processorSelector: new ProcessorSelector_ManaLeak(),
     });
   }
-
-
 }
 
 class DataGetter_ManaLeak extends AbstractDataGetter {
@@ -58,6 +55,7 @@ class DataProcessor_ManaLeak extends AbstractDataProcessor {
       productBaseUrl: 'https://www.manaleak.com/',
       productRefAttribute: 'href',
       expansionSelector: 'div.caption > div.description > p > a',
+      conditionToDisplayFromPriceText: emptyString,
     });
   }
 

@@ -1,4 +1,4 @@
-import { cors, identityFunction, textToDigits } from '../utils/utils';
+import { cors, emptyString, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -42,10 +42,10 @@ class DataProcessor_Axion extends AbstractDataProcessor {
     super({
       resultSelector: 'ul.products > li.product',
       nameSelector: 'div.inner > div > div.meta > a > h4',
-      priceSelector: 'div.inner > div > div.meta > div > div > span.variant-buttons > form > div > span.regular',
+      priceSelector: 'div.inner > div > div.meta > div.list-variants.grid > div > span > form > div > span.regular',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
-      stockSelector: 'div.inner > div > div.meta > div > div > span.variant-main-info > span.variant-qty',
+      stockSelector: 'div.inner > div > div.meta > div> div > span.variant-main-info > span.variant-qty',
       stockValueFromStockText: (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
       isFoilSelector: 'div.inner > div > div.meta > a > h4',
       imgSelector: 'div.inner > div > div.image > a > img',
@@ -55,6 +55,7 @@ class DataProcessor_Axion extends AbstractDataProcessor {
       productBaseUrl: 'https://www.axionnow.com/',
       productRefAttribute: 'href',
       expansionSelector: 'div.inner > div > div.meta > a > span.category',
+      conditionToDisplayFromPriceText: emptyString,
     });
   }
 }

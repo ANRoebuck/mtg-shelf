@@ -1,5 +1,5 @@
 import { seller } from '../utils/enums';
-import { cors, identityFunction, textToDigits } from "../utils/utils";
+import { cors, emptyString, identityFunction, textToDigits } from "../utils/utils";
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
 import AbstractDataProcessor from './AbstractDataProcessor';
@@ -42,7 +42,7 @@ class DataProcessor_MountbattenCollectables extends AbstractDataProcessor {
     super({
       resultSelector: 'ul.products > li.product',
       nameSelector: 'div.inner > div > div.meta > a > h4',
-      priceSelector: 'div.inner > div > div.meta > div > div > span.variant-buttons > form > div > span.regular',
+      priceSelector: 'div.inner > div > div.meta > div.list-variants.grid > div > span > form > div > span.regular',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
       stockSelector: 'div.inner > div > div.meta > div > div > span.variant-main-info > span.variant-qty',
@@ -55,6 +55,7 @@ class DataProcessor_MountbattenCollectables extends AbstractDataProcessor {
       productBaseUrl: 'https://www.mountbattencollectables.com/',
       productRefAttribute: 'href',
       expansionSelector: 'div.inner > div > div.meta > a > span.category',
+      conditionToDisplayFromPriceText: emptyString,
     });
   }
 }

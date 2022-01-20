@@ -7994,113 +7994,113 @@ Sunday\t10am–6pm</p>
 export const lvlUpExpectedResultsScaldingTarn =
   [
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
-      title: 'Scalding Tarn',
-      price: { text: '£37.00', value: 3700 },
+      title: 'Scalding Tarn - Near Mint',
       stock: { text: 'In Stock', value: 1 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/210716_200w_large.jpg?v=1586129165',
       productRef: 'https://lvlupgaming.co.uk/products/mtg-scalding-tarn-secret-lair-series?_pos=1&_sid=731cc7339&_ss=r',
       expansion: '\nSecret Lair Series',
-      isFoil: false
+      isFoil: false,
+      price: { text: '£37.00', value: 3700 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     },
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
       title: 'Scalding Tarn',
-      price: { text: 'Sold Out', value: NaN },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/223_1d57ca76-798e-4b75-9375-9fa852bdfa8a_large.jpg?v=1569191726',
       productRef: 'https://lvlupgaming.co.uk/products/mtg-scalding-tarnzendikar?_pos=2&_sid=731cc7339&_ss=r',
       expansion: '\nZendikar',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     },
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
       title: 'Scalding Tarn',
-      price: { text: 'Sold Out', value: NaN },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/22_9f27c24e-f007-4aef-9a29-b4ced977ffe2_large.jpg?v=1569194731',
       productRef: 'https://lvlupgaming.co.uk/products/mtg-scalding-tarnzendikar-expeditions?_pos=3&_sid=731cc7339&_ss=r',
       expansion: '\nZendikar Expeditions',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     },
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
       title: 'Scalding Tarn',
-      price: { text: 'Sold Out', value: NaN },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/970c2368-0e0f-569f-a836-2f65db1971ec_large.png?v=1629305692',
       productRef: 'https://lvlupgaming.co.uk/products/scalding-tarn-modern-horizons-2?_pos=4&_sid=731cc7339&_ss=r',
       expansion: '\nModern Horizons 2',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     },
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
       title: 'Scalding Tarn',
-      price: { text: 'Sold Out', value: NaN },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/0bdb19bc-a7f5-51cd-b73f-e22f471ab954_large.jpg?v=1616362487',
       productRef: 'https://lvlupgaming.co.uk/products/scalding-tarn-zendikar-rising-expeditions?_pos=5&_sid=731cc7339&_ss=r',
       expansion: '\nZendikar Rising Expeditions',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     },
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
       title: 'Scalding Tarn',
-      price: { text: 'Sold Out', value: NaN },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/244_61947b9d-2336-40eb-88e2-26907b4ac16f_large.jpg?v=1569194969',
       productRef: 'https://lvlupgaming.co.uk/products/mtg-scalding-tarnmodern-masters-2017?_pos=6&_sid=731cc7339&_ss=r',
       expansion: '\nModern Masters 2017',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     },
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
       title: 'Scalding Tarn (Retro)',
-      price: { text: 'Sold Out', value: NaN },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/47e077d6-604f-5bf8-9ddc-be61e9bbcfb3_8c5716dc-cb1d-434c-bc53-bffc2df646da_large.png?v=1629305694',
       productRef: 'https://lvlupgaming.co.uk/products/scalding-tarn-timeshifted-modern-horizons-2?_pos=7&_sid=731cc7339&_ss=r',
       expansion: '\nModern Horizons 2',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     },
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
       title: 'Scalding Tarn (Extended)',
-      price: { text: 'Sold Out', value: NaN },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/2d9b9e98-da85-5420-b1c6-5f9a6ed6f2ec_large.png?v=1629305694',
       productRef: 'https://lvlupgaming.co.uk/products/scalding-tarn-extended-modern-horizons-2?_pos=8&_sid=731cc7339&_ss=r',
       expansion: '\nModern Horizons 2',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     },
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
       title: 'Scalding Tarn',
-      price: { text: 'Sold Out', value: NaN },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/6277f09b-558b-5655-bc9a-14ed06f5c5b7_6b792076-d3b9-45f2-bc8d-0614c902cee0_large.jpg?v=1629894857',
       productRef: 'https://lvlupgaming.co.uk/products/scalding-tarn-prerelease-modern-horizons-2-prerelease-promos?_pos=9&_sid=731cc7339&_ss=r',
       expansion: '\nModern Horizons 2 Prerelease Promos',
-      isFoil: false
+      isFoil: false,
+      price: { text: '', value: 9999 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     },
     {
-      name: 'Lvl Up Gaming',
-      logo: 'lvlUp 150x60.png',
       title: 'Scalding Tarn (Retro Etched Foil)',
-      price: { text: 'Sold Out', value: NaN },
       stock: { text: 'Out of Stock', value: 0 },
       imgSrc: '//cdn.shopify.com/s/files/1/0235/9200/9805/products/47e077d6-604f-5bf8-9ddc-be61e9bbcfb3_157a4443-0d3d-45aa-adf4-c65c32238f19_large.png?v=1635988759',
       productRef: 'https://lvlupgaming.co.uk/products/scalding-tarn-retro-etched-foil-modern-horizons-2?_pos=10&_sid=731cc7339&_ss=r',
       expansion: '\nModern Horizons 2',
-      isFoil: true
+      isFoil: true,
+      price: { text: '', value: 9999 },
+      name: 'Lvl Up Gaming',
+      logo: 'lvlUp 150x60.png'
     }
   ];

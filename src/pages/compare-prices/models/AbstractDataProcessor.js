@@ -3,9 +3,11 @@ import { regex, removeDiacritics } from '../utils/utils';
 
 class AbstractDataProcessor {
 
-  constructor({ resultSelector, nameSelector, priceSelector, priceToDisplayFromPriceText, priceValueFromPriceText,
+  constructor({
+                resultSelector, nameSelector, priceSelector, priceToDisplayFromPriceText, priceValueFromPriceText,
                 stockSelector, stockValueFromStockText, isFoilSelector, imgSelector, imgBaseUrl, imgSrcAttribute,
-                productSelector, productBaseUrl, productRefAttribute, expansionSelector }) {
+                productSelector, productBaseUrl, productRefAttribute, expansionSelector, conditionToDisplayFromPriceText
+              }) {
 
     this.parser = new DOMParser();
 
@@ -24,40 +26,59 @@ class AbstractDataProcessor {
     this.productBaseUrl = productBaseUrl;
     this.productRefAttribute = productRefAttribute;
     this.expansionSelector = expansionSelector;
+    this.conditionToDisplayFromPriceText = conditionToDisplayFromPriceText;
+
   }
 
   processData = (data) => {
 
-    let processedResults = [];
+    const processedResults = [];
 
     const resultNodes = this.dataToResultsArray(data);
 
     resultNodes.forEach(resultNode => {
-      processedResults.push({
-        title: this.titleFromResultNode(resultNode),
-        price: this.priceFromResultNode(resultNode),
-        stock: this.stockFromResultNode(resultNode),
-        imgSrc: this.imgSrcFromResultNode(resultNode),
-        productRef: this.productRefFromResultNode(resultNode),
-        expansion: this.expansionFromResultNode(resultNode),
-        isFoil: this.isFoilFromResultNode(resultNode),
+
+      let prices = this.pricesFromResultNode(resultNode);
+      prices = prices.length > 0 ? prices : [{ text: '', value: 9999 }];
+      // console.log(prices)
+
+      const title = this.titleFromResultNode(resultNode) + this.conditionFromResultNode(resultNode);
+      const stock = this.stockFromResultNode(resultNode);
+      const imgSrc = this.imgSrcFromResultNode(resultNode);
+      const productRef = this.productRefFromResultNode(resultNode);
+      const expansion = this.expansionFromResultNode(resultNode);
+      const isFoil = this.isFoilFromTitle(title) || this.isFoilFromResultNode(resultNode);
+
+      const otherData = {
+        title,
+        stock,
+        imgSrc,
+        productRef,
+        expansion,
+        isFoil,
+      }
+
+      prices.forEach(price => {
+        processedResults.push({
+          ...otherData,
+          price,
+        });
       });
+
     });
 
     return processedResults;
+
   }
+
 
   dataToResultsArray = (data) => {
     const document = this.parser.parseFromString(data, "text/html");
     return document.querySelectorAll(this.resultSelector);
   }
 
-  titleFromResultNode = (resultNode) =>
-    [...resultNode.querySelectorAll(this.nameSelector)]
-      .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
 
-
-  priceFromResultNode = (resultNode) =>
+  pricesFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.priceSelector)]
       .map(node => {
         const nodeText = node.innerHTML;
@@ -65,7 +86,12 @@ class AbstractDataProcessor {
           text: this.priceToDisplayFromPriceText(nodeText).replace(regex.whiteSpaceStripper, `$2`),
           value: this.priceValueFromPriceText(nodeText),
         };
-      })[0] || {text: '', value: 9999};
+      }) || [{text: '', value: 9999}];
+
+
+  titleFromResultNode = (resultNode) =>
+    [...resultNode.querySelectorAll(this.nameSelector)]
+      .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
 
 
   stockFromResultNode = (resultNode) =>
@@ -93,6 +119,14 @@ class AbstractDataProcessor {
   expansionFromResultNode = (resultNode) =>
     [...resultNode.querySelectorAll(this.expansionSelector)]
       .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
+
+
+  conditionFromResultNode = (resultNode) =>
+    [...resultNode.querySelectorAll(this.priceSelector)]
+      .map(node => {
+        const condition = this.conditionToDisplayFromPriceText(node.innerHTML);
+        return condition ? ' - ' + condition.replace(regex.whiteSpaceStripper, `$2`) : ''
+      })[0] || '';
 
 
   isFoilFromTitle = (title) => title.toLowerCase().includes('foil');

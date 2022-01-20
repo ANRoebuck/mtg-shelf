@@ -1,4 +1,4 @@
-import { cors, identityFunction, textToDigits } from '../utils/utils';
+import { cors, emptyString, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -64,6 +64,7 @@ class DataProceesor_PatriotGamesLeeds_Desktop extends AbstractDataProcessor {
       productBaseUrl: '',
       productRefAttribute: 'href',
       expansionSelector: 'td.productListing-data > div.listingDescription',
+      conditionToDisplayFromPriceText: emptyString,
     });
   }
 
@@ -113,6 +114,7 @@ class DataProceesor_PatriotGamesLeeds_Mobile extends AbstractDataProcessor {
       productBaseUrl: '',
       productRefAttribute: 'href',
       expansionSelector: 'div > div.listingDescription',
+      conditionToDisplayFromPriceText: emptyString,
     });
   }
 

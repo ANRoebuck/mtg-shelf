@@ -1,4 +1,4 @@
-import { cors, identityFunction, textToDigits } from '../utils/utils';
+import { cors, emptyString, identityFunction, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -54,7 +54,8 @@ class DataProcessor_TrollTrader extends AbstractDataProcessor {
       productSelector: 'div.inner > div > div.image > a',
       productBaseUrl: 'https://www.trolltradercards.com/',
       productRefAttribute: 'href',
-      expansionSelector: 'div.inner > div > div.meta > span.category'
+      expansionSelector: 'div.inner > div > div.meta > span.category',
+      conditionToDisplayFromPriceText: emptyString,
     });
   }
 }

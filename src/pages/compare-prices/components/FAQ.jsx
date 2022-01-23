@@ -20,6 +20,20 @@ const FAQ = () => {
          issues as quickly as possible whenever they arise, but I can never 100% guarantee the accuracy of the app.
        </div>
 
+       <h2>Caveat Emptor</h2>
+       <div className="answer">
+         I am not affiliated in any way with the owners of the sites whose prices are displayed in the app. Any order
+         placed with these vendors represents an agreement between you and that vendor only; I am not liable for any
+         failure to deliver purchased items or for the condition/quality of any items you receive.
+       </div>
+
+       <h2>Spondored?</h2>
+       <div className="answer">
+         I am not currently paid or sponsored by any third party in relation to the production of this app. I made it
+         primarily for myself and use it regularly - sharing it with everybody else just seemed easy after that. If
+         this ever changes, I will update this page to make it very clear that that has happened.
+       </div>
+
        <h2>Where do the prices come from?</h2>
        <div className="answer" >
          When you hit enter (or GO on mobile), a request is sent in real time to each seller. The results displayed
@@ -62,11 +76,11 @@ const FAQ = () => {
        {/*  fresh prices again.*/}
        {/*</div>*/}
 
-       <h2>Are you favouring any of the sellers or do you have a sponsor?</h2>
-       <div className="answer" >
-         No. The app does not favour any individual seller - by default it will just list results in order of price.
-         There are some options that will let you customise this, including setting your own favourite seller.
-       </div>
+       {/*<h2>Are you favouring any of the sellers or do you have a sponsor?</h2>*/}
+       {/*<div className="answer" >*/}
+       {/*  No. The app does not favour any individual seller - by default it will just list results in order of price.*/}
+       {/*  There are some options that will let you customise this, including setting your own favourite seller.*/}
+       {/*</div>*/}
 
        <h2>Can you filter / sort the results in such and such a way ?</h2>
        <div className="answer" >

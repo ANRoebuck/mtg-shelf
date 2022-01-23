@@ -2,6 +2,7 @@ import Model_Axion from './Model_Axion';
 import Model_BigOrbitCards from './Model_BigOrbitCards';
 import Model_Hareruya from './Model_Hareruya';
 import Model_Harlequins from './Model_Harlequins';
+import Model_LazyDragonGaming from './Model_LazyDragonGaming';
 import Model_LvlUp from './Model_LvlUp';
 import Model_MagicCardTrader from './Model_MagicCardTrader';
 import Model_MagicMadhouse from './Model_MagicMadhouse';
@@ -17,7 +18,7 @@ import Model_TrollTrader from './Model_TrollTrader';
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  // new Model_StarCityGames(),
+  new Model_LazyDragonGaming(),
 ];
 
 const allModels = [
@@ -25,6 +26,7 @@ const allModels = [
   new Model_BigOrbitCards(),
   new Model_MagicCardTrader(),
   new Model_Harlequins(),
+  new Model_LazyDragonGaming(),
   new Model_LvlUp(),
   new Model_MagicMadhouse(),
   new Model_ManaLeak(),

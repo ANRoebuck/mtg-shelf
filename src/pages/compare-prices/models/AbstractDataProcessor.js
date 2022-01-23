@@ -59,7 +59,7 @@ class AbstractDataProcessor {
         const stock = this.stockFromResultNode(subresult);
         const subtitle = this.subtitleFromResultNode(subresult);
         const isFoil =
-          this.isFoilFromTitle(title) || this.isFoilFromTitle(subtitle) || this.isFoilFromResultNode(resultNode);
+          this.isFoilFromTitle(title) || this.isFoilFromTitle(subtitle) || this.isFoilFromResultNode(subresult);
 
         processedResults.push({
           title,

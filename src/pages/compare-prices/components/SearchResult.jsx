@@ -6,7 +6,7 @@ import FoilStar from "./FoilStar";
 
 const SearchResult = (discoveredPrice, isSaved, addSavedPrice, removeSavedPrice) => {
 
-  const {name, logo, title, price, stock, imgSrc, productRef, expansion, isFoil} = discoveredPrice;
+  const {name, logo, title, subtitle, price, stock, imgSrc, productRef, expansion, isFoil} = discoveredPrice;
 
   const onClickSaveWidget = () => {
     if (!isSaved) addSavedPrice(discoveredPrice);
@@ -22,7 +22,7 @@ const SearchResult = (discoveredPrice, isSaved, addSavedPrice, removeSavedPrice)
 
       {isFoil ? <FoilStar/> : null}
 
-      <div className="name">{title}</div>
+      <div className="name">{`${title}${subtitle ? ' - ' + subtitle : ''}`}</div>
 
       <div className="expansion">{expansion}</div>
 

@@ -1,42 +1,43 @@
-import ModelAxion from './ModelAxion';
-import ModelBigOrbitCards from './ModelBigOrbitCards';
-import ModelChaosCards_3 from './ModelChaosCards_3';
-import ModelHareruya from './ModelHareruya';
-import ModelHarlequins from './ModelHarlequins';
-import ModelLvlUp from './ModelLvlUp';
-import ModelMagicCardTrader from './ModelMagicCardTrader';
-import ModelMagicMadhouse from './ModelMagicMadhouse';
-import ModelManaLeak from './ModelManaLeak';
-import ModelMountBatten from './ModelMountBatten';
-import ModelNerdShak from './ModelNerdShak';
-import ModelPatriotGamesLeeds from './ModelPatriotGamesLeeds';
-import ModelStarCityGames from './ModelStarCityGames';
-import ModelTrollTrader from './ModelTrollTrader';
+import Model_Axion from './Model_Axion';
+import Model_BigOrbitCards from './Model_BigOrbitCards';
+import Model_Hareruya from './Model_Hareruya';
+import Model_Harlequins from './Model_Harlequins';
+import Model_LazyDragonGaming from './Model_LazyDragonGaming';
+import Model_LvlUp from './Model_LvlUp';
+import Model_MagicCardTrader from './Model_MagicCardTrader';
+import Model_MagicMadhouse from './Model_MagicMadhouse';
+import Model_ManaLeak from './Model_ManaLeak';
+import Model_MountbattenCollectables from './Model_MountbattenCollectables';
+import Model_NerdShak from './Model_NerdShak';
+import Model_PatriotGamesLeeds from './Model_PatriotGamesLeeds';
+import Model_StarCityGames from './Model_StarCityGames';
+import Model_TrollTrader from './Model_TrollTrader';
 
 
 // For use during development
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  // new ModelLvlUp(),
+  // new Model_LazyDragonGaming(),
 ];
 
 const allModels = [
-  new ModelAxion(),
-  new ModelBigOrbitCards(),
-  new ModelMagicCardTrader(),
-  new ModelHarlequins(),
-  new ModelLvlUp(),
-  new ModelMagicMadhouse(),
-  new ModelManaLeak(),
-  new ModelMountBatten(),
-  new ModelNerdShak(),
-  new ModelPatriotGamesLeeds(),
-  new ModelTrollTrader(),
+  new Model_Axion(),
+  new Model_BigOrbitCards(),
+  new Model_MagicCardTrader(),
+  new Model_Harlequins(),
+  new Model_LazyDragonGaming(),
+  new Model_LvlUp(),
+  new Model_MagicMadhouse(),
+  new Model_ManaLeak(),
+  new Model_MountbattenCollectables(),
+  new Model_NerdShak(),
+  new Model_PatriotGamesLeeds(),
+  new Model_TrollTrader(),
 
   // non-UK
-  new ModelStarCityGames(),
-  new ModelHareruya(),
+  new Model_StarCityGames(),
+  new Model_Hareruya(),
 ];
 
 const getModels = () => modelSubset.length > 0 ? modelSubset : allModels;

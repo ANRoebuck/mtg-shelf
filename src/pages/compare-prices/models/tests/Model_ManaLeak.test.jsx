@@ -5,9 +5,9 @@ import { response_manaLeak_Tarmogoyf, expectedResults_manaLeak_Tarmogoyf } from 
 jest.mock('axios');
 
 
-describe('ModelManaLeak', () => {
+describe('Model_ManaLeak', () => {
 
-  it('gets results', async () => {
+  it('gets results for Tarmogoyf', async () => {
     axios.get.mockResolvedValueOnce({ data: response_manaLeak_Tarmogoyf });
 
     const model = new Model_ManaLeak();

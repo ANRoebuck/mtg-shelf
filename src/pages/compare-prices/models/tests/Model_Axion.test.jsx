@@ -5,9 +5,9 @@ import { response_axion_Tarmogoyf, expectedResults_axion_Tarmogoyf } from './tes
 jest.mock('axios');
 
 
-describe('ModelAxion', () => {
+describe('Model_Axion', () => {
 
-  it('gets results', async () => {
+  it('gets results for Tarmogoyf', async () => {
     axios.get.mockResolvedValueOnce({ data: response_axion_Tarmogoyf });
 
     const model = new Model_Axion();

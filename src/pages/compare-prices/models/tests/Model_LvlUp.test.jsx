@@ -8,9 +8,9 @@ import {
 jest.mock('axios');
 
 
-describe('ModelLvlUp', () => {
+describe('Model_LvlUp', () => {
 
-  it('gets results', async () => {
+  it('gets results for Misty Rainforest', async () => {
     axios.get.mockResolvedValueOnce({ data: response_lvlUp_MistyRainforest });
 
     const model = new Model_LvlUp();

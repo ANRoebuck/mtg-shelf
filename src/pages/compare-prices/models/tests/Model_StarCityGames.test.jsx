@@ -12,9 +12,9 @@ import {
 jest.mock('axios');
 
 
-describe('ModelMagicMadhouse', () => {
+describe('Model_StarCityGames', () => {
 
-  it('gets results for tarmogoyf', async () => {
+  it('gets results for Tarmogoyf', async () => {
     axios.get.mockResolvedValueOnce({ data: response_starCityGames_Tarmogoyf });
 
     const model = new Model_StarCityGames();
@@ -25,7 +25,7 @@ describe('ModelMagicMadhouse', () => {
     // expect(results).toStrictEqual(expectedResults_starCityGames_Tarmogoyf);
   });
 
-  it('gets results for raven familiar', async () => {
+  it('gets results for Raven Familiar', async () => {
     axios.get.mockResolvedValueOnce({ data: response_starCityGames_RavenFamiliar });
 
     const model = new Model_StarCityGames();

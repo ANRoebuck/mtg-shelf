@@ -5,9 +5,9 @@ import { response_mountbattenCollectables_ScaldingTarn, expectedResults_mountbat
 jest.mock('axios');
 
 
-describe('ModelAxion', () => {
+describe('Model_MountbattenCollectables', () => {
 
-  it('gets results', async () => {
+  it('gets results for Scalding Tarn', async () => {
     axios.get.mockResolvedValueOnce({ data: response_mountbattenCollectables_ScaldingTarn });
 
     const model = new ModelMountBatten();

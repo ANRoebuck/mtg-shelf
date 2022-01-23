@@ -8,7 +8,7 @@ import {
 jest.mock('axios');
 
 
-describe('ModelHareruya', () => {
+describe('Model_Hareruya', () => {
 
   it('gets results for Tarmogoyf', async () => {
     axios.get.mockResolvedValueOnce({ data: response_hareruya_Tarmogoyf });

@@ -6,9 +6,9 @@ import { response_magicMadhouse_RavenFamiliar, expectedResults_magicMadhouse_Rav
 jest.mock('axios');
 
 
-describe('ModelMagicMadhouse', () => {
+describe('Model_MagicMadhouse', () => {
 
-  it('gets results for tarmogoyf', async () => {
+  it('gets results for Tarmogoyf', async () => {
     axios.get.mockResolvedValueOnce({ data: response_magicMadhouse_Tarmogoyf });
 
     const model = new Model_MagicMadhouse();
@@ -19,7 +19,7 @@ describe('ModelMagicMadhouse', () => {
     expect(results).toStrictEqual(expectedResults_magicMadhouse_Tarmogoyf);
   });
 
-  it('gets results for raven familiar', async () => {
+  it('gets results for Raven Familiar', async () => {
     axios.get.mockResolvedValueOnce({ data: response_magicMadhouse_RavenFamiliar });
 
     const model = new Model_MagicMadhouse();

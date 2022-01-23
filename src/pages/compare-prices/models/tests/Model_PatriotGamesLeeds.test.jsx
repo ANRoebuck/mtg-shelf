@@ -7,13 +7,13 @@ import {
 
 jest.mock('axios');
 
-describe('ModelPatriotGamesLeeds', () => {
+describe('Model_PatriotGamesLeeds', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  describe('ModelPatriotGamesLeedsDesktop', () => {
+  describe('Model_PatriotGamesLeeds_Desktop', () => {
 
     it('gets results for Tarmogoyf', async () => {
       axios.get.mockResolvedValue({ data: response_patriotGamesLeeds_desktop_Tarmogoyf });
@@ -28,7 +28,7 @@ describe('ModelPatriotGamesLeeds', () => {
 
   });
 
-  describe('ModelPatriotGamesLeedsMobile', () => {
+  describe('Model_PatriotGamesLeeds_Mobile', () => {
 
     it('gets results for Tarmogoyf', async () => {
       axios.get.mockResolvedValue({ data: response_patriotGamesLeeds_mobile_Tarmogoyf });

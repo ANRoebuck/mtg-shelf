@@ -5,9 +5,9 @@ import { response_trollTrader_Tarmogoyf, expectedResults_trollTrader_Tarmogoyf }
 jest.mock('axios');
 
 
-describe('ModelTrollTrader', () => {
+describe('Model_TrollTrader', () => {
 
-  it('gets results', async () => {
+  it('gets results for Tarmogoyf', async () => {
     axios.get.mockResolvedValueOnce({ data: response_trollTrader_Tarmogoyf });
 
     const model = new Model_TrollTrader();

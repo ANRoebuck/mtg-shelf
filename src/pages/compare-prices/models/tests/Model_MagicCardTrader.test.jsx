@@ -5,9 +5,9 @@ import { response_magicCardTrader_Tarmogoyf, expectedResults_magicCardTrader_Tar
 jest.mock('axios');
 
 
-describe('ModelMagicCardTrader', () => {
+describe('Model_MagicCardTrader', () => {
 
-  it('gets results', async () => {
+  it('gets results for Tarmogoyf', async () => {
     axios.get.mockResolvedValueOnce({ data: response_magicCardTrader_Tarmogoyf });
 
     const model = new Model_MagicCardTrader();

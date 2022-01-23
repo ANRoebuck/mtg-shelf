@@ -8,9 +8,9 @@ import {
 jest.mock('axios');
 
 
-describe('ModelNerdShak', () => {
+describe('Model_NerdShak', () => {
 
-  it('gets results', async () => {
+  it('gets results for Watery Grave', async () => {
     axios.get.mockResolvedValueOnce({ data: response_nerdShak_WateryGrave });
 
     const model = new Model_NerdShak();

@@ -3,7 +3,7 @@ import { getCachedResultsForSearch, setCachedResultsForSearch } from '../compone
 
 // for use during local testing/development
 const logData = false;
-const logResults = false;
+const logResults = true;
 const logResults_withoutLogo = false;
 const useCachedResults = false;
 

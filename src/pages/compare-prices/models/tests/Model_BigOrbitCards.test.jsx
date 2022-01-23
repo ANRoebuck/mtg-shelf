@@ -5,9 +5,9 @@ import { response_bigOrbit_Tarmogoyf, expectedResults_bigOrbit_Tarmogoyf } from 
 jest.mock('axios');
 
 
-describe('ModelBigOrbitCards', () => {
+describe('Model_BigOrbitCards', () => {
 
-  it('gets results', async () => {
+  it('gets results for Tarmogoyf', async () => {
     axios.get.mockResolvedValueOnce({ data: response_bigOrbit_Tarmogoyf });
 
     const model = new Model_BigOrbitCards();

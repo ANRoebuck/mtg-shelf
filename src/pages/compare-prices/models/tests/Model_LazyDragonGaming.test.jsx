@@ -1,24 +1,24 @@
 import axios from 'axios';
-import Model_NerdShak from '../Model_NerdShak';
+import Model_LazyDragonGaming from '../Model_LazyDragonGaming';
 import {
-  expectedResults_nerdShak_WateryGrave,
-  response_nerdShak_WateryGrave
-} from './test-resources/model-nerd-shak-search-response-watery-grave';
+  expectedResults_lazyDragonGaming_ShipwreckMarsh,
+  response_lazyDragonGaming_ShipwreckMarsh
+} from './test-resources/model-lazy-dragon-gaming-search-response-shipwreck-marsh';
 
 jest.mock('axios');
 
 
-describe('ModelNerdShak', () => {
+describe('Model_LazyDragonGaming', () => {
 
-  it('gets results', async () => {
-    axios.get.mockResolvedValueOnce({ data: response_nerdShak_WateryGrave });
+  it('gets results for Shipwreck Marsh', async () => {
+    axios.get.mockResolvedValueOnce({ data: response_lazyDragonGaming_ShipwreckMarsh });
 
-    const model = new Model_NerdShak();
-    const results = await model.search('Watery Grave');
+    const model = new Model_LazyDragonGaming();
+    const results = await model.search('Shipwreck Marsh');
 
-    expect(model.name).toBe('Nerd Shak');
-    expect(results.length).toBe(6);
-    expect(results).toStrictEqual(expectedResults_nerdShak_WateryGrave);
+    expect(model.name).toBe('Lazy Dragon Gaming');
+    expect(results.length).toBe(3);
+    expect(results).toStrictEqual(expectedResults_lazyDragonGaming_ShipwreckMarsh);
   });
 
 });

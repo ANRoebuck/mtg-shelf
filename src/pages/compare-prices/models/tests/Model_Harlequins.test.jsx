@@ -12,7 +12,7 @@ import {
 jest.mock('axios');
 
 
-describe('ModelHarlequins', () => {
+describe('Model_Harlequins', () => {
 
   it('gets results for Scalding Tarn', async () => {
     axios.get.mockResolvedValueOnce({ data: response_harlequins_ScaldingTarn });

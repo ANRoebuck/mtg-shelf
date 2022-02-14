@@ -7,7 +7,7 @@ class AbstractProcessorSelector {
     this.dataProcessor = dataProcessor;
   }
 
-  getProcessor = (rawData) => this.dataProcessor;
+  getProcessor = (rawData, searchTerm) => this.dataProcessor;
 
 }
 

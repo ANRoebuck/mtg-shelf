@@ -41,7 +41,10 @@ class ProcessorSelector_PatriotGamesLeeds extends AbstractProcessorSelector {
   getProcessor = (rawData) => {
     const parser = new DOMParser();
     const document = parser.parseFromString(rawData, "text/html");
-    const desktopElements = document.querySelectorAll('#productListing > table > tbody> tr'); // resultsSelector
+
+    // resultsSelector
+    const desktopElements = document.querySelectorAll('#productListing > table > tbody> tr');
+
     return desktopElements.length > 0 ? this.desktop : this.mobile;
   };
 }

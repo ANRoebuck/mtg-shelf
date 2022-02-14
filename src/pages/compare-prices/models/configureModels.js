@@ -1,8 +1,8 @@
 import Model_Axion from './Model_Axion';
 import Model_BigOrbitCards from './Model_BigOrbitCards';
-import Model_Hareruya from './Model_Hareruya';
 import Model_Harlequins from './Model_Harlequins';
 import Model_LazyDragonGaming from './Model_LazyDragonGaming';
+import Model_LondonMagicTraders from './Model_LondonMagicTraders';
 import Model_LvlUp from './Model_LvlUp';
 import Model_MagicCardTrader from './Model_MagicCardTrader';
 import Model_MagicMadhouse from './Model_MagicMadhouse';
@@ -10,15 +10,19 @@ import Model_ManaLeak from './Model_ManaLeak';
 import Model_MountbattenCollectables from './Model_MountbattenCollectables';
 import Model_NerdShak from './Model_NerdShak';
 import Model_PatriotGamesLeeds from './Model_PatriotGamesLeeds';
-import Model_StarCityGames from './Model_StarCityGames';
 import Model_TrollTrader from './Model_TrollTrader';
+
+// non-UK
+import Model_MKM from './Model_MKM';
+import Model_StarCityGames from './Model_StarCityGames';
+import Model_Hareruya from './Model_Hareruya';
 
 
 // For use during development
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  // new Model_LazyDragonGaming(),
+  // new Model_LondonMagicTraders(),
 ];
 
 const allModels = [
@@ -27,6 +31,7 @@ const allModels = [
   new Model_MagicCardTrader(),
   new Model_Harlequins(),
   new Model_LazyDragonGaming(),
+  new Model_LondonMagicTraders(),
   new Model_LvlUp(),
   new Model_MagicMadhouse(),
   new Model_ManaLeak(),

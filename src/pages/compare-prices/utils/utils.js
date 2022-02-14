@@ -21,7 +21,8 @@ export const minorUnitsToText = (minorUnits, currency) => {
     return `${currency.representation}${majorUnits}.${remainder}`;
 }
 
-export const preDashText = (text) => text.replace(/(.*)\s-.*/, `$1`);
+export const preDashText = (text) => text.replace(/(.*)[-~](.*)/, `$1`);
+export const postDashText = (text) => text.replace(/(.*)[-~](.*)/, `$2`);
 export const postCurrencyText = (text) => text.replace(/.*([£$€¥].*)/, `$1`);
 export const removeTags = (text) => text.replace(/<.*?>/g, '');
 

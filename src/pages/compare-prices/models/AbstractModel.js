@@ -3,7 +3,7 @@ import { getCachedResultsForSearch, setCachedResultsForSearch } from '../compone
 
 // for use during local testing/development
 const logData = false;
-const logResults = true;
+const logResults = false;
 const logResults_withoutLogo = false;
 const useCachedResults = false;
 
@@ -26,7 +26,7 @@ class AbstractModel {
     const rawData = await this.dataGetter.getData(sanitisedSearchTerm);
     if (logData) console.log(rawData);
 
-    const processor = this.processorSelector.getProcessor(rawData);
+    const processor = this.processorSelector.getProcessor(rawData, sanitisedSearchTerm);
 
     const foundItems = processor.processData(rawData)
       .filter(result => this.strongMatch(result.title, sanitisedSearchTerm))

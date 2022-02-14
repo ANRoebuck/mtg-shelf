@@ -20,12 +20,12 @@ const FAQ = () => {
          issues as quickly as possible whenever they arise, but I can never 100% guarantee the accuracy of the app.
        </div>
 
-       <h2>Caveat Emptor</h2>
-       <div className="answer">
-         I am not affiliated in any way with the owners of the sites whose prices are displayed in the app. Any order
-         placed with these vendors represents an agreement between you and that vendor only; I am not liable for any
-         failure to deliver purchased items or for the condition/quality of any items you receive.
-       </div>
+       {/*<h2>Caveat Emptor</h2>*/}
+       {/*<div className="answer">*/}
+       {/*  I am not affiliated in any way with the owners of the sites whose prices are displayed in the app. Any order*/}
+       {/*  placed with these vendors represents an agreement between you and that vendor only; I am not liable for any*/}
+       {/*  failure to deliver purchased items or for the condition/quality of any items you receive.*/}
+       {/*</div>*/}
 
        <h2>Spondored?</h2>
        <div className="answer">

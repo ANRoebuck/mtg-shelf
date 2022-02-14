@@ -4,15 +4,18 @@ import chaosLogo from '../models/resources/chaosCards 150x60.png';
 import harlequinsLogo from '../models/resources/harlequins 150x60.png';
 import hareruyaLogo from '../models/resources/hareryua 150x60.png';
 import lazyDragonLogo from '../models/resources/lazyDragonGaming-3 150x60.jpg';
+import londonMagicLogo from '../models/resources/londonMagicTraders 150x60.png';
 import lvlUpLogo from '../models/resources/lvlUp 150x60.png';
 import magicCardTraderLogo from '../models/resources/magicCardTrader-black 150x60.png';
 import magicMadhouseLogo from '../models/resources/magicMadhouse 150x60.png';
 import manaleakLogo from '../models/resources/manaLeak 150x60.png';
+import mkmLogo from '../models/resources/mkm 150x60.png';
 import mountBattenLogo from '../models/resources/mountBatten 150x60.png';
 import nerdShakLogo from '../models/resources/nerdShak 150x60.jpg';
 import pgLeedsLogo from '../models/resources/patriotGamesLeeds 150x60.png';
 import starCityGamesLogo from '../models/resources/starCityGames 150x60.png';
 import trollLogo from '../models/resources/trollTrader 150x60.png';
+import unionCountyLogo from '../models/resources/unionCountyGames 150x60.png';
 
 export const currency = {
   EUR: { representation: '€', decimalPlaces: 2, conversionFactor: 1, },
@@ -57,6 +60,11 @@ export const seller = {
     logo: lvlUpLogo,
     currency: currency.GBP,
   },
+  londonMagic: {
+    name: 'London Magic Traders',
+    logo: londonMagicLogo,
+    currency: currency.GBP,
+  },
   magicCardTrader: {
     name: 'Magic Card Trader',
     logo: magicCardTraderLogo,
@@ -71,6 +79,11 @@ export const seller = {
     name: 'Manaleak',
     logo: manaleakLogo,
     currency: currency.GBP,
+  },
+  mkm: {
+    name: 'Magic Card Market',
+    logo: mkmLogo,
+    currency: currency.EUR,
   },
   mountBatten: {
     name: 'Mountbatten Collectables',
@@ -87,6 +100,14 @@ export const seller = {
     logo: pgLeedsLogo,
     currency: currency.GBP,
   },
+  unionCounty: {
+    name: 'Union County Games',
+    logo: unionCountyLogo,
+    currency: currency.GBP,
+  },
+
+  // Non-UK
+
   starCityGames: {
     name: 'Star City Games',
     logo: starCityGamesLogo,
@@ -97,6 +118,7 @@ export const seller = {
     logo: trollLogo,
     currency: currency.JPY,
   },
+
 };
 
 export const sortOosBy = {

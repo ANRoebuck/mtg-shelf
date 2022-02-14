@@ -23,6 +23,8 @@ import SearchResult from './components/SearchResult';
 import SellerOption from './components/SellerOption';
 import SearchOptions from './components/SearchOptions';
 import './compare-prices.scss';
+import Model_MKM from "./models/Model_MKM";
+import MkmSummary from "./components/MkmSummary";
 
 
 const TabPanel = ({children, value, index}) => (
@@ -30,6 +32,8 @@ const TabPanel = ({children, value, index}) => (
     {children}
   </div>
 );
+
+// const mkm = new Model_MKM();
 
 const ComparePrices = () => {
 
@@ -39,6 +43,9 @@ const ComparePrices = () => {
   const [clearOnSearch, setClearOnSearch] = useState(true);
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [savedPrices, setSavedPrices] = useState({});
+
+  const [mkmLoading, setMkmLoading] = useState(false);
+  const [discoveredMKM, setDiscoverdMKM] = useState([]);
 
   const [tab, setTab] = useState(0);
   const onChangeTab = (event, newValue) => setTab(newValue);
@@ -64,6 +71,7 @@ const ComparePrices = () => {
     if (clearOnSearch) setDiscoveredPrices([]);
     setLastSearched(searchFor);
     setSearchTerm('');
+    // let mkm = await getMkmSummary(searchFor);
     sellers.forEach(seller => {
       seller.enabled && toggleSellerLoading(seller);
       setSellerKeyValue('name', seller.name, 'results', '');
@@ -80,6 +88,13 @@ const ComparePrices = () => {
     setSellerKeyValue('name', seller.name, 'results', results.length);
     setSellerKeyValue('name', seller.name, 'inStock', results.filter(result => result.stock.value > 0).length);
   }
+
+  // const getMkmSummary = async (searchFor) => {
+  //   setMkmLoading(true);
+  //   let results = await mkm.model.search(searchFor);
+  //   setDiscoverdMKM(results);
+  //   setMkmLoading(false);
+  // }
 
   const catchUpSearchResultsForSeller = async (seller) => {
     if (lastSearched.length > 0 && seller.results === '') {
@@ -239,6 +254,9 @@ const ComparePrices = () => {
 
 
       <TabPanel value={tab} index={0}>
+        {/*<div className="mkm-container">*/}
+        {/*  <MkmSummary mkmLoading={mkmLoading} mkmResults={discoveredMKM}/>*/}
+        {/*</div>*/}
         <div className="search-results">
           {searchResults()}
         </div>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { cors } from './utils/utils';
 import { filterFoilsBy, sortOosBy, sortPriceBy } from './utils/enums';
 import { autocomplete } from '../../gateway/http';
-import { configureModels } from './models/configureModels';
+import { configureModel, configureModels } from './models/configureModels';
 import {
   addSavedCard,
   getSavedCards,
@@ -33,11 +33,12 @@ const TabPanel = ({children, value, index}) => (
   </div>
 );
 
-// const mkm = new Model_MKM();
+const mkm = configureModel(new Model_MKM());
+const allSellers = configureModels();
 
 const ComparePrices = () => {
 
-  const [sellers, setSellers] = useState(configureModels());
+  const [sellers, setSellers] = useState(allSellers);
   const [searchTerm, setSearchTerm] = useState('');
   const [lastSearched, setLastSearched] = useState('');
   const [clearOnSearch, setClearOnSearch] = useState(true);
@@ -71,7 +72,8 @@ const ComparePrices = () => {
     if (clearOnSearch) setDiscoveredPrices([]);
     setLastSearched(searchFor);
     setSearchTerm('');
-    // let mkm = await getMkmSummary(searchFor);
+
+    // getMkmSummary(searchFor);
     sellers.forEach(seller => {
       seller.enabled && toggleSellerLoading(seller);
       setSellerKeyValue('name', seller.name, 'results', '');
@@ -89,12 +91,12 @@ const ComparePrices = () => {
     setSellerKeyValue('name', seller.name, 'inStock', results.filter(result => result.stock.value > 0).length);
   }
 
-  // const getMkmSummary = async (searchFor) => {
-  //   setMkmLoading(true);
-  //   let results = await mkm.model.search(searchFor);
-  //   setDiscoverdMKM(results);
-  //   setMkmLoading(false);
-  // }
+  const getMkmSummary = async (searchFor) => {
+    setMkmLoading(true);
+    let results = await mkm.model.search(searchFor);
+    setDiscoverdMKM(results);
+    setMkmLoading(false);
+  }
 
   const catchUpSearchResultsForSeller = async (seller) => {
     if (lastSearched.length > 0 && seller.results === '') {
@@ -254,9 +256,9 @@ const ComparePrices = () => {
 
 
       <TabPanel value={tab} index={0}>
-        {/*<div className="mkm-container">*/}
-        {/*  <MkmSummary mkmLoading={mkmLoading} mkmResults={discoveredMKM}/>*/}
-        {/*</div>*/}
+        <div className="mkm-container">
+          {/*<MkmSummary mkmLoading={mkmLoading} mkmResults={discoveredMKM}/>*/}
+        </div>
         <div className="search-results">
           {searchResults()}
         </div>

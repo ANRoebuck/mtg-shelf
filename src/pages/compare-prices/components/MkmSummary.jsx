@@ -17,13 +17,13 @@ const MkmSummary = ({ mkmLoading, mkmResults }) => {
 }
 
 const anMkmResult = (result) => {
-  const { imgSrc, title, from, trend, symbol, expansion } = result;
+  const { title, from, trend, expansion, symbol, imgSrc } = result;
 
   return (
     <>
       <div>{`Name = ${title}`}</div>
-      <div>{`From = ${from}`}</div>
-      <div>{`Trend = ${trend}`}</div>
+      <div>{`From = ${from.text}`}</div>
+      <div>{`Trend = ${trend.text}`}</div>
       <div>{`Expansion = ${expansion}`}</div>
     </>
   );

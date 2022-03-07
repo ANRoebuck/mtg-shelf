@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { cors, identityFunction, textToDigits } from '../utils/utils';
+import { cors, identityFunction, regex, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -31,9 +31,17 @@ class DataGetter_MKM extends AbstractDataGetter {
   }
 
   // @Override
-  searchTermToUrl = (searchTerm) => axios
+  getData = async (searchTerm) => {
+    const { data: url } = await this.searchTermToUrl(searchTerm);
+    return axios.get(this.cors + url)
+      .then(({ data }) => data || '')
+      .catch(() => '');
+  }
+
+  // @Override
+  searchTermToUrl = async (searchTerm) => axios
     .get(`https://api.scryfall.com/cards/named?fuzzy=${searchTerm.split('').join('+')}`)
-    .then(r => ({ data: r.data.purshase_uris.cardmarket }));
+    .then(r => ({ data: r.data.purchase_uris.cardmarket }));
 }
 
 class ProcessorSelector_MKM extends AbstractProcessorSelector {
@@ -49,45 +57,78 @@ class ProcessorSelector_MKM extends AbstractProcessorSelector {
     const parser = new DOMParser();
     const document = parser.parseFromString(rawData, "text/html");
 
-    // resultsSelector
-    const singleResultTitle = document.querySelectorAll(
-      'body > main > div.page-title-container.d-flex.align-items-center.text-break > div.flex-grow-1 > h1');
+    // a single results page has a title element
+    const singleResultTitle = document.querySelectorAll('div.page-title-container > div.flex-grow-1 > h1');
 
     return singleResultTitle.length > 0 ? this.singleResult : this.pluralResult;
   };
 
 }
 
-class DataProcessor_MKM_singleResult extends AbstractDataProcessor {
+class DataProcessor_MKM_singleResult {
   constructor() {
-    super({
-      resultSelector: 'ul.products > li.product',
-      titleSelector: 'div.inner > div > div.meta > a > h4',
+    this.titleSelector = 'div.page-title-container > div.flex-grow-1 > h1';
+    this.fromSelector = 'div > div > dl > dd:nth-child(10)';
+    this.trendSelector = 'div > div > dl > dd:nth-child(12)';
+    this.expansionSelector = 'div > div > dl > dd:nth-child(6)';
+    this.symbolSelector = 'div > div > dl > dd:nth-child(6)';
+    this.symbolAttibuteSelector = 'mb-2';
+    this.imgSrcSelector = '#image > div > div > div:nth-child(2) > div > img';
+    this.imgSrcAttribute = 'src';
 
-      priceSelector: 'div.inner > div > div.meta > div.list-variants.grid > div > span > form > div > span.regular',
-      priceToDisplayFromPriceText: identityFunction,
-      priceValueFromPriceText: textToDigits,
-
-      stockSelector: 'div.inner > div > div.meta > div> div > span.variant-main-info > span.variant-qty',
-      stockValueFromStockText: (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
-      isFoilSelector: 'div.inner > div > div.meta > a > h4',
-      expansionSelector: 'div.inner > div > div.meta > a > span.category',
-
-      imgSelector: 'div.inner > div > div.image > a > img',
-      imgBaseUrl: '',
-      imgSrcAttribute: 'src',
-
-      productSelector: 'div.inner > div > div.image > a',
-      productBaseUrl: 'https://www.axionnow.com/',
-      productRefAttribute: 'href',
-    });
+    this.parser = new DOMParser();
   }
+
+  processData = (data) => {
+    console.log('processing single result');
+
+    const document = this.parser.parseFromString(data, "text/html");
+
+    return [
+      {
+        title: this.getTextFromElement(document, this.titleSelector),
+        from: this.getPriceFromElement(document, this.fromSelector),
+        trend: this.getPriceFromElement(document, this.trendSelector),
+        expansion: this.getTextFromElement(document, this.expansionSelector),
+        symbol: this.getAttributeFromElement(document, this.symbolSelector, this.symbolAttibuteSelector),
+        imgSrc: this.getAttributeFromElement(document, this.imgSrcSelector, this.imgSrcAttribute),
+      },
+    ]
+  }
+
+  getTextFromElement = (document, selector) =>
+    [...document.querySelectorAll(selector)]
+      .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
+
+  getPriceFromElement = (document, selector) =>
+    [...document.querySelectorAll(selector)]
+      .map(node => {
+        const nodeText = node.innerHTML;
+        return {
+          text: nodeText.replace(regex.whiteSpaceStripper, `$2`),
+          value: textToDigits(nodeText),
+        };
+      })[0] || {text: '', value: 9999};
+
+  getAttributeFromElement = (document, selector, key, defaultValue = null) =>
+    [...document.querySelectorAll(selector)]
+      .map(element => element.getAttribute(key))[0] || defaultValue;
+
 }
 
-class DataProcessor_MKM_pluralResult extends AbstractDataProcessor {
+
+
+class DataProcessor_MKM_pluralResult {
   constructor() {
-    super();
+    this.singleResultProcessor = new DataProcessor_MKM_singleResult();
   }
+
+  processData = () => {
+    console.log('processing plural result');
+
+    return [];
+  }
+
 }
 
 

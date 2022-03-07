@@ -22,7 +22,7 @@ import Model_Hareruya from './Model_Hareruya';
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  // new Model_LondonMagicTraders(),
+  // new Model_Axion(),
 ];
 
 const allModels = [
@@ -47,15 +47,17 @@ const allModels = [
 
 const getModels = () => modelSubset.length > 0 ? modelSubset : allModels;
 
-export const configureModels = () => getModels().map(model => {
-    return {
-      name: model.name,
-      logo: model.logo,
-      enabled: true,
-      loading: false,
-      results: '',
-      inStock: '',
-      favourite: false,
-      model
-    }
-  });
+export const configureModels = () => getModels().map(configureModel);
+
+export const configureModel = (model) => {
+  return {
+    name: model.name,
+    logo: model.logo,
+    enabled: true,
+    loading: false,
+    results: '',
+    inStock: '',
+    favourite: false,
+    model,
+  };
+}

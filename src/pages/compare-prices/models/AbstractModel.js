@@ -28,18 +28,20 @@ class AbstractModel {
 
     const processor = this.processorSelector.getProcessor(rawData, sanitisedSearchTerm);
 
-    const foundItems = processor.processData(rawData)
+    const foundItems = await processor.processData(rawData);
+
+    const filteredItems = [...foundItems]
       .filter(result => this.strongMatch(result.title, sanitisedSearchTerm))
       .filter(result => this.excludeArtCard(result.title))
       .map(result => ({ ...result, name: this.name, logo: this.logo }));
 
-    if (useCachedResults) this.cacheResults(this.name, sanitisedSearchTerm, foundItems);
+    if (useCachedResults) this.cacheResults(this.name, sanitisedSearchTerm, filteredItems);
 
-    if (logResults) console.log(foundItems);
+    if (logResults) console.log(filteredItems);
     // logs found items minus their logo, as it's gibberish and unhelpful
-    if (logResults_withoutLogo) console.log(foundItems.map(item => ({...item, logo: 'a logo'})));
+    if (logResults_withoutLogo) console.log(filteredItems.map(item => ({...item, logo: 'a logo'})));
 
-    return foundItems;
+    return filteredItems;
   }
 
 

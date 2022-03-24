@@ -70,10 +70,12 @@ const ComparePrices = () => {
 
   const onSubmit = async (searchFor) => {
     if (clearOnSearch) setDiscoveredPrices([]);
+
     setLastSearched(searchFor);
     setSearchTerm('');
 
-    // getMkmSummary(searchFor);
+    getMkmSummary(searchFor);
+
     sellers.forEach(seller => {
       seller.enabled && toggleSellerLoading(seller);
       setSellerKeyValue('name', seller.name, 'results', '');
@@ -92,6 +94,7 @@ const ComparePrices = () => {
   }
 
   const getMkmSummary = async (searchFor) => {
+    setDiscoverdMKM([]);
     setMkmLoading(true);
     let results = await mkm.model.search(searchFor);
     setDiscoverdMKM(results);
@@ -257,7 +260,7 @@ const ComparePrices = () => {
 
       <TabPanel value={tab} index={0}>
         <div className="mkm-container">
-          {/*<MkmSummary mkmLoading={mkmLoading} mkmResults={discoveredMKM}/>*/}
+          {lastSearched && <MkmSummary mkmLoading={mkmLoading} mkmResults={discoveredMKM}/>}
         </div>
         <div className="search-results">
           {searchResults()}

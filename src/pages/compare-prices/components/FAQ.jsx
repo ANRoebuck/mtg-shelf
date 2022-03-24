@@ -27,7 +27,7 @@ const FAQ = () => {
        {/*  failure to deliver purchased items or for the condition/quality of any items you receive.*/}
        {/*</div>*/}
 
-       <h2>Spondored?</h2>
+       <h2>Sponsored?</h2>
        <div className="answer">
          I am not currently paid or sponsored by any third party in relation to the production of this app. I made it
          primarily for myself and use it regularly - sharing it with everybody else just seemed easy after that. If

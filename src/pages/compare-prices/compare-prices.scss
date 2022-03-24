@@ -46,11 +46,13 @@
       margin: 10px;
       text-align: center;
     }
+
     .results-summary-section {
       border-bottom: solid 1px grey;
       margin-bottom: 5px;
       padding-bottom: 5px;
     }
+
     .results-summary-light {
       font-size: 75%;
     }
@@ -155,11 +157,15 @@
       border-radius: 10px;
       margin: 15px;
       padding: 25px;
-      table { table-layout: fixed; }
-      td { width: 33%; }
+
+      table {
+        table-layout: fixed;
+      }
+
+      td {
+        width: 33%;
+      }
     }
-
-
 
     .discovered-price {
       margin: 15px;
@@ -305,6 +311,28 @@
         }
       }
 
+    }
+
+    .mkm-container {
+      display: none;
+      .mkm-summary {
+        margin: 5px;
+        padding: 10px 20px 10px 10px;
+        border: none;
+        border-bottom: solid 1px black;
+
+        .mkm-result {
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr;
+          grid-template-rows: auto auto auto auto;
+          grid-template-areas:
+                "name name name"
+                "picture logo logo"
+                "picture button-left button-left"
+                "picture price-trend button-right";
+
+        }
+      }
     }
 
 

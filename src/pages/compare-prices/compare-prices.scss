@@ -85,6 +85,68 @@
     margin: 15px;
   }
 
+
+  .mkm-container {
+
+    .mkm-summary {
+      margin: 15px;
+      padding: 25px;
+      background-color: white;
+      border: solid 1px black;
+      border-radius: 10px;
+
+      .mkm-result {
+        display: grid;
+        grid-template-columns: 150px 2fr 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+              "logo picture name name"
+              "logo picture expansion expansion"
+              "button-left picture . button-right"
+              "foil-star picture from trend";
+
+        .seller-logo {
+          grid-area: logo;
+        }
+
+        .card-image {
+          grid-area: picture;
+          height: 250px;
+        }
+
+        .card-name {
+          grid-area: name;
+        }
+
+        .expansion {
+          grid-area: expansion;
+        }
+
+        .price-from {
+          grid-area: from;
+        }
+
+        price-trend {
+          grid-area: trend;
+        }
+
+        .button-left {
+          grid-area: button-left;
+          height: 50px;
+          width: 50px;
+        }
+
+        .button-right {
+          grid-area: button-right;
+          height: 50px;
+          width: 50px;
+        }
+
+      }
+    }
+  }
+
+
   .search-results {
 
     .table-container {
@@ -97,11 +159,16 @@
       td { width: 33%; }
     }
 
+
+
     .discovered-price {
+      margin: 15px;
+      padding: 25px;
       background-color: white;
       border: solid 1px black;
       border-radius: 10px;
       display: grid;
+
       grid-template-columns: 150px 2fr 1fr 1fr;
       grid-template-rows: auto auto auto auto;
       grid-template-areas:
@@ -109,8 +176,7 @@
               "logo picture expansion expansion"
               ". picture stock price"
               "foil-star picture . widgets";
-      margin: 15px;
-      padding: 25px;
+
 
       .logo {
         grid-area: logo;

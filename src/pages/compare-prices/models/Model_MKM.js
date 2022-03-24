@@ -8,6 +8,19 @@ import AbstractProcessorSelector from './AbstractProcessorSelector';
 
 const OVERRIDDEN_METHOD = 'this method is overriden';
 
+const mkmKeys = {
+  rarity: "Rarity",
+  collector_number: "Number",
+  printedIn: "Printed in",
+  reprints: "Reprints",
+  quantity: "Available items",
+  from: "From",
+  trend: "Price Trend",
+  trend30: "30-days average price",
+  trend7: "7-days average price",
+  trend1: "1-day average price",
+}
+
 class Model_MKM extends AbstractModel {
   constructor() {
     super({
@@ -68,13 +81,13 @@ class ProcessorSelector_MKM extends AbstractProcessorSelector {
 class DataProcessor_MKM_singleResult {
   constructor() {
     this.titleSelector = 'div.page-title-container > div.flex-grow-1 > h1';
-    this.fromSelector = 'div > div > dl > dd:nth-child(10)';
-    this.trendSelector = 'div > div > dl > dd:nth-child(12)';
-    this.expansionSelector = 'div > div > dl > dd:nth-child(6)';
-    this.symbolSelector = 'div > div > dl > dd:nth-child(6)';
-    this.symbolAttibuteSelector = 'mb-2';
+    this.expansionSelector = 'div.page-title-container > div.flex-grow-1 > h1 > span';
     this.imgSrcSelector = '#image > div > div > div:nth-child(2) > div > img';
     this.imgSrcAttribute = 'src';
+
+    this.dataTableSelector = 'div > div.col-12.col-lg-6.mx-auto > div > div.info-list-container.col-12.col-md-8.col-lg-12.mx-auto.align-self-start > dl';
+    this.dataKeySelector = 'dt';
+    this.dataValueSelector = 'dd';
 
     this.parser = new DOMParser();
   }
@@ -84,25 +97,55 @@ class DataProcessor_MKM_singleResult {
 
     const document = this.parser.parseFromString(data, "text/html");
 
+    const dataTable = this.populateDataTable(document);
+    const attributes = this.attributesFromDataTable(dataTable);
+
     return [
       {
-        title: this.getTextFromElement(document, this.titleSelector),
-        from: this.getPriceFromElement(document, this.fromSelector),
-        trend: this.getPriceFromElement(document, this.trendSelector),
-        expansion: this.getTextFromElement(document, this.expansionSelector),
-        symbol: this.getAttributeFromElement(document, this.symbolSelector, this.symbolAttibuteSelector),
-        imgSrc: this.getAttributeFromElement(document, this.imgSrcSelector, this.imgSrcAttribute),
+        title: this.getTitleFromElement(document, this.titleSelector),
+        expansion: this.getExpansionFromElement(document, this.expansionSelector),
+        imgSrc: this.getAttributeFromElementFromDocument(document, this.imgSrcSelector, this.imgSrcAttribute),
+
+        ...attributes,
       },
     ]
   }
+
+  populateDataTable = (document) => {
+    const keys = [...document.querySelectorAll(this.dataKeySelector)]
+      .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`));
+    const values = [...document.querySelectorAll(this.dataValueSelector)];
+
+    const dataTable = {};
+
+    keys.forEach((k, i) => dataTable[k] = values[i]);
+
+    return dataTable;
+  }
+
+  attributesFromDataTable = (dataTable) => {
+    const from = this.getPriceFromElement(dataTable[mkmKeys.from]);
+    const trend = this.getPriceFromElement(dataTable[mkmKeys.trend]);
+    return {
+      from,
+      trend,
+    };
+  }
+
+  getTitleFromElement = (document, selector) => this.getTextFromElement(document, selector)
+    .replace(/(.?)<.*/g, `$1`)                  // take first segment before opening <
+    .replace(regex.whiteSpaceStripper, `$2`)    // remove leading+trailing whitespace
+
+  getExpansionFromElement = (document, selector) => this.getTextFromElement(document, selector)
+    .replace(/(.?)-.*/g, `$1`)                  // take first segment before -
+    .replace(regex.whiteSpaceStripper, `$2`)    // remove leading+trailing whitespace
 
   getTextFromElement = (document, selector) =>
     [...document.querySelectorAll(selector)]
       .map(node => node.innerHTML.replace(regex.whiteSpaceStripper, `$2`))[0] || '';
 
-  getPriceFromElement = (document, selector) =>
-    [...document.querySelectorAll(selector)]
-      .map(node => {
+  getPriceFromElement = (node) =>
+    [node].map(node => {
         const nodeText = node.innerHTML;
         return {
           text: nodeText.replace(regex.whiteSpaceStripper, `$2`),
@@ -110,7 +153,7 @@ class DataProcessor_MKM_singleResult {
         };
       })[0] || {text: '', value: 9999};
 
-  getAttributeFromElement = (document, selector, key, defaultValue = null) =>
+  getAttributeFromElementFromDocument = (document, selector, key, defaultValue = '') =>
     [...document.querySelectorAll(selector)]
       .map(element => element.getAttribute(key))[0] || defaultValue;
 
@@ -121,13 +164,38 @@ class DataProcessor_MKM_singleResult {
 class DataProcessor_MKM_pluralResult {
   constructor() {
     this.singleResultProcessor = new DataProcessor_MKM_singleResult();
+    this.foo = 'div > div:nth-child(4) > div > div.col-12.col-md-8.px-2.flex-column > a';
+    this.bar = 'href';
+
+    this.cors = cors;
+    this.urlPrefix = 'https://www.cardmarket.com/';
+    this.parser = new DOMParser();
   }
 
-  processData = () => {
+  processData = async (data) => {
     console.log('processing plural result');
 
-    return [];
+    const document = this.parser.parseFromString(data, "text/html");
+
+    const resultLinkElements = document.querySelectorAll(this.foo);
+
+    const urls = [...resultLinkElements].map(r => this.getAttributeFromElement(r, this.bar));
+
+    let allResults = [];
+
+    for (const url of urls) {
+      if (!url.toLowerCase().includes('singles')) continue;
+      const rawData = await axios.get(this.cors + this.urlPrefix + url)
+        .then(({ data }) => data || '')
+        .catch(() => '');
+      const results = this.singleResultProcessor.processData(rawData);
+      allResults = allResults.concat(results)
+    }
+
+    return [...allResults];
   }
+
+  getAttributeFromElement = (element, key, defaultValue = '') => element.getAttribute(key) || defaultValue;
 
 }
 

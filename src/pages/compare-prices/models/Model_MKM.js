@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { cors, identityFunction, regex, textToDigits } from '../utils/utils';
+import { cors, identityFunction, regex, removeTags, textToDigits } from '../utils/utils';
 import { seller } from '../utils/enums';
 import AbstractModel from './AbstractModel';
 import AbstractDataGetter from './AbstractDataGetter';
@@ -148,7 +148,7 @@ class DataProcessor_MKM_singleResult {
     [node].map(node => {
         const nodeText = node.innerHTML;
         return {
-          text: nodeText.replace(regex.whiteSpaceStripper, `$2`),
+          text: removeTags(nodeText.replace(regex.whiteSpaceStripper, `$2`)),
           value: textToDigits(nodeText),
         };
       })[0] || {text: '', value: 9999};

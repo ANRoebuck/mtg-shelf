@@ -74,7 +74,7 @@ const ComparePrices = () => {
     setLastSearched(searchFor);
     setSearchTerm('');
 
-    getMkmSummary(searchFor);
+    // getMkmSummary(searchFor);
 
     sellers.forEach(seller => {
       seller.enabled && toggleSellerLoading(seller);
@@ -259,9 +259,9 @@ const ComparePrices = () => {
 
 
       <TabPanel value={tab} index={0}>
-        <div className="mkm-container">
-          {lastSearched && <MkmSummary mkmLoading={mkmLoading} mkmResults={discoveredMKM}/>}
-        </div>
+        {/*<div className="mkm-container">*/}
+        {/*  {lastSearched && <MkmSummary mkmLoading={mkmLoading} mkmResults={discoveredMKM}/>}*/}
+        {/*</div>*/}
         <div className="search-results">
           {searchResults()}
         </div>

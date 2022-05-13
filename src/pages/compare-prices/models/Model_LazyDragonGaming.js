@@ -78,7 +78,7 @@ class DataProcessor_LazyDragonGaming extends AbstractDataProcessor {
 
   // @Override
   priceFromResultNode = (resultNode) => {
-    const nodeText = resultNode.getAttribute('data-price');
+    const nodeText = resultNode.getAttribute('data-variantprice');
     return {
       text: this.priceToDisplayFromPriceText(nodeText, seller.lazyDragon.currency),
       value: this.priceValueFromPriceText(nodeText)
@@ -88,7 +88,7 @@ class DataProcessor_LazyDragonGaming extends AbstractDataProcessor {
   // @Override
   stockFromResultNode = (resultNode) => {
     // Only in stock results are shown
-    const value = resultNode.getAttribute('data-variantquantity');
+    const value = resultNode.getAttribute('data-variantqty');
     return { text: value + ' in Stock', value };
   }
 

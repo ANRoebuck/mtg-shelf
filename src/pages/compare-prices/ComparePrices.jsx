@@ -51,7 +51,7 @@ const ComparePrices = () => {
   const [tab, setTab] = useState(0);
   const onChangeTab = (event, newValue) => setTab(newValue);
 
-  const [sortStock, setSortStock] = useState(sortOosBy.last);
+  const [sortStock, setSortStock] = useState(sortOosBy.exclude);
   const [filterFoils, setFilterFoils] = useState(filterFoilsBy.all);
   const [sortPrice, setSortPrice] = useState(sortPriceBy.asc);
 
@@ -274,7 +274,7 @@ const ComparePrices = () => {
         <div className="options">
           <SearchOptions title={"Price"} options={Object.values(sortPriceBy)} selectOption={setSortPrice} localStorageKey={"sort-option-price"}/>
           <SearchOptions title={"Foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils} localStorageKey={"sort-option-foil"}/>
-          <SearchOptions title={"Out of Stock"} options={Object.values(sortOosBy)} selectOption={setSortStock} localStorageKey={"sort-option-stock"}/>
+          {/*<SearchOptions title={"Out of Stock"} options={Object.values(sortOosBy)} selectOption={setSortStock} localStorageKey={"sort-option-stock"}/>*/}
         </div>
 
         <div className="section-heading">Sellers</div>

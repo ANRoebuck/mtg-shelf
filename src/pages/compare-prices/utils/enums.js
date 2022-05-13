@@ -134,7 +134,7 @@ export const filterFoilsBy = {
 };
 
 export const sortPriceBy = {
-  asc: '↑ Asc.',
-  dsc: '↓ Dsc.',
+  asc: 'Ascending',
+  dsc: 'Descending',
 };
 // ↑ ↓

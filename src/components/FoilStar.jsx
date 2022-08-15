@@ -1,5 +1,5 @@
 import React from 'react';
-import foilStar from '../models/resources/foil-star.png';
+import foilStar from '../assets/foil-star.png';
 
 
 

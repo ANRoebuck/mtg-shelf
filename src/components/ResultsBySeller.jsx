@@ -12,6 +12,8 @@ const ResultRow = ({ name, data }) => {
 
 const ResultsBySeller = ({ results = []  }) => {
 
+  if (results.length === 0) return null;
+
   const summary = results.reduce((acc, ele) => {
     const { name, price } = ele;
 
@@ -40,9 +42,9 @@ const ResultsBySeller = ({ results = []  }) => {
 
   return (
     <div className="table-container">
-      <table>
-        {tableRows()}
-      </table>
+        <table>
+          {tableRows()}
+        </table>
     </div>
   );
 

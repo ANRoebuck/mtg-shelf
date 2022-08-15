@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { seller } from "../utils/enums";
+import { sellers } from "../utils/enums";
 
 
 const MkmSummary = ({mkmLoading, mkmResults}) => {
@@ -20,7 +20,7 @@ const MkmSummary = ({mkmLoading, mkmResults}) => {
   const loadingView = () => {
     return (
       <div className="mkm-result" >
-        <img className="seller-logo" src={seller.mkm.logo}/>
+        <img className="seller-logo" src={sellers.mkm.logo}/>
         <div className="card-image">Loading...</div>
       </div>
     );
@@ -31,7 +31,7 @@ const MkmSummary = ({mkmLoading, mkmResults}) => {
 
     return (
       <div className="mkm-result">
-          <img className="seller-logo" src={seller.mkm.logo}/>
+          <img className="seller-logo" src={sellers.mkm.logo}/>
 
           <button className="button-left"
                   onClick={() => incrementSelectedIndex(-1)}

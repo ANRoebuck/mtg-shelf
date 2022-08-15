@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { cors } from './utils/utils';
-import { filterFoilsBy, sortOosBy, sortPriceBy } from './utils/enums';
-import { configureModel, configureModels } from './models/configureModels';
-import { autocomplete } from './gateway/http';
+import { filterFoilsOptions, sortPriceOptions } from './utils/enums';
+import { configureSellers } from './utils/sellers';
 import { addSavedCard, getSavedCards, removeSavedCard, uniqueSavedResultKey } from './gateway/localStorageInteractions';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -18,7 +17,6 @@ import SearchResult from './components/SearchResult';
 import SellerOption from './components/SellerOption';
 import SearchOptions from './components/SearchOptions';
 import './compare-prices.scss';
-import Model_MKM from "./models/Model_MKM";
 
 
 const TabPanel = ({children, value, index}) => (
@@ -27,27 +25,20 @@ const TabPanel = ({children, value, index}) => (
   </div>
 );
 
-const mkm = configureModel(new Model_MKM());
-const allSellers = configureModels();
+// const mkm = configureModel(new Model_MKM());
+const allSellers = configureSellers();
 
 const ComparePrices = () => {
 
   const [sellers, setSellers] = useState(allSellers);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [lastSearched, setLastSearched] = useState('');
-  const [clearOnSearch, setClearOnSearch] = useState(true);
   const [discoveredPrices, setDiscoveredPrices] = useState([]);
   const [savedPrices, setSavedPrices] = useState({});
-
-  const [mkmLoading, setMkmLoading] = useState(false);
-  const [discoveredMKM, setDiscoverdMKM] = useState([]);
 
   const [tab, setTab] = useState(0);
   const onChangeTab = (event, newValue) => setTab(newValue);
 
-  const [sortStock, setSortStock] = useState(sortOosBy.exclude);
-  const [filterFoils, setFilterFoils] = useState(filterFoilsBy.all);
-  const [sortPrice, setSortPrice] = useState(sortPriceBy.asc);
+  const [filterFoils, setFilterFoils] = useState(filterFoilsOptions.all);
+  const [sortPrice, setSortPrice] = useState(sortPriceOptions.asc);
 
 
   useEffect(() => {
@@ -59,51 +50,6 @@ const ComparePrices = () => {
 
 
   // Searching and handling results
-
-  const getUpdatedSuggestions = async (term) => term.length > 2 ? autocomplete(term) : [];
-
-  const onSubmit = async (searchFor) => {
-    if (clearOnSearch) setDiscoveredPrices([]);
-
-    setLastSearched(searchFor);
-    setSearchTerm('');
-
-    // getMkmSummary(searchFor);
-
-    sellers.forEach(seller => {
-      seller.enabled && toggleSellerLoading(seller);
-      setSellerKeyValue('name', seller.name, 'results', '');
-      setSellerKeyValue('name', seller.name, 'inStock', '');
-    });
-    const enabledSellers = sellers.filter(s => s.enabled);
-    enabledSellers.forEach(s => getSearchResultsForSeller(s, searchFor));
-  }
-
-  const getSearchResultsForSeller = async (seller, searchFor) => {
-    let results = await seller.model.search(searchFor);
-    addDiscoveredPrices(results);
-    toggleSellerLoading(seller);
-    setSellerKeyValue('name', seller.name, 'results', results.length);
-    setSellerKeyValue('name', seller.name, 'inStock', results.filter(result => result.stock.value > 0).length);
-  }
-
-  const getMkmSummary = async (searchFor) => {
-    setDiscoverdMKM([]);
-    setMkmLoading(true);
-    let results = await mkm.model.search(searchFor);
-    setDiscoverdMKM(results);
-    setMkmLoading(false);
-  }
-
-  const catchUpSearchResultsForSeller = async (seller) => {
-    if (lastSearched.length > 0 && seller.results === '') {
-      !seller.loading && toggleSellerLoading(seller);
-      await getSearchResultsForSeller(seller, lastSearched);
-    }
-  }
-
-  const addDiscoveredPrices = (newDiscoveredPrices) =>
-    setDiscoveredPrices((discoveredPrices) => discoveredPrices.concat(newDiscoveredPrices));
 
   const addSavedPrice = (discoveredPrice) => {
     setSavedPrices(prevState => ({
@@ -132,10 +78,7 @@ const ComparePrices = () => {
 
   const toggleSellerLoading = (seller) => toggleSellerBoolean('name', seller.name, 'loading');
 
-  const setSellerEnabled = (seller, isEnabled) => {
-    setSellerKeyValue('name', seller.name, 'enabled', isEnabled);
-    isEnabled && catchUpSearchResultsForSeller(seller);
-  }
+  const setSellerEnabled = (seller, isEnabled) => setSellerKeyValue('name', seller.name, 'enabled', isEnabled);
 
   const assignFavourite = (seller) => {
     if (sellerIsFavourite(seller)) setSellerKeyValue('name', seller.name, 'favourite', false);
@@ -150,29 +93,20 @@ const ComparePrices = () => {
   //  Sort and Filter methods
 
   const maybeFilterByFoil = (item) => {
-    if (filterFoils === filterFoilsBy.foil) return itemIsFoil(item);
-    if (filterFoils === filterFoilsBy.nonFoil) return !itemIsFoil(item);
+    if (filterFoils === filterFoilsOptions.foil) return itemIsFoil(item);
+    if (filterFoils === filterFoilsOptions.nonFoil) return !itemIsFoil(item);
     return true;
-  }
-  const maybeFilterByStock = (item) => {
-    if (sortStock === sortOosBy.exclude) return itemIsOos(item);
-    return true;
-  }
-  const maybeSortByStock = (a, b) => {
-    if (sortStock === sortOosBy.last) return sortOutOfStockLast(a, b);
-    return 0;
   }
 
   const sellerIsEnabled = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name)?.enabled;
   const sellerIsFavourite = (targetSeller) => sellers.find(seller => seller.name === targetSeller.name)?.favourite;
-  const itemIsOos = (item) => item.stock.value > 0;
   const itemIsFoil = (item) => item.isFoil;
 
   const sortPriceAscending = (a, b) => a.price.value - b.price.value;
   const sortPriceDescending = (a, b) => b.price.value - a.price.value;
   const sortByPrice = (a, b) => {
-    if (sortPrice === sortPriceBy.asc) return sortPriceAscending(a, b);
-    if (sortPrice === sortPriceBy.dsc) return sortPriceDescending(a, b);
+    if (sortPrice === sortPriceOptions.asc) return sortPriceAscending(a, b);
+    if (sortPrice === sortPriceOptions.dsc) return sortPriceDescending(a, b);
     return 0;
   }
   const sortOutOfStockLast = (a, b) => {
@@ -204,10 +138,8 @@ const ComparePrices = () => {
   const searchResults = () => discoveredPrices
     .filter(sellerIsEnabled)
     .filter(maybeFilterByFoil)
-    .filter(maybeFilterByStock)
     .sort(sortByPrice)
     .sort(sortFavouriteFirst)
-    .sort(maybeSortByStock)
     .map(toSearchResult);
 
   const savedResults = () => Object.values(savedPrices)
@@ -231,15 +163,10 @@ const ComparePrices = () => {
     <div className="compare-prices">
 
       <div className="compare-prices-menu">
-        <AutoSuggestSearchBar placeholderText="Type to search" onSubmit={onSubmit}
-                              getUpdateSuggestions={getUpdatedSuggestions}
-                              optionalExternallyManagedSearchTerm={searchTerm}
-                              optionalSetExternallyManagedSearchTerm={setSearchTerm}>
-          {/*<CheckBox option="Clear previous results" checked={clearOnSearch}*/}
-          {/*          onChange={() => setClearOnSearch(prevState => !prevState)}/>*/}
+        <AutoSuggestSearchBar placeholderText="Type to search" >
         </AutoSuggestSearchBar>
 
-        {finishedLoading && lastSearched ?
+        {finishedLoading ?
           <ResultsSummary sortedResults={discoveredPrices.sort(sortPriceAscending).sort(sortOutOfStockLast)} />
         : <LoadingDoughnut loaded={numberEnabled - numberLoading} total={numberEnabled}/>}
       </div>
@@ -266,8 +193,8 @@ const ComparePrices = () => {
 
         <div className="section-heading">Sort and Filter</div>
         <div className="options">
-          <SearchOptions title={"Price"} options={Object.values(sortPriceBy)} selectOption={setSortPrice} localStorageKey={"sort-option-price"}/>
-          <SearchOptions title={"Foils"} options={Object.values(filterFoilsBy)} selectOption={setFilterFoils} localStorageKey={"sort-option-foil"}/>
+          <SearchOptions title={"Price"} options={Object.values(sortPriceOptions)} selectOption={setSortPrice} localStorageKey={"sort-option-price"}/>
+          <SearchOptions title={"Foils"} options={Object.values(filterFoilsOptions)} selectOption={setFilterFoils} localStorageKey={"sort-option-foil"}/>
           {/*<SearchOptions title={"Out of Stock"} options={Object.values(sortOosBy)} selectOption={setSortStock} localStorageKey={"sort-option-stock"}/>*/}
         </div>
 

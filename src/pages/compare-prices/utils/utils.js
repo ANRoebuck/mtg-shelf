@@ -1,4 +1,5 @@
-export const cors = 'https://mtg-shelf.herokuapp.com/';
+// export const cors = 'https://mtg-shelf.herokuapp.com/';
+export const cors = 'https://cors-anywhere-05aa.onrender.com/';
 
 export const regex = {
     // eslint-disable-next-line

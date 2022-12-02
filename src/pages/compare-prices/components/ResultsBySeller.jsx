@@ -39,11 +39,14 @@ const ResultsBySeller = ({ results = []  }) => {
   const tableRows = () => Object.entries(summary).map((entry, i) => toResultRow(entry, i));
 
   return (
+    // { results.length > 0 ?
     <div className="table-container">
       <table>
         {tableRows()}
       </table>
     </div>
+    // : null
+    // }
   );
 
 }

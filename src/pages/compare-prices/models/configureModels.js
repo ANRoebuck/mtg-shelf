@@ -22,7 +22,7 @@ import Model_Hareruya from './Model_Hareruya';
 // If this array is empty, all models will be used.
 // Otherwise, only the models in this array will be used.
 const modelSubset = [
-  // new Model_LazyDragonGaming(),
+  // new Model_Axion(),
 ];
 
 const allModels = [
@@ -36,7 +36,8 @@ const allModels = [
   new Model_MagicMadhouse(),
   new Model_ManaLeak(),
   new Model_MountbattenCollectables(),
-  new Model_NerdShak(),
+  // Nerd Shack have been removed following repeated complaints from customers regarding poor service
+  // new Model_NerdShak(),
   new Model_PatriotGamesLeeds(),
   new Model_TrollTrader(),
 

@@ -245,9 +245,7 @@ const ComparePrices = () => {
           {/*          onChange={() => setClearOnSearch(prevState => !prevState)}/>*/}
         </AutoSuggestSearchBar>
 
-        {finishedLoading && lastSearched ?
-          <ResultsSummary sortedResults={discoveredPrices.sort(sortPriceAscending).sort(sortOutOfStockLast)} />
-        : <LoadingDoughnut loaded={numberEnabled - numberLoading} total={numberEnabled}/>}
+        <LoadingDoughnut loaded={numberEnabled - numberLoading} total={numberEnabled}/>
       </div>
 
 

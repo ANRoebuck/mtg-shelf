@@ -16,7 +16,7 @@ class AbstractDataGetter {
        this.searchTermToUrl(searchTerm),
        {
          headers: {
-           origin: https://compare-the-magic.netlify.app/,
+           origin: "https://compare-the-magic.netlify.app/",
          },
        }
     )

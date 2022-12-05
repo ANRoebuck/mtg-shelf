@@ -16,8 +16,8 @@ class AbstractDataGetter {
        this.searchTermToUrl(searchTerm),
        {
          headers: {
-           origin: "https://compare-the-magic.netlify.app/",
-           x-requested-with: "XMLHttpRequest",
+           "origin": "https://compare-the-magic.netlify.app/",
+           "x-requested-with": "XMLHttpRequest",
          },
        }
     )

@@ -12,7 +12,14 @@ class AbstractDataGetter {
   }
 
   getData = (searchTerm) => axios
-    .get(this.searchTermToUrl(searchTerm))
+    .get(
+       this.searchTermToUrl(searchTerm),
+       {
+         headers: {
+           origin: https://compare-the-magic.netlify.app/
+         },
+       }
+    )
     .then(this.extractData)
     .catch(() => '');
 

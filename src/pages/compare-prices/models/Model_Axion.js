@@ -22,8 +22,9 @@ class DataGetter_Axion extends AbstractDataGetter {
     super({
       cors: cors,
       baseUrl: 'https://www.axionnow.com/',
-      searchPath: 'products/search?q=',
-      searchSuffix: '',
+      searchPath: 'search?type=product&q=',
+      searchSuffix: '&filter.v.availability=1&filter.v.option.finish=Non-Foil',
+      // searchSuffix: '&filter.v.availability=1&filter.v.option.finish=Foil',
       searchJoin: '+'
     });
   }
@@ -40,23 +41,23 @@ class ProcessorSelector_Axion extends AbstractProcessorSelector {
 class DataProcessor_Axion extends AbstractDataProcessor {
   constructor() {
     super({
-      resultSelector: 'ul.products > li.product',
-      titleSelector: 'div.inner > div > div.meta > a > h4',
+      resultSelector: 'div[class="#collection-grid"] > div > div',
+      titleSelector: 'a',
 
-      priceSelector: 'div.inner > div > div.meta > div.list-variants.grid > div > span > form > div > span.regular',
+      priceSelector: 'div[class="#product-card-caption @offset-top"] > div[class="#product-card-price"] > dl > div > dd',
       priceToDisplayFromPriceText: identityFunction,
       priceValueFromPriceText: textToDigits,
 
-      stockSelector: 'div.inner > div > div.meta > div> div > span.variant-main-info > span.variant-qty',
-      stockValueFromStockText: (text) => text === 'Out of stock.' ? 0 : parseInt(text.replace(/([0-9]*)([^0-9]*)/, `$1`)),
+      stockSelector: 'a', // there is no stock selector, but map requires an element
+      stockValueFromStockText: () => 1,
       isFoilSelector: 'div.inner > div > div.meta > a > h4',
       expansionSelector: 'div.inner > div > div.meta > a > span.category',
 
-      imgSelector: 'div.inner > div > div.image > a > img',
-      imgBaseUrl: '',
+      imgSelector: 'div[class="#product-card-media"] > div > div[class="#media-image-wrapper"] > img',
+      imgBaseUrl: 'https:',
       imgSrcAttribute: 'src',
 
-      productSelector: 'div.inner > div > div.image > a',
+      productSelector: 'a',
       productBaseUrl: 'https://www.axionnow.com/',
       productRefAttribute: 'href',
     });
